@@ -3,7 +3,7 @@
     "schemaVersion": 1,
     "id": "IP-EU-001",
     "slug": "maeve-quinn",
-    "version": 1,
+    "version": 2,
     "name": "Maeve Quinn",
     "displayName": "梅芙",
     "age": 29,
@@ -202,6 +202,72 @@
           "/img/full_single_P017_diag.png",
           "/ip-assets/maeve-quinn/turnaround.png"
         ]
+      },
+      {
+        "id": "IP-EU-001-maeve-identity-details-v1",
+        "kind": "detail",
+        "title": "人物细节 · 雀斑、侧貌与手部纹理",
+        "url": "/ip-assets/maeve-quinn/maeve-identity-details.png",
+        "parentAssetIds": [
+          "IP-EU-001-portrait-v1",
+          "IP-EU-001-turnaround-v1"
+        ],
+        "createdAt": "2026-11-02",
+        "generator": "Codex 内置生图",
+        "prompt": "Use case: identity-preserve. Asset type: person-centered identity detail reference for original fictional adult Maeve Quinn, age 29. Input image 1 is the exact face identity; image 2 is the same adult person's body proportions, not multiple different people. Primary request: one clean 2x2 photographic detail study of THIS SAME person: upper left a close eye-and-upper-cheek crop showing her gray-green eye and irregular natural freckles; upper right a true side profile of her face with relaxed lips and the same natural nose; lower left her ordinary hands resting together, with subtle dry skin from floristry, normal unmanicured short nails and no jewellery; lower right a close three-quarter face with a tiny asymmetric unposed smile and slight eye creases. Match her red-brown wavy hair, fair freckled skin, fixed jaw and age. No skin smoothing, cosmetic reshaping, idealized hands, enlarged lips, or de-aging. She wears a simple cream cotton crewneck visible only where needed. Soft natural neutral daylight, plain unobtrusive warm-gray background. Square high-resolution detail sheet, exactly four panels without borders or text. No scenery, no objects, no room, no extra people. Fixed recognizable individual details, not four different beauty models.",
+        "review": "reviewed",
+        "width": 1254,
+        "height": 1254,
+        "sha256": "0bfaa641dc23e48a01388acec70de6e9c0a59c9e3e2b23748f8b3e1c857cab71",
+        "characterVersion": 2,
+        "sourceReferenceUrls": [
+          "/ip-assets/maeve-quinn/portrait.png",
+          "/ip-assets/maeve-quinn/turnaround.png"
+        ]
+      },
+      {
+        "id": "IP-EU-001-maeve-hair-and-makeup-states-v1",
+        "kind": "grooming",
+        "title": "妆发状态 · 素颜、日常与收发",
+        "url": "/ip-assets/maeve-quinn/maeve-hair-and-makeup-states.png",
+        "parentAssetIds": [
+          "IP-EU-001-portrait-v1",
+          "IP-EU-001-turnaround-v1"
+        ],
+        "createdAt": "2026-11-02",
+        "generator": "Codex 内置生图",
+        "prompt": "Use case: identity-preserve. Asset type: original fictional adult Maeve Quinn's grooming states, person only. Input 1 fixes exact face identity, input 2 fixes adult proportions. Create ONE horizontal triptych, three equal head-and-shoulders photographic panels of the SAME 29-year-old woman, identical camera distance, lens and natural soft lighting. Left: no visible makeup, naturally loose auburn waves with a few flyaways, relaxed slightly sleepy expression, plain dark navy crewneck. Center: very light everyday makeup with freckles fully visible and natural lips, hair tucked behind one ear, attentive neutral expression, simple cream cotton top. Right: the same hair loosely tied back in a low practical bun with short curls escaping, minimal makeup and a slight warm smile, olive cotton overshirt over cream T-shirt. Keep her exact eye spacing, gray-green eyes, uneven freckles, nose shape, natural lips, skin tone, age lines and jaw in ALL three panels. No beauty retouching, slimming or changing ethnicity. No different model per panel. Quiet neutral beige background, no interior, props, scenery or decorative elements. No words, labels, borders, logos or watermark.",
+        "review": "reviewed",
+        "width": 1774,
+        "height": 887,
+        "sha256": "8eb0fe965ac347f459d6a224f1119273a446e38d639f3f3d49cd2ff6189bb0eb",
+        "characterVersion": 2,
+        "sourceReferenceUrls": [
+          "/ip-assets/maeve-quinn/portrait.png",
+          "/ip-assets/maeve-quinn/turnaround.png"
+        ]
+      },
+      {
+        "id": "IP-EU-001-maeve-listening-gesture-v1",
+        "kind": "gesture",
+        "title": "个人仪态 · 倾听时拢发与克制的笑",
+        "url": "/ip-assets/maeve-quinn/maeve-listening-gesture.png",
+        "parentAssetIds": [
+          "IP-EU-001-portrait-v1",
+          "IP-EU-001-turnaround-v1"
+        ],
+        "createdAt": "2026-11-02",
+        "generator": "Codex 内置生图",
+        "prompt": "Use case: identity-preserve. Asset type: a person-centered natural habitual-gesture portrait of fictional adult florist Maeve Quinn, age 29. Input 1 fixes her exact face; input 2 fixes balanced ordinary adult body proportions. Primary request: ONE candid waist-up photograph of Maeve listening to someone just outside the camera. She casually lifts one hand to tuck a loose auburn curl behind her ear, head tilted only slightly, eyes toward the unseen listener rather than camera, a tiny asymmetric closed-mouth smile and a trace of natural end-of-workday tiredness around her eyes. Shoulders relaxed. She wears a loose olive cotton overshirt over a plain cream crewneck T-shirt, natural sleeves and fabric creases. Keep her gray-green eyes, freckles, long natural nose, lip shape, realistic waist and same age. No glamour pose, forced grin, fashion-model posture or smooth perfect skin. Soft overcast natural light, very simple softly blurred neutral background with no recognizable furniture, room, objects or scenery. Individual personality conveyed entirely through face, gaze, posture and hair gesture. Landscape 1536x1024 composition, one person, no text, logo or watermark.",
+        "review": "reviewed",
+        "width": 1536,
+        "height": 1024,
+        "sha256": "77f70e9e3855135e9297609b0f3a903bd6b74e1f45ec3fbd649e55bc7fb2675f",
+        "characterVersion": 2,
+        "sourceReferenceUrls": [
+          "/ip-assets/maeve-quinn/portrait.png",
+          "/ip-assets/maeve-quinn/turnaround.png"
+        ]
       }
     ],
     "rights": {
@@ -211,13 +277,114 @@
       "source": "user_project",
       "createdAt": "2026-11-02"
     },
-    "updatedAt": "2026-11-02"
+    "updatedAt": "2026-11-02",
+    "world": {
+      "occupation": "独立花艺师，经营小型工作室；擅长季节花材，不是园艺或医疗专家。",
+      "routine": "周一清晨进货、上午整理花材、下午制作预订；关店后步行回家，周末常去旧书店。",
+      "habits": "整理花束前用拇指抹平牛皮纸；想事情时把头发拢到耳后；先做完手上的事再看镜头。",
+      "preferences": "偏爱本地当季花、旧陶器与慢走；预算有限，会修补用品再继续用。",
+      "imperfections": "忙时忘记喝水；雨天卷发会毛躁；赶工后眼下略显疲惫，不每张图都容光焕发。",
+      "speechStyle": "语速平缓，句子短，有轻微爱尔兰英语节奏；介绍具体观察，很少说夸张口号。",
+      "mannerisms": "思考时轻抿唇，看到满意配色才露出偏一侧的微笑；工作时肩膀放松、视线跟随双手。",
+      "boundaries": "雀斑、灰绿眼和赤褐卷发固定；物品补丁与磨损保留；身材不因换装自动变瘦。",
+      "belongings": [
+        {
+          "id": "patched-tote",
+          "name": "补过的帆布包",
+          "description": "原色棕米色双提手帆布肩包，正面下角有一块矩形橄榄绿缝补布。",
+          "history": "用了三年，包角磨薄后自己补过；补丁位置与颜色固定。"
+        },
+        {
+          "id": "field-notebook",
+          "name": "旧皮封笔记本",
+          "description": "圆角棕色皮封小笔记本，深绿色弹力带，封面无字。",
+          "history": "记花材配色与订单草图，边角变深，不每次换成全新本子。"
+        },
+        {
+          "id": "blue-rim-mug",
+          "name": "蓝边陶杯",
+          "description": "米白陶杯，细深蓝杯沿，杯底外缘有一点自然磨痕。",
+          "history": "每天在工作台使用，空杯或茶水状态随事件变化。"
+        },
+        {
+          "id": "florist-snips",
+          "name": "绿色花艺剪",
+          "description": "深绿手柄旧花艺剪，闲置时刀口合拢。",
+          "history": "工具有使用痕迹，工作时放在台边，收工后擦干归位。"
+        }
+      ],
+      "wardrobe": [
+        {
+          "id": "florist-workwear",
+          "name": "花店日常工作装",
+          "occasion": "整理花材、打包与店内劳动",
+          "description": "橄榄绿棉斜纹宽松衬衫外套、米白圆领T恤、藏青直筒全长工作裤、磨旧棕色系带短靴；袖口卷起，衣料有自然褶皱。"
+        },
+        {
+          "id": "weekend-knit",
+          "name": "周末旧书店穿搭",
+          "occasion": "休息日散步与旧书店",
+          "description": "海军蓝圆领羊毛衫、橄榄绿直筒牛仔裤、棕色短靴；可重复使用同一帆布包。"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "nora",
+          "name": "Nora",
+          "role": "虚构的邻店老板与朋友",
+          "dynamic": "两人会互借零钱与收快递；Maeve愿意帮忙，但忙时会说明自己需要的时间。"
+        }
+      ],
+      "events": [
+        {
+          "id": "rain-delivery",
+          "date": "2026-10-31",
+          "title": "雨天送花后修补包角",
+          "summary": "配送时淋雨，回店发现旧包角磨薄，晚上用橄榄绿布补好。",
+          "belongingIds": [
+            "patched-tote"
+          ],
+          "wardrobeId": "florist-workwear",
+          "consequence": "此后所有帆布包画面保留这块补丁；不表现成当天刚买的新包。"
+        },
+        {
+          "id": "monday-orders",
+          "date": "2026-11-02",
+          "title": "周一整理预订花材",
+          "summary": "阴雨天上午在工作台检查花材；先分拣和包扎，再记录下一单，间隙喝茶。",
+          "belongingIds": [
+            "field-notebook",
+            "blue-rim-mug",
+            "florist-snips"
+          ],
+          "wardrobeId": "florist-workwear",
+          "consequence": "同一上午工作装、台面位置和杯子一致；后一个片段花束完成度增加，情绪由专注转为放松。"
+        }
+      ]
+    },
+    "voice": {
+      "language": "英语",
+      "secondaryLanguages": "少量日常爱尔兰语词汇，避免刻意频繁切换。",
+      "accent": "轻度都柏林英语口音",
+      "timbre": "温暖、清晰、略带干哑的中低女声。",
+      "pitch": "自然中低音区，笑时略抬高。",
+      "pace": "中等偏慢；说具体名称前稍停。",
+      "prosody": "句末平稳落下，发现有趣细节时轻抬语调。",
+      "speechHabits": "会用 a little、let me check；偏爱具体观察，不重复口号。",
+      "pronunciation": "Maeve 读作 /meɪv/；专有名词说清楚。",
+      "sampleText": "I nearly left my notebook behind this morning. Give me a moment; I want to check the colours in the daylight.",
+      "accentStrength": "轻度、自然，交流可理解度优先，不夸张表演地域特征。",
+      "avoid": "不模仿具名真人或明星，不使用刻板口音表演；避免幼态化、广告播音腔和每句话同一语调。",
+      "samples": [],
+      "locale": "en-IE",
+      "dialect": "爱尔兰都柏林英语"
+    }
   },
   {
     "schemaVersion": 1,
     "id": "IP-EU-002",
     "slug": "amara-reed",
-    "version": 1,
+    "version": 2,
     "name": "Amara Reed",
     "displayName": "阿玛拉",
     "age": 35,
@@ -365,13 +532,107 @@
       "source": "user_project",
       "createdAt": "2026-11-02"
     },
-    "updatedAt": "2026-11-02"
+    "updatedAt": "2026-11-02",
+    "world": {
+      "occupation": "社区运动活动组织者与兼职教练；分享自己的训练体验，不作诊断或保证训练结果。",
+      "routine": "早上备活动路线，午后在社区中心上课；周三休息整理音乐歌单。",
+      "habits": "讲动作前先示范一次；活动结束会把毛巾叠好放回包；记不住名字时会主动再问。",
+      "preferences": "喜欢旧灵魂乐、热食与结伴步行；衣服以活动方便和耐洗为先。",
+      "imperfections": "赶场时会错拿自己的水瓶；运动后额头会出汗、衣服起褶；有时需要安静独处。",
+      "speechStyle": "温暖直接，语速有节奏，用具体动作提示，不持续喊加油。",
+      "mannerisms": "倾听时稍向前倾，说明问题时手掌打开；休息时坐姿自然，不一直绷紧肌肉。",
+      "boundaries": "深棕肤色、短卷发、宽鼻翼和运动型轮廓固定；不把教练职业表现为永不疲倦或极低体脂。",
+      "belongings": [
+        {
+          "id": "steel-bottle",
+          "name": "有凹痕的水瓶",
+          "description": "哑光深红不锈钢水瓶，底部有浅凹痕。",
+          "history": "户外活动掉落过，仍继续使用。"
+        },
+        {
+          "id": "striped-towel",
+          "name": "蓝白条纹毛巾",
+          "description": "柔软短绒蓝白窄条毛巾。",
+          "history": "用于活动后擦汗，不作时装摆拍。"
+        },
+        {
+          "id": "class-notes",
+          "name": "课程小本",
+          "description": "蓝色布面小本，纸页夹一支普通铅笔。",
+          "history": "记报名人数和课程顺序。"
+        }
+      ],
+      "wardrobe": [
+        {
+          "id": "community-class",
+          "name": "社区课程运动装",
+          "occasion": "室内轻量活动",
+          "description": "酒红色宽松运动T恤、深灰直筒运动长裤、白灰训练鞋，不强制紧身或露肤。"
+        },
+        {
+          "id": "off-duty",
+          "name": "休息日衣橱",
+          "occasion": "买菜与听音乐",
+          "description": "深蓝牛仔衬衫、米色宽松长裤、棕色平底鞋。"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "elsie",
+          "name": "Elsie",
+          "role": "虚构的社区中心协调员",
+          "dynamic": "一起确定活动规模，遇到超额报名会商量缩减项目而非勉强承诺。"
+        }
+      ],
+      "events": [
+        {
+          "id": "route-change",
+          "date": "2026-10-30",
+          "title": "雨天改用室内路线",
+          "summary": "提前调整活动内容并把椅子归好。",
+          "belongingIds": [
+            "class-notes"
+          ],
+          "wardrobeId": "community-class",
+          "consequence": "后续活动室中椅子依然沿墙摆放。"
+        },
+        {
+          "id": "new-week-class",
+          "date": "2026-11-02",
+          "title": "新一周的社区活动",
+          "summary": "课后喝水、整理人数并短暂休息。",
+          "belongingIds": [
+            "steel-bottle",
+            "striped-towel"
+          ],
+          "wardrobeId": "community-class",
+          "consequence": "同一节课前后保留轻微汗迹与同套衣服。"
+        }
+      ]
+    },
+    "voice": {
+      "language": "英语",
+      "secondaryLanguages": "按交流对象使用清楚的英语，不自动增加其他语言。",
+      "accent": "轻度伦敦英语口音，采用自然个人说话方式",
+      "timbre": "饱满、温暖的中音女声，有轻微胸腔共鸣。",
+      "pitch": "自然中音区，提示动作时力度稳定。",
+      "pace": "中等；示范前有完整停顿，课后聊天更慢。",
+      "prosody": "重点落在动作词，倾听时语调柔和。",
+      "speechHabits": "会用 take your time、shall we try that again；不连续高声激励。",
+      "pronunciation": "Amara Reed 读作 ah-MAH-rah REED；动作提示清楚。",
+      "sampleText": "Take your time. We can try that movement once more, and then we will stop for some water. There is no need to rush.",
+      "accentStrength": "轻度、自然，交流可理解度优先，不夸张表演地域特征。",
+      "avoid": "不模仿具名真人或明星，不使用刻板口音表演；避免幼态化、广告播音腔和每句话同一语调。",
+      "samples": [],
+      "locale": "en-GB",
+      "dialect": "英国伦敦英语"
+    }
   },
   {
     "schemaVersion": 1,
     "id": "IP-NA-003",
     "slug": "lucia-morales",
-    "version": 1,
+    "version": 2,
     "name": "Lucía Morales",
     "displayName": "露西亚",
     "age": 31,
@@ -520,13 +781,108 @@
       "source": "user_project",
       "createdAt": "2026-11-02"
     },
-    "updatedAt": "2026-11-02"
+    "updatedAt": "2026-11-02",
+    "world": {
+      "occupation": "城市家庭烘焙内容创作者；擅长面包与家常点心，也会记录失败批次。",
+      "routine": "早上称重发酵，午后剪视频，周末去街区市场；不用每餐都拍摄。",
+      "habits": "揉面前摘下饰品；等待发酵时擦桌；试吃前先闻香气。",
+      "preferences": "喜欢深色陶碗、老食谱和舒适衣服；以食物味道而非画面完美为先。",
+      "imperfections": "桌上会有面粉，食谱偶尔记错；久站后想坐下；丰盈体型保持自然，不自动收腰。",
+      "speechStyle": "日常主要用自然墨西哥中部西语，轻快、有停顿，愿意说明哪一步没有成功；工作可用英语，法语用于简单生活交流。",
+      "mannerisms": "专注时皱眉，成功后自然大笑；双手在工作时带少量面粉。",
+      "boundaries": "圆脸、深色卷发和丰盈体型固定；围裙不把腰臀缩小；同一面团的完成状态要随时间推进。",
+      "belongings": [
+        {
+          "id": "enamel-tray",
+          "name": "蓝边搪瓷盘",
+          "description": "米白长方形烤盘，深蓝卷边。",
+          "history": "一角略磨损，每次烘焙重复使用。"
+        },
+        {
+          "id": "recipe-binder",
+          "name": "旧食谱夹",
+          "description": "红棕色活页夹，纸页略卷边。",
+          "history": "家庭食谱与自己的改动放在一起。"
+        },
+        {
+          "id": "kitchen-scale",
+          "name": "奶油色厨房秤",
+          "description": "普通奶油色小厨房秤，圆形金属称盘。",
+          "history": "每天用于称面粉，保持同一外形。"
+        }
+      ],
+      "wardrobe": [
+        {
+          "id": "baking-day",
+          "name": "烘焙日衣橱",
+          "occasion": "家中备料与烘焙",
+          "description": "砖红宽松圆领上衣、深蓝松紧腰全长裤、自然色棉围裙和平底居家鞋，按丰盈体型自然垂落。"
+        },
+        {
+          "id": "market-day",
+          "name": "市场日衣橱",
+          "occasion": "摆摊和采购",
+          "description": "深绿宽松棉衬衫、深色直筒裤、酒红短外套与舒适平底鞋。"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "camille",
+          "name": "Camille",
+          "role": "虚构的邻居与试吃伙伴",
+          "dynamic": "会给具体口感意见，两人可以对甜度有不同偏好。"
+        }
+      ],
+      "events": [
+        {
+          "id": "bread-too-dense",
+          "date": "2026-10-29",
+          "title": "记录过密的第一炉",
+          "summary": "面包发酵不足，拍下切面并记下下一次的调整。",
+          "belongingIds": [
+            "recipe-binder",
+            "enamel-tray"
+          ],
+          "wardrobeId": "baking-day",
+          "consequence": "后续分享承认失败，不把第一炉改写成完美成品。"
+        },
+        {
+          "id": "retry-loaf",
+          "date": "2026-11-02",
+          "title": "第二次尝试延长发酵",
+          "summary": "重新称重、等待、观察面团并在食谱夹记下差异。",
+          "belongingIds": [
+            "recipe-binder",
+            "kitchen-scale"
+          ],
+          "wardrobeId": "baking-day",
+          "consequence": "过程先于切片成品，同一个烤盘和小厨房持续出现。"
+        }
+      ]
+    },
+    "voice": {
+      "language": "西班牙语",
+      "secondaryLanguages": "英语用于工作交流，流利但带轻微西语口音；法语为蒙特利尔生活所需的日常交流程度。",
+      "accent": "自然、轻度墨西哥中部西语口音",
+      "timbre": "柔和、圆润、略沙的中音女声。",
+      "pitch": "中音区，惊喜时自然上扬。",
+      "pace": "日常轻快，说明失败步骤时放慢并停顿。",
+      "prosody": "自然西语节奏，说明失败步骤时放慢，试吃时更轻快；不持续播音。",
+      "speechHabits": "会说 creo que me apresuré、vamos a probar otra vez；不每句话加入同一个口头禅。",
+      "pronunciation": "Lucía Morales 按西语姓名读法固定；主要语言 es-MX，避免在同一系列中随机换成西班牙或阿根廷口音。",
+      "sampleText": "Este pan quedó un poco más denso de lo que esperaba. Creo que me apresuré con la última fermentación. La próxima vez voy a darle veinte minutos más.",
+      "accentStrength": "轻度、自然，交流可理解度优先，不夸张表演地域特征。",
+      "avoid": "不模仿具名真人或明星，不使用刻板口音表演；避免幼态化、广告播音腔和每句话同一语调。",
+      "samples": [],
+      "locale": "es-MX",
+      "dialect": "墨西哥中部西语"
+    }
   },
   {
     "schemaVersion": 1,
     "id": "IP-EU-004",
     "slug": "ines-laurent",
-    "version": 1,
+    "version": 2,
     "name": "Inès Laurent",
     "displayName": "伊内丝",
     "age": 44,
@@ -674,13 +1030,108 @@
       "source": "user_project",
       "createdAt": "2026-11-02"
     },
-    "updatedAt": "2026-11-02"
+    "updatedAt": "2026-11-02",
+    "world": {
+      "occupation": "旧物修补与纺织设计师，经营小型手作工作台；技能集中在衣物与布料。",
+      "routine": "上午修补委托，下午去旧布店；晚间听广播，周末沿河散步。",
+      "habits": "用手指摸布料边缘判断磨损；找词时停顿；收工会把线轴按颜色归好。",
+      "preferences": "喜欢亚麻、深色羊毛、自然旧物；宁愿少买一点但长期使用。",
+      "imperfections": "近看要戴阅读镜，久坐后会伸展肩膀；眼尾细纹、手部纹理与银发保留。",
+      "speechStyle": "安静、措辞准确，有成熟的幽默感；不刻意装成少女语气。",
+      "mannerisms": "观察细节时抬眉、轻歪头；笑容克制，放松时肩膀略前落。",
+      "boundaries": "44岁的年龄纹理、银丝短发与娇小轮廓固定；不磨掉眼周细纹、不在不同图中突然增高。",
+      "belongings": [
+        {
+          "id": "reading-glasses",
+          "name": "玳瑁色阅读镜",
+          "description": "小巧椭圆玳瑁框阅读镜。",
+          "history": "细作业时戴，散步时放进布套，不永远固定在脸上。"
+        },
+        {
+          "id": "linen-pouch",
+          "name": "手缝亚麻工具袋",
+          "description": "原色亚麻小袋，深绿色车线。",
+          "history": "用旧布做的，边缘有自然毛感。"
+        },
+        {
+          "id": "wood-spool",
+          "name": "旧木线轴",
+          "description": "深棕木线轴缠米白棉线。",
+          "history": "随修补任务使用，线量随工作减少。"
+        }
+      ],
+      "wardrobe": [
+        {
+          "id": "atelier-work",
+          "name": "修补台工作衣橱",
+          "occasion": "坐着缝补与看布料",
+          "description": "深绿宽松衬衫、深灰全长宽腿裤、棕色软底鞋；袖口自然卷起。"
+        },
+        {
+          "id": "riverside-coat",
+          "name": "沿河散步衣橱",
+          "occasion": "凉天散步",
+          "description": "棕色旧羊毛大衣、米白高领针织衫、深灰直筒长裤、棕色平底短靴。"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "marc",
+          "name": "Marc",
+          "role": "虚构的旧布店老板",
+          "dynamic": "熟悉彼此挑料习惯，偶尔对修补方式有不同意见。"
+        }
+      ],
+      "events": [
+        {
+          "id": "coat-repair",
+          "date": "2026-10-28",
+          "title": "给旧大衣补内衬",
+          "summary": "决定修补而非更换旧大衣。",
+          "belongingIds": [
+            "reading-glasses",
+            "linen-pouch"
+          ],
+          "wardrobeId": "atelier-work",
+          "consequence": "后续散步继续穿同一件大衣，不变成新款。"
+        },
+        {
+          "id": "finishing-stitch",
+          "date": "2026-11-02",
+          "title": "完成最后一段线迹",
+          "summary": "靠窗完成内衬收针，把工具放回布袋。",
+          "belongingIds": [
+            "reading-glasses",
+            "wood-spool"
+          ],
+          "wardrobeId": "atelier-work",
+          "consequence": "细节镜头保留手部年龄纹理与米白线色。"
+        }
+      ]
+    },
+    "voice": {
+      "language": "法语",
+      "secondaryLanguages": "英语可作简单交流，带轻微法语口音，不假设母语级。",
+      "accent": "法国法语，轻度里昂地区生活背景的个人口音设定",
+      "timbre": "成熟、偏低、轻微颗粒感的女声。",
+      "pitch": "偏低中音区，避免刻意压低。",
+      "pace": "缓慢而准确，找词时允许短暂停顿。",
+      "prosody": "收束清楚，细节重音轻，不装少女语气。",
+      "speechHabits": "具体说布料与手感，少用空泛赞美，偶尔克制地开玩笑。",
+      "pronunciation": "Inès Laurent 按法语读法保持一致；连读以清楚自然为准。",
+      "sampleText": "Je préfère garder cette petite marque dans le tissu. Elle raconte quelque chose. Nous pouvons réparer la doublure sans tout remplacer.",
+      "accentStrength": "轻度、自然，交流可理解度优先，不夸张表演地域特征。",
+      "avoid": "不模仿具名真人或明星，不使用刻板口音表演；避免幼态化、广告播音腔和每句话同一语调。",
+      "samples": [],
+      "locale": "fr-FR",
+      "dialect": "法国法语，轻度里昂生活背景"
+    }
   },
   {
     "schemaVersion": 1,
     "id": "IP-NA-005",
     "slug": "owen-hart",
-    "version": 1,
+    "version": 2,
     "name": "Owen Hartwell",
     "displayName": "欧文",
     "age": 38,
@@ -827,13 +1278,107 @@
       "source": "user_project",
       "createdAt": "2026-11-02"
     },
-    "updatedAt": "2026-11-02"
+    "updatedAt": "2026-11-02",
+    "world": {
+      "occupation": "独立木作修理师，擅长家具修复；不是所有材料与结构问题都能自己处理。",
+      "routine": "早上整理工具，白天在车间修理，傍晚走路买食材；周日不接急单。",
+      "habits": "先检查旧接缝再动工具；量尺寸时轻抿嘴；收工擦掉桌面的木屑。",
+      "preferences": "喜欢实木旧家具、简单热饭与实用衣物；在能修的地方修，在不擅长处求助。",
+      "imperfections": "工作裤膝部磨损、手掌粗糙；久蹲会起身伸展；壮实体型不是健美照。",
+      "speechStyle": "少用形容词，先解释问题，再说下一步；偶尔有干燥的幽默。",
+      "mannerisms": "专注时眉心微皱，听人说话会把工具放下；休息时自然坐下而非摆出英雄姿势。",
+      "boundaries": "宽鼻梁、胡茬、肩背与腹部厚度固定；不把壮实体型自动变成倒三角；手部只保留合理轻微使用纹理。",
+      "belongings": [
+        {
+          "id": "tape-measure",
+          "name": "旧卷尺",
+          "description": "磨旧黄黑色小卷尺。",
+          "history": "用了多年，边缘有磨损。"
+        },
+        {
+          "id": "carpenter-pencil",
+          "name": "木工扁铅笔",
+          "description": "短红色扁铅笔，握持处颜色变浅。",
+          "history": "经常放在台边，长度随使用减少。"
+        },
+        {
+          "id": "steel-thermos",
+          "name": "绿保温杯",
+          "description": "暗绿金属保温杯，底部轻微掉漆。",
+          "history": "午后喝咖啡，同一个杯子反复出现。"
+        }
+      ],
+      "wardrobe": [
+        {
+          "id": "workshop-shirt",
+          "name": "木作工作衣橱",
+          "occasion": "家具检查与修复",
+          "description": "铁锈棕宽松棉工装衬衫、米白圆领内搭、橄榄绿全长工作裤、磨旧棕色系带工作靴，符合壮实体型。"
+        },
+        {
+          "id": "porch-evening",
+          "name": "收工后的衣橱",
+          "occasion": "门廊休息",
+          "description": "深蓝针织衫、灰色宽松长裤、棕色休闲靴，不固定加工作装备。"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "june",
+          "name": "June",
+          "role": "虚构的老顾客",
+          "dynamic": "看重家具的使用痕迹，二人会先商量保留哪些旧痕。"
+        }
+      ],
+      "events": [
+        {
+          "id": "chair-arrival",
+          "date": "2026-10-30",
+          "title": "收到一把松动的旧椅",
+          "summary": "检查椅腿接缝并记录需要修复的部位。",
+          "belongingIds": [
+            "tape-measure",
+            "carpenter-pencil"
+          ],
+          "wardrobeId": "workshop-shirt",
+          "consequence": "旧椅颜色与原有划痕在后续镜头保持一致。"
+        },
+        {
+          "id": "chair-ready",
+          "date": "2026-11-02",
+          "title": "旧椅修好等待交付",
+          "summary": "清理表面木屑并坐下检查稳定性。",
+          "belongingIds": [
+            "steel-thermos"
+          ],
+          "wardrobeId": "workshop-shirt",
+          "consequence": "椅腿从松动进展为修好，不把原本划痕完全抹去。"
+        }
+      ]
+    },
+    "voice": {
+      "language": "英语",
+      "secondaryLanguages": "不设定其他熟练语言。",
+      "accent": "美国英语，太平洋西北生活背景，地域特征轻",
+      "timbre": "厚实、微粗粝的中低男声。",
+      "pitch": "中低音区，放松时略有低频共鸣。",
+      "pace": "中等偏慢，先说问题，停顿后说下一步。",
+      "prosody": "稳、不夸张，有少量干燥的幽默。",
+      "speechHabits": "会用 let me take a look、that should hold；允许不确定。",
+      "pronunciation": "Owen Hartwell 姓名读法固定；工具名称读清楚。",
+      "sampleText": "The joint is loose, but the wood is still sound. Let me take a closer look before we decide what needs replacing.",
+      "accentStrength": "轻度、自然，交流可理解度优先，不夸张表演地域特征。",
+      "avoid": "不模仿具名真人或明星，不使用刻板口音表演；避免幼态化、广告播音腔和每句话同一语调。",
+      "samples": [],
+      "locale": "en-US",
+      "dialect": "美国英语，太平洋西北生活背景"
+    }
   },
   {
     "schemaVersion": 1,
     "id": "IP-EU-006",
     "slug": "theo-baptiste",
-    "version": 1,
+    "version": 2,
     "name": "Théo Baptiste",
     "displayName": "泰奥",
     "age": 27,
@@ -980,6 +1525,100 @@
       "source": "user_project",
       "createdAt": "2026-11-02"
     },
-    "updatedAt": "2026-11-02"
+    "updatedAt": "2026-11-02",
+    "world": {
+      "occupation": "唱片店店员与业余音乐选曲者；了解自己常听的类型，遇到不熟悉的唱片会查资料。",
+      "routine": "中午开店、下午整理到货；休息日录自己的选曲练习，晚上常坐公共交通回家。",
+      "habits": "先把唱片套对齐，再看曲目；听音乐时脚尖轻点节拍；开口前会短暂侧头。",
+      "preferences": "喜欢旧灵魂、爵士与少量电子乐；愿意试新音乐，不把自己塑造成无所不知的品味权威。",
+      "imperfections": "整理到货会弄皱袖口；被突然拍到会有点拘谨；瘦长体型保持自然，不强制增肌。",
+      "speechStyle": "有停顿，喜欢讲一段具体听感；声音轻，不每句话都抛音乐术语。",
+      "mannerisms": "听熟悉段落会轻挑眉、偏头笑；工作时双手拿稳唱片，不永远张开双臂摆拍。",
+      "boundaries": "细长脸、短脏辫、棕色皮肤与修长轮廓固定；唱片封面与招牌避免未经要求的文字和商标。",
+      "belongings": [
+        {
+          "id": "crossbody-bag",
+          "name": "棕色斜挎包",
+          "description": "小棕色皮质斜挎包，背带边缘磨损。",
+          "history": "日常通勤一直使用。"
+        },
+        {
+          "id": "headphones",
+          "name": "旧有线耳机",
+          "description": "黑色有线头戴耳机，耳垫有使用褶皱。",
+          "history": "试听时使用，收工后挂在架边。"
+        },
+        {
+          "id": "selection-book",
+          "name": "选曲笔记",
+          "description": "深蓝窄本，夹一张无字米白卡片。",
+          "history": "记试听顺序与自己不确定的地方。"
+        }
+      ],
+      "wardrobe": [
+        {
+          "id": "shop-shift",
+          "name": "唱片店值班衣橱",
+          "occasion": "整理货架与接待",
+          "description": "钴蓝飞行员夹克、米白针织Polo衫、炭灰直筒长裤、米白运动鞋；适合修长体型。"
+        },
+        {
+          "id": "listening-night",
+          "name": "居家试听衣橱",
+          "occasion": "晚间独处试听",
+          "description": "棕灰色圆领卫衣、深蓝宽松长裤和普通袜子，无需佩戴斜挎包。"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "sam",
+          "name": "Sam",
+          "role": "虚构的同事",
+          "dynamic": "互换音乐推荐，可以坦白某张唱片没听过；没有每次都一致的品味。"
+        }
+      ],
+      "events": [
+        {
+          "id": "new-box",
+          "date": "2026-10-31",
+          "title": "收到一箱旧唱片",
+          "summary": "先检查唱片状态，再按类型整理待试听的一叠。",
+          "belongingIds": [
+            "selection-book"
+          ],
+          "wardrobeId": "shop-shift",
+          "consequence": "待试听唱片从未整理进展为分好类，唱片套旧痕保留。"
+        },
+        {
+          "id": "quiet-listening",
+          "date": "2026-11-02",
+          "title": "收工后的试听",
+          "summary": "把一张不熟悉的唱片带回家，坐下听完一面再写笔记。",
+          "belongingIds": [
+            "headphones",
+            "selection-book"
+          ],
+          "wardrobeId": "listening-night",
+          "consequence": "场景从店里转为家中；耳机与笔记本保持一致，衣服随收工合理更换。"
+        }
+      ]
+    },
+    "voice": {
+      "language": "法语",
+      "secondaryLanguages": "英语能介绍音乐，带轻微法语口音。",
+      "accent": "自然巴黎法语；英语为轻度法语口音",
+      "timbre": "清亮、偏中低的青年男声，轻微鼻腔共鸣。",
+      "pitch": "自然中音区，谈到喜欢的片段时轻抬高。",
+      "pace": "中等，听完对方再答，不连续倾倒术语。",
+      "prosody": "有节拍但不是说唱，句间保留呼吸。",
+      "speechHabits": "允许说 je ne connais pas encore；不装作无所不知。",
+      "pronunciation": "Théo Baptiste 按法语姓名读法固定；外语唱片名先确认。",
+      "sampleText": "Je ne connais pas encore cet album. J’aimerais écouter la première face tranquillement, puis noter ce qui me reste en tête.",
+      "accentStrength": "轻度、自然，交流可理解度优先，不夸张表演地域特征。",
+      "avoid": "不模仿具名真人或明星，不使用刻板口音表演；避免幼态化、广告播音腔和每句话同一语调。",
+      "samples": [],
+      "locale": "fr-FR",
+      "dialect": "法国巴黎法语"
+    }
   }
 ]

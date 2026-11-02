@@ -4,6 +4,8 @@ import { useRef, useState, type ChangeEvent } from 'react'
 import { toast } from 'sonner'
 import { CharacterEditor } from '@/components/characters/CharacterEditor'
 import { CharacterLooks } from '@/components/characters/CharacterLooks'
+import { CharacterLifePanel } from '@/components/characters/CharacterLifePanel'
+import { CharacterVoicePanel } from '@/components/characters/CharacterVoicePanel'
 import { PageHeader } from '@/components/common/PageHeader'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -36,7 +38,7 @@ function CharactersPage() {
     try {
       const file = event.target.files?.[0]
       if (!file) return
-      if (file.size > 20 * 1024 * 1024) throw new Error('单次档案导入请小于 20 MB')
+      if (file.size > 150 * 1024 * 1024) throw new Error('单次档案导入请小于 150 MB')
       const count = importProfiles(JSON.parse(await file.text()))
       toast.success(`已导入 ${count} 个角色档案`)
     } catch (error) { toast.error(error instanceof Error ? error.message : '档案导入失败') }
@@ -66,11 +68,12 @@ function CharactersPage() {
           return <button type="button" key={profile.id} onClick={() => void navigate({ search: { id: profile.id } })} className="character-card group min-w-0 rounded-xl text-left outline-offset-4 focus-visible:outline-2" aria-label={`查看 ${profile.name} 角色档案`}>
             <div className="relative aspect-[4/5] overflow-hidden rounded-xl bg-muted">
               {portrait ? <img src={portrait.url} alt={`${profile.name} 的角色形象`} className="size-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.025] motion-reduce:transition-none" loading="lazy" /> : <div className="flex h-full flex-col items-center justify-center gap-3 text-muted-foreground"><UserRoundIcon className="size-12" /><span className="text-sm">待添加母版</span></div>}
-              <span className="absolute right-2 bottom-2 rounded-md bg-black/75 px-2 py-1 text-[11px] text-white">{profile.assets.length} 项资产</span>
+              <span className="absolute right-2 bottom-2 rounded-md bg-black/75 px-2 py-1 text-[11px] text-white">{profile.assets.length} 张图{profile.voice?.samples.length ? ` · ${profile.voice.samples.length} 段声音` : ''}</span>
             </div>
             <div className="mt-3 flex items-start justify-between gap-2"><div className="min-w-0"><h2 className="truncate text-base font-semibold tracking-tight sm:text-lg">{profile.name}</h2><p className="mt-0.5 text-xs text-muted-foreground">{profile.displayName} · {profile.age} 岁 · {profile.baseCity || '地点待设定'}</p></div><ArrowUpRightIcon className="mt-1 size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" /></div>
             <p className="mt-2 line-clamp-2 text-sm leading-6">{profile.tagline || '补充这位角色的独特外貌与故事。'}</p>
-            <div className="mt-2 flex flex-wrap gap-1.5"><Badge variant="secondary">{profile.appearance.bodyType}</Badge><Badge variant="outline">{profile.body.heightCm} cm</Badge><span className="ml-auto self-center text-[11px] text-muted-foreground">{[ 'portrait', 'turnaround', 'expressions' ].filter((kind) => categories.has(kind as CharacterAssetKind)).length}/3 类参考</span></div>
+            <div className="mt-2 flex flex-wrap gap-1.5"><Badge variant="secondary">{profile.appearance.bodyType}</Badge><Badge variant="outline">{profile.body.heightCm} cm</Badge><span className="ml-auto self-center text-[11px] text-muted-foreground">{categories.size}/{Object.keys(ASSET_KINDS).length} 类人物图</span></div>
+            {profile.voice && <p className="mt-2 text-xs leading-6 text-muted-foreground">{profile.voice.language} · {profile.voice.dialect}</p>}
           </button>
         })}
       </div>
@@ -84,10 +87,11 @@ function CharacterDetail({ profile, onBack, onEdit }: { profile: CharacterProfil
   const { setCharacter, setCharacterTask } = useStudio()
   const { addAsset, reviewAsset, hydrated } = useCharacterLibrary()
   const navigate = useNavigate()
-  const [tab, setTab] = useState<'profile' | 'assets' | 'create'>('profile')
+  const [tab, setTab] = useState<'profile' | 'life' | 'voice' | 'assets' | 'create'>('profile')
   const [kind, setKind] = useState<CharacterAssetKind>('portrait')
   const [zoom, setZoom] = useState<CharacterAsset | null>(null)
   const [uploading, setUploading] = useState(false)
+  const [actualPrompt, setActualPrompt] = useState('')
   const uploadRef = useRef<HTMLInputElement>(null)
   const portrait = assetFor(profile, 'portrait')
   const body = profile.body
@@ -103,7 +107,7 @@ function CharacterDetail({ profile, onBack, onEdit }: { profile: CharacterProfil
       image.src = url
       await image.decode()
       const parent = kind === 'portrait' ? [] : portrait ? [portrait.id] : []
-      addAsset(profile.id, { id: crypto.randomUUID(), kind, title: `${ASSET_KINDS[kind].label} · ${file.name}`, url, parentAssetIds: parent, createdAt: new Date(file.lastModified).toISOString(), generator: '用户收录', prompt: characterTaskPrompt(profile, kind), review: 'unreviewed', width: image.width, height: image.height })
+      addAsset(profile.id, { id: crypto.randomUUID(), kind, title: `${ASSET_KINDS[kind].label} · ${file.name}`, url, parentAssetIds: parent, createdAt: new Date(file.lastModified).toISOString(), generator: '用户收录，生成来源未确认', prompt: actualPrompt, review: 'unreviewed', width: image.width, height: image.height, characterVersion: profile.version })
       toast.success('图片已收录，检查身份一致性后可标记验收')
     } catch (error) { toast.error(error instanceof Error ? error.message : '图片收录失败') }
     finally { setUploading(false); event.target.value = '' }
@@ -132,14 +136,18 @@ function CharacterDetail({ profile, onBack, onEdit }: { profile: CharacterProfil
         <div className="mt-6"><Button onClick={() => sendToStudio()} disabled={!portrait}><SparklesIcon className="size-4" />带入角色合成台</Button><p className="mt-2 text-xs text-muted-foreground">关联固定五官、体型设计和母版参考。</p></div>
       </div>
     </div>
-    <div className="mt-2 flex gap-5 border-b" role="tablist" aria-label="角色档案内容">{(['profile', 'assets', 'create'] as const).map((value) => <button type="button" key={value} role="tab" aria-selected={tab === value} aria-controls="character-panel" onClick={() => setTab(value)} className={cn('border-b-2 px-1 py-3 text-sm transition-colors', tab === value ? 'border-foreground font-semibold' : 'border-transparent text-muted-foreground hover:text-foreground')}>{value === 'profile' ? '角色设定' : value === 'assets' ? `关联资产 (${profile.assets.length})` : '继续创作'}</button>)}</div>
+    <div className="mt-2 flex gap-5 overflow-x-auto border-b" role="tablist" aria-label="角色档案内容">{(['profile', 'life', 'voice', 'assets', 'create'] as const).map((value) => <button type="button" key={value} role="tab" aria-selected={tab === value} aria-controls="character-panel" onClick={() => setTab(value)} className={cn('shrink-0 border-b-2 px-1 py-3 text-sm transition-colors', tab === value ? 'border-foreground font-semibold' : 'border-transparent text-muted-foreground hover:text-foreground')}>{value === 'profile' ? '外貌与身体' : value === 'life' ? '生活与个性' : value === 'voice' ? '语言与声音' : value === 'assets' ? `人物图资产 (${profile.assets.length})` : '继续创作'}</button>)}</div>
     <div key={tab} id="character-panel" role="tabpanel" className="character-panel">
+      {tab === 'life' && <CharacterLifePanel profile={profile} />}
+      {tab === 'voice' && <CharacterVoicePanel profile={profile} />}
       {tab === 'profile' && <div className="grid gap-7 md:grid-cols-2">
         <section><h2 className="text-base font-semibold">固定外貌</h2><dl className="mt-4 space-y-3 text-sm">{Object.entries({ '脸型': appearance.face, '眼睛': appearance.eyes, '鼻子': appearance.nose, '嘴唇': appearance.lips, '眉形': appearance.brows, '肤色': appearance.skin, '头发': appearance.hair }).map(([key, value]) => <div className="grid grid-cols-[3rem_1fr] gap-3" key={key}><dt className="text-muted-foreground">{key}</dt><dd className="leading-6">{value || '待设定'}</dd></div>)}</dl><div className="mt-5 flex flex-wrap gap-2">{appearance.marks.map((mark) => <Badge variant="outline" key={mark}>{mark}</Badge>)}</div></section>
-        <section><div className="flex items-center gap-2"><h2 className="text-base font-semibold">身材与形象</h2><Badge variant="secondary">设计目标</Badge></div><p className="mt-2 text-xs leading-6 text-muted-foreground">数字用于创作约束，图片需另行验收比例与体型。</p><dl className="mt-3 grid grid-cols-2 gap-x-5 text-sm">{Object.entries({ '体型': appearance.bodyType, '身高': `${body.heightCm} cm`, '体重': `${body.weightKg} kg`, '肩宽': `${body.shoulderCm} cm`, '胸围': `${body.chestCm} cm`, '腰围': `${body.waistCm} cm`, '臀围': `${body.hipsCm} cm`, '内侧腿长': `${body.inseamCm} cm` }).map(([key, value]) => <div className="flex justify-between gap-2 border-b py-3" key={key}><dt className="text-muted-foreground">{key}</dt><dd className="font-medium tabular-nums">{value}</dd></div>)}</dl><p className="mt-5 text-sm leading-7"><span className="text-muted-foreground">标志穿搭　</span>{profile.style.signatureOutfit || '待设定'}</p><p className="mt-3 text-sm leading-7"><span className="text-muted-foreground">声音设定　</span>{profile.persona.voice || '待设定'}</p></section>
+        <section><div className="flex items-center gap-2"><h2 className="text-base font-semibold">身材与形象</h2><Badge variant="secondary">设计目标</Badge></div><p className="mt-2 text-xs leading-6 text-muted-foreground">数字用于创作约束，图片需另行验收比例与体型。</p><dl className="mt-3 grid grid-cols-2 gap-x-5 text-sm">{Object.entries({ '体型': appearance.bodyType, '身高': `${body.heightCm} cm`, '体重': `${body.weightKg} kg`, '肩宽': `${body.shoulderCm} cm`, '胸围': `${body.chestCm} cm`, '腰围': `${body.waistCm} cm`, '臀围': `${body.hipsCm} cm`, '内侧腿长': `${body.inseamCm} cm` }).map(([key, value]) => <div className="flex justify-between gap-2 border-b py-3" key={key}><dt className="text-muted-foreground">{key}</dt><dd className="font-medium tabular-nums">{value}</dd></div>)}</dl><p className="mt-5 text-sm leading-7"><span className="text-muted-foreground">标志穿搭　</span>{profile.style.signatureOutfit || '待设定'}</p><p className="mt-3 text-sm leading-7"><span className="text-muted-foreground">声音设定　</span>{profile.voice ? `${profile.voice.language} · ${profile.voice.dialect} · ${profile.voice.timbre}` : profile.persona.voice || '待设定'}</p></section>
       </div>}
       {tab === 'assets' && <>
+        <div className="mb-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">{Object.entries(ASSET_KINDS).map(([assetKind, meta]) => { const count = profile.assets.filter((asset) => asset.kind === assetKind).length; return <p key={assetKind} className="flex items-center justify-between gap-3 rounded-lg bg-muted/60 px-3 py-2 text-xs"><span>{meta.label}</span><span className={count ? 'font-medium' : 'text-muted-foreground'}>{count ? `${count} 张` : '待补充'}</span></p> })}</div>
         <CharacterLooks profile={profile} />
+        <details className="mb-4 rounded-lg border p-3"><summary className="cursor-pointer text-xs">收录时补充实际生成提示词（可选）</summary><label className="mt-3 block space-y-2 text-xs"><span>实际生成提示词</span><textarea className="min-h-24 w-full rounded-md border bg-background p-2" value={actualPrompt} onChange={(event) => setActualPrompt(event.target.value)} placeholder="不知道原始提示词时留空，不使用默认任务冒充实际来源。" /></label></details>
         <div className="mb-5 flex flex-wrap items-center gap-3"><label htmlFor="asset-kind" className="text-sm">收录类型</label><select id="asset-kind" className="h-9 rounded-md border bg-background px-3 text-sm" value={kind} onChange={(event) => setKind(event.target.value as CharacterAssetKind)}>{Object.entries(ASSET_KINDS).map(([value, meta]) => <option key={value} value={value}>{meta.label}</option>)}</select><Button variant="outline" size="sm" disabled={uploading || !hydrated} onClick={() => uploadRef.current?.click()}><ImagePlusIcon className="size-4" />{uploading ? '正在收录' : '上传生成结果'}</Button><input ref={uploadRef} type="file" accept="image/png,image/jpeg,image/webp" className="hidden" onChange={uploadAsset} /></div>
         {!profile.assets.length && <p className="py-12 text-center text-sm text-muted-foreground">先在“继续创作”复制正脸任务，生成后上传第一张母版。</p>}
         <div className="grid gap-5 sm:grid-cols-2">{profile.assets.map((asset) => <article key={asset.id} className="min-w-0"><button className="flex aspect-[3/2] w-full cursor-zoom-in items-center justify-center overflow-hidden rounded-lg bg-muted/50" onClick={() => setZoom(asset)} aria-label={`放大${asset.title}`}><img src={asset.url} alt={asset.title} className="h-full w-full object-contain" loading="lazy" /></button><div className="mt-3 flex flex-wrap items-center justify-between gap-2"><h3 className="text-sm font-medium">{asset.title}</h3><Badge variant={asset.review === 'reviewed' ? 'secondary' : 'outline'}>{asset.review === 'reviewed' ? '已做视觉核验' : '待验收'}</Badge></div><p className="mt-2 text-xs text-muted-foreground">{asset.generator} · 母版关联 {asset.parentAssetIds.length} 项{asset.width ? ` · ${asset.width}×${asset.height}` : ''}</p><div className="mt-2 flex flex-wrap gap-1">{asset.review !== 'reviewed' && <Button size="sm" variant="ghost" onClick={() => { reviewAsset(profile.id, asset.id); toast.success('已标记为视觉验收通过') }}><CheckIcon className="size-3.5" />标记验收</Button>}<Button size="sm" variant="ghost" asChild><a href={asset.url} download={`${profile.slug}-${asset.kind}.png`}><DownloadIcon className="size-3.5" />下载图片</a></Button></div></article>)}</div>

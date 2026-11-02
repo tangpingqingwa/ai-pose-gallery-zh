@@ -18,7 +18,7 @@ export function RecipeDock() {
   const count = [recipe.portrait, recipe.costume, recipe.pose].filter(Boolean).length + extraCount + workflowImages.length
 
   // 在合成台、设置页、指南页隐藏底部悬浮栏，避免与页面内组件重复
-  if (pathname.startsWith('/studio') || pathname.startsWith('/settings') || pathname.startsWith('/guide')) {
+  if (pathname.startsWith('/studio') || pathname.startsWith('/settings') || pathname.startsWith('/guide') || pathname.startsWith('/characters') || pathname.startsWith('/library-quality')) {
     return null
   }
 
@@ -26,7 +26,7 @@ export function RecipeDock() {
     const [posesRes, costumes, portraits] = await Promise.all([
       qc.ensureQueryData(posesQuery),
       qc.ensureQueryData(costumesQuery),
-      qc.ensureQueryData(portraitsQuery),
+      recipe.character ? Promise.resolve([]) : qc.ensureQueryData(portraitsQuery),
     ])
     randomizeRecipe({
       poses: posesRes.items,
@@ -44,6 +44,7 @@ export function RecipeDock() {
   return (
     <div className="sticky bottom-3 z-30 mx-auto mt-4 w-full max-w-5xl">
       <div className="flex flex-col gap-2 rounded-2xl border border-border/80 bg-card/95 p-2 shadow-lg backdrop-blur-md sm:flex-row sm:items-center sm:justify-between sm:px-3.5 sm:py-2.5">
+        {recipe.character && <Link to="/studio" className="shrink-0 rounded-lg bg-muted px-3 py-2 text-xs leading-5"><span className="block font-medium">{recipe.character.name}</span><span className="text-muted-foreground">{recipe.creativeBrief ? '人物状态已应用' : '身份已锁定'} · {recipe.character.voice?.locale || '声音待设定'}</span></Link>}
         <div className="grid flex-1 grid-cols-3 gap-1.5 sm:gap-2">
           {/* Slot 1: Portrait */}
           <div className="relative flex items-center gap-1.5 rounded-xl bg-muted/80 p-1.5 sm:gap-2 sm:p-2">

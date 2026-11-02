@@ -15,7 +15,8 @@ import { idbGet, idbSet } from '@/lib/idbStorage'
 import { parseParameterWorkflow, workflowIdentity } from '@/lib/comfyWorkflowParameters'
 import { poseImagePath, recipeBackup } from '@/lib/recipeImages'
 import { buildCodexTask, detachCharacter, recipeForCharacter } from '@/lib/characters'
-import type { CharacterAssetKind, CharacterProfile } from '@/types/character'
+import type { CharacterAssetKind, CharacterCreativeBrief, CharacterProfile } from '@/types/character'
+import { applyCharacterBrief } from '@/lib/characterWorld'
 import {
   buildRecipePrompt,
   COMFYUI_WORKFLOW_TEMPLATES,
@@ -209,9 +210,10 @@ interface StudioContextValue {
   startGeneration: (overridePrompt?: string) => Promise<void>
   refreshStitchPreview: () => Promise<void>
   setPortrait: (item: PortraitItem | null) => void
-  setCharacter: (profile: CharacterProfile | null, composition?: { costume?: CostumeItem | null; pose?: PoseItem | null; scene?: string; customOutfit?: string; lookId?: string }) => void
+  setCharacter: (profile: CharacterProfile | null, composition?: { costume?: CostumeItem | null; pose?: PoseItem | null; scene?: string; customOutfit?: string; lookId?: string; creativeBrief?: CharacterCreativeBrief }) => void
   setCharacterTask: (kind: CharacterAssetKind) => void
   setCharacterScene: (scene: string) => void
+  setCharacterBrief: (profile: CharacterProfile, brief: CharacterCreativeBrief) => void
   setCostume: (item: CostumeItem | null) => void
   setPose: (item: PoseItem | null) => void
   togglePortrait: (item: PortraitItem) => void
@@ -249,6 +251,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
         scene: parsed.scene,
         customOutfit: parsed.customOutfit,
         lookId: parsed.lookId,
+        creativeBrief: parsed.creativeBrief,
         portrait: parsed.portrait ?? null,
         costume: parsed.costume ?? null,
         pose: parsed.pose ?? null,
@@ -325,6 +328,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
           scene: savedRecipe.scene,
           customOutfit: savedRecipe.customOutfit,
           lookId: savedRecipe.lookId,
+          creativeBrief: savedRecipe.creativeBrief,
           portrait: savedRecipe.portrait ?? null,
           costume: savedRecipe.costume ?? null,
           pose: savedRecipe.pose ?? null,
@@ -406,24 +410,29 @@ export function StudioProvider({ children }: { children: ReactNode }) {
   }
   const setCharacter: StudioContextValue['setCharacter'] = (profile, composition) => {
     const next = profile ? recipeForCharacter(profile, recipe) : detachCharacter(recipe)
-    setRecipe(composition ? { ...next, ...composition } : next)
+    const composed = composition ? { ...next, ...composition } : next
+    setRecipe(profile && composition?.creativeBrief ? applyCharacterBrief(composed, profile, composition.creativeBrief) : composed)
     setCustomPrompt(null)
   }
   const setCharacterTask = (kind: CharacterAssetKind) => {
-    setRecipe((r) => kind === 'lifestyle' ? { ...r, characterTask: kind } : { ...r, characterTask: kind, pose: null, scene: undefined, lookId: undefined })
+    setRecipe((r) => kind === 'lifestyle' || kind === 'gesture' ? { ...r, characterTask: kind } : { ...r, characterTask: kind, pose: null, scene: undefined, lookId: undefined, creativeBrief: undefined, extraImages: (r.extraImages ?? []).filter((ref) => ref.source !== 'character_world') })
     setCustomPrompt(null)
   }
   const setCharacterScene = (scene: string) => {
     setRecipe((r) => ({ ...r, scene, lookId: undefined }))
     setCustomPrompt(null)
   }
+  const setCharacterBrief = (profile: CharacterProfile, brief: CharacterCreativeBrief) => {
+    setRecipe(applyCharacterBrief(recipe, profile, brief))
+    setCustomPrompt(null)
+  }
   const setCostume = (costume: CostumeItem | null) => {
     setCustomPrompt(null)
-    setRecipe((r) => ({ ...r, costume, lookId: undefined, customOutfit: undefined }))
+    setRecipe((r) => ({ ...r, costume, lookId: undefined, customOutfit: undefined, creativeBrief: r.creativeBrief ? { ...r.creativeBrief, wardrobeId: undefined } : undefined }))
   }
   const setPose = (pose: PoseItem | null) => {
     setCustomPrompt(null)
-    setRecipe((r) => ({ ...r, pose, lookId: undefined }))
+    setRecipe((r) => ({ ...r, pose, lookId: undefined, creativeBrief: r.creativeBrief ? { ...r.creativeBrief, action: '' } : undefined }))
   }
 
   const setPoseDepthMode = (val: boolean) => {
@@ -454,7 +463,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
     setRecipe((r) => {
       const remove = r.costume?.id === item.id
       toast.success(remove ? '已移除服装' : `已选服装：${item.服装名称}`)
-      return { ...r, costume: remove ? null : item, lookId: undefined, customOutfit: undefined }
+      return { ...r, costume: remove ? null : item, lookId: undefined, customOutfit: undefined, creativeBrief: r.creativeBrief ? { ...r.creativeBrief, wardrobeId: undefined } : undefined }
     })
   }
 
@@ -468,7 +477,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
           ? '已移除姿势'
           : `已选姿势：${item.姿势名称}（${item.角度}${useDepth ? ' · 深度图' : ''}）`
       )
-      return { ...r, pose: remove ? null : { ...item, useDepth }, lookId: undefined }
+      return { ...r, pose: remove ? null : { ...item, useDepth }, lookId: undefined, creativeBrief: r.creativeBrief ? { ...r.creativeBrief, action: '' } : undefined }
     })
   }
 
@@ -542,6 +551,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
       ...(portraitPool.length ? detachCharacter(prev) : prev),
       lookId: undefined,
       customOutfit: portraitPool.length || costumePool.length ? undefined : prev.customOutfit,
+      creativeBrief: portraitPool.length ? undefined : prev.creativeBrief ? { ...prev.creativeBrief, wardrobeId: costumePool.length ? undefined : prev.creativeBrief.wardrobeId, action: posePool.length ? '' : prev.creativeBrief.action } : undefined,
       portrait: portraitPool.length
         ? portraitPool[Math.floor(Math.random() * portraitPool.length)]
         : prev.portrait,
@@ -674,7 +684,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
           finalPrompt,
           configSnapshot.activeProvider === 'comfyui' && recipeSnapshot.workflowImagesIdentity === workflowIdentity(configSnapshot.comfyuiParams.workflowJson) ? Object.values(recipeSnapshot.workflowImages || {}) : [],
         ).references.map((reference) => reference.url),
-        composition: { lookId: recipeSnapshot.lookId, costumeId: recipeSnapshot.costume?.id, poseId: recipeSnapshot.pose?.id, scene: recipeSnapshot.scene, customOutfit: recipeSnapshot.customOutfit },
+        composition: { lookId: recipeSnapshot.lookId, costumeId: recipeSnapshot.costume?.id, poseId: recipeSnapshot.pose?.id, scene: recipeSnapshot.scene, customOutfit: recipeSnapshot.customOutfit, creativeBrief: recipeSnapshot.creativeBrief },
         provider: providerUsed,
         model: modelUsed,
         prompt: finalPrompt,
@@ -719,6 +729,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
         setCharacter,
         setCharacterTask,
         setCharacterScene,
+        setCharacterBrief,
         setCostume,
         setPose,
         togglePortrait,

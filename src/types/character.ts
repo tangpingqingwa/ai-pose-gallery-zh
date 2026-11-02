@@ -1,4 +1,54 @@
-export type CharacterAssetKind = 'portrait' | 'turnaround' | 'expressions' | 'lifestyle'
+export type CharacterAssetKind = 'portrait' | 'turnaround' | 'expressions' | 'lifestyle' | 'detail' | 'gesture' | 'grooming'
+
+export interface CharacterBelonging { id: string; name: string; description: string; history: string }
+export interface CharacterWardrobe { id: string; name: string; occasion: string; description: string }
+export interface CharacterRelationship { id: string; name: string; role: string; dynamic: string }
+export interface CharacterEvent { id: string; date: string; title: string; summary: string; belongingIds: string[]; wardrobeId?: string; consequence: string }
+export interface CharacterWorld {
+  occupation: string
+  routine: string
+  habits: string
+  preferences: string
+  imperfections: string
+  speechStyle: string
+  mannerisms: string
+  boundaries: string
+  belongings: CharacterBelonging[]
+  wardrobe: CharacterWardrobe[]
+  relationships: CharacterRelationship[]
+  events: CharacterEvent[]
+}
+export interface CharacterCreativeBrief {
+  belongingIds: string[]
+  wardrobeId?: string
+  eventId?: string
+  action: string
+  emotion: string
+  camera: string
+  lighting: string
+  continuity: string
+  grooming?: string
+}
+export interface CharacterComposition { lookId?: string; costumeId?: string; poseId?: string; scene?: string; customOutfit?: string; creativeBrief?: CharacterCreativeBrief }
+
+export interface CharacterVoiceSample { id: string; title: string; url: string; mimeType: string; createdAt: string; transcript: string; generator: string; characterVersion?: number; intendedLocale?: string }
+export interface CharacterVoice {
+  language: string
+  locale: string
+  dialect: string
+  secondaryLanguages: string
+  accent: string
+  accentStrength: string
+  timbre: string
+  pitch: string
+  pace: string
+  prosody: string
+  speechHabits: string
+  pronunciation: string
+  avoid: string
+  sampleText: string
+  samples: CharacterVoiceSample[]
+}
 
 export interface CharacterAsset {
   id: string
@@ -16,7 +66,8 @@ export interface CharacterAsset {
   sourceGenerationId?: string
   characterVersion?: number
   sourceReferenceUrls?: string[]
-  composition?: { lookId?: string; costumeId?: string; poseId?: string; scene?: string; customOutfit?: string }
+  composition?: CharacterComposition
+  binding?: { belongingIds?: string[]; wardrobeId?: string; eventId?: string }
 }
 
 export interface CharacterLook {
@@ -62,6 +113,8 @@ export interface CharacterIdentity {
   }
   body: CharacterBody
   style: { signatureOutfit: string; palette: string[]; outfitEn: string }
+  world?: CharacterWorld
+  voice?: CharacterVoice
 }
 
 export interface CharacterProfile extends CharacterIdentity {

@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as CharactersRouteImport } from './routes/characters'
 import { Route as CostumesRouteImport } from './routes/costumes'
 import { Route as GuideRouteImport } from './routes/guide'
+import { Route as LibraryQualityRouteImport } from './routes/library-quality'
 import { Route as PortraitsRouteImport } from './routes/portraits'
 import { Route as PosesRouteImport } from './routes/poses'
 import { Route as SettingsRouteImport } from './routes/settings'
@@ -36,6 +37,11 @@ const CostumesRoute = CostumesRouteImport.update({
 const GuideRoute = GuideRouteImport.update({
   id: '/guide',
   path: '/guide',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LibraryQualityRoute = LibraryQualityRouteImport.update({
+  id: '/library-quality',
+  path: '/library-quality',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PortraitsRoute = PortraitsRouteImport.update({
@@ -64,6 +70,7 @@ export interface FileRoutesByFullPath {
   '/characters': typeof CharactersRoute
   '/costumes': typeof CostumesRoute
   '/guide': typeof GuideRoute
+  '/library-quality': typeof LibraryQualityRoute
   '/portraits': typeof PortraitsRoute
   '/poses': typeof PosesRoute
   '/settings': typeof SettingsRoute
@@ -74,6 +81,7 @@ export interface FileRoutesByTo {
   '/characters': typeof CharactersRoute
   '/costumes': typeof CostumesRoute
   '/guide': typeof GuideRoute
+  '/library-quality': typeof LibraryQualityRoute
   '/portraits': typeof PortraitsRoute
   '/poses': typeof PosesRoute
   '/settings': typeof SettingsRoute
@@ -85,6 +93,7 @@ export interface FileRoutesById {
   '/characters': typeof CharactersRoute
   '/costumes': typeof CostumesRoute
   '/guide': typeof GuideRoute
+  '/library-quality': typeof LibraryQualityRoute
   '/portraits': typeof PortraitsRoute
   '/poses': typeof PosesRoute
   '/settings': typeof SettingsRoute
@@ -97,6 +106,7 @@ export interface FileRouteTypes {
     | '/characters'
     | '/costumes'
     | '/guide'
+    | '/library-quality'
     | '/portraits'
     | '/poses'
     | '/settings'
@@ -107,6 +117,7 @@ export interface FileRouteTypes {
     | '/characters'
     | '/costumes'
     | '/guide'
+    | '/library-quality'
     | '/portraits'
     | '/poses'
     | '/settings'
@@ -117,6 +128,7 @@ export interface FileRouteTypes {
     | '/characters'
     | '/costumes'
     | '/guide'
+    | '/library-quality'
     | '/portraits'
     | '/poses'
     | '/settings'
@@ -128,6 +140,7 @@ export interface RootRouteChildren {
   CharactersRoute: typeof CharactersRoute
   CostumesRoute: typeof CostumesRoute
   GuideRoute: typeof GuideRoute
+  LibraryQualityRoute: typeof LibraryQualityRoute
   PortraitsRoute: typeof PortraitsRoute
   PosesRoute: typeof PosesRoute
   SettingsRoute: typeof SettingsRoute
@@ -162,6 +175,13 @@ declare module '@tanstack/react-router' {
       path: '/guide'
       fullPath: '/guide'
       preLoaderRoute: typeof GuideRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/library-quality': {
+      id: '/library-quality'
+      path: '/library-quality'
+      fullPath: '/library-quality'
+      preLoaderRoute: typeof LibraryQualityRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/portraits': {
@@ -200,6 +220,7 @@ const rootRouteChildren: RootRouteChildren = {
   CharactersRoute: CharactersRoute,
   CostumesRoute: CostumesRoute,
   GuideRoute: GuideRoute,
+  LibraryQualityRoute: LibraryQualityRoute,
   PortraitsRoute: PortraitsRoute,
   PosesRoute: PosesRoute,
   SettingsRoute: SettingsRoute,

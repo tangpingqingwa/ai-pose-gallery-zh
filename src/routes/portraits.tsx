@@ -29,9 +29,11 @@ import { useCharacterLibrary } from '@/store/characterStore'
 import { portraitFor } from '@/lib/characters'
 import { referenceImageUrl } from '@/lib/recipeImages'
 import type { PortraitItem } from '@/types/gallery'
+import ranking from '../../data/portrait-meta-zh.json'
+import { matchesCatalog } from '@/lib/catalog'
 
 export const Route = createFileRoute('/portraits')({
-  staticData: { title: '人像颜值库' },
+  staticData: { title: '人像参考库' },
   loader: ({ context }) => context.queryClient.ensureQueryData(portraitsQuery),
   pendingComponent: () => <Skeleton className="h-[540px] rounded-[22px]" />,
   component: PortraitsPage,
@@ -66,17 +68,18 @@ function PortraitsPage() {
   }, [portraits, section, hair])
 
   const q = query.trim().toLowerCase()
+  const rankedIds = useMemo(() => new Set(ranking.排行榜Top10[(hair || '综合') as keyof typeof ranking.排行榜Top10] ?? []), [hair])
 
   const filtered = useMemo(() => {
     return portraits.filter((item) => {
       if (section && item.分区 !== section) return false
       if (hair && item.发长 !== hair) return false
       if (styleName !== 'all' && item.发型名称 !== styleName) return false
-      if (onlyHot && !item.热门) return false
-      if (q && !item.检索.toLowerCase().includes(q)) return false
+      if (onlyHot && !rankedIds.has(item.id)) return false
+      if (!matchesCatalog(item.检索, q)) return false
       return true
     })
-  }, [portraits, section, hair, styleName, onlyHot, q])
+  }, [portraits, section, hair, styleName, onlyHot, q, rankedIds])
 
   const currentItem = viewerIndex !== null ? filtered[viewerIndex] : null
 
@@ -96,7 +99,8 @@ function PortraitsPage() {
   return (
     <>
       <PageHeader
-        title="人像颜值库"
+        title="人像参考库"
+        description="原库按发型和拍摄氛围组织，图片数量不代表独立角色数量。自有角色另关联五官、体型与人物档案。"
         actions={
           <Button
             variant={onlyHot ? 'default' : 'outline'}
@@ -107,7 +111,7 @@ function PortraitsPage() {
             }}
           >
             <FlameIcon className="size-3.5 text-orange-500" />
-            Top10 热门
+            原库{hair || '综合'} Top10
           </Button>
         }
       />
@@ -139,6 +143,7 @@ function PortraitsPage() {
               type="button"
               onClick={() => {
                 setSection(section === sec ? '' : sec)
+                if (sec === '自有角色') { setHair(''); setOnlyHot(false) }
                 setStyleName('all')
                 setShown(60)
               }}
@@ -198,10 +203,10 @@ function PortraitsPage() {
           }}
         >
           <SelectTrigger className="w-full bg-background">
-            <SelectValue placeholder="全部 51 款日系发型" />
+            <SelectValue placeholder="全部发型/名称" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">全部 51 款日系发型</SelectItem>
+            <SelectItem value="all">全部发型/名称</SelectItem>
             {styleOptions.map((s) => (
               <SelectItem key={s} value={s}>
                 {s}

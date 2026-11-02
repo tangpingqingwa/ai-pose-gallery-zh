@@ -1,5 +1,5 @@
 import { useSuspenseQuery } from '@tanstack/react-query'
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, Link } from '@tanstack/react-router'
 import {
   CheckIcon,
   ChevronLeftIcon,
@@ -24,6 +24,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Skeleton } from '@/components/ui/skeleton'
 import { cn } from '@/lib/utils'
 import { useStudio } from '@/store/studioStore'
+import { costumeDescriptionGroups, costumeDescriptionKey, matchesCatalog } from '@/lib/catalog'
+import { referenceImageUrl } from '@/lib/recipeImages'
 
 export const Route = createFileRoute('/costumes')({
   staticData: { title: '服装穿搭库' },
@@ -41,6 +43,8 @@ function CostumesPage() {
   const [query, setQuery] = useState('')
   const [shown, setShown] = useState(60)
   const [viewerIndex, setViewerIndex] = useState<number | null>(null)
+  const [groupDescriptions, setGroupDescriptions] = useState(false)
+  const [expandedDescription, setExpandedDescription] = useState<string | null>(null)
 
   const activeCategory = safeMode && category && isNsfwCostumeCategory(category) ? '' : category
 
@@ -64,31 +68,35 @@ function CostumesPage() {
 
   const filtered = useMemo(() => {
     return baseCostumes.filter((item) => {
+      if (expandedDescription && costumeDescriptionKey(item) !== expandedDescription) return false
       if (activeCategory && item.分类 !== activeCategory) return false
       if (tag !== 'all' && !(item.标签 || []).includes(tag)) return false
-      if (q && !item.检索.toLowerCase().includes(q)) return false
+      if (!matchesCatalog(item.检索, q)) return false
       return true
     })
-  }, [baseCostumes, activeCategory, tag, q])
+  }, [baseCostumes, activeCategory, tag, q, expandedDescription])
 
-  const currentItem = viewerIndex !== null ? filtered[viewerIndex] : null
+  const descriptionGroups = useMemo(() => costumeDescriptionGroups(filtered), [filtered])
+  const visibleCostumes = groupDescriptions ? [...descriptionGroups.values()].map((items) => items[0]) : filtered
+
+  const currentItem = viewerIndex !== null ? visibleCostumes[viewerIndex] : null
 
   useEffect(() => {
-    if (viewerIndex === null || !filtered.length) return
+    if (viewerIndex === null || !visibleCostumes.length) return
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'ArrowRight') {
-        setViewerIndex((viewerIndex + 1) % filtered.length)
+        setViewerIndex((viewerIndex + 1) % visibleCostumes.length)
       } else if (e.key === 'ArrowLeft') {
-        setViewerIndex((viewerIndex - 1 + filtered.length) % filtered.length)
+        setViewerIndex((viewerIndex - 1 + visibleCostumes.length) % visibleCostumes.length)
       }
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [viewerIndex, filtered.length])
+  }, [viewerIndex, visibleCostumes.length])
 
   return (
     <>
-      <PageHeader title="服装穿搭库" />
+      <PageHeader title="服装穿搭库" description="整套搭配参考。服装图的人台比例不代表角色的身材；描述相同的图片可分组浏览。" actions={<Button variant="outline" size="sm" asChild><Link to="/library-quality">资料质量</Link></Button>} />
 
       {/* 分类筛选药丸 */}
       <div className="flex gap-2 overflow-x-auto pb-1 sm:flex-wrap sm:pb-0">
@@ -96,6 +104,7 @@ function CostumesPage() {
           type="button"
           onClick={() => {
             setCategory('')
+            setExpandedDescription(null)
             setTag('all')
             setShown(60)
           }}
@@ -115,6 +124,7 @@ function CostumesPage() {
               type="button"
               onClick={() => {
                 setCategory(c)
+                setExpandedDescription(null)
                 setTag('all')
                 setShown(60)
               }}
@@ -152,6 +162,7 @@ function CostumesPage() {
             value={query}
             onChange={(e) => {
               setQuery(e.target.value)
+              setExpandedDescription(null)
               setShown(60)
             }}
             placeholder="搜索服装款式、颜色、材质、英文词条 (如 denim, lace, 针织, 迷你裙)…"
@@ -163,6 +174,7 @@ function CostumesPage() {
           value={tag}
           onValueChange={(v) => {
             setTag(v)
+            setExpandedDescription(null)
             setShown(60)
           }}
         >
@@ -187,6 +199,8 @@ function CostumesPage() {
             setCategory('')
             setTag('all')
             setQuery('')
+            setExpandedDescription(null)
+            setGroupDescriptions(false)
             setShown(60)
           }}
         >
@@ -195,11 +209,13 @@ function CostumesPage() {
         </Button>
       </div>
 
+      <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-muted-foreground"><span>{filtered.length} 套参考 · {descriptionGroups.size} 种文字描述</span><label className="flex cursor-pointer items-center gap-2"><input type="checkbox" checked={groupDescriptions} onChange={(event) => { setGroupDescriptions(event.target.checked); setViewerIndex(null); setShown(60) }} />按描述分组（保留所有图片）</label></div>
+      {expandedDescription && <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground"><span>正在查看同一描述的全部变体</span><Button variant="ghost" size="sm" onClick={() => { setExpandedDescription(null); setShown(60) }}>返回全部结果</Button></div>}
       {filtered.length === 0 ? (
         <EmptyState title="没有找到匹配的服装穿搭" description="试试更换搜索词或切换分类" />
       ) : (
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-          {filtered.slice(0, shown).map((item, idx) => {
+          {visibleCostumes.slice(0, shown).map((item, idx) => {
             const picked = recipe.costume?.id === item.id
             return (
               <div
@@ -211,7 +227,7 @@ function CostumesPage() {
                   className="relative aspect-2/3 cursor-zoom-in overflow-hidden rounded-2xl bg-background"
                 >
                   <img
-                    src={`/${item.缩略图}`}
+                    src={referenceImageUrl(item.缩略图)}
                     alt={item.服装名称}
                     loading="lazy"
                     className="h-full w-full object-contain transition duration-300 group-hover:scale-105"
@@ -243,6 +259,7 @@ function CostumesPage() {
                 <div className="flex flex-1 flex-col justify-between px-1.5 pt-2.5 pb-1">
                   <div>
                     <div className="line-clamp-2 text-xs leading-snug font-semibold">{item.服装名称}</div>
+                    {(descriptionGroups.get(costumeDescriptionKey(item))?.length ?? 0) > 1 && <button className="mt-2 text-left text-[11px] text-muted-foreground underline underline-offset-2" onClick={() => { setExpandedDescription(costumeDescriptionKey(item)); setGroupDescriptions(false); setShown(60) }}>查看同描述 {descriptionGroups.get(costumeDescriptionKey(item))!.length} 套</button>}
                     <div className="mt-1.5 flex flex-wrap gap-1">
                       {(item.标签 || []).slice(0, 5).map((t) => (
                         <span key={t} className="rounded bg-background px-1.5 py-0.5 text-[10px] text-muted-foreground">
@@ -259,10 +276,10 @@ function CostumesPage() {
         </div>
       )}
 
-      {shown < filtered.length && (
+      {shown < visibleCostumes.length && (
         <div className="flex justify-center pt-2">
           <Button variant="outline" onClick={() => setShown((s) => s + 60)}>
-            加载更多（剩余 {filtered.length - shown} 套）
+            加载更多（剩余 {visibleCostumes.length - shown} 套）
           </Button>
         </div>
       )}
@@ -276,7 +293,7 @@ function CostumesPage() {
               <div className="grid md:grid-cols-[1fr_320px]">
                 <div className="relative flex max-h-[78vh] min-h-[380px] items-center justify-center bg-muted/60 p-4">
                   <img
-                    src={`/${currentItem.预览图 || currentItem.原图}`}
+                    src={referenceImageUrl(currentItem.预览图 || currentItem.原图)}
                     alt={currentItem.服装名称}
                     className="max-h-[72vh] w-auto rounded-lg object-contain"
                   />
@@ -284,7 +301,7 @@ function CostumesPage() {
                     variant="secondary"
                     size="icon"
                     className="absolute top-1/2 left-3 -translate-y-1/2 rounded-full shadow"
-                    onClick={() => setViewerIndex((viewerIndex - 1 + filtered.length) % filtered.length)}
+                    onClick={() => setViewerIndex((viewerIndex - 1 + visibleCostumes.length) % visibleCostumes.length)}
                   >
                     <ChevronLeftIcon className="size-4" />
                   </Button>
@@ -292,7 +309,7 @@ function CostumesPage() {
                     variant="secondary"
                     size="icon"
                     className="absolute top-1/2 right-3 -translate-y-1/2 rounded-full shadow"
-                    onClick={() => setViewerIndex((viewerIndex + 1) % filtered.length)}
+                    onClick={() => setViewerIndex((viewerIndex + 1) % visibleCostumes.length)}
                   >
                     <ChevronRightIcon className="size-4" />
                   </Button>

@@ -2,7 +2,10 @@ import assert from 'node:assert/strict'
 import fs from 'node:fs'
 import path from 'node:path'
 import crypto from 'node:crypto'
-import { assetFor, buildCodexTask, characterIdentity, detachCharacter, identityPrompt, recipeForCharacter, validateCharacter } from '../src/lib/characters.ts'
+import { assetFor, buildCodexTask, characterIdentity, detachCharacter, identityPrompt, mergeCharacterProfile, recipeForCharacter, validateCharacter } from '../src/lib/characters.ts'
+import { applyCharacterBrief, emptyBrief, validateBrief, worldPrompt } from '../src/lib/characterWorld.ts'
+import { VOICE_PRESETS, voiceTask } from '../src/lib/characterVoice.ts'
+import { costumeDescriptionGroups, matchesCatalog } from '../src/lib/catalog.ts'
 
 const root = path.resolve(import.meta.dirname, '..')
 const profiles = JSON.parse(fs.readFileSync(path.join(root, 'data/ip-characters.json'), 'utf8'))
@@ -56,15 +59,48 @@ const workflowTask = buildCodexTask(second, 'workflow test', [
   { id: 'sheet', role: 'character_sheet', name: 'Sheet', url: '/sheet.png' },
 ])
 assert.deepEqual(workflowTask.references.map((reference) => reference.url), ['/sheet.png', second.portrait.原图, '/lighting.png', '/manual.png', second.extraImages.at(-1).url], 'Exported image order must match prompt numbering including workflow references')
+const event = first.world.events[1]
+const brief = { ...emptyBrief(), eventId: event.id, wardrobeId: event.wardrobeId, belongingIds: event.belongingIds, action: '倾听时拢发', emotion: '放松而略疲惫', grooming: '日常淡妆' }
+const personal = applyCharacterBrief(recipeForCharacter(first, selected), first, brief)
+assert.equal(personal.costume, null, 'Daily wardrobe must not conflict with gallery outfit')
+assert.equal(personal.pose, null, 'Personal habit replaces mannequin pose')
+assert.ok(personal.extraImages.some((reference) => reference.role === 'identity_detail'))
+assert.ok(worldPrompt(personal.character, personal.creativeBrief).includes(event.consequence))
+assert.ok(worldPrompt(personal.character, personal.creativeBrief).includes('背景简洁'))
+assert.ok(!recipeForCharacter(profiles[1], personal).extraImages.some((reference) => reference.source === 'character_world'), 'Changing identity must clear previous personal detail')
+assert.ok(!detachCharacter(personal).creativeBrief)
+assert.throws(() => validateBrief(first.world, { ...brief, belongingIds: ['missing'] }))
+const old = structuredClone(first)
+old.world = undefined
+old.voice = undefined
+old.assets = old.assets.slice(0, 3)
+old.body.heightCm = 171
+const merged = mergeCharacterProfile(first, old)
+assert.equal(merged.body.heightCm, 171, 'Library upgrade must preserve local body edits')
+assert.equal(merged.assets.length, first.assets.length, 'Library upgrade must include newly shipped assets')
+assert.equal(merged.voice.locale, first.voice.locale)
+const withAudio = structuredClone(first)
+withAudio.voice.samples = [{ id: 'sample', title: 'sample', url: 'data:audio/wav;base64,AA==', mimeType: 'audio/wav', createdAt: '2026-11-02', transcript: '', generator: 'test' }]
+assert.equal(characterIdentity(withAudio).voice.samples.length, 0, 'Image recipes must not embed audio payloads')
+assert.equal(voiceTask(profiles[2]).voice.locale, 'es-MX')
+assert.ok(voiceTask(profiles[2]).prompt.includes('墨西哥中部'))
+assert.ok(['es-MX', 'es-ES', 'es-AR', 'es-CO'].every((id) => VOICE_PRESETS.some((preset) => preset.id === id)))
+assert.equal(costumeDescriptionGroups(costumes).size, 1250)
+assert.ok(matchesCatalog('藏青色 knit olive green denim pants', 'denim 藏青色'))
+assert.ok(!matchesCatalog('藏青色 knit olive green denim pants', 'denim 红色'))
 for (const mutate of [
   (profile) => { profile.age = 17 },
   (profile) => { profile.body.heightCm = Number.NaN },
   (profile) => { profile.assets[1].parentAssetIds = ['missing'] },
   (profile) => { profile.assets[0].parentAssetIds = [profile.assets[1].id] },
   (profile) => { profile.assets[0].url = 'javascript:alert(1)' },
+  (profile) => { profile.world.events[0].belongingIds = ['missing'] },
+  (profile) => { profile.world.events[0].date = '2026-02-31' },
+  (profile) => { profile.voice.locale = 123 },
+  (profile) => { profile.voice.samples = [{ id: 'bad', url: 'javascript:alert(1)' }] },
 ]) {
   const invalid = structuredClone(first)
   mutate(invalid)
   assert.throws(() => validateCharacter(invalid))
 }
-console.log(JSON.stringify({ ok: true, characters: profiles.length, assets, looks: looks.length, checks: 'manifest files/hashes, catalog IDs, identity snapshots, character switching, Codex export, import validation' }))
+console.log(JSON.stringify({ ok: true, characters: profiles.length, assets, looks: looks.length, voiceProfiles: profiles.filter((profile) => profile.voice).length, checks: 'file integrity, catalog grouping/search, role switching, personal-state continuity, local migration, Spanish voice tasks, invalid imports' }))

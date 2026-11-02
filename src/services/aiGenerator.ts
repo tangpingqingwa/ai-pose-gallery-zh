@@ -2,6 +2,7 @@ import type { ApiConfig, ExtraReferenceImage, ImageProviderId, RecipeState } fro
 import { applyWorkflowOverrides, getWorkflowImages, validateReferenceCombinations, workflowIdentity, type ComfyObjectInfo } from '@/lib/comfyWorkflowParameters'
 import { poseImagePath } from '@/lib/recipeImages'
 import { ASSET_KINDS, identityPrompt } from '@/lib/characters'
+import { worldPrompt } from '@/lib/characterWorld'
 import qwen2509ThreeImageWorkflow from '@/workflows/qwen_image_edit_2509_3img.api.json'
 
 export interface ProviderModelOption {
@@ -185,6 +186,7 @@ export function buildRecipePrompt(recipe: RecipeState, stylePreset = 'realistic'
         : `• 服装：让人物穿上图${idx}中展示的整套服装和配饰（参考名称：${recipe.costume.服装名称}），每件单品的颜色、款式、面料与配饰都以图${idx}为准，名称仅作辅助说明。`
     )
     idx++
+    clauses.push('服装图只约束单品、面料、颜色与搭配，不复制人台的腰围、胸部、腿长、站姿或皮肤；服装按当前角色的真实体型自然适配。')
   }
   if (recipe.pose) {
     const wear = costumeIdx ? `，穿着图${costumeIdx}的服装` : ''
@@ -194,7 +196,7 @@ export function buildRecipePrompt(recipe: RecipeState, stylePreset = 'realistic'
     clauses.push(
       recipe.pose.source === 'upload'
         ? `• 姿势：按照图${idx}中的人物动作和镜头角度摆姿势；仅参考姿势与构图，不复制图${idx}人物的外观与服装，${body}。`
-        : `• 姿势：按照图${idx}中人体模型的动作和镜头角度摆姿势（${recipe.pose.姿势名称}，${recipe.pose.角度}）；图${idx}只是动作示意，${body}。`
+        : `• 姿势：按照图${idx}中人体模型的动作和镜头角度摆姿势（${recipe.pose.姿势名称}，${recipe.pose.角度}）；图${idx}只约束动作，不复制人台的身材、肢体比例、材质或无脸外观，${body}。`
     )
     idx++
   }
@@ -209,6 +211,12 @@ export function buildRecipePrompt(recipe: RecipeState, stylePreset = 'realistic'
     clauses.push(
       extra.role === 'character_body'
         ? `• 体型参考：图${idx}（${extra.name}）展示同一角色的全身多视角，只参考肩腰臀关系、体型和肢体比例，不把多个视图复制为场景中的多个人，不覆盖已选服装和动作。`
+        : extra.role === 'identity_detail'
+          ? `• 人物细节：图${idx}（${extra.name}）只固定五官、皮肤与手部细节，不复制多格布局、背景或参考图表情。`
+          : extra.role === 'prop'
+            ? `• 随身参考：图${idx}（${extra.name}）只参考所需物品；人物为主，不复制陈列布局或额外物件。`
+            : extra.role === 'wardrobe_detail'
+              ? `• 衣橱细节：图${idx}（${extra.name}）只约束穿着细节，不复制人台比例与背景。`
         : `• 附加参考：融合图${idx}（${extra.name || '补充元素'}）中的元素、配饰、背景或光影细节。`
     )
     idx++
@@ -228,6 +236,7 @@ export function buildRecipePrompt(recipe: RecipeState, stylePreset = 'realistic'
   if (recipe.character && recipe.characterTask) lines.push(`• 输出任务：${ASSET_KINDS[recipe.characterTask].instruction}`)
   if (recipe.customOutfit) lines.push(`• ${recipe.costume ? '服装搭配调整' : '自定义穿搭'}：${recipe.customOutfit}`)
   if (recipe.scene) lines.push(`• 场景与拍摄：${recipe.scene}`)
+  if (recipe.character) lines.push(worldPrompt(recipe.character, recipe.creativeBrief))
   lines.push('画面中没有任何文字、标志或水印。')
   return lines.join('\n')
 }

@@ -1,4 +1,4 @@
-import type { CharacterAssetKind, CharacterIdentity } from '@/types/character'
+import type { CharacterAssetKind, CharacterComposition, CharacterCreativeBrief, CharacterIdentity } from '@/types/character'
 
 export interface PoseItem {
   source?: 'upload'
@@ -57,7 +57,8 @@ export interface PortraitItem {
 }
 
 export interface ExtraReferenceImage {
-  role?: 'character_sheet' | 'character_body'
+  role?: 'character_sheet' | 'character_body' | 'prop' | 'wardrobe_detail' | 'identity_detail'
+  source?: 'character_world'
   id: string
   name: string
   url: string
@@ -69,6 +70,7 @@ export interface RecipeState {
   scene?: string
   customOutfit?: string
   lookId?: string
+  creativeBrief?: CharacterCreativeBrief
   portrait: PortraitItem | null
   costume: CostumeItem | null
   pose: PoseItem | null
@@ -167,5 +169,5 @@ export interface GenerationHistoryItem {
   character?: CharacterIdentity
   assetKind?: CharacterAssetKind
   referenceUrls?: string[]
-  composition?: { lookId?: string; costumeId?: string; poseId?: string; scene?: string; customOutfit?: string }
+  composition?: CharacterComposition
 }

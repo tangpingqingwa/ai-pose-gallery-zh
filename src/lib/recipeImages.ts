@@ -48,6 +48,7 @@ export function recipeBackup(recipe: RecipeState): RecipeState {
     scene: recipe.scene,
     customOutfit: recipe.customOutfit,
     lookId: recipe.lookId,
+    creativeBrief: recipe.creativeBrief,
     portrait: recipe.portrait?.source === 'upload' ? null : recipe.portrait,
     costume: recipe.costume?.source === 'upload' ? null : recipe.costume,
     pose: recipe.pose?.source === 'upload' ? null : recipe.pose,

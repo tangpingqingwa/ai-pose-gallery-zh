@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useMemo, useRef, useState, type R
 import { toast } from 'sonner'
 import seedData from '../../data/ip-characters.json'
 import { idbGet, idbSet } from '@/lib/idbStorage'
-import { validateCharacter } from '@/lib/characters'
+import { mergeCharacterProfile, validateCharacter } from '@/lib/characters'
 import type { CharacterAsset, CharacterProfile } from '@/types/character'
 
 const KEY = 'pose_atlas_character_library_v1'
@@ -27,7 +27,7 @@ export function CharacterLibraryProvider({ children }: { children: ReactNode }) 
   const writes = useRef(Promise.resolve())
   const profiles = useMemo(() => {
     const map = new Map(seedProfiles.map((profile) => [profile.id, profile]))
-    for (const profile of overrides) map.set(profile.id, profile)
+    for (const profile of overrides) map.set(profile.id, mergeCharacterProfile(map.get(profile.id), profile))
     return [...map.values()]
   }, [overrides])
 

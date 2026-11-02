@@ -31,7 +31,7 @@ export function AppHeader() {
     const [posesRes, costumes, portraits] = await Promise.all([
       qc.ensureQueryData(posesQuery),
       qc.ensureQueryData(costumesQuery),
-      qc.ensureQueryData(portraitsQuery),
+      recipe.character ? Promise.resolve([]) : qc.ensureQueryData(portraitsQuery),
     ])
     randomizeRecipe({
       poses: posesRes.items,
@@ -81,15 +81,15 @@ export function AppHeader() {
         </Button>
         <Button variant="outline" size="sm" onClick={handleRandom} className="hidden sm:inline-flex">
           <DicesIcon className="size-3.5" />
-          随机捏人
+          {recipe.character ? '随机搭配' : '随机参考'}
         </Button>
         <Button size="sm" asChild>
           <Link to="/studio">
             <SparklesIcon className="size-3.5" />
-            AI 合成台
-            {selectedCount > 0 && (
+            {recipe.character ? '人物创作' : 'AI 合成台'}
+            {!recipe.character && selectedCount > 0 && (
               <span className="ml-1 rounded-full bg-primary-foreground/20 px-1.5 py-0.2 text-[11px] font-bold">
-                {selectedCount}/3
+                {selectedCount} 项
               </span>
             )}
           </Link>

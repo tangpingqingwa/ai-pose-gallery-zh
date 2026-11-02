@@ -1,6 +1,7 @@
 import type { LinkProps } from '@tanstack/react-router'
 import {
   BookOpenIcon,
+  ClipboardCheckIcon,
   KeyRoundIcon,
   LayoutDashboardIcon,
   PersonStandingIcon,
@@ -36,7 +37,8 @@ export const navGroups: NavGroup[] = [
     items: [
       { title: '动作姿势库', to: '/poses', icon: PersonStandingIcon, badge: '1,439' },
       { title: '服装穿搭库', to: '/costumes', icon: ShirtIcon, badge: '1,407' },
-      { title: '人像颜值库', to: '/portraits', icon: UserRoundIcon, badge: '1,499' },
+      { title: '人像参考库', to: '/portraits', icon: UserRoundIcon },
+      { title: '参考库检查', to: '/library-quality', icon: ClipboardCheckIcon },
     ],
   },
   {

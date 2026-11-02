@@ -21,6 +21,7 @@ export function AppSidebar() {
   const active = activeNavTo(pathname)
   const { recipe } = useStudio()
   const count = [recipe.portrait, recipe.costume, recipe.pose].filter(Boolean).length
+  const onCharacters = pathname.startsWith('/characters')
 
   return (
     <Sidebar collapsible="icon">
@@ -34,7 +35,7 @@ export function AppSidebar() {
                 </div>
                 <div className="grid flex-1 text-left leading-tight">
                   <span className="truncate text-sm font-semibold">POSE &amp; CHARACTER</span>
-                  <span className="truncate text-xs text-muted-foreground">AI 角色三合一参考台</span>
+                  <span className="truncate text-xs text-muted-foreground">IP 人物档案与创作台</span>
                 </div>
               </Link>
             </SidebarMenuButton>
@@ -71,14 +72,14 @@ export function AppSidebar() {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild tooltip="当前角色配方">
-              <Link to="/studio" className="bg-sidebar-accent/70 hover:bg-sidebar-accent">
+              <Link to={onCharacters && !recipe.character ? '/characters' : '/studio'} className="bg-sidebar-accent/70 hover:bg-sidebar-accent">
                 <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-primary/10 text-primary">
                   <SparklesIcon className="size-4" />
                 </div>
                 <div className="grid flex-1 text-left text-xs leading-tight">
-                  <span className="truncate font-semibold">角色配方槽 ({count}/3)</span>
+                  <span className="truncate font-semibold">{recipe.character ? recipe.character.name : onCharacters ? '人物档案与创作' : `参考组合（${count} 项）`}</span>
                   <span className="truncate text-[11px] text-muted-foreground">
-                    {count === 0 ? '未选择 · 点击去捏人' : '点击进入 AI 合成台'}
+                    {recipe.character ? '身份 · 人物状态 · 语言声音' : onCharacters ? '选择角色，补充个性与口音' : count === 0 ? '选择参考，或从角色档案开始' : '点击进入 AI 合成台'}
                   </span>
                 </div>
               </Link>

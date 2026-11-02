@@ -1,3 +1,5 @@
+import type { CharacterAssetKind, CharacterIdentity } from '@/types/character'
+
 export interface PoseItem {
   source?: 'upload'
   /** 是否使用灰阶深度图（Depth Map）代替素体白模 */
@@ -38,7 +40,7 @@ export interface CostumeItem {
 }
 
 export interface PortraitItem {
-  source?: 'upload'
+  source?: 'upload' | 'character'
   id: string
   分区: string
   发长: string
@@ -55,13 +57,18 @@ export interface PortraitItem {
 }
 
 export interface ExtraReferenceImage {
-  role?: 'character_sheet'
+  role?: 'character_sheet' | 'character_body'
   id: string
   name: string
   url: string
 }
 
 export interface RecipeState {
+  character?: CharacterIdentity | null
+  characterTask?: CharacterAssetKind
+  scene?: string
+  customOutfit?: string
+  lookId?: string
   portrait: PortraitItem | null
   costume: CostumeItem | null
   pose: PoseItem | null
@@ -157,4 +164,8 @@ export interface GenerationHistoryItem {
   prompt: string
   imageUrl: string
   recipeSummary: string
+  character?: CharacterIdentity
+  assetKind?: CharacterAssetKind
+  referenceUrls?: string[]
+  composition?: { lookId?: string; costumeId?: string; poseId?: string; scene?: string; customOutfit?: string }
 }

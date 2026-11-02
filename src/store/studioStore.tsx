@@ -13,7 +13,9 @@ import {
 } from '@/components/ui/alert-dialog'
 import { idbGet, idbSet } from '@/lib/idbStorage'
 import { parseParameterWorkflow, workflowIdentity } from '@/lib/comfyWorkflowParameters'
-import { recipeBackup } from '@/lib/recipeImages'
+import { poseImagePath, recipeBackup } from '@/lib/recipeImages'
+import { buildCodexTask, detachCharacter, recipeForCharacter } from '@/lib/characters'
+import type { CharacterAssetKind, CharacterProfile } from '@/types/character'
 import {
   buildRecipePrompt,
   COMFYUI_WORKFLOW_TEMPLATES,
@@ -207,6 +209,9 @@ interface StudioContextValue {
   startGeneration: (overridePrompt?: string) => Promise<void>
   refreshStitchPreview: () => Promise<void>
   setPortrait: (item: PortraitItem | null) => void
+  setCharacter: (profile: CharacterProfile | null, composition?: { costume?: CostumeItem | null; pose?: PoseItem | null; scene?: string; customOutfit?: string; lookId?: string }) => void
+  setCharacterTask: (kind: CharacterAssetKind) => void
+  setCharacterScene: (scene: string) => void
   setCostume: (item: CostumeItem | null) => void
   setPose: (item: PoseItem | null) => void
   togglePortrait: (item: PortraitItem) => void
@@ -239,6 +244,11 @@ export function StudioProvider({ children }: { children: ReactNode }) {
       if (!raw) return { portrait: null, costume: null, pose: null, extraImages: [] }
       const parsed = JSON.parse(raw)
       return {
+        character: parsed.character ?? null,
+        characterTask: parsed.characterTask,
+        scene: parsed.scene,
+        customOutfit: parsed.customOutfit,
+        lookId: parsed.lookId,
         portrait: parsed.portrait ?? null,
         costume: parsed.costume ?? null,
         pose: parsed.pose ?? null,
@@ -310,6 +320,11 @@ export function StudioProvider({ children }: { children: ReactNode }) {
           setPoseDepthModeState(Boolean(savedRecipe.pose.useDepth))
         }
         setRecipe({
+          character: savedRecipe.character ?? null,
+          characterTask: savedRecipe.characterTask,
+          scene: savedRecipe.scene,
+          customOutfit: savedRecipe.customOutfit,
+          lookId: savedRecipe.lookId,
           portrait: savedRecipe.portrait ?? null,
           costume: savedRecipe.costume ?? null,
           pose: savedRecipe.pose ?? null,
@@ -385,9 +400,31 @@ export function StudioProvider({ children }: { children: ReactNode }) {
     void idbSet(HISTORY_KEY, history.slice(0, 30))
   }, [history, idbHydrated])
 
-  const setPortrait = (portrait: PortraitItem | null) => setRecipe((r) => ({ ...r, portrait }))
-  const setCostume = (costume: CostumeItem | null) => setRecipe((r) => ({ ...r, costume }))
-  const setPose = (pose: PoseItem | null) => setRecipe((r) => ({ ...r, pose }))
+  const setPortrait = (portrait: PortraitItem | null) => {
+    setCustomPrompt(null)
+    setRecipe((r) => ({ ...detachCharacter(r), portrait }))
+  }
+  const setCharacter: StudioContextValue['setCharacter'] = (profile, composition) => {
+    const next = profile ? recipeForCharacter(profile, recipe) : detachCharacter(recipe)
+    setRecipe(composition ? { ...next, ...composition } : next)
+    setCustomPrompt(null)
+  }
+  const setCharacterTask = (kind: CharacterAssetKind) => {
+    setRecipe((r) => kind === 'lifestyle' ? { ...r, characterTask: kind } : { ...r, characterTask: kind, pose: null, scene: undefined, lookId: undefined })
+    setCustomPrompt(null)
+  }
+  const setCharacterScene = (scene: string) => {
+    setRecipe((r) => ({ ...r, scene, lookId: undefined }))
+    setCustomPrompt(null)
+  }
+  const setCostume = (costume: CostumeItem | null) => {
+    setCustomPrompt(null)
+    setRecipe((r) => ({ ...r, costume, lookId: undefined, customOutfit: undefined }))
+  }
+  const setPose = (pose: PoseItem | null) => {
+    setCustomPrompt(null)
+    setRecipe((r) => ({ ...r, pose, lookId: undefined }))
+  }
 
   const setPoseDepthMode = (val: boolean) => {
     setPoseDepthModeState(val)
@@ -404,22 +441,25 @@ export function StudioProvider({ children }: { children: ReactNode }) {
   }
 
   const togglePortrait = (item: PortraitItem) => {
+    setCustomPrompt(null)
     setRecipe((r) => {
       const remove = r.portrait?.id === item.id
       toast.success(remove ? '已移除人像' : `已选人像：${item.发型名称}`)
-      return { ...r, portrait: remove ? null : item }
+      return { ...detachCharacter(r), portrait: remove ? null : item }
     })
   }
 
   const toggleCostume = (item: CostumeItem) => {
+    setCustomPrompt(null)
     setRecipe((r) => {
       const remove = r.costume?.id === item.id
       toast.success(remove ? '已移除服装' : `已选服装：${item.服装名称}`)
-      return { ...r, costume: remove ? null : item }
+      return { ...r, costume: remove ? null : item, lookId: undefined, customOutfit: undefined }
     })
   }
 
   const togglePose = (item: PoseItem) => {
+    setCustomPrompt(null)
     const useDepth = item.source === 'upload' ? false : (item.useDepth ?? poseDepthMode)
     setRecipe((r) => {
       const remove = r.pose?.id === item.id && Boolean(r.pose?.useDepth) === useDepth
@@ -428,7 +468,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
           ? '已移除姿势'
           : `已选姿势：${item.姿势名称}（${item.角度}${useDepth ? ' · 深度图' : ''}）`
       )
-      return { ...r, pose: remove ? null : { ...item, useDepth } }
+      return { ...r, pose: remove ? null : { ...item, useDepth }, lookId: undefined }
     })
   }
 
@@ -493,12 +533,15 @@ export function StudioProvider({ children }: { children: ReactNode }) {
   }
 
   const randomizeRecipe = (pools: { portraits?: PortraitItem[]; costumes?: CostumeItem[]; poses?: PoseItem[] }) => {
+    setCustomPrompt(null)
     const posePool = safeMode ? (pools.poses || []).filter((p) => !isNsfwPose(p)) : pools.poses || []
     const costumePool = safeMode ? (pools.costumes || []).filter((c) => !isNsfwCostume(c)) : pools.costumes || []
     const portraitPool = pools.portraits || []
 
     setRecipe((prev) => ({
-      ...prev,
+      ...(portraitPool.length ? detachCharacter(prev) : prev),
+      lookId: undefined,
+      customOutfit: portraitPool.length || costumePool.length ? undefined : prev.customOutfit,
       portrait: portraitPool.length
         ? portraitPool[Math.floor(Math.random() * portraitPool.length)]
         : prev.portrait,
@@ -624,6 +667,14 @@ export function StudioProvider({ children }: { children: ReactNode }) {
         .filter(Boolean)
         .join(' + ')
       addHistory({
+        character: recipeSnapshot.character ? structuredClone(recipeSnapshot.character) : undefined,
+        assetKind: recipeSnapshot.characterTask,
+        referenceUrls: buildCodexTask(
+          recipeSnapshot.pose ? { ...recipeSnapshot, pose: { ...recipeSnapshot.pose, 原图: poseImagePath(recipeSnapshot.pose) } } : recipeSnapshot,
+          finalPrompt,
+          configSnapshot.activeProvider === 'comfyui' && recipeSnapshot.workflowImagesIdentity === workflowIdentity(configSnapshot.comfyuiParams.workflowJson) ? Object.values(recipeSnapshot.workflowImages || {}) : [],
+        ).references.map((reference) => reference.url),
+        composition: { lookId: recipeSnapshot.lookId, costumeId: recipeSnapshot.costume?.id, poseId: recipeSnapshot.pose?.id, scene: recipeSnapshot.scene, customOutfit: recipeSnapshot.customOutfit },
         provider: providerUsed,
         model: modelUsed,
         prompt: finalPrompt,
@@ -665,6 +716,9 @@ export function StudioProvider({ children }: { children: ReactNode }) {
         startGeneration,
         refreshStitchPreview,
         setPortrait,
+        setCharacter,
+        setCharacterTask,
+        setCharacterScene,
         setCostume,
         setPose,
         togglePortrait,

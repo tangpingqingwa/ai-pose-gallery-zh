@@ -1,5 +1,5 @@
 import { useSuspenseQuery } from '@tanstack/react-query'
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, Link } from '@tanstack/react-router'
 import {
   CheckIcon,
   ChevronLeftIcon,
@@ -25,6 +25,10 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Skeleton } from '@/components/ui/skeleton'
 import { cn } from '@/lib/utils'
 import { useStudio } from '@/store/studioStore'
+import { useCharacterLibrary } from '@/store/characterStore'
+import { portraitFor } from '@/lib/characters'
+import { referenceImageUrl } from '@/lib/recipeImages'
+import type { PortraitItem } from '@/types/gallery'
 
 export const Route = createFileRoute('/portraits')({
   staticData: { title: '人像颜值库' },
@@ -36,10 +40,19 @@ export const Route = createFileRoute('/portraits')({
 const HAIRS = ['短发', '中发', '中长发', '长发'] as const
 
 function PortraitsPage() {
-  const { data: portraits } = useSuspenseQuery(portraitsQuery)
-  const { recipe, togglePortrait } = useStudio()
+  const { data: originalPortraits } = useSuspenseQuery(portraitsQuery)
+  const { profiles } = useCharacterLibrary()
+  const portraits = useMemo(() => [...profiles.map(portraitFor).filter((portrait): portrait is PortraitItem => Boolean(portrait)), ...originalPortraits], [profiles, originalPortraits])
+  const { recipe, togglePortrait: toggleReferencePortrait, setCharacter, setPortrait } = useStudio()
+  function togglePortrait(item: PortraitItem) {
+    const profile = item.source === 'character' ? profiles.find((profile) => `character:${profile.id}` === item.id) : undefined
+    if (profile) {
+      if (recipe.character?.id === profile.id) setPortrait(null)
+      else setCharacter(profile)
+    } else toggleReferencePortrait(item)
+  }
 
-  const [section, setSection] = useState<'' | '正脸参考' | '造型氛围'>('')
+  const [section, setSection] = useState<'' | '正脸参考' | '造型氛围' | '自有角色'>('')
   const [hair, setHair] = useState('')
   const [styleName, setStyleName] = useState('all')
   const [onlyHot, setOnlyHot] = useState(false)
@@ -118,7 +131,7 @@ function PortraitsPage() {
         >
           全部人像 ({portraits.length})
         </button>
-        {(['正脸参考', '造型氛围'] as const).map((sec) => {
+        {(['自有角色', '正脸参考', '造型氛围'] as const).map((sec) => {
           const cnt = portraits.filter((x) => x.分区 === sec).length
           return (
             <button
@@ -231,7 +244,7 @@ function PortraitsPage() {
                   className="relative aspect-4/5 cursor-zoom-in overflow-hidden rounded-2xl bg-background"
                 >
                   <img
-                    src={`/${item.缩略图}`}
+                    src={referenceImageUrl(item.缩略图)}
                     alt={item.标题}
                     loading="lazy"
                     className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
@@ -269,7 +282,7 @@ function PortraitsPage() {
                   <div className="line-clamp-2 min-h-[34px] text-xs leading-snug font-semibold">{item.发型名称}</div>
                   <div className="mt-1 flex items-center justify-between font-mono text-[10px] text-muted-foreground">
                     <span>{item.id}</span>
-                    <span>CC0</span>
+                    <span>{item.source === 'character' ? '项目自制' : 'CC0'}</span>
                   </div>
                 </div>
               </div>
@@ -295,7 +308,7 @@ function PortraitsPage() {
               <div className="grid md:grid-cols-[1fr_320px]">
                 <div className="relative flex max-h-[78vh] min-h-[380px] items-center justify-center bg-muted/60 p-4">
                   <img
-                    src={`/${currentItem.原图}`}
+                    src={referenceImageUrl(currentItem.原图)}
                     alt={currentItem.标题}
                     className="max-h-[72vh] w-auto rounded-lg object-contain"
                   />
@@ -350,24 +363,25 @@ function PortraitsPage() {
                         {currentItem.宽} × {currentItem.高}
                       </dd>
                       <dt className="text-muted-foreground">授权协议</dt>
-                      <dd className="font-medium text-emerald-600 dark:text-emerald-400">CC0 1.0 公共领域（可商用）</dd>
+                      <dd className="font-medium text-emerald-600 dark:text-emerald-400">{currentItem.source === 'character' ? '项目自制，来源与配方见角色档案' : 'CC0 1.0 公共领域（可商用）'}</dd>
                     </dl>
                   </div>
 
                   <div className="flex flex-col gap-2">
+                    {currentItem.source === 'character' && <Button variant="outline" asChild><Link to="/characters" search={{ id: currentItem.id.replace('character:', '') }}>查看完整角色档案</Link></Button>}
                     <Button onClick={() => togglePortrait(currentItem)} variant={picked ? 'secondary' : 'default'}>
                       {picked ? <CheckIcon className="size-4" /> : <PlusIcon className="size-4" />}
                       {picked ? '已在角色配方中（点击移除）' : '加入角色配方'}
                     </Button>
                     <div className="grid grid-cols-2 gap-2">
                       <Button variant="outline" size="sm" asChild>
-                        <a href={`/${currentItem.原图}`} download={`${currentItem.id}.webp`}>
+                        <a href={referenceImageUrl(currentItem.原图)} download={`${currentItem.id}.${currentItem.source === 'character' ? 'png' : 'webp'}`}>
                           <DownloadIcon className="size-3.5" />
                           下载高清原图
                         </a>
                       </Button>
                       <Button variant="outline" size="sm" asChild>
-                        <a href={`/${currentItem.原图}`} target="_blank" rel="noopener noreferrer">
+                        <a href={referenceImageUrl(currentItem.原图)} target="_blank" rel="noopener noreferrer">
                           <ExternalLinkIcon className="size-3.5" />
                           新窗口原图
                         </a>

@@ -30,7 +30,7 @@ export async function idbGet<T>(key: string): Promise<T | undefined> {
   }
 }
 
-export async function idbSet<T>(key: string, value: T): Promise<void> {
+export async function idbSet<T>(key: string, value: T, strict = false): Promise<void> {
   try {
     const db = await openDb()
     await new Promise<void>((resolve, reject) => {
@@ -39,7 +39,8 @@ export async function idbSet<T>(key: string, value: T): Promise<void> {
       tx.oncomplete = () => resolve()
       tx.onerror = () => reject(tx.error)
     })
-  } catch {
+  } catch (error) {
+    if (strict) throw error
     // ignore storage errors in private browsing
   }
 }

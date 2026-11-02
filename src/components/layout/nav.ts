@@ -27,6 +27,7 @@ export const navGroups: NavGroup[] = [
     label: '工作台',
     items: [
       { title: '图库总览', to: '/', icon: LayoutDashboardIcon },
+      { title: '自有 IP 角色库', to: '/characters', icon: UserRoundIcon },
       { title: 'AI 角色合成台', to: '/studio', icon: SparklesIcon, badge: 'PRO' },
     ],
   },

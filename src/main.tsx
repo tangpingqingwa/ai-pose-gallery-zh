@@ -4,6 +4,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { ThemeProvider } from '@/components/theme/ThemeProvider'
 import { StudioProvider } from '@/store/studioStore'
+import { CharacterLibraryProvider } from '@/store/characterStore'
 import { routeTree } from './routeTree.gen'
 import './index.css'
 
@@ -38,9 +39,11 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ThemeProvider>
       <QueryClientProvider client={queryClient}>
+        <CharacterLibraryProvider>
         <StudioProvider>
           <RouterProvider router={router} />
         </StudioProvider>
+        </CharacterLibraryProvider>
       </QueryClientProvider>
     </ThemeProvider>
   </StrictMode>

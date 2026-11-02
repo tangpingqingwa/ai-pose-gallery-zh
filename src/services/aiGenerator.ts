@@ -1,6 +1,7 @@
 import type { ApiConfig, ExtraReferenceImage, ImageProviderId, RecipeState } from '@/types/gallery'
 import { applyWorkflowOverrides, getWorkflowImages, validateReferenceCombinations, workflowIdentity, type ComfyObjectInfo } from '@/lib/comfyWorkflowParameters'
 import { poseImagePath } from '@/lib/recipeImages'
+import { ASSET_KINDS, identityPrompt } from '@/lib/characters'
 import qwen2509ThreeImageWorkflow from '@/workflows/qwen_image_edit_2509_3img.api.json'
 
 export interface ProviderModelOption {
@@ -153,6 +154,7 @@ export function buildRecipePrompt(recipe: RecipeState, stylePreset = 'realistic'
   const isPhoto = PHOTO_STYLES.has(stylePreset)
   const faceless = !recipe.portrait && !workflowImages.some((image) => image.role === 'character_sheet') && Boolean(recipe.costume && recipe.pose)
   const clauses: string[] = []
+  if (recipe.character) clauses.push(identityPrompt(recipe.character))
   let idx = 1
   let costumeIdx = 0
 
@@ -166,8 +168,8 @@ export function buildRecipePrompt(recipe: RecipeState, stylePreset = 'realistic'
       recipe.portrait.发型名称 && recipe.portrait.发型名称 !== '标准基础款'
         ? recipe.portrait.标题
         : recipe.portrait.发长
-    const skin = '人物的肤色必须与图一人物一致，所有裸露皮肤（包括服装镂空处露出的皮肤）必须与脸部肤色统一，统一后的肤色与质感按风格要求呈现。'
-    const outfit = recipe.costume ? '' : '保留图1人物原有可见服装与配饰，不复制姿势参考图的服装或白模外观。'
+    const skin = `人物的肤色必须与图${idx}人物一致，所有裸露皮肤（包括服装镂空处露出的皮肤）必须与脸部肤色统一，统一后的肤色与质感按风格要求呈现。`
+    const outfit = recipe.costume || recipe.customOutfit ? '' : `保留图${idx}人物原有可见服装与配饰，不复制姿势参考图的服装或白模外观。`
     clauses.push(
       recipe.portrait.source === 'upload'
         ? `• 人物：图${idx}中的人物，保持其脸型、五官、发型和发色一致。${skin}${outfit}`
@@ -205,7 +207,9 @@ export function buildRecipePrompt(recipe: RecipeState, stylePreset = 'realistic'
   }
   for (const extra of recipe.extraImages || []) {
     clauses.push(
-      `• 附加参考：融合图${idx}（${extra.name || '补充元素'}）中的元素、配饰、背景或光影细节。`
+      extra.role === 'character_body'
+        ? `• 体型参考：图${idx}（${extra.name}）展示同一角色的全身多视角，只参考肩腰臀关系、体型和肢体比例，不把多个视图复制为场景中的多个人，不覆盖已选服装和动作。`
+        : `• 附加参考：融合图${idx}（${extra.name || '补充元素'}）中的元素、配饰、背景或光影细节。`
     )
     idx++
   }
@@ -221,6 +225,9 @@ export function buildRecipePrompt(recipe: RecipeState, stylePreset = 'realistic'
   if (styleInfo.prompt) {
     lines.push(`• 风格：${styleInfo.prompt} ${faceless ? '人物比例协调，手部自然，脸部无五官，光影统一。' : '人物比例协调，手部与五官自然，光影统一。'}`)
   }
+  if (recipe.character && recipe.characterTask) lines.push(`• 输出任务：${ASSET_KINDS[recipe.characterTask].instruction}`)
+  if (recipe.customOutfit) lines.push(`• ${recipe.costume ? '服装搭配调整' : '自定义穿搭'}：${recipe.customOutfit}`)
+  if (recipe.scene) lines.push(`• 场景与拍摄：${recipe.scene}`)
   lines.push('画面中没有任何文字、标志或水印。')
   return lines.join('\n')
 }

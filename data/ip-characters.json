@@ -1,0 +1,985 @@
+[
+  {
+    "schemaVersion": 1,
+    "id": "IP-EU-001",
+    "slug": "maeve-quinn",
+    "version": 1,
+    "name": "Maeve Quinn",
+    "displayName": "梅芙",
+    "age": 29,
+    "gender": "女性",
+    "market": [
+      "欧洲",
+      "北美"
+    ],
+    "baseCity": "都柏林",
+    "tagline": "雀斑、灰绿眼与自然赤褐卷发",
+    "status": "active",
+    "persona": {
+      "positioning": "户外散步与真实日常",
+      "topics": [
+        "城市散步",
+        "户外生活",
+        "可持续穿搭"
+      ],
+      "personality": [
+        "坦率",
+        "好奇",
+        "有幽默感"
+      ],
+      "bio": "住在都柏林的独立花艺师。周末徒步，平时记录旧书店、花市和真实生活里的小发现。",
+      "voice": "中低音，温暖略带沙哑，语速自然，句尾轻松。"
+    },
+    "appearance": {
+      "skin": "浅中性色，鼻梁与双颊有疏密不均的雀斑",
+      "hair": "锁骨长度赤褐色自然波浪卷，偏分",
+      "eyes": "灰绿色杏眼，轻微内收的上眼皮",
+      "face": "长椭圆脸，下颌略宽，耳朵轻微外展",
+      "nose": "细长直鼻梁，圆润鼻尖",
+      "lips": "中等厚度，闭嘴笑时嘴角轻微不对称",
+      "brows": "自然赤褐眉，左右眉峰稍有高低",
+      "marks": [
+        "鼻梁与双颊雀斑",
+        "左下颌附近一颗小痣",
+        "轻微招风耳"
+      ],
+      "bodyType": "匀称",
+      "promptEn": "A fictional 29-year-old woman with a long oval face, slightly broad jaw, gently protruding ears, pale neutral skin with irregular freckles across the nose bridge and cheeks, gray-green almond eyes with softly hooded lids, collarbone-length auburn wavy hair with an off-center part, naturally uneven reddish brows, a slender straight nose with a rounded tip, medium lips with a subtly asymmetric closed-mouth smile, and a tiny beauty mark near her left jawline.",
+      "bodyEn": "170 cm design height, 64 kg design weight, balanced medium build, natural waist, strong practical legs, chest/waist/hips design targets 91/73/99 cm; realistic adult anatomy, not elongated fashion-model proportions."
+    },
+    "body": {
+      "basis": "design_target",
+      "heightCm": 170,
+      "weightKg": 64,
+      "chestCm": 91,
+      "waistCm": 73,
+      "hipsCm": 99,
+      "shoulderCm": 40,
+      "inseamCm": 79
+    },
+    "style": {
+      "signatureOutfit": "水洗藏青色圆领棉 T 恤、直筒牛仔裤、白色低帮鞋",
+      "palette": [
+        "藏青",
+        "苔绿",
+        "砖红"
+      ],
+      "outfitEn": "washed navy crew-neck cotton T-shirt, straight-leg indigo jeans and plain white low-top sneakers"
+    },
+    "assets": [
+      {
+        "id": "IP-EU-001-portrait-v1",
+        "kind": "portrait",
+        "title": "正脸母版",
+        "url": "/ip-assets/maeve-quinn/portrait.png",
+        "parentAssetIds": [],
+        "createdAt": "2026-11-02",
+        "generator": "Codex 内置生图",
+        "prompt": "Use case: photorealistic-natural. Asset type: original fictional adult virtual influencer identity anchor; no celebrity or existing person. Generate ONE vertical 2:3 straight-on chest-up professional casting photograph. A fictional 29-year-old woman with a long oval face, slightly broad jaw, gently protruding ears, pale neutral skin with irregular freckles across the nose bridge and cheeks, gray-green almond eyes with softly hooded lids, collarbone-length auburn wavy hair with an off-center part, naturally uneven reddish brows, a slender straight nose with a rounded tip, medium lips with a subtly asymmetric closed-mouth smile, and a tiny beauty mark near her left jawline. Wearing washed navy crew-neck cotton T-shirt. Neutral medium-light gray seamless studio backdrop, large soft window light, balanced natural color, eye-level 85mm photographic look. Head fully visible with breathing room, shoulders square to camera, direct eye contact. Real skin pores, natural asymmetry, baby hairs and age-appropriate texture. No beauty filters, airbrushing, glamour makeup, collage, text, numbers, logo or watermark. Exactly one person and one photograph. This is a reusable character's canonical identity reference.",
+        "review": "reviewed",
+        "width": 1024,
+        "height": 1536,
+        "sha256": "9c762b352b43748fa4d5f86b00db49ea86aef629de3ab5ce9b6d9f4f8bf44374"
+      },
+      {
+        "id": "IP-EU-001-turnaround-v1",
+        "kind": "turnaround",
+        "title": "全身三视角",
+        "url": "/ip-assets/maeve-quinn/turnaround.png",
+        "parentAssetIds": [
+          "IP-EU-001-portrait-v1"
+        ],
+        "createdAt": "2026-11-02",
+        "generator": "Codex 内置生图",
+        "prompt": "Use case: identity-preserve. Asset type: canonical full-body turnaround reference for an original fictional adult character asset library. Image 1 is the canonical FACE IDENTITY reference and must be preserved, not a styling suggestion. Make a wide landscape 3:2 photographic reference sheet with exactly THREE evenly spaced full-body views of this SAME adult woman: front, left-side profile, and rear three-quarter. Each entire person including top of head and shoes must fit with generous clear margins; no body cropped. A fictional 29-year-old woman with a long oval face, slightly broad jaw, gently protruding ears, pale neutral skin with irregular freckles across the nose bridge and cheeks, gray-green almond eyes with softly hooded lids, collarbone-length auburn wavy hair with an off-center part, naturally uneven reddish brows, a slender straight nose with a rounded tip, medium lips with a subtly asymmetric closed-mouth smile, and a tiny beauty mark near her left jawline. 170 cm design height, 64 kg design weight, balanced medium build, natural waist, strong practical legs, chest/waist/hips design targets 91/73/99 cm; realistic adult anatomy, not elongated fashion-model proportions. She wears washed navy crew-neck cotton T-shirt, straight-leg indigo jeans and plain white low-top sneakers in all three views. Same face, hair length and wave, freckles and skin color as reference in every view. Relaxed neutral stance, arms slightly away from body, feet hip width. Uniform gray seamless studio floor and backdrop, broad soft light with consistent shadows, true photographic adult skin and cotton/denim textures. Reproduce the same body proportions from all angles. Numbers are character design intent, not literal anatomical measurement. No labels, numbers, captions, graphic frame, logos, watermark, ruler, nudity or glamour retouching. Three views of ONE identity, not three different women.",
+        "review": "reviewed",
+        "width": 1536,
+        "height": 1024,
+        "sha256": "11a4eed5667cd83d69132f86cf7af33d8b5000ddf9c620ea2bc5a22a5ac2c84f"
+      },
+      {
+        "id": "IP-EU-001-expressions-v1",
+        "kind": "expressions",
+        "title": "四种自然表情",
+        "url": "/ip-assets/maeve-quinn/expressions.png",
+        "parentAssetIds": [
+          "IP-EU-001-portrait-v1"
+        ],
+        "createdAt": "2026-11-02",
+        "generator": "Codex 内置生图",
+        "prompt": "Use case: identity-preserve. Image 1 is the exact canonical face identity reference of the SAME fictional adult person, not a style suggestion. A fictional 29-year-old woman with a long oval face, slightly broad jaw, gently protruding ears, pale neutral skin with irregular freckles across the nose bridge and cheeks, gray-green almond eyes with softly hooded lids, collarbone-length auburn wavy hair with an off-center part, naturally uneven reddish brows, a slender straight nose with a rounded tip, medium lips with a subtly asymmetric closed-mouth smile, and a tiny beauty mark near her left jawline. Generate a square 1:1 professional photographic expression sheet in a clean 2 by 2 grid. FOUR close head-and-shoulders portraits of this exact SAME adult person: top-left relaxed neutral expression, top-right genuine tooth-showing happy smile, bottom-left focused thoughtful expression with gently narrowed eyes, bottom-right mild surprise with slightly raised eyebrows and softly parted lips. Head entirely visible in each tile. No extreme comic expressions. Same gray studio background, same soft light, same hair and plain shirt as canonical reference, consistent eye color and facial geometry. Maintain age, face width, nose and mouth shape, natural facial marks, skin pores and wrinkles. Do not change identity when smiling; do not beautify or de-age. No captions, text, grid labels, numbers, logos or watermarks.",
+        "review": "reviewed",
+        "width": 1254,
+        "height": 1254,
+        "sha256": "da575e296235b5a86ec46fdb66b5fd006ac56a94b7ebf75a3f6afd38016915f6"
+      },
+      {
+        "id": "IP-EU-001-maeve-autumn-street-v1",
+        "kind": "lifestyle",
+        "title": "秋日街拍 · 皮夹克与橄榄绿长裤",
+        "url": "/ip-assets/maeve-quinn/maeve-autumn-street.png",
+        "parentAssetIds": [
+          "IP-EU-001-portrait-v1",
+          "IP-EU-001-turnaround-v1"
+        ],
+        "createdAt": "2026-11-02",
+        "generator": "Codex 内置生图",
+        "prompt": "Use case: identity-preserve and compositing. Produce one vertical 2:3 natural photographic lifestyle image of the SAME original fictional adult woman from Image 1. Reference roles are strict: Image 1 FACE IDENTITY, Image 2 EXACT OUTFIT AND ACCESSORIES, Image 3 POSE AND CAMERA ORIENTATION ONLY, Image 4 BODY PROPORTIONS ONLY (a three-view board of the same person). A fictional 29-year-old woman with a long oval face, slightly broad jaw, gently protruding ears, pale neutral skin with irregular freckles across the nose bridge and cheeks, gray-green almond eyes with softly hooded lids, collarbone-length auburn wavy hair with an off-center part, naturally uneven reddish brows, a slender straight nose with a rounded tip, medium lips with a subtly asymmetric closed-mouth smile, and a tiny beauty mark near her left jawline. 170 cm design height, 64 kg design weight, balanced medium build, natural waist, strong practical legs, chest/waist/hips design targets 91/73/99 cm; realistic adult anatomy, not elongated fashion-model proportions. Clothing: black cropped biker leather jacket with gold zips, navy wrap ribbed knit top, olive green flared jeans, black ankle boots, black quilted shoulder bag with gold chain, as Image 2. Scene and framing: a real Dublin stone-paved street beside a small independent flower shop in early autumn, candid environmental photography, diffused overcast daylight, textured stone storefront and a few out-of-focus buckets of flowers. Eye-level full-body three-quarter photograph, the weight-on-one-leg one-hand-on-hip pose of Image 3; relaxed slight smile and natural presence, no studio backdrop. Preserve the precise face, gray-green eyes, freckles, auburn collarbone-length wavy hair, skin tone, adult age and medium build of Image 1; match actual garment colors, cuts and accessories from Image 2; match only the joint arrangement of Image 3, never its mannequin anatomy or faceless look. Replace her plain casting T-shirt and jeans completely with the specified outfit. Image 4 is only a proportions guide: final output is ONE person and ONE scene, never multiple views or a collage. Real skin pores, subtle asymmetry, natural body and hands, authentic environmental light. No text, captions, logos, watermarks, airbrushing or fashion-model slimming.",
+        "review": "reviewed",
+        "width": 1024,
+        "height": 1536,
+        "sha256": "b447b2e4d0edc5bf1f579655cbaf7ad3c0e340bfe9342978cacc5aa1795b6549",
+        "characterVersion": 1,
+        "composition": {
+          "lookId": "maeve-autumn-street",
+          "costumeId": "AUT-0017",
+          "poseId": "full_single_P015_diag",
+          "scene": "a real Dublin stone-paved street beside a small independent flower shop in early autumn, candid environmental photography, diffused overcast daylight, textured stone storefront and a few out-of-focus buckets of flowers. Eye-level full-body three-quarter photograph, the weight-on-one-leg one-hand-on-hip pose of Image 3; relaxed slight smile and natural presence, no studio backdrop."
+        },
+        "sourceReferenceUrls": [
+          "/ip-assets/maeve-quinn/portrait.png",
+          "/img/costume/AUT-0017.webp",
+          "/img/full_single_P015_diag.png",
+          "/ip-assets/maeve-quinn/turnaround.png"
+        ]
+      },
+      {
+        "id": "IP-EU-001-maeve-studio-seated-v1",
+        "kind": "lifestyle",
+        "title": "室内创作 · 橙色高领与条纹套装",
+        "url": "/ip-assets/maeve-quinn/maeve-studio-seated.png",
+        "parentAssetIds": [
+          "IP-EU-001-portrait-v1",
+          "IP-EU-001-turnaround-v1"
+        ],
+        "createdAt": "2026-11-02",
+        "generator": "Codex 内置生图",
+        "prompt": "Use case: identity-preserve and compositing. Produce one vertical 2:3 natural photographic lifestyle image of the SAME original fictional adult woman from Image 1. Reference roles are strict: Image 1 FACE IDENTITY, Image 2 EXACT OUTFIT AND ACCESSORIES, Image 3 POSE AND CAMERA ORIENTATION ONLY, Image 4 BODY PROPORTIONS ONLY (a three-view board of the same person). A fictional 29-year-old woman with a long oval face, slightly broad jaw, gently protruding ears, pale neutral skin with irregular freckles across the nose bridge and cheeks, gray-green almond eyes with softly hooded lids, collarbone-length auburn wavy hair with an off-center part, naturally uneven reddish brows, a slender straight nose with a rounded tip, medium lips with a subtly asymmetric closed-mouth smile, and a tiny beauty mark near her left jawline. 170 cm design height, 64 kg design weight, balanced medium build, natural waist, strong practical legs, chest/waist/hips design targets 91/73/99 cm; realistic adult anatomy, not elongated fashion-model proportions. Clothing: burnt orange fitted turtleneck, black fine-pinstripe relaxed blazer and matching pleated wide-leg trousers, black loafers and simple black shoulder bag, exactly the outfit of Image 2. Scene and framing: a sunlit creative studio with an old wood floor and a simple natural woven rug, seated on the rug in the exact seated-one-knee-raised chin-rest pose of Image 3. Her raised knee supports one elbow, one hand lightly under chin, other palm rests naturally on the floor. A few blurred magazines and flower sketches in the background, warm side window lighting and real fabric folds. Frame the entire seated person including shoes, not an upright portrait. Preserve the precise face, gray-green eyes, freckles, auburn collarbone-length wavy hair, skin tone, adult age and medium build of Image 1; match actual garment colors, cuts and accessories from Image 2; match only the joint arrangement of Image 3, never its mannequin anatomy or faceless look. Replace her plain casting T-shirt and jeans completely with the specified outfit. Image 4 is only a proportions guide: final output is ONE person and ONE scene, never multiple views or a collage. Real skin pores, subtle asymmetry, natural body and hands, authentic environmental light. No text, captions, logos, watermarks, airbrushing or fashion-model slimming.",
+        "review": "reviewed",
+        "width": 1024,
+        "height": 1536,
+        "sha256": "21a7eca8ebceb76fe0277741ec69ab3ecdae17ab7c588afcfcbb7a5ec15bce5b",
+        "characterVersion": 1,
+        "composition": {
+          "lookId": "maeve-studio-seated",
+          "costumeId": "SPR-0168",
+          "poseId": "full_single_P012_diag",
+          "scene": "a sunlit creative studio with an old wood floor and a simple natural woven rug, seated on the rug in the exact seated-one-knee-raised chin-rest pose of Image 3. Her raised knee supports one elbow, one hand lightly under chin, other palm rests naturally on the floor. A few blurred magazines and flower sketches in the background, warm side window lighting and real fabric folds. Frame the entire seated person including shoes, not an upright portrait."
+        },
+        "sourceReferenceUrls": [
+          "/ip-assets/maeve-quinn/portrait.png",
+          "/img/costume/SPR-0168.webp",
+          "/img/full_single_P012_diag.png",
+          "/ip-assets/maeve-quinn/turnaround.png"
+        ]
+      },
+      {
+        "id": "IP-EU-001-maeve-summer-courtyard-v1",
+        "kind": "lifestyle",
+        "title": "夏夜庭院 · 黑色长裙回眸",
+        "url": "/ip-assets/maeve-quinn/maeve-summer-courtyard.png",
+        "parentAssetIds": [
+          "IP-EU-001-portrait-v1",
+          "IP-EU-001-turnaround-v1"
+        ],
+        "createdAt": "2026-11-02",
+        "generator": "Codex 内置生图",
+        "prompt": "Use case: identity-preserve and compositing. Produce one vertical 2:3 natural photographic lifestyle image of the SAME original fictional adult woman from Image 1. Reference roles are strict: Image 1 FACE IDENTITY, Image 2 EXACT OUTFIT AND ACCESSORIES, Image 3 POSE AND CAMERA ORIENTATION ONLY, Image 4 BODY PROPORTIONS ONLY (a three-view board of the same person). A fictional 29-year-old woman with a long oval face, slightly broad jaw, gently protruding ears, pale neutral skin with irregular freckles across the nose bridge and cheeks, gray-green almond eyes with softly hooded lids, collarbone-length auburn wavy hair with an off-center part, naturally uneven reddish brows, a slender straight nose with a rounded tip, medium lips with a subtly asymmetric closed-mouth smile, and a tiny beauty mark near her left jawline. 170 cm design height, 64 kg design weight, balanced medium build, natural waist, strong practical legs, chest/waist/hips design targets 91/73/99 cm; realistic adult anatomy, not elongated fashion-model proportions. Clothing: black halter-neck floor-length softly draped maxi dress, black flat strappy sandals, brown leather shoulder bag and simple silver collar necklace, as Image 2. Scene and framing: a real leafy courtyard at blue-hour with warm low garden lights and old brick in the background. Full-body three-quarter fashion-lifestyle photo, a relaxed asymmetrical standing pose derived from Image 3 with her head looking slightly back toward the camera, natural slight smile, one foot forward and hands relaxed. Subtle summer breeze in her existing auburn hair, realistic twilight skin color, no studio backdrop. Preserve the precise face, gray-green eyes, freckles, auburn collarbone-length wavy hair, skin tone, adult age and medium build of Image 1; match actual garment colors, cuts and accessories from Image 2; match only the joint arrangement of Image 3, never its mannequin anatomy or faceless look. Replace her plain casting T-shirt and jeans completely with the specified outfit. Image 4 is only a proportions guide: final output is ONE person and ONE scene, never multiple views or a collage. Real skin pores, subtle asymmetry, natural body and hands, authentic environmental light. No text, captions, logos, watermarks, airbrushing or fashion-model slimming.",
+        "review": "reviewed",
+        "width": 1024,
+        "height": 1536,
+        "sha256": "ab5efbc7fc53938aaa9b5ca097207eb5c322024faf40263d4ea81e4b887285fd",
+        "characterVersion": 1,
+        "composition": {
+          "lookId": "maeve-summer-courtyard",
+          "costumeId": "SUM-0245",
+          "poseId": "full_single_P017_diag",
+          "scene": "a real leafy courtyard at blue-hour with warm low garden lights and old brick in the background. Full-body three-quarter fashion-lifestyle photo, a relaxed asymmetrical standing pose derived from Image 3 with her head looking slightly back toward the camera, natural slight smile, one foot forward and hands relaxed. Subtle summer breeze in her existing auburn hair, realistic twilight skin color, no studio backdrop."
+        },
+        "sourceReferenceUrls": [
+          "/ip-assets/maeve-quinn/portrait.png",
+          "/img/costume/SUM-0245.webp",
+          "/img/full_single_P017_diag.png",
+          "/ip-assets/maeve-quinn/turnaround.png"
+        ]
+      }
+    ],
+    "rights": {
+      "origin": "original_generation",
+      "generator": "Codex built-in image generation",
+      "licenseNote": "项目自制角色；不继承上游图库图片许可。生成内容的权利按适用条款管理。",
+      "source": "user_project",
+      "createdAt": "2026-11-02"
+    },
+    "updatedAt": "2026-11-02"
+  },
+  {
+    "schemaVersion": 1,
+    "id": "IP-EU-002",
+    "slug": "amara-reed",
+    "version": 1,
+    "name": "Amara Reed",
+    "displayName": "阿玛拉",
+    "age": 35,
+    "gender": "女性",
+    "market": [
+      "欧洲",
+      "北美"
+    ],
+    "baseCity": "伦敦",
+    "tagline": "深棕肤色、短卷发与宽鼻翼",
+    "status": "active",
+    "persona": {
+      "positioning": "力量训练与生活方式",
+      "topics": [
+        "力量训练",
+        "家居",
+        "咖啡"
+      ],
+      "personality": [
+        "沉稳",
+        "热情",
+        "行动力强"
+      ],
+      "bio": "伦敦的社区健身教练，热爱陶艺。内容关注普通人可持续的运动习惯，也分享家里的绿色植物。",
+      "voice": "中音偏低，清晰有力，节奏从容，带笑意。"
+    },
+    "appearance": {
+      "skin": "深棕色暖底调，自然面部纹理与轻微色差",
+      "hair": "短而紧密的自然卷，露出耳朵",
+      "eyes": "深棕圆杏眼，左右眼睑略不对称",
+      "face": "宽椭圆脸，饱满颧部，圆方下颌",
+      "nose": "较宽鼻翼、偏低鼻梁和圆润鼻尖",
+      "lips": "饱满唇形，下唇略厚",
+      "brows": "浓密平眉，左眉尾略短",
+      "marks": [
+        "左眉尾自然稀疏",
+        "右眼下方一颗小痣",
+        "笑时双侧浅酒窝"
+      ],
+      "bodyType": "运动型",
+      "promptEn": "An original fictional 35-year-old adult Black woman with deep warm brown skin, a broad oval face, full cheekbones, a rounded-square jaw, dark brown round-almond eyes with slightly uneven eyelids, short tightly coiled natural hair above the ears, a broad rounded nose with wide nostrils and a lower bridge, full lips with a fuller lower lip, dense relatively straight eyebrows with a shorter left eyebrow tail, a tiny beauty mark beneath her right eye, and subtle dimples when smiling. A distinctive ordinary adult face with confidence and warmth, no standardized glamour beauty face.",
+      "bodyEn": "174 cm design height, 76 kg design weight, athletic and solid build, broad shoulders, strong arms and thighs, chest/waist/hips design targets 101/81/108 cm; natural healthy body fat and realistic anatomy."
+    },
+    "body": {
+      "basis": "design_target",
+      "heightCm": 174,
+      "weightKg": 76,
+      "chestCm": 101,
+      "waistCm": 81,
+      "hipsCm": 108,
+      "shoulderCm": 44,
+      "inseamCm": 81
+    },
+    "style": {
+      "signatureOutfit": "橄榄绿色合身棉 T 恤、深灰直筒长裤、低帮运动鞋",
+      "palette": [
+        "橄榄绿",
+        "炭灰",
+        "米白"
+      ],
+      "outfitEn": "olive-green fitted crew-neck cotton T-shirt, charcoal straight-leg trousers and plain low-top trainers"
+    },
+    "assets": [
+      {
+        "id": "IP-EU-002-portrait-v1",
+        "kind": "portrait",
+        "title": "正脸母版",
+        "url": "/ip-assets/amara-reed/portrait.png",
+        "parentAssetIds": [],
+        "createdAt": "2026-11-02",
+        "generator": "Codex 内置生图",
+        "prompt": "Use case: photorealistic-natural. Asset type: original fictional adult virtual influencer identity anchor; no celebrity or existing person. Generate ONE vertical 2:3 straight-on chest-up professional casting photograph. An original fictional 35-year-old adult Black woman with deep warm brown skin, a broad oval face, full cheekbones, a rounded-square jaw, dark brown round-almond eyes with slightly uneven eyelids, short tightly coiled natural hair above the ears, a broad rounded nose with wide nostrils and a lower bridge, full lips with a fuller lower lip, dense relatively straight eyebrows with a shorter left eyebrow tail, a tiny beauty mark beneath her right eye, and subtle dimples when smiling. A distinctive ordinary adult face with confidence and warmth, no standardized glamour beauty face. Wearing olive-green fitted crew-neck cotton T-shirt. Neutral medium-light gray seamless studio backdrop, large soft window light, balanced natural color, eye-level 85mm photographic look. Head fully visible with breathing room, shoulders square to camera, direct eye contact. Real skin pores, natural asymmetry, baby hairs and age-appropriate texture. No beauty filters, airbrushing, glamour makeup, collage, text, numbers, logo or watermark. Exactly one person and one photograph. This is a reusable character's canonical identity reference.",
+        "review": "reviewed",
+        "width": 1024,
+        "height": 1536,
+        "sha256": "36eceb6579b34443e205a101212e63fc7c2ca2bdd1f353b1d4319455e60b5c53"
+      },
+      {
+        "id": "IP-EU-002-turnaround-v1",
+        "kind": "turnaround",
+        "title": "全身三视角",
+        "url": "/ip-assets/amara-reed/turnaround.png",
+        "parentAssetIds": [
+          "IP-EU-002-portrait-v1"
+        ],
+        "createdAt": "2026-11-02",
+        "generator": "Codex 内置生图",
+        "prompt": "Use case: identity-preserve. Image 1 is the exact canonical face identity reference of the SAME fictional adult person, not a style suggestion. An original fictional 35-year-old adult Black woman with deep warm brown skin, a broad oval face, full cheekbones, a rounded-square jaw, dark brown round-almond eyes with slightly uneven eyelids, short tightly coiled natural hair above the ears, a broad rounded nose with wide nostrils and a lower bridge, full lips with a fuller lower lip, dense relatively straight eyebrows with a shorter left eyebrow tail, a tiny beauty mark beneath her right eye, and subtle dimples when smiling. A distinctive ordinary adult face with confidence and warmth, no standardized glamour beauty face. Create a wide landscape 3:2 photographic character turnaround sheet with exactly THREE evenly spaced head-to-toe views of this ONE identity: front, left profile, rear three-quarter. Full heads and all shoes must fit within each view with generous margins. 174 cm design height, 76 kg design weight, athletic and solid build, broad shoulders, strong arms and thighs, chest/waist/hips design targets 101/81/108 cm; natural healthy body fat and realistic anatomy. Wearing olive-green fitted crew-neck cotton T-shirt, charcoal straight-leg trousers and plain low-top trainers consistently in all three views. Arms relaxed slightly away from torso. Preserve original face, hair, skin color, age, distinctive facial traits and realistic body type in every view. Seamless neutral gray studio backdrop and floor, broad soft light, photographic skin and fabric. No slimming, no de-aging, no perfect symmetry, no glamour retouching. No lettering, labels, measurements, ruler, logo, watermark or nude body. The stated numbers guide intended proportions only.",
+        "review": "reviewed",
+        "width": 1536,
+        "height": 1024,
+        "sha256": "cc2d74df71bed4efbf6b1d23ab242442d710ec694f4e11f8b63aef72dfa95b63"
+      },
+      {
+        "id": "IP-EU-002-expressions-v1",
+        "kind": "expressions",
+        "title": "四种自然表情",
+        "url": "/ip-assets/amara-reed/expressions.png",
+        "parentAssetIds": [
+          "IP-EU-002-portrait-v1"
+        ],
+        "createdAt": "2026-11-02",
+        "generator": "Codex 内置生图",
+        "prompt": "Use case: identity-preserve. Image 1 is the exact canonical face identity reference of the SAME fictional adult person, not a style suggestion. An original fictional 35-year-old adult Black woman with deep warm brown skin, a broad oval face, full cheekbones, a rounded-square jaw, dark brown round-almond eyes with slightly uneven eyelids, short tightly coiled natural hair above the ears, a broad rounded nose with wide nostrils and a lower bridge, full lips with a fuller lower lip, dense relatively straight eyebrows with a shorter left eyebrow tail, a tiny beauty mark beneath her right eye, and subtle dimples when smiling. A distinctive ordinary adult face with confidence and warmth, no standardized glamour beauty face. Generate a square 1:1 professional photographic expression sheet in a clean 2 by 2 grid. FOUR close head-and-shoulders portraits of this exact SAME adult person: top-left relaxed neutral expression, top-right genuine tooth-showing happy smile, bottom-left focused thoughtful expression with gently narrowed eyes, bottom-right mild surprise with slightly raised eyebrows and softly parted lips. Head entirely visible in each tile. No extreme comic expressions. Same gray studio background, same soft light, same hair and plain shirt as canonical reference, consistent eye color and facial geometry. Maintain age, face width, nose and mouth shape, natural facial marks, skin pores and wrinkles. Do not change identity when smiling; do not beautify or de-age. No captions, text, grid labels, numbers, logos or watermarks.",
+        "review": "reviewed",
+        "width": 1254,
+        "height": 1254,
+        "sha256": "05ce62e0e9e2669d65c92c32cf0e7bb46b9a14f8e011ecffab5a1d653f518110"
+      },
+      {
+        "id": "IP-EU-002-amara-city-stretch-v1",
+        "kind": "lifestyle",
+        "title": "清晨公园 · 薄荷绿长裤与伸展",
+        "url": "/ip-assets/amara-reed/amara-city-stretch.png",
+        "parentAssetIds": [
+          "IP-EU-002-portrait-v1",
+          "IP-EU-002-turnaround-v1"
+        ],
+        "createdAt": "2026-11-02",
+        "generator": "Codex 内置生图",
+        "prompt": "Use case: identity-preserve and compositing. Make ONE vertical 2:3 realistic environmental lifestyle photograph of the SAME original fictional adult character. Image 1 fixes FACE IDENTITY. Image 2 is the EXACT OUTFIT AND ACCESSORIES. Image 3 fixes POSE ONLY. Image 4 fixes BODY PROPORTIONS ONLY (three views of the same person). An original fictional 35-year-old adult Black woman with deep warm brown skin, a broad oval face, full cheekbones, a rounded-square jaw, dark brown round-almond eyes with slightly uneven eyelids, short tightly coiled natural hair above the ears, a broad rounded nose with wide nostrils and a lower bridge, full lips with a fuller lower lip, dense relatively straight eyebrows with a shorter left eyebrow tail, a tiny beauty mark beneath her right eye, and subtle dimples when smiling. A distinctive ordinary adult face with confidence and warmth, no standardized glamour beauty face. 174 cm design height, 76 kg design weight, athletic and solid build, broad shoulders, strong arms and thighs, chest/waist/hips design targets 101/81/108 cm; natural healthy body fat and realistic anatomy. Wear the exact full outfit from Image 2, including colors, textile types, accessories and shoes, adapted only to this character's actual proportions. Do not use the plain casting T-shirt/trousers. Scene and camera: London park on a bright fresh summer morning; full-body natural photo with arms stretching above head in the pose reference, relaxed genuine smile, trees and brick path, soft morning sun. Preserve the exact face, facial marks, hair, skin color, adult age and body build from the identity reference. Pose input only controls joints and framing: do not copy facelessness, mannequin material or mannequin proportions. Body board guides proportions only: final image must contain one person, not multiple views. Authentic light, realistic fingers, skin pores, natural asymmetry and fabric. No airbrushing, standard influencer face, slimming, de-aging, text, logos, watermarks, caption or collage.",
+        "review": "reviewed",
+        "width": 1024,
+        "height": 1536,
+        "sha256": "02ca0b809d179950da39b4601acd6332a178bf451fd9fe0815ab94b73024eae9",
+        "characterVersion": 1,
+        "composition": {
+          "lookId": "amara-city-stretch",
+          "costumeId": "SUM-0074",
+          "poseId": "full_single_P019_diag",
+          "scene": "London park on a bright fresh summer morning; full-body natural photo with arms stretching above head in the pose reference, relaxed genuine smile, trees and brick path, soft morning sun."
+        },
+        "sourceReferenceUrls": [
+          "/ip-assets/amara-reed/portrait.png",
+          "/img/costume/SUM-0074.webp",
+          "/img/full_single_P019_diag.png",
+          "/ip-assets/amara-reed/turnaround.png"
+        ]
+      }
+    ],
+    "rights": {
+      "origin": "original_generation",
+      "generator": "Codex built-in image generation",
+      "licenseNote": "项目自制角色；不继承上游图库图片许可。生成内容的权利按适用条款管理。",
+      "source": "user_project",
+      "createdAt": "2026-11-02"
+    },
+    "updatedAt": "2026-11-02"
+  },
+  {
+    "schemaVersion": 1,
+    "id": "IP-NA-003",
+    "slug": "lucia-morales",
+    "version": 1,
+    "name": "Lucía Morales",
+    "displayName": "露西亚",
+    "age": 31,
+    "gender": "女性",
+    "market": [
+      "北美",
+      "欧洲"
+    ],
+    "baseCity": "蒙特利尔",
+    "tagline": "深色长卷发、圆脸与柔软体型",
+    "status": "active",
+    "persona": {
+      "positioning": "美食、家居与包容穿搭",
+      "topics": [
+        "烘焙",
+        "家居",
+        "日常穿搭"
+      ],
+      "personality": [
+        "开朗",
+        "耐心",
+        "善于分享"
+      ],
+      "bio": "蒙特利尔的食谱创作者，喜欢将祖母的家庭食谱改成简单做法。穿搭偏舒适，常在厨房和附近街区拍摄。",
+      "voice": "明亮的中音，语速中等，亲切有起伏。"
+    },
+    "appearance": {
+      "skin": "中等橄榄色暖底调，有自然毛孔和色差",
+      "hair": "深棕色过肩蓬松长卷发，中分",
+      "eyes": "深琥珀棕眼，眼尾略向下",
+      "face": "圆脸，饱满双颊，柔和短下巴",
+      "nose": "中等鼻梁，宽圆鼻尖",
+      "lips": "饱满上唇，清晰但柔和的唇峰",
+      "brows": "深色浓眉，略微弯曲",
+      "marks": [
+        "右面颊外侧小痣",
+        "轻微露齿笑时的门牙间隙",
+        "自然饱满面颊"
+      ],
+      "bodyType": "丰盈型",
+      "promptEn": "An original fictional 31-year-old adult Latina woman with medium warm olive skin, a round face with full cheeks and a short soft chin, dark amber-brown slightly downturned eyes, thick dark softly curved eyebrows, a medium nasal bridge with a broad rounded tip, full upper lip with a soft cupid bow, a tiny mole on the outer right cheek, and abundant shoulder-length dark brown curly hair parted down the middle. A warm gentle neutral expression, slight natural facial asymmetry. Preserve a full face and natural adult skin texture; no slimming retouching.",
+      "bodyEn": "164 cm design height, 86 kg design weight, clearly plus-size soft curvy build with a round abdomen, full upper arms and thighs, broad hips, chest/waist/hips design targets 111/94/119 cm. Preserve the fuller body, do not slim her waist or replace with a thin model."
+    },
+    "body": {
+      "basis": "design_target",
+      "heightCm": 164,
+      "weightKg": 86,
+      "chestCm": 111,
+      "waistCm": 94,
+      "hipsCm": 119,
+      "shoulderCm": 42,
+      "inseamCm": 73
+    },
+    "style": {
+      "signatureOutfit": "酒红色纯色圆领上衣、深蓝直筒牛仔裤、平底帆布鞋",
+      "palette": [
+        "酒红",
+        "海军蓝",
+        "暖白"
+      ],
+      "outfitEn": "plain burgundy short-sleeve crew-neck shirt, dark indigo straight-leg jeans and flat canvas shoes"
+    },
+    "assets": [
+      {
+        "id": "IP-NA-003-portrait-v1",
+        "kind": "portrait",
+        "title": "正脸母版",
+        "url": "/ip-assets/lucia-morales/portrait.png",
+        "parentAssetIds": [],
+        "createdAt": "2026-11-02",
+        "generator": "Codex 内置生图",
+        "prompt": "Use case: photorealistic-natural. Asset type: original fictional adult virtual influencer identity anchor; no celebrity or existing person. Generate ONE vertical 2:3 straight-on chest-up professional casting photograph. An original fictional 31-year-old adult Latina woman with medium warm olive skin, a round face with full cheeks and a short soft chin, dark amber-brown slightly downturned eyes, thick dark softly curved eyebrows, a medium nasal bridge with a broad rounded tip, full upper lip with a soft cupid bow, a tiny mole on the outer right cheek, and abundant shoulder-length dark brown curly hair parted down the middle. A warm gentle neutral expression, slight natural facial asymmetry. Preserve a full face and natural adult skin texture; no slimming retouching. Wearing plain burgundy short-sleeve crew-neck shirt. Neutral medium-light gray seamless studio backdrop, large soft window light, balanced natural color, eye-level 85mm photographic look. Head fully visible with breathing room, shoulders square to camera, direct eye contact. Real skin pores, natural asymmetry, baby hairs and age-appropriate texture. No beauty filters, airbrushing, glamour makeup, collage, text, numbers, logo or watermark. Exactly one person and one photograph. This is a reusable character's canonical identity reference.",
+        "review": "reviewed",
+        "width": 1024,
+        "height": 1536,
+        "sha256": "bf0a4db3e7e585ec7d7e205c3947044c9fd00b81c08f455c109c51b335fbc6f9"
+      },
+      {
+        "id": "IP-NA-003-turnaround-v1",
+        "kind": "turnaround",
+        "title": "全身三视角",
+        "url": "/ip-assets/lucia-morales/turnaround.png",
+        "parentAssetIds": [
+          "IP-NA-003-portrait-v1"
+        ],
+        "createdAt": "2026-11-02",
+        "generator": "Codex 内置生图",
+        "prompt": "Use case: identity-preserve. Image 1 is the exact canonical face identity reference of the SAME fictional adult person, not a style suggestion. An original fictional 31-year-old adult Latina woman with medium warm olive skin, a round face with full cheeks and a short soft chin, dark amber-brown slightly downturned eyes, thick dark softly curved eyebrows, a medium nasal bridge with a broad rounded tip, full upper lip with a soft cupid bow, a tiny mole on the outer right cheek, and abundant shoulder-length dark brown curly hair parted down the middle. A warm gentle neutral expression, slight natural facial asymmetry. Preserve a full face and natural adult skin texture; no slimming retouching. Create a wide landscape 3:2 photographic character turnaround sheet with exactly THREE evenly spaced head-to-toe views of this ONE identity: front, left profile, rear three-quarter. Full heads and all shoes must fit within each view with generous margins. 164 cm design height, 86 kg design weight, clearly plus-size soft curvy build with a round abdomen, full upper arms and thighs, broad hips, chest/waist/hips design targets 111/94/119 cm. Preserve the fuller body, do not slim her waist or replace with a thin model. Wearing plain burgundy short-sleeve crew-neck shirt, dark indigo straight-leg jeans and flat canvas shoes consistently in all three views. Arms relaxed slightly away from torso. Preserve original face, hair, skin color, age, distinctive facial traits and realistic body type in every view. Seamless neutral gray studio backdrop and floor, broad soft light, photographic skin and fabric. No slimming, no de-aging, no perfect symmetry, no glamour retouching. No lettering, labels, measurements, ruler, logo, watermark or nude body. The stated numbers guide intended proportions only.",
+        "review": "reviewed",
+        "width": 1536,
+        "height": 1024,
+        "sha256": "695403dec80c85bfb66068f23d7faee50def57fa3da3965b5d3a675bca7d669e"
+      },
+      {
+        "id": "IP-NA-003-expressions-v1",
+        "kind": "expressions",
+        "title": "四种自然表情",
+        "url": "/ip-assets/lucia-morales/expressions.png",
+        "parentAssetIds": [
+          "IP-NA-003-portrait-v1"
+        ],
+        "createdAt": "2026-11-02",
+        "generator": "Codex 内置生图",
+        "prompt": "Use case: identity-preserve. Image 1 is the exact canonical face identity reference of the SAME fictional adult person, not a style suggestion. An original fictional 31-year-old adult Latina woman with medium warm olive skin, a round face with full cheeks and a short soft chin, dark amber-brown slightly downturned eyes, thick dark softly curved eyebrows, a medium nasal bridge with a broad rounded tip, full upper lip with a soft cupid bow, a tiny mole on the outer right cheek, and abundant shoulder-length dark brown curly hair parted down the middle. A warm gentle neutral expression, slight natural facial asymmetry. Preserve a full face and natural adult skin texture; no slimming retouching. Generate a square 1:1 professional photographic expression sheet in a clean 2 by 2 grid. FOUR close head-and-shoulders portraits of this exact SAME adult person: top-left relaxed neutral expression, top-right genuine tooth-showing happy smile, bottom-left focused thoughtful expression with gently narrowed eyes, bottom-right mild surprise with slightly raised eyebrows and softly parted lips. Head entirely visible in each tile. No extreme comic expressions. Same gray studio background, same soft light, same hair and plain shirt as canonical reference, consistent eye color and facial geometry. Maintain age, face width, nose and mouth shape, natural facial marks, skin pores and wrinkles. Do not change identity when smiling; do not beautify or de-age. No captions, text, grid labels, numbers, logos or watermarks.",
+        "review": "reviewed",
+        "width": 1254,
+        "height": 1254,
+        "sha256": "7ffb9355a6027889c77d14ef30a7a166a43eaeaad1e10a406c80e9c9b5317b2b"
+      },
+      {
+        "id": "IP-NA-003-lucia-red-knit-v1",
+        "kind": "lifestyle",
+        "title": "居家烘焙 · 红针织与百褶裙",
+        "url": "/ip-assets/lucia-morales/lucia-red-knit.png",
+        "parentAssetIds": [
+          "IP-NA-003-portrait-v1",
+          "IP-NA-003-turnaround-v1"
+        ],
+        "createdAt": "2026-11-02",
+        "generator": "Codex 内置生图",
+        "prompt": "Create one natural vertical photographic lifestyle image of this SAME fictional 31-year-old adult woman. Image 1 is the face identity. Image 2 supplies the red long-sleeve wrap knit and navy ankle-length pleated skirt, dark loafers and black bag. For this outfit add a plain white high-neck undershirt under the red knit for a modest everyday layered look. Image 3 is only the seated pose reference: both legs together and knees bent slightly to one side, hands resting naturally on the rug; keep both legs fully covered by the long opaque skirt. Image 4 is only her established full-body build, not a layout to repeat. Preserve her round face, warm olive skin, dark curly hair, facial mole, adult age and clearly fuller plus-size body from the references. A lived-in Montreal apartment kitchen with a simple woven rug, warm wood and terracotta, soft daylight, cookbook and fresh bread in the background; gentle cheerful expression, relaxed authentic home moment. Entire person and loafers visible, one person, one scene, natural realistic skin and fabric. No beauty slimming, no collage, no text, logos or watermark.",
+        "review": "reviewed",
+        "width": 1024,
+        "height": 1536,
+        "sha256": "11be851314e88cd28787167add7b9a4f04d8362791ff61601fb3a4160d52d274",
+        "characterVersion": 1,
+        "composition": {
+          "lookId": "lucia-red-knit",
+          "costumeId": "AUT-0021",
+          "poseId": "full_single_P004_diag",
+          "scene": "Montreal home kitchen with warm terracotta and wood, seated comfortably on a low woven rug with both knees bent to one side in the reference pose, homemade baking and an open cookbook softly out of focus. Keep a visibly plus-size curvy soft body, never thin.",
+          "customOutfit": "红色裹身针织衫内增加白色高领内搭，保留藏青色及踝百褶裙与乐福鞋。"
+        },
+        "sourceReferenceUrls": [
+          "/ip-assets/lucia-morales/portrait.png",
+          "/img/costume/AUT-0021.webp",
+          "/img/full_single_P004_diag.png",
+          "/ip-assets/lucia-morales/turnaround.png"
+        ]
+      }
+    ],
+    "rights": {
+      "origin": "original_generation",
+      "generator": "Codex built-in image generation",
+      "licenseNote": "项目自制角色；不继承上游图库图片许可。生成内容的权利按适用条款管理。",
+      "source": "user_project",
+      "createdAt": "2026-11-02"
+    },
+    "updatedAt": "2026-11-02"
+  },
+  {
+    "schemaVersion": 1,
+    "id": "IP-EU-004",
+    "slug": "ines-laurent",
+    "version": 1,
+    "name": "Inès Laurent",
+    "displayName": "伊内丝",
+    "age": 44,
+    "gender": "女性",
+    "market": [
+      "欧洲",
+      "北美"
+    ],
+    "baseCity": "里昂",
+    "tagline": "银灰短发、鹰钩鼻与成熟纹理",
+    "status": "active",
+    "persona": {
+      "positioning": "设计、旅行与成熟穿搭",
+      "topics": [
+        "设计",
+        "旅行",
+        "成熟穿搭"
+      ],
+      "personality": [
+        "克制",
+        "敏锐",
+        "独立"
+      ],
+      "bio": "里昂的室内设计师，偏爱旧家具与小型美术馆。讲实用的空间改造，也记录独自旅行和日常穿搭。",
+      "voice": "偏低中音，平静清晰，稍慢，表达直接。"
+    },
+    "appearance": {
+      "skin": "浅橄榄色，眼角细纹、轻微鼻唇沟和自然颈纹",
+      "hair": "下颌长度深棕短发，鬓角有明显自然银灰发丝，侧分",
+      "eyes": "榛绿色深眼窝，轻微眼袋",
+      "face": "偏窄的菱形脸，高颧骨，短方下巴",
+      "nose": "突出的鼻梁，轻微鹰钩形鼻背",
+      "lips": "偏薄的上唇，中等下唇",
+      "brows": "浓密深眉，右眉自然略高",
+      "marks": [
+        "两鬓自然银发",
+        "明显但自然的眼角细纹",
+        "下巴左侧小痣"
+      ],
+      "bodyType": "娇小型",
+      "promptEn": "An original fictional 44-year-old adult woman with light olive skin, a narrow diamond-shaped face, pronounced high cheekbones, a short square chin, deep-set hazel-green eyes with mild under-eye bags, a prominent gently aquiline nose, a thin upper lip and medium lower lip, thick dark brows with the right brow subtly higher, a chin-length dark brown side-parted bob with distinct natural silver streaks at both temples, and a small mole at the left side of her chin. Keep visible age-appropriate crow's feet, fine forehead lines, nasolabial folds and subtle neck lines. Confident relaxed neutral expression. Do not de-age her or make her look twenty.",
+      "bodyEn": "158 cm design height, 56 kg design weight, petite compact average build, short realistic leg proportions, chest/waist/hips design targets 87/76/94 cm. Natural middle-aged adult anatomy without fashion-model elongation."
+    },
+    "body": {
+      "basis": "design_target",
+      "heightCm": 158,
+      "weightKg": 56,
+      "chestCm": 87,
+      "waistCm": 76,
+      "hipsCm": 94,
+      "shoulderCm": 37,
+      "inseamCm": 70
+    },
+    "style": {
+      "signatureOutfit": "灰蓝色圆领棉上衣、炭灰直筒长裤、黑色平底鞋",
+      "palette": [
+        "灰蓝",
+        "炭灰",
+        "陶土"
+      ],
+      "outfitEn": "plain slate-blue crew-neck cotton top, charcoal straight-leg trousers and simple black flat shoes"
+    },
+    "assets": [
+      {
+        "id": "IP-EU-004-portrait-v1",
+        "kind": "portrait",
+        "title": "正脸母版",
+        "url": "/ip-assets/ines-laurent/portrait.png",
+        "parentAssetIds": [],
+        "createdAt": "2026-11-02",
+        "generator": "Codex 内置生图",
+        "prompt": "Use case: photorealistic-natural. Asset type: original fictional adult virtual influencer identity anchor; no celebrity or existing person. Generate ONE vertical 2:3 straight-on chest-up professional casting photograph. An original fictional 44-year-old adult woman with light olive skin, a narrow diamond-shaped face, pronounced high cheekbones, a short square chin, deep-set hazel-green eyes with mild under-eye bags, a prominent gently aquiline nose, a thin upper lip and medium lower lip, thick dark brows with the right brow subtly higher, a chin-length dark brown side-parted bob with distinct natural silver streaks at both temples, and a small mole at the left side of her chin. Keep visible age-appropriate crow's feet, fine forehead lines, nasolabial folds and subtle neck lines. Confident relaxed neutral expression. Do not de-age her or make her look twenty. Wearing plain slate-blue crew-neck cotton top. Neutral medium-light gray seamless studio backdrop, large soft window light, balanced natural color, eye-level 85mm photographic look. Head fully visible with breathing room, shoulders square to camera, direct eye contact. Real skin pores, natural asymmetry, baby hairs and age-appropriate texture. No beauty filters, airbrushing, glamour makeup, collage, text, numbers, logo or watermark. Exactly one person and one photograph. This is a reusable character's canonical identity reference.",
+        "review": "reviewed",
+        "width": 1024,
+        "height": 1536,
+        "sha256": "f12c3bc06960f2d01ff646560912ca901ba78a8f3e92d8991b4c54914697a5bb"
+      },
+      {
+        "id": "IP-EU-004-turnaround-v1",
+        "kind": "turnaround",
+        "title": "全身三视角",
+        "url": "/ip-assets/ines-laurent/turnaround.png",
+        "parentAssetIds": [
+          "IP-EU-004-portrait-v1"
+        ],
+        "createdAt": "2026-11-02",
+        "generator": "Codex 内置生图",
+        "prompt": "Use case: identity-preserve. Image 1 is the exact canonical face identity reference of the SAME fictional adult person, not a style suggestion. An original fictional 44-year-old adult woman with light olive skin, a narrow diamond-shaped face, pronounced high cheekbones, a short square chin, deep-set hazel-green eyes with mild under-eye bags, a prominent gently aquiline nose, a thin upper lip and medium lower lip, thick dark brows with the right brow subtly higher, a chin-length dark brown side-parted bob with distinct natural silver streaks at both temples, and a small mole at the left side of her chin. Keep visible age-appropriate crow's feet, fine forehead lines, nasolabial folds and subtle neck lines. Confident relaxed neutral expression. Do not de-age her or make her look twenty. Create a wide landscape 3:2 photographic character turnaround sheet with exactly THREE evenly spaced head-to-toe views of this ONE identity: front, left profile, rear three-quarter. Full heads and all shoes must fit within each view with generous margins. 158 cm design height, 56 kg design weight, petite compact average build, short realistic leg proportions, chest/waist/hips design targets 87/76/94 cm. Natural middle-aged adult anatomy without fashion-model elongation. Wearing plain slate-blue crew-neck cotton top, charcoal straight-leg trousers and simple black flat shoes consistently in all three views. Arms relaxed slightly away from torso. Preserve original face, hair, skin color, age, distinctive facial traits and realistic body type in every view. Seamless neutral gray studio backdrop and floor, broad soft light, photographic skin and fabric. No slimming, no de-aging, no perfect symmetry, no glamour retouching. No lettering, labels, measurements, ruler, logo, watermark or nude body. The stated numbers guide intended proportions only.",
+        "review": "reviewed",
+        "width": 1536,
+        "height": 1024,
+        "sha256": "8ecc8c3886d0f8501405fb47a0324faab6f64ee5597ab5e44850d4ba7b093d79"
+      },
+      {
+        "id": "IP-EU-004-expressions-v1",
+        "kind": "expressions",
+        "title": "四种自然表情",
+        "url": "/ip-assets/ines-laurent/expressions.png",
+        "parentAssetIds": [
+          "IP-EU-004-portrait-v1"
+        ],
+        "createdAt": "2026-11-02",
+        "generator": "Codex 内置生图",
+        "prompt": "Use case: identity-preserve. Image 1 is the exact canonical face identity reference of the SAME fictional adult person, not a style suggestion. An original fictional 44-year-old adult woman with light olive skin, a narrow diamond-shaped face, pronounced high cheekbones, a short square chin, deep-set hazel-green eyes with mild under-eye bags, a prominent gently aquiline nose, a thin upper lip and medium lower lip, thick dark brows with the right brow subtly higher, a chin-length dark brown side-parted bob with distinct natural silver streaks at both temples, and a small mole at the left side of her chin. Keep visible age-appropriate crow's feet, fine forehead lines, nasolabial folds and subtle neck lines. Confident relaxed neutral expression. Do not de-age her or make her look twenty. Generate a square 1:1 professional photographic expression sheet in a clean 2 by 2 grid. FOUR close head-and-shoulders portraits of this exact SAME adult person: top-left relaxed neutral expression, top-right genuine tooth-showing happy smile, bottom-left focused thoughtful expression with gently narrowed eyes, bottom-right mild surprise with slightly raised eyebrows and softly parted lips. Head entirely visible in each tile. No extreme comic expressions. Same gray studio background, same soft light, same hair and plain shirt as canonical reference, consistent eye color and facial geometry. Maintain age, face width, nose and mouth shape, natural facial marks, skin pores and wrinkles. Do not change identity when smiling; do not beautify or de-age. No captions, text, grid labels, numbers, logos or watermarks.",
+        "review": "reviewed",
+        "width": 1254,
+        "height": 1254,
+        "sha256": "be7635072cf0da431c72df4e63b9a01bd2df301b47260d101aaf1f16b0b42ef0"
+      },
+      {
+        "id": "IP-EU-004-ines-winter-walk-v1",
+        "kind": "lifestyle",
+        "title": "冬日旅行 · 棕色大衣与长靴",
+        "url": "/ip-assets/ines-laurent/ines-winter-walk.png",
+        "parentAssetIds": [
+          "IP-EU-004-portrait-v1",
+          "IP-EU-004-turnaround-v1"
+        ],
+        "createdAt": "2026-11-02",
+        "generator": "Codex 内置生图",
+        "prompt": "Use case: identity-preserve and compositing. Make ONE vertical 2:3 realistic environmental lifestyle photograph of the SAME original fictional adult character. Image 1 fixes FACE IDENTITY. Image 2 is the EXACT OUTFIT AND ACCESSORIES. Image 3 fixes POSE ONLY. Image 4 fixes BODY PROPORTIONS ONLY (three views of the same person). An original fictional 44-year-old adult woman with light olive skin, a narrow diamond-shaped face, pronounced high cheekbones, a short square chin, deep-set hazel-green eyes with mild under-eye bags, a prominent gently aquiline nose, a thin upper lip and medium lower lip, thick dark brows with the right brow subtly higher, a chin-length dark brown side-parted bob with distinct natural silver streaks at both temples, and a small mole at the left side of her chin. Keep visible age-appropriate crow's feet, fine forehead lines, nasolabial folds and subtle neck lines. Confident relaxed neutral expression. Do not de-age her or make her look twenty. 158 cm design height, 56 kg design weight, petite compact average build, short realistic leg proportions, chest/waist/hips design targets 87/76/94 cm. Natural middle-aged adult anatomy without fashion-model elongation. Wear the exact full outfit from Image 2, including colors, textile types, accessories and shoes, adapted only to this character's actual proportions. Do not use the plain casting T-shirt/trousers. Scene and camera: Lyon riverside on a crisp winter afternoon, wind lightly moving the coat; full-body photo with one hand casually lifting to the back of the head as the pose reference. Keep her middle-aged facial lines, silver streaks and petite realistic body. Preserve the exact face, facial marks, hair, skin color, adult age and body build from the identity reference. Pose input only controls joints and framing: do not copy facelessness, mannequin material or mannequin proportions. Body board guides proportions only: final image must contain one person, not multiple views. Authentic light, realistic fingers, skin pores, natural asymmetry and fabric. No airbrushing, standard influencer face, slimming, de-aging, text, logos, watermarks, caption or collage.",
+        "review": "reviewed",
+        "width": 1024,
+        "height": 1536,
+        "sha256": "fca367fe664a311171e657fcab5be431a32a85e05cd6ea886e9614d8a7e26b43",
+        "characterVersion": 1,
+        "composition": {
+          "lookId": "ines-winter-walk",
+          "costumeId": "WIN-0223",
+          "poseId": "full_single_P020_diag",
+          "scene": "Lyon riverside on a crisp winter afternoon, wind lightly moving the coat; full-body photo with one hand casually lifting to the back of the head as the pose reference. Keep her middle-aged facial lines, silver streaks and petite realistic body."
+        },
+        "sourceReferenceUrls": [
+          "/ip-assets/ines-laurent/portrait.png",
+          "/img/costume/WIN-0223.webp",
+          "/img/full_single_P020_diag.png",
+          "/ip-assets/ines-laurent/turnaround.png"
+        ]
+      }
+    ],
+    "rights": {
+      "origin": "original_generation",
+      "generator": "Codex built-in image generation",
+      "licenseNote": "项目自制角色；不继承上游图库图片许可。生成内容的权利按适用条款管理。",
+      "source": "user_project",
+      "createdAt": "2026-11-02"
+    },
+    "updatedAt": "2026-11-02"
+  },
+  {
+    "schemaVersion": 1,
+    "id": "IP-NA-005",
+    "slug": "owen-hart",
+    "version": 1,
+    "name": "Owen Hartwell",
+    "displayName": "欧文",
+    "age": 38,
+    "gender": "男性",
+    "market": [
+      "北美",
+      "欧洲"
+    ],
+    "baseCity": "波特兰",
+    "tagline": "宽鼻梁、胡茬与结实体型",
+    "status": "active",
+    "persona": {
+      "positioning": "木作、户外与工具生活",
+      "topics": [
+        "木作",
+        "露营",
+        "工具"
+      ],
+      "personality": [
+        "耐心",
+        "务实",
+        "温和"
+      ],
+      "bio": "波特兰的木作工作室合伙人。分享家具修复和周末露营，镜头常在工作台、旧货店和森林小径之间。",
+      "voice": "低音带轻微气声，节奏平稳，口语化。"
+    },
+    "appearance": {
+      "skin": "偏浅暖色，面颊自然泛红，额头有细纹",
+      "hair": "短深棕发，发际线轻微后移",
+      "eyes": "灰蓝色小眼，眼尾有笑纹",
+      "face": "宽长方脸，明显下颌角，饱满面颊",
+      "nose": "宽直鼻梁，鼻尖稍偏一侧",
+      "lips": "中等偏薄唇形，右嘴角稍高",
+      "brows": "浓密偏平深眉",
+      "marks": [
+        "一至两天深棕胡茬",
+        "鼻尖轻微不对称",
+        "右眉中段一小处自然稀疏"
+      ],
+      "bodyType": "壮实型",
+      "promptEn": "An original fictional 38-year-old adult man with fair warm skin and slight redness in his cheeks, a broad rectangular face with a strong angular jaw and full cheeks, small gray-blue eyes with natural smile creases, thick straight dark eyebrows with a small sparse patch in the middle of the right eyebrow, a broad straight nose with a slightly asymmetric tip, medium-thin lips with the right corner a little higher, short dark-brown hair with a subtly receding hairline, and one-to-two-day dark brown stubble. Relaxed kind neutral expression, visible pores, mild forehead lines and ordinary adult realism. Not a bodybuilder, celebrity or airbrushed male model.",
+      "bodyEn": "183 cm design height, 96 kg design weight, stocky broad-shouldered sturdy adult build, strong forearms and a visible soft middle, chest/waist/hips design targets 112/99/108 cm. No six-pack or exaggerated V taper."
+    },
+    "body": {
+      "basis": "design_target",
+      "heightCm": 183,
+      "weightKg": 96,
+      "chestCm": 112,
+      "waistCm": 99,
+      "hipsCm": 108,
+      "shoulderCm": 49,
+      "inseamCm": 84
+    },
+    "style": {
+      "signatureOutfit": "深灰圆领棉 T 恤、棕色直筒工装长裤、朴素低帮鞋",
+      "palette": [
+        "炭灰",
+        "棕色",
+        "森林绿"
+      ],
+      "outfitEn": "plain charcoal crew-neck cotton T-shirt, brown straight-leg work trousers and plain low-top shoes"
+    },
+    "assets": [
+      {
+        "id": "IP-NA-005-portrait-v1",
+        "kind": "portrait",
+        "title": "正脸母版",
+        "url": "/ip-assets/owen-hart/portrait.png",
+        "parentAssetIds": [],
+        "createdAt": "2026-11-02",
+        "generator": "Codex 内置生图",
+        "prompt": "Use case: photorealistic-natural. Asset type: original fictional adult virtual influencer identity anchor; no celebrity or existing person. Generate ONE vertical 2:3 straight-on chest-up professional casting photograph. An original fictional 38-year-old adult man with fair warm skin and slight redness in his cheeks, a broad rectangular face with a strong angular jaw and full cheeks, small gray-blue eyes with natural smile creases, thick straight dark eyebrows with a small sparse patch in the middle of the right eyebrow, a broad straight nose with a slightly asymmetric tip, medium-thin lips with the right corner a little higher, short dark-brown hair with a subtly receding hairline, and one-to-two-day dark brown stubble. Relaxed kind neutral expression, visible pores, mild forehead lines and ordinary adult realism. Not a bodybuilder, celebrity or airbrushed male model. Wearing plain charcoal crew-neck cotton T-shirt. Neutral medium-light gray seamless studio backdrop, large soft window light, balanced natural color, eye-level 85mm photographic look. Head fully visible with breathing room, shoulders square to camera, direct eye contact. Real skin pores, natural asymmetry, baby hairs and age-appropriate texture. No beauty filters, airbrushing, glamour makeup, collage, text, numbers, logo or watermark. Exactly one person and one photograph. This is a reusable character's canonical identity reference.",
+        "review": "reviewed",
+        "width": 1024,
+        "height": 1536,
+        "sha256": "c6351ffb61ce1718553d52156a1e474a35dacbf7fae19e6b8484113ed146e8e0"
+      },
+      {
+        "id": "IP-NA-005-turnaround-v1",
+        "kind": "turnaround",
+        "title": "全身三视角",
+        "url": "/ip-assets/owen-hart/turnaround.png",
+        "parentAssetIds": [
+          "IP-NA-005-portrait-v1"
+        ],
+        "createdAt": "2026-11-02",
+        "generator": "Codex 内置生图",
+        "prompt": "Use case: identity-preserve. Image 1 is the exact canonical face identity reference of the SAME fictional adult person, not a style suggestion. An original fictional 38-year-old adult man with fair warm skin and slight redness in his cheeks, a broad rectangular face with a strong angular jaw and full cheeks, small gray-blue eyes with natural smile creases, thick straight dark eyebrows with a small sparse patch in the middle of the right eyebrow, a broad straight nose with a slightly asymmetric tip, medium-thin lips with the right corner a little higher, short dark-brown hair with a subtly receding hairline, and one-to-two-day dark brown stubble. Relaxed kind neutral expression, visible pores, mild forehead lines and ordinary adult realism. Not a bodybuilder, celebrity or airbrushed male model. Create a wide landscape 3:2 photographic character turnaround sheet with exactly THREE evenly spaced head-to-toe views of this ONE identity: front, left profile, rear three-quarter. Full heads and all shoes must fit within each view with generous margins. 183 cm design height, 96 kg design weight, stocky broad-shouldered sturdy adult build, strong forearms and a visible soft middle, chest/waist/hips design targets 112/99/108 cm. No six-pack or exaggerated V taper. Wearing plain charcoal crew-neck cotton T-shirt, brown straight-leg work trousers and plain low-top shoes consistently in all three views. Arms relaxed slightly away from torso. Preserve original face, hair, skin color, age, distinctive facial traits and realistic body type in every view. Seamless neutral gray studio backdrop and floor, broad soft light, photographic skin and fabric. No slimming, no de-aging, no perfect symmetry, no glamour retouching. No lettering, labels, measurements, ruler, logo, watermark or nude body. The stated numbers guide intended proportions only.",
+        "review": "reviewed",
+        "width": 1536,
+        "height": 1024,
+        "sha256": "1563315aa460afeb8f578d72760a8d77fb0f103da72f1dc95f0425757a1e3784"
+      },
+      {
+        "id": "IP-NA-005-expressions-v1",
+        "kind": "expressions",
+        "title": "四种自然表情",
+        "url": "/ip-assets/owen-hart/expressions.png",
+        "parentAssetIds": [
+          "IP-NA-005-portrait-v1"
+        ],
+        "createdAt": "2026-11-02",
+        "generator": "Codex 内置生图",
+        "prompt": "Use case: identity-preserve. Image 1 is the exact canonical face identity reference of the SAME fictional adult person, not a style suggestion. An original fictional 38-year-old adult man with fair warm skin and slight redness in his cheeks, a broad rectangular face with a strong angular jaw and full cheeks, small gray-blue eyes with natural smile creases, thick straight dark eyebrows with a small sparse patch in the middle of the right eyebrow, a broad straight nose with a slightly asymmetric tip, medium-thin lips with the right corner a little higher, short dark-brown hair with a subtly receding hairline, and one-to-two-day dark brown stubble. Relaxed kind neutral expression, visible pores, mild forehead lines and ordinary adult realism. Not a bodybuilder, celebrity or airbrushed male model. Generate a square 1:1 professional photographic expression sheet in a clean 2 by 2 grid. FOUR close head-and-shoulders portraits of this exact SAME adult person: top-left relaxed neutral expression, top-right genuine tooth-showing happy smile, bottom-left focused thoughtful expression with gently narrowed eyes, bottom-right mild surprise with slightly raised eyebrows and softly parted lips. Head entirely visible in each tile. No extreme comic expressions. Same gray studio background, same soft light, same hair and plain shirt as canonical reference, consistent eye color and facial geometry. Maintain age, face width, nose and mouth shape, natural facial marks, skin pores and wrinkles. Do not change identity when smiling; do not beautify or de-age. No captions, text, grid labels, numbers, logos or watermarks.",
+        "review": "reviewed",
+        "width": 1254,
+        "height": 1254,
+        "sha256": "c1e3a29b8b396a888ea3aeb4850a61909b94810e89a2d5767a302e6a3ac393f2"
+      },
+      {
+        "id": "IP-NA-005-owen-workshop-v1",
+        "kind": "lifestyle",
+        "title": "木作工作室 · 工装与单膝跪姿",
+        "url": "/ip-assets/owen-hart/owen-workshop.png",
+        "parentAssetIds": [
+          "IP-NA-005-portrait-v1",
+          "IP-NA-005-turnaround-v1"
+        ],
+        "createdAt": "2026-11-02",
+        "generator": "Codex 内置生图",
+        "prompt": "Create a single vertical realistic photograph of the SAME fictional adult man in Image 1, age 38. Preserve his short brown hair, gray-blue eyes, broad face, slightly asymmetric nose, dark stubble and sturdy stocky body from Image 3. Image 2 is only a simple joint-position reference for a normal one-knee-kneeling working posture; the man remains fully dressed. Outfit: a fully buttoned rust-brown long-sleeve canvas work shirt over a plain cream undershirt, loose full-length dark olive work trousers and sturdy brown work boots. All clothing is opaque and covers the torso and legs completely. He kneels on one knee beside an unfinished wooden stool in a tidy sunlit Portland carpenter workshop, both hands resting naturally on his raised knee, looking toward the camera with a friendly slight smile. Wood workbench, a few ordinary tools and wood shavings, warm afternoon window light. Full person including shoes and head visible, one person, one scene, natural skin and fabric details. No collage, no text, no logos or watermark.",
+        "review": "reviewed",
+        "width": 1024,
+        "height": 1536,
+        "sha256": "b021e7b3fa9385aa115c1423f27f48f6ecf5c2dcbcf6bf720e5e328092883878",
+        "characterVersion": 1,
+        "composition": {
+          "lookId": "owen-workshop",
+          "poseId": "full_single_P033_diag",
+          "scene": "Portland wood workshop, kneeling on one knee beside an unfinished oak stool in the reference pose, one hand rests on the raised knee, warm late-afternoon side window light, wood shavings and real workbench. Maintain stocky build, broad shoulders and a soft middle.",
+          "customOutfit": "fully buttoned rust-brown long-sleeve canvas work shirt over a cream undershirt, loose full-length dark olive work trousers and sturdy brown work boots; opaque fully covering clothing with no brand logos"
+        },
+        "sourceReferenceUrls": [
+          "/ip-assets/owen-hart/portrait.png",
+          "/img/full_single_P033_diag.png",
+          "/ip-assets/owen-hart/turnaround.png"
+        ]
+      }
+    ],
+    "rights": {
+      "origin": "original_generation",
+      "generator": "Codex built-in image generation",
+      "licenseNote": "项目自制角色；不继承上游图库图片许可。生成内容的权利按适用条款管理。",
+      "source": "user_project",
+      "createdAt": "2026-11-02"
+    },
+    "updatedAt": "2026-11-02"
+  },
+  {
+    "schemaVersion": 1,
+    "id": "IP-EU-006",
+    "slug": "theo-baptiste",
+    "version": 1,
+    "name": "Théo Baptiste",
+    "displayName": "泰奥",
+    "age": 27,
+    "gender": "男性",
+    "market": [
+      "欧洲",
+      "北美"
+    ],
+    "baseCity": "巴黎",
+    "tagline": "细长脸、短脏辫与修长体型",
+    "status": "active",
+    "persona": {
+      "positioning": "音乐、骑行与城市记录",
+      "topics": [
+        "音乐",
+        "城市骑行",
+        "街头文化"
+      ],
+      "personality": [
+        "外向",
+        "机敏",
+        "有耐心"
+      ],
+      "bio": "巴黎的独立录音师，喜欢骑车找街角唱片店。内容包括录音日常、音乐推荐和周末城市路线。",
+      "voice": "清亮偏中音，节奏感强，语速稍快，轻松。"
+    },
+    "appearance": {
+      "skin": "中深棕色中性底调，面部有自然色差",
+      "hair": "短黑色细脏辫，露出额头和耳朵",
+      "eyes": "深棕细长眼，眼距稍宽",
+      "face": "细长脸，较高颧骨，窄但不尖的下巴",
+      "nose": "中宽鼻梁，略宽鼻翼",
+      "lips": "饱满唇形，清晰唇峰",
+      "brows": "自然浓眉，左眉略高",
+      "marks": [
+        "左眉上方小痣",
+        "两侧颧部自然色差",
+        "眉眼轻微不对称"
+      ],
+      "bodyType": "修长型",
+      "promptEn": "An original fictional 27-year-old adult Black man with medium-deep neutral brown skin, a long narrow face, high cheekbones, a narrow but not pointed chin, deep brown slim eyes set slightly wide apart, a medium-wide nose with softly broad nostrils, full lips with a clear cupid bow, dense brows with the left eyebrow subtly higher, short fine black locs kept above the shoulders with forehead and ears visible, and a tiny mole above his left eyebrow. Clean-shaven or barely visible fine stubble, natural slight facial asymmetry and realistic adult skin texture. Gentle composed neutral expression, no polished celebrity-model aesthetic.",
+      "bodyEn": "187 cm design height, 77 kg design weight, tall lean long-limbed frame with modest muscle tone, narrow waist and realistic shoulder width, chest/waist/hips design targets 96/78/96 cm. Slim adult anatomy, no exaggerated muscles."
+    },
+    "body": {
+      "basis": "design_target",
+      "heightCm": 187,
+      "weightKg": 77,
+      "chestCm": 96,
+      "waistCm": 78,
+      "hipsCm": 96,
+      "shoulderCm": 44,
+      "inseamCm": 90
+    },
+    "style": {
+      "signatureOutfit": "纯白色合身棉 T 恤、黑色直筒牛仔裤、简洁低帮鞋",
+      "palette": [
+        "白色",
+        "黑色",
+        "钴蓝"
+      ],
+      "outfitEn": "plain white fitted crew-neck cotton T-shirt, black straight-leg jeans and simple low-top sneakers"
+    },
+    "assets": [
+      {
+        "id": "IP-EU-006-portrait-v1",
+        "kind": "portrait",
+        "title": "正脸母版",
+        "url": "/ip-assets/theo-baptiste/portrait.png",
+        "parentAssetIds": [],
+        "createdAt": "2026-11-02",
+        "generator": "Codex 内置生图",
+        "prompt": "Use case: photorealistic-natural. Asset type: original fictional adult virtual influencer identity anchor; no celebrity or existing person. Generate ONE vertical 2:3 straight-on chest-up professional casting photograph. An original fictional 27-year-old adult Black man with medium-deep neutral brown skin, a long narrow face, high cheekbones, a narrow but not pointed chin, deep brown slim eyes set slightly wide apart, a medium-wide nose with softly broad nostrils, full lips with a clear cupid bow, dense brows with the left eyebrow subtly higher, short fine black locs kept above the shoulders with forehead and ears visible, and a tiny mole above his left eyebrow. Clean-shaven or barely visible fine stubble, natural slight facial asymmetry and realistic adult skin texture. Gentle composed neutral expression, no polished celebrity-model aesthetic. Wearing plain white fitted crew-neck cotton T-shirt. Neutral medium-light gray seamless studio backdrop, large soft window light, balanced natural color, eye-level 85mm photographic look. Head fully visible with breathing room, shoulders square to camera, direct eye contact. Real skin pores, natural asymmetry, baby hairs and age-appropriate texture. No beauty filters, airbrushing, glamour makeup, collage, text, numbers, logo or watermark. Exactly one person and one photograph. This is a reusable character's canonical identity reference.",
+        "review": "reviewed",
+        "width": 1024,
+        "height": 1536,
+        "sha256": "8fbe5d8075a3e039f59945dac9518226eeff31b0d16b110dffa960f9bf95835c"
+      },
+      {
+        "id": "IP-EU-006-turnaround-v1",
+        "kind": "turnaround",
+        "title": "全身三视角",
+        "url": "/ip-assets/theo-baptiste/turnaround.png",
+        "parentAssetIds": [
+          "IP-EU-006-portrait-v1"
+        ],
+        "createdAt": "2026-11-02",
+        "generator": "Codex 内置生图",
+        "prompt": "Use case: identity-preserve. Image 1 is the exact canonical face identity reference of the SAME fictional adult person, not a style suggestion. An original fictional 27-year-old adult Black man with medium-deep neutral brown skin, a long narrow face, high cheekbones, a narrow but not pointed chin, deep brown slim eyes set slightly wide apart, a medium-wide nose with softly broad nostrils, full lips with a clear cupid bow, dense brows with the left eyebrow subtly higher, short fine black locs kept above the shoulders with forehead and ears visible, and a tiny mole above his left eyebrow. Clean-shaven or barely visible fine stubble, natural slight facial asymmetry and realistic adult skin texture. Gentle composed neutral expression, no polished celebrity-model aesthetic. Create a wide landscape 3:2 photographic character turnaround sheet with exactly THREE evenly spaced head-to-toe views of this ONE identity: front, left profile, rear three-quarter. Full heads and all shoes must fit within each view with generous margins. 187 cm design height, 77 kg design weight, tall lean long-limbed frame with modest muscle tone, narrow waist and realistic shoulder width, chest/waist/hips design targets 96/78/96 cm. Slim adult anatomy, no exaggerated muscles. Wearing plain white fitted crew-neck cotton T-shirt, black straight-leg jeans and simple low-top sneakers consistently in all three views. Arms relaxed slightly away from torso. Preserve original face, hair, skin color, age, distinctive facial traits and realistic body type in every view. Seamless neutral gray studio backdrop and floor, broad soft light, photographic skin and fabric. No slimming, no de-aging, no perfect symmetry, no glamour retouching. No lettering, labels, measurements, ruler, logo, watermark or nude body. The stated numbers guide intended proportions only.",
+        "review": "reviewed",
+        "width": 1536,
+        "height": 1024,
+        "sha256": "ae7e9e6ccd05bc479d9b1e355c43ff64ecbc4a2900a3a4c624011860ab944a9e"
+      },
+      {
+        "id": "IP-EU-006-expressions-v1",
+        "kind": "expressions",
+        "title": "四种自然表情",
+        "url": "/ip-assets/theo-baptiste/expressions.png",
+        "parentAssetIds": [
+          "IP-EU-006-portrait-v1"
+        ],
+        "createdAt": "2026-11-02",
+        "generator": "Codex 内置生图",
+        "prompt": "Use case: identity-preserve. Image 1 is the exact canonical face identity reference of the SAME fictional adult person, not a style suggestion. An original fictional 27-year-old adult Black man with medium-deep neutral brown skin, a long narrow face, high cheekbones, a narrow but not pointed chin, deep brown slim eyes set slightly wide apart, a medium-wide nose with softly broad nostrils, full lips with a clear cupid bow, dense brows with the left eyebrow subtly higher, short fine black locs kept above the shoulders with forehead and ears visible, and a tiny mole above his left eyebrow. Clean-shaven or barely visible fine stubble, natural slight facial asymmetry and realistic adult skin texture. Gentle composed neutral expression, no polished celebrity-model aesthetic. Generate a square 1:1 professional photographic expression sheet in a clean 2 by 2 grid. FOUR close head-and-shoulders portraits of this exact SAME adult person: top-left relaxed neutral expression, top-right genuine tooth-showing happy smile, bottom-left focused thoughtful expression with gently narrowed eyes, bottom-right mild surprise with slightly raised eyebrows and softly parted lips. Head entirely visible in each tile. No extreme comic expressions. Same gray studio background, same soft light, same hair and plain shirt as canonical reference, consistent eye color and facial geometry. Maintain age, face width, nose and mouth shape, natural facial marks, skin pores and wrinkles. Do not change identity when smiling; do not beautify or de-age. No captions, text, grid labels, numbers, logos or watermarks.",
+        "review": "reviewed",
+        "width": 1254,
+        "height": 1254,
+        "sha256": "7f8ba332f3b8f0b18cbcdd5f6ed828a0021b4ebaaddc9dabd3219be3979d8728"
+      },
+      {
+        "id": "IP-EU-006-theo-record-store-v1",
+        "kind": "lifestyle",
+        "title": "唱片店 · 钴蓝外套与转身伸臂",
+        "url": "/ip-assets/theo-baptiste/theo-record-store.png",
+        "parentAssetIds": [
+          "IP-EU-006-portrait-v1",
+          "IP-EU-006-turnaround-v1"
+        ],
+        "createdAt": "2026-11-02",
+        "generator": "Codex 内置生图",
+        "prompt": "Use case: identity-preserve and compositing. Create ONE vertical realistic environmental photograph of the same original fictional adult man. Image 1 is his exact face identity, image 2 supplies the standing torso-twisted arms-open pose only (do not copy mannequin body shape), image 3 preserves his established tall lean body frame, not a layout. An original fictional 27-year-old adult Black man with medium-deep neutral brown skin, a long narrow face, high cheekbones, a narrow but not pointed chin, deep brown slim eyes set slightly wide apart, a medium-wide nose with softly broad nostrils, full lips with a clear cupid bow, dense brows with the left eyebrow subtly higher, short fine black locs kept above the shoulders with forehead and ears visible, and a tiny mole above his left eyebrow. Clean-shaven or barely visible fine stubble, natural slight facial asymmetry and realistic adult skin texture. Gentle composed neutral expression, no polished celebrity-model aesthetic. New clothing: cobalt-blue nylon bomber jacket over a cream textured knit polo, straight charcoal tailored trousers, clean off-white sneakers and a slim brown cross-body record bag; no logos. Scene: Paris independent record store with warm listening-room lamps and wood vinyl bins, standing in a lively torso-twisted arms-open gesture based on the reference pose, as if sharing a new album with a friend, full-body natural environmental photo. Preserve tall lean build, short black locs and original youthful adult facial identity. Warm friendly slight smile and spontaneous natural posture. Preserve the same face, eye spacing, short black locs, skin color and adult age, realistic body proportions and hands. One whole person in one candid full-body photograph, feet and head visible. Natural skin and fabric details, no glamour filters, no captions, logos, watermarks or multiple views.",
+        "review": "reviewed",
+        "width": 1024,
+        "height": 1536,
+        "sha256": "3569780396040ef8a3a6376d839a1d219db94dfe62de89384f7bdfba9f78c8a2",
+        "characterVersion": 1,
+        "composition": {
+          "lookId": "theo-record-store",
+          "poseId": "full_single_P077_diag",
+          "scene": "Paris independent record store with warm listening-room lamps and wood vinyl bins, standing in a lively torso-twisted arms-open gesture based on the reference pose, as if sharing a new album with a friend, full-body natural environmental photo. Preserve tall lean build, short black locs and original youthful adult facial identity.",
+          "customOutfit": "cobalt-blue nylon bomber jacket over a cream textured knit polo, straight charcoal tailored trousers, clean off-white sneakers and a slim brown cross-body record bag; no logos"
+        },
+        "sourceReferenceUrls": [
+          "/ip-assets/theo-baptiste/portrait.png",
+          "/img/full_single_P077_diag.png",
+          "/ip-assets/theo-baptiste/turnaround.png"
+        ]
+      }
+    ],
+    "rights": {
+      "origin": "original_generation",
+      "generator": "Codex built-in image generation",
+      "licenseNote": "项目自制角色；不继承上游图库图片许可。生成内容的权利按适用条款管理。",
+      "source": "user_project",
+      "createdAt": "2026-11-02"
+    },
+    "updatedAt": "2026-11-02"
+  }
+]

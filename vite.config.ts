@@ -68,6 +68,8 @@ function localAssetsAndProxyPlugin(): Plugin {
   }
 
   const serve = (req: any, res: any, next: any) => {
+    // Let Vite transform imported JSON modules; plain /data/*.json fetches stay static.
+    if (new URL(req.url || '/', 'http://localhost').searchParams.has('import')) return next()
     const rawUrl = (req.url || '').split('?')[0]
     if (rawUrl === '/api/proxy') {
       void handleProxy(req, res)
@@ -78,6 +80,13 @@ function localAssetsAndProxyPlugin(): Plugin {
       return next()
     }
     const filePath = path.join(rootDir, decoded)
+    if (!fs.existsSync(filePath) && (decoded.startsWith('/img/') || decoded.startsWith('/thumbs/'))) {
+      const assetsOrigin = process.env.GALLERY_ASSETS_ORIGIN || 'https://raw.githubusercontent.com/tangpingqingwa/ai-pose-gallery-zh/main'
+      res.statusCode = 302
+      res.setHeader('Location', `${assetsOrigin.replace(/\/+$/, '')}${decoded}`)
+      res.end()
+      return
+    }
     if (!filePath.startsWith(rootDir) || !fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
       return next()
     }
@@ -116,7 +125,7 @@ const comfyProxy = {
 }
 
 export default defineConfig({
-  publicDir: false,
+  publicDir: 'public',
   plugins: [
     localAssetsAndProxyPlugin(),
     tanstackRouter({ target: 'react', autoCodeSplitting: true }),

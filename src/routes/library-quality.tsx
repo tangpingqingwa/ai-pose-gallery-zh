@@ -1,6 +1,9 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import report from '../../data/catalog-audit.json'
 import expansion from '../../data/catalog-expansion.json'
+import { matchesPortraitRegion } from '@/lib/catalog'
+import { portraitClassification } from '@/lib/library'
+import type { PortraitItem } from '@/types/gallery'
 import { whiteModels } from '@/lib/whiteModels'
 import { useSettingLibrary } from '@/store/settingStore'
 import { PageHeader } from '@/components/common/PageHeader'
@@ -12,10 +15,11 @@ function LibraryQualityPage() {
   const { records } = useSettingLibrary()
   const c = report.costumes
   const p = report.portraits
-  const portraits = expansion.portraits.map((item) => item.catalog)
+  const portraits = (expansion.portraits as PortraitItem[]).map(portraitClassification)
+  const asian = portraits.filter((item) => matchesPortraitRegion(item.designRegion, '亚洲（全部）'))
   return <>
     <PageHeader title="参考库检查" description={`检查分类、记录关联与索引完整性。基础数据检查日期 ${report.date}。`} />
-    <section className="rounded-xl border p-5"><h2 className="text-lg font-semibold">人物与日常覆盖</h2><dl className="mt-4 grid grid-cols-2 gap-4 md:grid-cols-3">{Object.entries({ '已标注人像': portraits.length, '男性形象': portraits.filter((item) => item.presentation === '男性').length, '45岁及以上': portraits.filter((item) => item.age >= 45).length, '60岁及以上': portraits.filter((item) => item.age >= 60).length, '已分类日常穿搭': expansion.costumes.length, '语言与地区口音方向': records.filter((record) => record.category === 'language').length }).map(([label, count]) => <div key={label}><dt className="text-xs text-muted-foreground">{label}</dt><dd className="mt-1 text-2xl font-semibold tabular-nums">{count}</dd></div>)}</dl><p className="mt-4 text-xs leading-6 text-muted-foreground">首页按年龄、性别形象与版型交错展示；随机先取分类，再取图片。缺少可靠标注的素材继续显示未标注。</p></section>
+    <section className="rounded-xl border p-5"><h2 className="text-lg font-semibold">人物与日常覆盖</h2><dl className="mt-4 grid grid-cols-2 gap-4 md:grid-cols-3">{Object.entries({ '已标注人像': portraits.length, '男性形象': portraits.filter((item) => item.presentation === '男性').length, '45岁及以上': portraits.filter((item) => (item.age ?? 0) >= 45).length, '60岁及以上': portraits.filter((item) => (item.age ?? 0) >= 60).length, '亚洲设计方向': asian.length, '亚洲男性': asian.filter((item) => item.presentation === '男性').length, '亚洲女性': asian.filter((item) => item.presentation === '女性').length, '已分类日常穿搭': expansion.costumes.length, '语言与地区口音方向': records.filter((record) => record.category === 'language').length }).map(([label, count]) => <div key={label}><dt className="text-xs text-muted-foreground">{label}</dt><dd className="mt-1 text-2xl font-semibold tabular-nums">{count}</dd></div>)}</dl><p className="mt-4 text-xs leading-6 text-muted-foreground">首页按设计地区、年龄与性别形象交错展示；随机先取地区与分类，再取图片。外观设计方向来自人物设定，未标注素材继续保留。</p></section>
     <section className="rounded-xl border p-5"><h2 className="text-lg font-semibold">图像与设定记录关联</h2><p className="mt-3 text-sm leading-7">妆发状态使用 {whiteModels.length} 组通用参考。个性、生活、语言口音与个人声线共有 {records.length} 条设定记录，可以独立选择、随机组合或固定到自有 IP。</p><p className="mt-2 text-sm leading-7 text-muted-foreground">图库按人物与素材特征统一分类；缺失信息显示未标注。固定关联会保留所选内容，编辑记录库不会悄悄改变已保存的人物。</p><div className="mt-4 flex flex-wrap gap-2"><Button variant="outline" asChild><Link to="/traits">个性与生活库</Link></Button><Button variant="outline" asChild><Link to="/voices">语言与声音库</Link></Button><Button asChild><Link to="/studio">人物创作与关联</Link></Button></div></section>
     <div className="grid gap-5 md:grid-cols-2" aria-label="原库检查结果">
       <section className="rounded-xl border p-5"><h2 className="text-lg font-semibold">服装：数量与描述区分度</h2><dl className="mt-4 grid grid-cols-2 gap-4 text-sm">{Object.entries({ '参考图片': c.total, '不同文字描述': c.distinctDescriptions, '相同描述分组': c.repeatedDescriptionGroups, '涉及记录': c.recordsInRepeatedGroups }).map(([label, count]) => <div key={label}><dt className="text-muted-foreground">{label}</dt><dd className="mt-1 text-2xl font-semibold tabular-nums">{count}</dd></div>)}</dl><p className="mt-5 text-sm leading-7">同一段描述最多对应 {c.duplicates[0].count} 套图。不能仅凭描述判断图片重复，现已提供分组查看，保留每一张参考图。</p><Button className="mt-4" variant="outline" asChild><Link to="/costumes">查看穿搭参考</Link></Button></section>

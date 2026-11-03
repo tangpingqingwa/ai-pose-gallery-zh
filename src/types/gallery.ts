@@ -81,6 +81,7 @@ export interface PortraitClassification {
   bodyDesign: string
   market: string
   appearance: string
+  designRegion?: string
   faceShape?: string
   facialHair?: string
   annotation: 'design_spec' | 'source_metadata'

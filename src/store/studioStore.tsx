@@ -17,8 +17,8 @@ import { poseImagePath, recipeBackup } from '@/lib/recipeImages'
 import { buildCodexTask, detachCharacter, recipeForCharacter } from '@/lib/characters'
 import type { CharacterAssetKind, CharacterCreativeBrief, CharacterProfile } from '@/types/character'
 import { applyCharacterBrief } from '@/lib/characterWorld'
-import { costumeClassification, costumesForIdentity, portraitClassification, withLibraryReference } from '@/lib/library'
-import { randomCatalogItem } from '@/lib/catalog'
+import { costumeClassification, costumesForIdentity, withLibraryReference } from '@/lib/library'
+import { randomCatalogItem, randomPortraitItem } from '@/lib/catalog'
 import { migrateWhiteReferences, randomWhiteReferences } from '@/lib/whiteModels'
 import { chooseSetting, randomSettingBindings, validateSettingBindings } from '@/lib/settingLibrary'
 import { useSettingLibrary } from '@/store/settingStore'
@@ -609,7 +609,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
     const portraitPool = recipe.portrait ? [] : pools.portraits || []
 
     setRecipe((prev) => {
-      const portrait = portraitPool.length ? randomCatalogItem(portraitPool, (item) => { const c = portraitClassification(item); return `${c.presentation}:${c.ageBand}` }) ?? prev.portrait : prev.portrait
+      const portrait = portraitPool.length ? randomPortraitItem(portraitPool) ?? prev.portrait : prev.portrait
       const identity = portrait?.catalog
       const activeCharacter = portraitPool.length ? null : prev.character
       const candidates = costumesForIdentity(costumePool, identity?.presentation ?? activeCharacter?.gender ?? '', identity?.age ?? activeCharacter?.age)

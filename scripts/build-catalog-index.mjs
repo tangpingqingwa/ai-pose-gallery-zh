@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import crypto from 'node:crypto'
-import { interleaveCatalog } from '../src/lib/catalog.ts'
+import { interleaveCatalog, orderPortraitCatalog } from '../src/lib/catalog.ts'
 
 const root = path.resolve(import.meta.dirname, '..')
 const specs = JSON.parse(fs.readFileSync(path.join(root, 'data/catalog-generation-specs.json'), 'utf8'))
@@ -25,12 +25,12 @@ const review = accepted ? 'reviewed' : 'pending_visual_review'
 const portraits = specs.filter((item) => item.kind === 'portraits').map((spec) => {
   const image = byId.get(spec.id)
   return { id: spec.id, source: 'catalog', 分区: '多样人像', 发长: spec.hairLength, 发型名称: `${spec.name} · ${spec.hairLength}`, 标题: spec.title, 宽: image.width, 高: image.height, 字节数: image.bytes, 精选: false, 热门: false, 缩略图: image.thumbnail, 原图: image.url,
-    检索: [spec.id, spec.name, spec.title, spec.description, spec.ageBand, spec.presentation, spec.skinTone, spec.bodyDesign, spec.market].join(' '),
-    catalog: { collection: 'expanded', age: spec.age, ageBand: spec.ageBand, presentation: spec.presentation, skinTone: spec.skinTone, bodyDesign: spec.bodyDesign, market: spec.market, appearance: spec.description, ...(spec.faceShape ? { faceShape: spec.faceShape } : {}), ...(spec.facialHair ? { facialHair: spec.facialHair } : {}), annotation: 'design_spec' },
+    检索: [spec.id, spec.name, spec.title, spec.description, spec.ageBand, spec.presentation, spec.skinTone, spec.bodyDesign, spec.market, spec.designRegion].filter(Boolean).join(' '),
+    catalog: { collection: 'expanded', age: spec.age, ageBand: spec.ageBand, presentation: spec.presentation, skinTone: spec.skinTone, bodyDesign: spec.bodyDesign, market: spec.market, appearance: spec.description, ...(spec.designRegion ? { designRegion: spec.designRegion } : {}), ...(spec.faceShape ? { faceShape: spec.faceShape } : {}), ...(spec.facialHair ? { facialHair: spec.facialHair } : {}), annotation: 'design_spec' },
   }
 })
 // New groups and later batches must remain browsable; never index a fixed 16-row list.
-const orderedPortraits = interleaveCatalog([...portraits.filter((item) => specs.find((spec) => spec.id === item.id)?.batch), ...portraits.filter((item) => !specs.find((spec) => spec.id === item.id)?.batch)], (item) => `${item.catalog.presentation}:${item.catalog.ageBand}`)
+const orderedPortraits = orderPortraitCatalog(portraits)
 const costumes = specs.filter((item) => item.kind === 'costumes').map((spec) => {
   const image = byId.get(spec.id)
   return { id: spec.id, source: 'catalog', 分类: spec.occasion, 服装名称: spec.title, 标签: [spec.cut, spec.occasion, spec.fit, spec.season, spec.stage], 关键词: spec.english, 缩略图: image.thumbnail, 预览图: image.url, 原图: image.url, 检索: [spec.id, spec.title, spec.description, spec.english, spec.cut, spec.occasion, spec.fit, spec.stage, spec.season].join(' '),

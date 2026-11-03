@@ -3,7 +3,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import crypto from 'node:crypto'
 import { asLibraryReference, costumeClassification, costumesForIdentity, portraitClassification, portraitHairFamily, portraitFringe, REFERENCE_LIBRARIES, supplementalReferencePrompt, withLibraryReference } from '../src/lib/library.ts'
-import { interleaveCatalog, matchesPortraitAge, randomCatalogItem } from '../src/lib/catalog.ts'
+import { ASIAN_DESIGN_REGIONS, interleaveCatalog, matchesPortraitAge, matchesPortraitRegion, orderPortraitCatalog, portraitRegionGroup, randomCatalogItem, randomPortraitItem } from '../src/lib/catalog.ts'
 import { whiteModels } from '../src/lib/whiteModels.ts'
 import { buildCodexTask } from '../src/lib/characters.ts'
 import { recipeBackup } from '../src/lib/recipeImages.ts'
@@ -35,7 +35,26 @@ for (const asset of assets) {
   assert.ok(preview.length < 200000, 'Browsing preview should be lightweight')
   pngBytes += bytes.length; previewBytes += preview.length
 }
-assert.ok(catalog.portraits.length >= 40 && catalog.costumes.length >= 40)
+assert.ok(catalog.portraits.length >= 80 && catalog.costumes.length >= 40)
+const asianBatch = specs.filter((spec) => spec.batch === 'asian-diversity-2026-11-03')
+assert.equal(asianBatch.length, 40)
+for (const region of ASIAN_DESIGN_REGIONS) {
+  const part = asianBatch.filter((spec) => spec.designRegion === region)
+  assert.equal(part.length, 8)
+  for (const gender of ['男性', '女性']) assert.equal(part.filter((spec) => spec.presentation === gender).length, 4)
+  for (const band of ['18–29', '30–44', '45–59', '60+']) assert.equal(part.filter((spec) => spec.ageBand === band).length, 2)
+}
+assert.ok(catalog.portraits.filter((item) => matchesPortraitRegion(item.catalog.designRegion, '亚洲（全部）')).length >= 41)
+assert.ok(catalog.portraits.some((item) => item.id === 'P-NEW-016' && item.catalog.designRegion === '东亚' && item.catalog.market === '北美'), 'Existing diaspora design and creation market remain independent')
+assert.equal(matchesPortraitRegion(undefined, '亚洲（全部）'), false, 'Unannotated images must not acquire an inferred background')
+const firstPage = catalog.portraits.slice(0, 24)
+for (const region of ASIAN_DESIGN_REGIONS) assert.ok(firstPage.some((item) => item.catalog.designRegion === region), `First page omits design region: ${region}`)
+assert.ok(firstPage.some((item) => item.catalog.market === '欧洲') && firstPage.some((item) => item.catalog.market === '北美'))
+for (const gender of ['男性', '女性']) assert.ok(firstPage.slice(0, 8).some((item) => item.catalog.presentation === gender))
+assert.deepEqual(new Set(orderPortraitCatalog(catalog.portraits).map((item) => item.id)), new Set(catalog.portraits.map((item) => item.id)))
+const smallPool = [...catalog.portraits, oldPortraits[0]]
+const largePool = [...catalog.portraits, ...oldPortraits]
+for (const value of [0.1, 0.35, 0.6, 0.9]) assert.equal(portraitRegionGroup(randomPortraitItem(smallPool, () => value)), portraitRegionGroup(randomPortraitItem(largePool, () => value)), 'A large unannotated collection must not change regional selection probabilities')
 for (const kind of ['portraits', 'costumes']) assert.deepEqual(new Set(catalog[kind].map((item) => item.id)), new Set(specs.filter((item) => item.kind === kind).map((item) => item.id)), 'Every generated item must be indexed, including future batches')
 const batch = specs.filter((spec) => spec.batch === 'everyday-diversity-2026-11')
 const batchPortraits = batch.filter((spec) => spec.kind === 'portraits')

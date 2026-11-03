@@ -1,10 +1,7 @@
 import type { CostumeClassification, CostumeItem, ExtraReferenceImage, PortraitClassification, PortraitItem, VisualReferenceItem, VisualReferenceKind } from '@/types/gallery'
 
 export const REFERENCE_LIBRARIES = {
-  expressions: { title: '表情神态库', short: '表情', route: '/expressions', description: '用白模参考表情肌肉、眼睑与口形变化，人物身份由人像确定。', role: 'expression' },
   grooming: { title: '妆发状态库', short: '妆发', route: '/grooming', description: '用白模参考头发、胡须的整理结构和面部状态，保留人物发色与年龄。', role: 'grooming' },
-  'body-details': { title: '体型细节库', short: '体型/细节', route: '/body-details', description: '成年白模的轮廓、比例、体态与手部细节，可与不同人物关联。', role: 'body_guide' },
-  mannerisms: { title: '习惯仪态库', short: '仪态', route: '/mannerisms', description: '用白模参考倾听、思考和整理时的自然动作，保持所选人物身份。', role: 'gesture' },
 } as const
 
 export function ageBand(age: number) {
@@ -61,10 +58,7 @@ export function referenceIsSelected(images: ExtraReferenceImage[] | undefined, i
 }
 
 export function libraryKindForRole(role: ExtraReferenceImage['role']): VisualReferenceKind | undefined {
-  if (role === 'expression') return 'expressions'
   if (role === 'grooming') return 'grooming'
-  if (role === 'identity_detail' || role === 'body_guide' || role === 'character_body') return 'body-details'
-  if (role === 'gesture') return 'mannerisms'
 }
 
 export function supplementalReferencePrompt(index: number, image: ExtraReferenceImage): string {

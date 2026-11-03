@@ -108,7 +108,7 @@ export const portraitsQuery = queryOptions({
 })
 
 export const visualReferencesQuery = queryOptions({
-  queryKey: ['gallery', 'visual-references', 'white-model-v1'],
+  queryKey: ['gallery', 'visual-references', 'grooming-v2'],
   staleTime: Infinity,
   queryFn: async () => whiteReferences as VisualReferenceItem[],
 })

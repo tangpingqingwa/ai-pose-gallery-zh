@@ -10,14 +10,11 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as BodyDetailsRouteImport } from './routes/body-details'
 import { Route as CharactersRouteImport } from './routes/characters'
 import { Route as CostumesRouteImport } from './routes/costumes'
-import { Route as ExpressionsRouteImport } from './routes/expressions'
 import { Route as GroomingRouteImport } from './routes/grooming'
 import { Route as GuideRouteImport } from './routes/guide'
 import { Route as LibraryQualityRouteImport } from './routes/library-quality'
-import { Route as MannerismsRouteImport } from './routes/mannerisms'
 import { Route as PortraitsRouteImport } from './routes/portraits'
 import { Route as PosesRouteImport } from './routes/poses'
 import { Route as SettingsRouteImport } from './routes/settings'
@@ -30,11 +27,6 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BodyDetailsRoute = BodyDetailsRouteImport.update({
-  id: '/body-details',
-  path: '/body-details',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const CharactersRoute = CharactersRouteImport.update({
   id: '/characters',
   path: '/characters',
@@ -43,11 +35,6 @@ const CharactersRoute = CharactersRouteImport.update({
 const CostumesRoute = CostumesRouteImport.update({
   id: '/costumes',
   path: '/costumes',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ExpressionsRoute = ExpressionsRouteImport.update({
-  id: '/expressions',
-  path: '/expressions',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GroomingRoute = GroomingRouteImport.update({
@@ -63,11 +50,6 @@ const GuideRoute = GuideRouteImport.update({
 const LibraryQualityRoute = LibraryQualityRouteImport.update({
   id: '/library-quality',
   path: '/library-quality',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MannerismsRoute = MannerismsRouteImport.update({
-  id: '/mannerisms',
-  path: '/mannerisms',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PortraitsRoute = PortraitsRouteImport.update({
@@ -103,14 +85,11 @@ const VoicesRoute = VoicesRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/body-details': typeof BodyDetailsRoute
   '/characters': typeof CharactersRoute
   '/costumes': typeof CostumesRoute
-  '/expressions': typeof ExpressionsRoute
   '/grooming': typeof GroomingRoute
   '/guide': typeof GuideRoute
   '/library-quality': typeof LibraryQualityRoute
-  '/mannerisms': typeof MannerismsRoute
   '/portraits': typeof PortraitsRoute
   '/poses': typeof PosesRoute
   '/settings': typeof SettingsRoute
@@ -120,14 +99,11 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/body-details': typeof BodyDetailsRoute
   '/characters': typeof CharactersRoute
   '/costumes': typeof CostumesRoute
-  '/expressions': typeof ExpressionsRoute
   '/grooming': typeof GroomingRoute
   '/guide': typeof GuideRoute
   '/library-quality': typeof LibraryQualityRoute
-  '/mannerisms': typeof MannerismsRoute
   '/portraits': typeof PortraitsRoute
   '/poses': typeof PosesRoute
   '/settings': typeof SettingsRoute
@@ -138,14 +114,11 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/body-details': typeof BodyDetailsRoute
   '/characters': typeof CharactersRoute
   '/costumes': typeof CostumesRoute
-  '/expressions': typeof ExpressionsRoute
   '/grooming': typeof GroomingRoute
   '/guide': typeof GuideRoute
   '/library-quality': typeof LibraryQualityRoute
-  '/mannerisms': typeof MannerismsRoute
   '/portraits': typeof PortraitsRoute
   '/poses': typeof PosesRoute
   '/settings': typeof SettingsRoute
@@ -157,14 +130,11 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/body-details'
     | '/characters'
     | '/costumes'
-    | '/expressions'
     | '/grooming'
     | '/guide'
     | '/library-quality'
-    | '/mannerisms'
     | '/portraits'
     | '/poses'
     | '/settings'
@@ -174,14 +144,11 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/body-details'
     | '/characters'
     | '/costumes'
-    | '/expressions'
     | '/grooming'
     | '/guide'
     | '/library-quality'
-    | '/mannerisms'
     | '/portraits'
     | '/poses'
     | '/settings'
@@ -191,14 +158,11 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
-    | '/body-details'
     | '/characters'
     | '/costumes'
-    | '/expressions'
     | '/grooming'
     | '/guide'
     | '/library-quality'
-    | '/mannerisms'
     | '/portraits'
     | '/poses'
     | '/settings'
@@ -209,14 +173,11 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  BodyDetailsRoute: typeof BodyDetailsRoute
   CharactersRoute: typeof CharactersRoute
   CostumesRoute: typeof CostumesRoute
-  ExpressionsRoute: typeof ExpressionsRoute
   GroomingRoute: typeof GroomingRoute
   GuideRoute: typeof GuideRoute
   LibraryQualityRoute: typeof LibraryQualityRoute
-  MannerismsRoute: typeof MannerismsRoute
   PortraitsRoute: typeof PortraitsRoute
   PosesRoute: typeof PosesRoute
   SettingsRoute: typeof SettingsRoute
@@ -234,13 +195,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/body-details': {
-      id: '/body-details'
-      path: '/body-details'
-      fullPath: '/body-details'
-      preLoaderRoute: typeof BodyDetailsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/characters': {
       id: '/characters'
       path: '/characters'
@@ -253,13 +207,6 @@ declare module '@tanstack/react-router' {
       path: '/costumes'
       fullPath: '/costumes'
       preLoaderRoute: typeof CostumesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/expressions': {
-      id: '/expressions'
-      path: '/expressions'
-      fullPath: '/expressions'
-      preLoaderRoute: typeof ExpressionsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/grooming': {
@@ -281,13 +228,6 @@ declare module '@tanstack/react-router' {
       path: '/library-quality'
       fullPath: '/library-quality'
       preLoaderRoute: typeof LibraryQualityRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mannerisms': {
-      id: '/mannerisms'
-      path: '/mannerisms'
-      fullPath: '/mannerisms'
-      preLoaderRoute: typeof MannerismsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/portraits': {
@@ -337,14 +277,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  BodyDetailsRoute: BodyDetailsRoute,
   CharactersRoute: CharactersRoute,
   CostumesRoute: CostumesRoute,
-  ExpressionsRoute: ExpressionsRoute,
   GroomingRoute: GroomingRoute,
   GuideRoute: GuideRoute,
   LibraryQualityRoute: LibraryQualityRoute,
-  MannerismsRoute: MannerismsRoute,
   PortraitsRoute: PortraitsRoute,
   PosesRoute: PosesRoute,
   SettingsRoute: SettingsRoute,

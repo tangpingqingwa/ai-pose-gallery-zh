@@ -4,7 +4,7 @@ import path from 'node:path'
 import crypto from 'node:crypto'
 import { bindingsAfterManualEdit, chooseSetting, compositionVoice, compositionWorld, profileWithSettings, randomSettingBindings, recipeVoiceTask, SETTING_CATEGORIES, validateSettingBindings, validateSettingRecord } from '../src/lib/settingLibrary.ts'
 import { buildCodexTask, validateCharacter } from '../src/lib/characters.ts'
-import { migrateWhiteReferences, whiteModels } from '../src/lib/whiteModels.ts'
+import { migrateWhiteReferences, randomWhiteReferences, whiteModels } from '../src/lib/whiteModels.ts'
 import { asLibraryReference, supplementalReferencePrompt } from '../src/lib/library.ts'
 import { recipeBackup } from '../src/lib/recipeImages.ts'
 
@@ -57,6 +57,16 @@ const migrated = migrateWhiteReferences([{ id: 'old', source: 'library', referen
 assert.ok(migrated[0].url.startsWith('/white-models/'))
 assert.equal(migrated[0].renderMode, 'white_model')
 assert.equal(migrated[1].id, 'manual')
+const removed = ['expressions', 'body-details', 'mannerisms'].map((kind, index) => ({ id: `retired-${index}`, source: 'library', referenceKind: kind, renderMode: 'white_model', name: 'removed library reference', url: `/white-models/${kind}/retired.png` }))
+const cleaned = migrateWhiteReferences([...removed, { id: 'manual-anchor', role: 'character_body', name: 'own identity body', url: '/own-body.png' }, ...migrated])
+assert.equal(cleaned.length, 3)
+assert.ok(!cleaned.some((image) => image.id.startsWith('retired-')))
+assert.ok(cleaned.some((image) => image.id === 'manual-anchor'))
+assert.ok(whiteModels.every((image) => image.kind === 'grooming'))
+const randomizedReferences = randomWhiteReferences(recipe)
+assert.ok(randomizedReferences.filter((image) => image.source === 'library').every((image) => image.referenceKind === 'grooming'))
+for (const route of ['expressions', 'body-details', 'mannerisms']) assert.ok(!fs.existsSync(path.join(root, 'src/routes', route + '.tsx')))
+
 let pngBytes = 0
 const assets = read('white-model-assets')
 assert.equal(assets.length, whiteModels.length)

@@ -63,7 +63,7 @@ export interface ExtraReferenceImage {
   renderMode?: 'white_model'
   role?: 'character_sheet' | 'character_body' | 'prop' | 'wardrobe_detail' | 'identity_detail' | 'expression' | 'grooming' | 'body_guide' | 'gesture'
   source?: 'character_world' | 'library'
-  referenceKind?: VisualReferenceKind
+  referenceKind?: VisualReferenceKind | 'expressions' | 'body-details' | 'mannerisms'
   referenceId?: string
   instruction?: string
   thumbnail?: string
@@ -95,7 +95,7 @@ export interface CostumeClassification {
   annotation: 'design_spec' | 'source_metadata'
 }
 
-export type VisualReferenceKind = 'expressions' | 'grooming' | 'body-details' | 'mannerisms'
+export type VisualReferenceKind = 'grooming'
 export interface VisualReferenceItem {
   renderMode?: 'white_model'
   id: string

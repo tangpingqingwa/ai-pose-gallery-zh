@@ -29,10 +29,7 @@ export function AppSidebar() {
   const references = whiteModels
   const { records } = useSettingLibrary()
   const libraryCounts: Record<string, number> = { '/costumes': 1407 + expansion.costumes.length, '/portraits': 1499 + expansion.portraits.length + profiles.filter((profile) => profile.assets.some((asset) => asset.kind === 'portrait')).length,
-    '/expressions': references.filter((item) => item.kind === 'expressions').length,
     '/grooming': references.filter((item) => item.kind === 'grooming').length,
-    '/body-details': references.filter((item) => item.kind === 'body-details').length,
-    '/mannerisms': references.filter((item) => item.kind === 'mannerisms').length,
     '/traits': records.filter((record) => SETTING_CATEGORIES[record.category].group === 'life').length,
     '/voices': records.filter((record) => SETTING_CATEGORIES[record.category].group === 'voice').length,
   }

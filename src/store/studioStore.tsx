@@ -236,6 +236,7 @@ interface StudioContextValue {
   setSettingRecord: (record: SettingRecord) => void
   removeSettingRecord: (category: SettingCategory) => void
   toggleSettingLock: (category: SettingCategory) => void
+  setSettingLocks: (locked: boolean) => void
   randomizeSettingRecords: (group?: SettingGroup) => void
   setWorkflowImage: (nodeId: string, image: ExtraReferenceImage | null, identity: string) => void
   clearRecipe: () => void
@@ -556,6 +557,9 @@ export function StudioProvider({ children }: { children: ReactNode }) {
     setCustomPrompt(null)
     setRecipe((previous) => ({ ...previous, settingBindings: randomSettingBindings(settingRecords, previous.settingBindings, group) }))
   }
+  const setSettingLocks = (locked: boolean) => {
+    setRecipe((previous) => ({ ...previous, settingBindings: Object.fromEntries(Object.entries(previous.settingBindings ?? {}).map(([category, binding]) => [category, { ...binding!, locked }])) as SettingBindings }))
+  }
 
   const updateExtraImageName = (id: string, name: string) => {
     setRecipe((r) => ({
@@ -802,6 +806,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
         setSettingRecord,
         removeSettingRecord,
         toggleSettingLock,
+        setSettingLocks,
         randomizeSettingRecords,
         setWorkflowImage,
         clearRecipe,

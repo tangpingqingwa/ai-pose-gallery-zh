@@ -32,9 +32,9 @@ function GuidePage() {
 
         <div className="rounded-2xl bg-background p-4">
           <Badge>3. 状态与细节</Badge>
-          <h3 className="mt-2 text-sm font-semibold">表情、妆发、体型细节、习惯仪态</h3>
+          <h3 className="mt-2 text-sm font-semibold">妆发与人物设定</h3>
           <p className="mt-1 text-xs text-muted-foreground">
-            四个图片库使用通用白模控制状态，生活与语言声音记录可指定、锁定和随机组合。创作台导出图像与配音任务，超过 5 张参考时可下载拼图。
+            妆发参考控制整理状态，生活与语言声音记录可指定、解锁和随机组合。创作台导出图像与配音任务，超过 5 张参考时可下载拼图。
           </p>
         </div>
       </Section>

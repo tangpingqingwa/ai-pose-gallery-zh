@@ -185,6 +185,8 @@ git clone --depth 1 https://github.com/anhao/ai-pose-gallery-zh.git
 
 ## 本地开发与构建
 
+Windows 可双击项目根目录的 `Open-Gallery.cmd`，自动在后台启动本机图库并打开浏览器；关闭启动窗口不会停止图库。默认地址为 `http://127.0.0.1:5184/portraits`。
+
 需要 **Node.js 20+** 与 **pnpm**：
 
 ```bash

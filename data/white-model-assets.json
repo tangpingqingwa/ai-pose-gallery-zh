@@ -1,0 +1,57 @@
+[
+  {
+    "id": "WM-GRM-001",
+    "url": "/white-models/grooming/WM-GRM-001.png",
+    "thumbnail": "/white-models/thumbs/WM-GRM-001.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 1763074,
+    "sha256": "6d8c295ec548ea89e84360a5eec1d8151b2f09a4819b4ca15bc8cac77714de8e",
+    "generator": "Codex built-in image generation",
+    "review": "reviewed"
+  },
+  {
+    "id": "WM-GRM-002",
+    "url": "/white-models/grooming/WM-GRM-002.png",
+    "thumbnail": "/white-models/thumbs/WM-GRM-002.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 1828496,
+    "sha256": "1ddff4924376a5e1fc8d53cbcfdb4db512966ae1e3a3c565ec0a0f674cb1126f",
+    "generator": "Codex built-in image generation",
+    "review": "reviewed"
+  },
+  {
+    "id": "WM-GRM-003",
+    "url": "/white-models/grooming/WM-GRM-003.png",
+    "thumbnail": "/white-models/thumbs/WM-GRM-003.webp",
+    "width": 1774,
+    "height": 887,
+    "bytes": 1580959,
+    "sha256": "3300063c1a9c020ac1d8121193b6e3b9ee13b38631378b3dbc195f720a517aa4",
+    "generator": "Codex built-in image generation",
+    "review": "reviewed"
+  },
+  {
+    "id": "WM-GRM-004",
+    "url": "/white-models/grooming/WM-GRM-004.png",
+    "thumbnail": "/white-models/thumbs/WM-GRM-004.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 1871939,
+    "sha256": "7a85a528e82fd8c951af4a07e0ba9e1fc512d125d18f41b512fc31b365a24a42",
+    "generator": "Codex built-in image generation",
+    "review": "reviewed"
+  },
+  {
+    "id": "WM-GRM-005",
+    "url": "/white-models/grooming/WM-GRM-005.png",
+    "thumbnail": "/white-models/thumbs/WM-GRM-005.webp",
+    "width": 1312,
+    "height": 1199,
+    "bytes": 1816789,
+    "sha256": "309e60ae4efd6e2ee3815de4637402bb04b4e197050d0251b716c5c080598933",
+    "generator": "Codex built-in image generation",
+    "review": "reviewed"
+  }
+]

@@ -43,10 +43,17 @@ export function uploadedReferences(name: string, url: string, width: number, hei
 
 export function recipeBackup(recipe: RecipeState): RecipeState {
   return {
+    character: recipe.character,
+    settingBindings: recipe.settingBindings,
+    characterTask: recipe.characterTask,
+    scene: recipe.scene,
+    customOutfit: recipe.customOutfit,
+    lookId: recipe.lookId,
+    creativeBrief: recipe.creativeBrief,
     portrait: recipe.portrait?.source === 'upload' ? null : recipe.portrait,
     costume: recipe.costume?.source === 'upload' ? null : recipe.costume,
     pose: recipe.pose?.source === 'upload' ? null : recipe.pose,
-    extraImages: [],
+    extraImages: (recipe.extraImages ?? []).filter((image) => !image.url.startsWith('data:')),
     workflowImages: {},
   }
 }

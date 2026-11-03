@@ -1,6 +1,10 @@
 import type { ApiConfig, ExtraReferenceImage, ImageProviderId, RecipeState } from '@/types/gallery'
 import { applyWorkflowOverrides, getWorkflowImages, validateReferenceCombinations, workflowIdentity, type ComfyObjectInfo } from '@/lib/comfyWorkflowParameters'
 import { poseImagePath } from '@/lib/recipeImages'
+import { ASSET_KINDS, identityPrompt } from '@/lib/characters'
+import { worldPrompt } from '@/lib/characterWorld'
+import { supplementalReferencePrompt } from '@/lib/library'
+import { compositionWorld } from '@/lib/settingLibrary'
 import qwen2509ThreeImageWorkflow from '@/workflows/qwen_image_edit_2509_3img.api.json'
 
 export interface ProviderModelOption {
@@ -151,8 +155,9 @@ const PHOTO_STYLES = new Set(['realistic', 'fashion', 'film'])
 export function buildRecipePrompt(recipe: RecipeState, stylePreset = 'realistic', workflowImages: ExtraReferenceImage[] = []): string {
   const styleInfo = STYLE_PRESETS[stylePreset] ?? STYLE_PRESETS.realistic
   const isPhoto = PHOTO_STYLES.has(stylePreset)
-  const faceless = !recipe.portrait && !workflowImages.some((image) => image.role === 'character_sheet') && Boolean(recipe.costume && recipe.pose)
+  const faceless = !recipe.portrait && !workflowImages.some((image) => image.role === 'character_sheet') && !recipe.extraImages?.some((image) => ['expression', 'grooming', 'identity_detail'].includes(image.role ?? '')) && Boolean(recipe.costume && recipe.pose)
   const clauses: string[] = []
+  if (recipe.character) clauses.push(identityPrompt(recipe.character))
   let idx = 1
   let costumeIdx = 0
 
@@ -166,14 +171,19 @@ export function buildRecipePrompt(recipe: RecipeState, stylePreset = 'realistic'
       recipe.portrait.发型名称 && recipe.portrait.发型名称 !== '标准基础款'
         ? recipe.portrait.标题
         : recipe.portrait.发长
-    const skin = '人物的肤色必须与图一人物一致，所有裸露皮肤（包括服装镂空处露出的皮肤）必须与脸部肤色统一，统一后的肤色与质感按风格要求呈现。'
-    const outfit = recipe.costume ? '' : '保留图1人物原有可见服装与配饰，不复制姿势参考图的服装或白模外观。'
+    const skin = `人物的肤色必须与图${idx}人物一致，所有裸露皮肤（包括服装镂空处露出的皮肤）必须与脸部肤色统一，统一后的肤色与质感按风格要求呈现。`
+    const outfit = recipe.costume || recipe.customOutfit ? '' : `保留图${idx}人物原有可见服装与配饰，不复制姿势参考图的服装或白模外观。`
+    const hairRule = recipe.extraImages?.some((image) => image.role === 'grooming') ? '保留发色、年龄、发际线和身份特征，具体整理方式以妆发参考为准。' : ''
     clauses.push(
       recipe.portrait.source === 'upload'
-        ? `• 人物：图${idx}中的人物，保持其脸型、五官、发型和发色一致。${skin}${outfit}`
-        : `• 人物：图${idx}中的人物，保持其脸型、五官、发型（${hairDesc}）和发色一致。${skin}${outfit}`
+        ? `• 人物：图${idx}中的人物，保持其脸型、五官和发色一致。${hairRule || '保持发型一致。'}${skin}${outfit}`
+        : `• 人物：图${idx}中的人物，保持其脸型、五官和发色一致。${hairRule || `保持发型（${hairDesc}）一致。`}${skin}${outfit}`
     )
     idx++
+    if (!recipe.character && recipe.portrait.catalog?.annotation === 'design_spec') {
+      const design = recipe.portrait.catalog
+      clauses.push(`人物创作设定：${design.age ? `${design.age} 岁成年人` : '成年人'}，${design.presentation}，${design.skinTone}。五官与年龄以所选人像为准，不因其他参考演员而改变。`)
+    }
   }
   if (recipe.costume) {
     costumeIdx = idx
@@ -183,6 +193,7 @@ export function buildRecipePrompt(recipe: RecipeState, stylePreset = 'realistic'
         : `• 服装：让人物穿上图${idx}中展示的整套服装和配饰（参考名称：${recipe.costume.服装名称}），每件单品的颜色、款式、面料与配饰都以图${idx}为准，名称仅作辅助说明。`
     )
     idx++
+    clauses.push('服装图只约束单品、面料、颜色与搭配，不复制人台的腰围、胸部、腿长、站姿或皮肤；服装按当前角色的真实体型自然适配。')
   }
   if (recipe.pose) {
     const wear = costumeIdx ? `，穿着图${costumeIdx}的服装` : ''
@@ -192,7 +203,7 @@ export function buildRecipePrompt(recipe: RecipeState, stylePreset = 'realistic'
     clauses.push(
       recipe.pose.source === 'upload'
         ? `• 姿势：按照图${idx}中的人物动作和镜头角度摆姿势；仅参考姿势与构图，不复制图${idx}人物的外观与服装，${body}。`
-        : `• 姿势：按照图${idx}中人体模型的动作和镜头角度摆姿势（${recipe.pose.姿势名称}，${recipe.pose.角度}）；图${idx}只是动作示意，${body}。`
+        : `• 姿势：按照图${idx}中人体模型的动作和镜头角度摆姿势（${recipe.pose.姿势名称}，${recipe.pose.角度}）；图${idx}只约束动作，不复制人台的身材、肢体比例、材质或无脸外观，${body}。`
     )
     idx++
   }
@@ -204,9 +215,7 @@ export function buildRecipePrompt(recipe: RecipeState, stylePreset = 'realistic'
     idx++
   }
   for (const extra of recipe.extraImages || []) {
-    clauses.push(
-      `• 附加参考：融合图${idx}（${extra.name || '补充元素'}）中的元素、配饰、背景或光影细节。`
-    )
+    clauses.push(supplementalReferencePrompt(idx, extra))
     idx++
   }
 
@@ -215,12 +224,18 @@ export function buildRecipePrompt(recipe: RecipeState, stylePreset = 'realistic'
   }
 
   const lines = [
-    `请根据${workflowImages.some((image) => image.role === 'character_sheet') ? '提供的角色设定参考' : `提供的 ${idx - 1} 张参考图`}，生成一张完整的${faceless ? '人物穿搭展示图' : isPhoto ? '真实人物照片' : '人物图像'}：`,
+    `请根据${workflowImages.some((image) => image.role === 'character_sheet') ? '提供的角色设定参考' : idx > 1 ? `提供的 ${idx - 1} 张参考图` : '人物创作设定'}，生成一张完整的${faceless ? '人物穿搭展示图' : isPhoto ? '真实人物照片' : '人物图像'}：`,
     ...clauses,
   ]
+  if (recipe.extraImages?.some((image) => image.source === 'library')) lines.push('参考职责：人像固定身份，服装控制穿搭，动作参考控制肢体，表情与妆发只调整本次状态，细节参考保留真实感。所选状态优先于默认习惯；不能把不同参考中的人脸混成另一个人。')
   if (styleInfo.prompt) {
     lines.push(`• 风格：${styleInfo.prompt} ${faceless ? '人物比例协调，手部自然，脸部无五官，光影统一。' : '人物比例协调，手部与五官自然，光影统一。'}`)
   }
+  if (recipe.character && recipe.characterTask) lines.push(`• 输出任务：${ASSET_KINDS[recipe.characterTask].instruction}`)
+  if (recipe.customOutfit) lines.push(`• ${recipe.costume ? '服装搭配调整' : '自定义穿搭'}：${recipe.customOutfit}`)
+  if (recipe.scene) lines.push(`• 场景与拍摄：${recipe.scene}`)
+  const world = compositionWorld(recipe)
+  if (world) lines.push(worldPrompt({ world }, recipe.creativeBrief))
   lines.push('画面中没有任何文字、标志或水印。')
   return lines.join('\n')
 }
@@ -1411,7 +1426,8 @@ export async function generateCharacterImage(params: {
     config.imagePassMode === 'base64' ||
     config.sendStitchedSheet ||
     (provider === 'gemini' && config.geminiParams.endpointMode === 'native') ||
-    (provider === 'gpt' && config.gptParams.endpointMode === 'images_edits')
+    (provider === 'gpt' && config.gptParams.endpointMode === 'images_edits') ||
+    (typeof window !== 'undefined' && (window.location.protocol !== 'https:' || ['localhost', '127.0.0.1', '[::1]'].includes(window.location.hostname)) && rawSources.some((source) => /^\/?(?:library-assets|ip-assets|white-models)\//.test(source)))
 
   const imageRefs: string[] = needBase64
     ? await Promise.all(rawSources.map(srcToPngDataUrl))

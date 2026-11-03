@@ -16,25 +16,25 @@ function GuidePage() {
       <Section title="角色合成流程" className="md:grid-cols-3">
         <div className="rounded-2xl bg-background p-4">
           <Badge>1. 人像</Badge>
-          <h3 className="mt-2 text-sm font-semibold">人像颜值库 (1,499)</h3>
+          <h3 className="mt-2 text-sm font-semibold">人像参考库</h3>
           <p className="mt-1 text-xs text-muted-foreground">
-            挑选五官与发型参考，或在合成台直接上传自定义人像图，锁定角色面部特征。
+            统一按年龄、性别形象、肤色、体型、发型与拍摄类型筛选。选定人像后固定五官与年龄。
           </p>
         </div>
 
         <div className="rounded-2xl bg-background p-4">
           <Badge>2. 服装</Badge>
-          <h3 className="mt-2 text-sm font-semibold">服装穿搭库 (1,407)</h3>
+          <h3 className="mt-2 text-sm font-semibold">多样穿搭与动作</h3>
           <p className="mt-1 text-xs text-muted-foreground">
-            按分类或标签挑选服饰，自带中英双语生图词条，也支持上传本地服装参考图。
+            按男款、女款、中性、用途、季节及松量选择穿搭，再选择整体姿势。服装人台的身材不会作为人物体型要求。
           </p>
         </div>
 
         <div className="rounded-2xl bg-background p-4">
-          <Badge>3. 姿势 + 附图</Badge>
-          <h3 className="mt-2 text-sm font-semibold">动作姿势库 (1,439)</h3>
+          <Badge>3. 状态与细节</Badge>
+          <h3 className="mt-2 text-sm font-semibold">妆发与人物设定</h3>
           <p className="mt-1 text-xs text-muted-foreground">
-            挑选 5 视角 3D 素体白模或深度图（Depth），结合云端 API 或本地 ComfyUI 一键生成角色立绘。
+            妆发参考控制整理状态，生活与语言声音记录可指定、解锁和随机组合。创作台导出图像与配音任务，超过 5 张参考时可下载拼图。
           </p>
         </div>
       </Section>
@@ -54,7 +54,7 @@ function GuidePage() {
           </p>
           <p>
             <strong className="text-foreground">3. 隐私保护与使用者责任归属：</strong>
-            本工作台为纯前端本地应用，所有 AI 生图请求均由使用者自行配置的云端 API Key 或使用者本机 ComfyUI 环境直接执行，平台不收集、不存储任何用户上传的图片或生成结果。
+            本工作台的角色、配方和生成记录保存在当前浏览器。可导出任务交给 Codex 内置生图，也可自行配置云端 API 或本机 ComfyUI。
             <strong className="text-foreground">因使用者违规使用或不当传播所产生的一切法律责任，均由使用者本人独立承担，与本项目及维护者无关。</strong>
           </p>
         </div>
@@ -64,13 +64,12 @@ function GuidePage() {
         <div className="space-y-2.5 rounded-2xl bg-background p-4 text-xs leading-relaxed text-muted-foreground">
           <p>
             <strong className="text-foreground">• 原作者版权归属：</strong>
-            本仓库收录的全部姿势（<code>ai-pose-gallery.pages.dev</code>、<code>ai-pose-depth-gallery.pages.dev</code>）、服装（<code>ai-costume-gallery.pages.dev</code>）、人像（<code>ai-portrait-gallery.pages.dev</code>）参考图与原始元数据均源自原作者{' '}
+            原库姿势（<code>ai-pose-gallery.pages.dev</code>、<code>ai-pose-depth-gallery.pages.dev</code>）、服装（<code>ai-costume-gallery.pages.dev</code>）、人像（<code>ai-portrait-gallery.pages.dev</code>）参考图与原始元数据源自原作者{' '}
             <strong className="text-foreground">ギア（@giaaibusi）</strong> 公开站点，著作权归原作者所有。本仓库仅为中文本地化翻译整理与前端工程学习存档，不对原始图片主张任何所有权。
           </p>
           <p>
             <strong className="text-foreground">• 使用与分发限制：</strong>
-            人像库遵循 <strong className="text-emerald-600 dark:text-emerald-400">CC0 1.0 协议</strong>；姿势库与服装库免费供个人学习与 AI 生图参考使用，
-            <strong className="text-foreground">严禁将本图库原始图片打包转售或用于付费分发</strong>。
+            新增素材与自有角色图片由 Codex 内置生图生成，均为虚构成年人物或服装设计，来源与生成提示词单独记录。原库按各自的来源说明使用；新增图片不沿用原库的许可标签。
           </p>
         </div>
       </Section>

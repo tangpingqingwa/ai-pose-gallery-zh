@@ -1,0 +1,57 @@
+[
+  {
+    "id": "WM-GRM-001",
+    "kind": "grooming",
+    "title": "短发自然整理",
+    "feature": "短发结构",
+    "description": "短发结构",
+    "role": "grooming",
+    "renderMode": "white_model",
+    "instruction": "目标：短发自然整理。仅参考发型、胡须的整理结构或面部状态，保留人物自己的发色、五官和年龄，不复制白色材质。",
+    "prompt": "Use case: scientific-educational. Asset type: a reusable identity-independent virtual-character control reference. Render a clean professional 3D white-clay maquette, matte porcelain-white material, on a plain very light warm-gray background with soft studio occlusion and clear readable contour. Monochrome white and gray only, no realistic skin, no colored hair, no painted eyes, no clothing colors, no actor portrait, no text, no labels, no border, no watermark, no environment or props. The form is an unmistakable sculptural adult reference, never a child and never a photoreal person. Keep the intended control extremely legible at thumbnail size. Two clean side-by-side views, front three-quarter and side of the same neutral adult sculptural head with a short practical softly tapered hairstyle. Hair is sculpted matte white, strands grouped into clear locks. Simple white face, no ethnic features emphasized, shoulders cropped."
+  },
+  {
+    "id": "WM-GRM-002",
+    "kind": "grooming",
+    "title": "低发髻与碎发",
+    "feature": "扎发结构",
+    "description": "扎发结构",
+    "role": "grooming",
+    "renderMode": "white_model",
+    "instruction": "目标：低发髻与碎发。仅参考发型、胡须的整理结构或面部状态，保留人物自己的发色、五官和年龄，不复制白色材质。",
+    "prompt": "Use case: scientific-educational. Asset type: a reusable identity-independent virtual-character control reference. Render a clean professional 3D white-clay maquette, matte porcelain-white material, on a plain very light warm-gray background with soft studio occlusion and clear readable contour. Monochrome white and gray only, no realistic skin, no colored hair, no painted eyes, no clothing colors, no actor portrait, no text, no labels, no border, no watermark, no environment or props. The form is an unmistakable sculptural adult reference, never a child and never a photoreal person. Keep the intended control extremely legible at thumbnail size. Two side-by-side front three-quarter and rear three-quarter views of a neutral adult sculptural head, hair gathered into a low loose bun with a few readable wisps around the ears. Hair and face all matte white clay. Clearly display bun structure, not a fashionable actor likeness."
+  },
+  {
+    "id": "WM-GRM-003",
+    "kind": "grooming",
+    "title": "自然卷的松散整理",
+    "feature": "卷发结构",
+    "description": "卷发结构",
+    "role": "grooming",
+    "renderMode": "white_model",
+    "instruction": "目标：自然卷的松散整理。仅参考发型、胡须的整理结构或面部状态，保留人物自己的发色、五官和年龄，不复制白色材质。",
+    "prompt": "Use case: scientific-educational. Asset type: a reusable identity-independent virtual-character control reference. Render a clean professional 3D white-clay maquette, matte porcelain-white material, on a plain very light warm-gray background with soft studio occlusion and clear readable contour. Monochrome white and gray only, no realistic skin, no colored hair, no painted eyes, no clothing colors, no actor portrait, no text, no labels, no border, no watermark, no environment or props. The form is an unmistakable sculptural adult reference, never a child and never a photoreal person. Keep the intended control extremely legible at thumbnail size. Two side-by-side front and side views of a neutral adult white-clay head with short natural tightly curled hair organized into softly defined coil clusters, restrained rounded volume, consistent topology. White hair and white face, no painted color, no realistic ethnicity or skin."
+  },
+  {
+    "id": "WM-GRM-004",
+    "kind": "grooming",
+    "title": "短胡须修整",
+    "feature": "胡须结构",
+    "description": "胡须结构",
+    "role": "grooming",
+    "renderMode": "white_model",
+    "instruction": "目标：短胡须修整。仅参考发型、胡须的整理结构或面部状态，保留人物自己的发色、五官和年龄，不复制白色材质。",
+    "prompt": "Use case: scientific-educational. Asset type: a reusable identity-independent virtual-character control reference. Render a clean professional 3D white-clay maquette, matte porcelain-white material, on a plain very light warm-gray background with soft studio occlusion and clear readable contour. Monochrome white and gray only, no realistic skin, no colored hair, no painted eyes, no clothing colors, no actor portrait, no text, no labels, no border, no watermark, no environment or props. The form is an unmistakable sculptural adult reference, never a child and never a photoreal person. Keep the intended control extremely legible at thumbnail size. Two side-by-side three-quarter and profile views of the same neutral adult sculptural head. Short neatly trimmed beard and moustache represented by shallow white-clay hair relief, clean cheek and neck edges, simple cropped white hair. No real skin or dark painted beard."
+  },
+  {
+    "id": "WM-GRM-005",
+    "kind": "grooming",
+    "title": "素净面部与自然纹理",
+    "feature": "面部状态",
+    "description": "面部状态",
+    "role": "grooming",
+    "renderMode": "white_model",
+    "instruction": "目标：素净面部与自然纹理。仅参考发型、胡须的整理结构或面部状态，保留人物自己的发色、五官和年龄，不复制白色材质。",
+    "prompt": "Use case: scientific-educational. Asset type: a reusable identity-independent virtual-character control reference. Render a clean professional 3D white-clay maquette, matte porcelain-white material, on a plain very light warm-gray background with soft studio occlusion and clear readable contour. Monochrome white and gray only, no realistic skin, no colored hair, no painted eyes, no clothing colors, no actor portrait, no text, no labels, no border, no watermark, no environment or props. The form is an unmistakable sculptural adult reference, never a child and never a photoreal person. Keep the intended control extremely legible at thumbnail size. One close three-quarter view of a neutral adult matte-white clay head, bald, relaxed expression. Fine shallow surface relief around eyes, lips and nose to convey ordinary adult skin texture and slight natural under-eye folds, unpainted lips and eye shapes. This is a material-neutral surface-detail control, not a human portrait."
+  }
+]

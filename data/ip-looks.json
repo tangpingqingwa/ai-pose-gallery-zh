@@ -1,0 +1,67 @@
+[
+  {
+    "id": "maeve-autumn-street",
+    "characterId": "IP-EU-001",
+    "title": "秋日街拍 · 皮夹克与橄榄绿长裤",
+    "costumeId": "AUT-0017",
+    "poseId": "full_single_P015_diag",
+    "scene": "a real Dublin stone-paved street beside a small independent flower shop in early autumn, candid environmental photography, diffused overcast daylight, textured stone storefront and a few out-of-focus buckets of flowers. Eye-level full-body three-quarter photograph, the weight-on-one-leg one-hand-on-hip pose of Image 3; relaxed slight smile and natural presence, no studio backdrop."
+  },
+  {
+    "id": "maeve-studio-seated",
+    "characterId": "IP-EU-001",
+    "title": "室内创作 · 橙色高领与条纹套装",
+    "costumeId": "SPR-0168",
+    "poseId": "full_single_P012_diag",
+    "scene": "a sunlit creative studio with an old wood floor and a simple natural woven rug, seated on the rug in the exact seated-one-knee-raised chin-rest pose of Image 3. Her raised knee supports one elbow, one hand lightly under chin, other palm rests naturally on the floor. A few blurred magazines and flower sketches in the background, warm side window lighting and real fabric folds. Frame the entire seated person including shoes, not an upright portrait."
+  },
+  {
+    "id": "maeve-summer-courtyard",
+    "characterId": "IP-EU-001",
+    "title": "夏夜庭院 · 黑色长裙回眸",
+    "costumeId": "SUM-0245",
+    "poseId": "full_single_P017_diag",
+    "scene": "a real leafy courtyard at blue-hour with warm low garden lights and old brick in the background. Full-body three-quarter fashion-lifestyle photo, a relaxed asymmetrical standing pose derived from Image 3 with her head looking slightly back toward the camera, natural slight smile, one foot forward and hands relaxed. Subtle summer breeze in her existing auburn hair, realistic twilight skin color, no studio backdrop."
+  },
+  {
+    "id": "amara-city-stretch",
+    "characterId": "IP-EU-002",
+    "title": "清晨公园 · 薄荷绿长裤与伸展",
+    "costumeId": "SUM-0074",
+    "poseId": "full_single_P019_diag",
+    "scene": "London park on a bright fresh summer morning; full-body natural photo with arms stretching above head in the pose reference, relaxed genuine smile, trees and brick path, soft morning sun."
+  },
+  {
+    "id": "lucia-red-knit",
+    "characterId": "IP-NA-003",
+    "title": "居家烘焙 · 红针织与百褶裙",
+    "costumeId": "AUT-0021",
+    "customOutfit": "红色裹身针织衫内增加白色高领内搭，保留藏青色及踝百褶裙与乐福鞋。",
+    "poseId": "full_single_P004_diag",
+    "scene": "Montreal home kitchen with warm terracotta and wood, seated comfortably on a low woven rug with both knees bent to one side in the reference pose, homemade baking and an open cookbook softly out of focus. Keep a visibly plus-size curvy soft body, never thin."
+  },
+  {
+    "id": "ines-winter-walk",
+    "characterId": "IP-EU-004",
+    "title": "冬日旅行 · 棕色大衣与长靴",
+    "costumeId": "WIN-0223",
+    "poseId": "full_single_P020_diag",
+    "scene": "Lyon riverside on a crisp winter afternoon, wind lightly moving the coat; full-body photo with one hand casually lifting to the back of the head as the pose reference. Keep her middle-aged facial lines, silver streaks and petite realistic body."
+  },
+  {
+    "id": "owen-workshop",
+    "characterId": "IP-NA-005",
+    "title": "木作工作室 · 工装与单膝跪姿",
+    "poseId": "full_single_P033_diag",
+    "customOutfit": "fully buttoned rust-brown long-sleeve canvas work shirt over a cream undershirt, loose full-length dark olive work trousers and sturdy brown work boots; opaque fully covering clothing with no brand logos",
+    "scene": "Portland wood workshop, kneeling on one knee beside an unfinished oak stool in the reference pose, one hand rests on the raised knee, warm late-afternoon side window light, wood shavings and real workbench. Maintain stocky build, broad shoulders and a soft middle."
+  },
+  {
+    "id": "theo-record-store",
+    "characterId": "IP-EU-006",
+    "title": "唱片店 · 钴蓝外套与转身伸臂",
+    "poseId": "full_single_P077_diag",
+    "customOutfit": "cobalt-blue nylon bomber jacket over a cream textured knit polo, straight charcoal tailored trousers, clean off-white sneakers and a slim brown cross-body record bag; no logos",
+    "scene": "Paris independent record store with warm listening-room lamps and wood vinyl bins, standing in a lively torso-twisted arms-open gesture based on the reference pose, as if sharing a new album with a friend, full-body natural environmental photo. Preserve tall lean build, short black locs and original youthful adult facial identity."
+  }
+]

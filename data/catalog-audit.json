@@ -1,0 +1,818 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-02",
+  "scope": "全量元数据检查；另人工查看 18 套服装、24 张人像的分层抽样，未进行全库图像相似度检测。",
+  "costumes": {
+    "total": 1407,
+    "categories": {
+      "春季穿搭": 215,
+      "夏季穿搭": 254,
+      "秋季穿搭": 244,
+      "冬季穿搭": 253,
+      "内衣・睡衣": 199,
+      "派对・礼服": 48,
+      "泳装・度假": 54,
+      "性感穿搭": 140
+    },
+    "tags": 86,
+    "distinctDescriptions": 1250,
+    "repeatedDescriptionGroups": 77,
+    "recordsInRepeatedGroups": 234,
+    "repeatedDescriptionExcess": 157,
+    "duplicateImagePaths": 0,
+    "duplicates": [
+      {
+        "prompt": "white satin mini dress gloves stockings heels",
+        "count": 13,
+        "ids": [
+          "SXY-0002",
+          "SXY-0030",
+          "SXY-0037",
+          "SXY-0049",
+          "SXY-0071",
+          "SXY-0082",
+          "SXY-0086",
+          "SXY-0091",
+          "SXY-0093",
+          "SXY-0103",
+          "SXY-0117",
+          "SXY-0121",
+          "SXY-0139"
+        ]
+      },
+      {
+        "prompt": "black corset mini dress frill stockings boots choker",
+        "count": 9,
+        "ids": [
+          "SXY-0056",
+          "SXY-0079",
+          "SXY-0096",
+          "SXY-0102",
+          "SXY-0111",
+          "SXY-0114",
+          "SXY-0131",
+          "SXY-0140",
+          "SXY-0157"
+        ]
+      },
+      {
+        "prompt": "black dress red ribbon white frill apron stockings headband",
+        "count": 9,
+        "ids": [
+          "SXY-0009",
+          "SXY-0039",
+          "SXY-0048",
+          "SXY-0088",
+          "SXY-0098",
+          "SXY-0116",
+          "SXY-0119",
+          "SXY-0132",
+          "SXY-0138"
+        ]
+      },
+      {
+        "prompt": "white mini dress red stockings heels",
+        "count": 9,
+        "ids": [
+          "SXY-0006",
+          "SXY-0025",
+          "SXY-0057",
+          "SXY-0099",
+          "SXY-0101",
+          "SXY-0108",
+          "SXY-0122",
+          "SXY-0142",
+          "SXY-0153"
+        ]
+      },
+      {
+        "prompt": "black corset pleated mini skirt stockings boots headband",
+        "count": 7,
+        "ids": [
+          "SXY-0034",
+          "SXY-0043",
+          "SXY-0058",
+          "SXY-0074",
+          "SXY-0084",
+          "SXY-0104",
+          "SXY-0113"
+        ]
+      },
+      {
+        "prompt": "black red skirt boots",
+        "count": 7,
+        "ids": [
+          "SXY-0004",
+          "SXY-0015",
+          "SXY-0033",
+          "SXY-0100",
+          "SXY-0105",
+          "SXY-0109",
+          "SXY-0143"
+        ]
+      },
+      {
+        "prompt": "white red pleated skirt socks sandals headband",
+        "count": 6,
+        "ids": [
+          "SXY-0051",
+          "SXY-0061",
+          "SXY-0107",
+          "SXY-0124",
+          "SXY-0127",
+          "SXY-0135"
+        ]
+      },
+      {
+        "prompt": "black bra briefs lace stockings heels",
+        "count": 5,
+        "ids": [
+          "LNG-0135",
+          "LNG-0140",
+          "LNG-0155",
+          "LNG-0185",
+          "LNG-0199"
+        ]
+      },
+      {
+        "prompt": "black knit turtleneck dress stockings heels",
+        "count": 5,
+        "ids": [
+          "SXY-0027",
+          "SXY-0042",
+          "SXY-0073",
+          "SXY-0133",
+          "SXY-0151"
+        ]
+      },
+      {
+        "prompt": "ivory corset mini dress frill skirt gloves stockings boots hat",
+        "count": 5,
+        "ids": [
+          "SXY-0029",
+          "SXY-0050",
+          "SXY-0080",
+          "SXY-0081",
+          "SXY-0092"
+        ]
+      },
+      {
+        "prompt": "lace camisole shorts pink black stockings heels cardigan",
+        "count": 5,
+        "ids": [
+          "LNG-0005",
+          "LNG-0031",
+          "LNG-0078",
+          "LNG-0086",
+          "LNG-0103"
+        ]
+      },
+      {
+        "prompt": "white dress black stockings heels",
+        "count": 5,
+        "ids": [
+          "SXY-0019",
+          "SXY-0052",
+          "SXY-0141",
+          "SXY-0149",
+          "SXY-0158"
+        ]
+      },
+      {
+        "prompt": "ribbon satin camisole navy shorts lace socks choker",
+        "count": 4,
+        "ids": [
+          "LNG-0010",
+          "LNG-0016",
+          "LNG-0049",
+          "LNG-0095"
+        ]
+      },
+      {
+        "prompt": "shorts socks",
+        "count": 4,
+        "ids": [
+          "LNG-0004",
+          "LNG-0067",
+          "LNG-0082",
+          "LNG-0094"
+        ]
+      },
+      {
+        "prompt": "black bra briefs lace belt stockings heels",
+        "count": 3,
+        "ids": [
+          "LNG-0106",
+          "LNG-0129",
+          "LNG-0153"
+        ]
+      },
+      {
+        "prompt": "blue swimsuit gold belt sandals sunglasses",
+        "count": 3,
+        "ids": [
+          "SWM-0008",
+          "SWM-0024",
+          "SWM-0050"
+        ]
+      },
+      {
+        "prompt": "floral lace camisole dress navy ribbon belt cardigan stockings",
+        "count": 3,
+        "ids": [
+          "LNG-0003",
+          "LNG-0033",
+          "LNG-0081"
+        ]
+      },
+      {
+        "prompt": "frill camisole beige lace shorts socks ribbon choker",
+        "count": 3,
+        "ids": [
+          "LNG-0022",
+          "LNG-0041",
+          "LNG-0051"
+        ]
+      },
+      {
+        "prompt": "frill camisole pink lace shorts socks ribbon choker",
+        "count": 3,
+        "ids": [
+          "LNG-0012",
+          "LNG-0083",
+          "LNG-0091"
+        ]
+      },
+      {
+        "prompt": "ivory velvet corset mini dress hat stockings boots",
+        "count": 3,
+        "ids": [
+          "SXY-0012",
+          "SXY-0028",
+          "SXY-0155"
+        ]
+      },
+      {
+        "prompt": "lace camisole pink shorts stockings satin ribbon choker",
+        "count": 3,
+        "ids": [
+          "LNG-0014",
+          "LNG-0059",
+          "LNG-0062"
+        ]
+      },
+      {
+        "prompt": "mint polka-dot frill skirt shirt sandals bag",
+        "count": 3,
+        "ids": [
+          "SWM-0029",
+          "SWM-0033",
+          "SWM-0052"
+        ]
+      },
+      {
+        "prompt": "mint satin gloves heels",
+        "count": 3,
+        "ids": [
+          "PTY-0003",
+          "PTY-0006",
+          "PTY-0039"
+        ]
+      },
+      {
+        "prompt": "navy corset mini dress frill skirt gloves stockings boots hat",
+        "count": 3,
+        "ids": [
+          "SXY-0038",
+          "SXY-0062",
+          "SXY-0137"
+        ]
+      },
+      {
+        "prompt": "pink corset mini dress frill skirt gloves stockings boots hat",
+        "count": 3,
+        "ids": [
+          "SXY-0069",
+          "SXY-0097",
+          "SXY-0106"
+        ]
+      },
+      {
+        "prompt": "pink velvet mini dress stockings heels gloves",
+        "count": 3,
+        "ids": [
+          "SXY-0095",
+          "SXY-0110",
+          "SXY-0115"
+        ]
+      },
+      {
+        "prompt": "pink white jacket pleated mini skirt boots",
+        "count": 3,
+        "ids": [
+          "SXY-0059",
+          "SXY-0077",
+          "SXY-0112"
+        ]
+      },
+      {
+        "prompt": "shorts navy socks headband",
+        "count": 3,
+        "ids": [
+          "LNG-0068",
+          "LNG-0084",
+          "LNG-0093"
+        ]
+      },
+      {
+        "prompt": "shorts white socks",
+        "count": 3,
+        "ids": [
+          "LNG-0027",
+          "LNG-0034",
+          "LNG-0053"
+        ]
+      },
+      {
+        "prompt": "beige mini dress tulle skirt satin gloves heels",
+        "count": 2,
+        "ids": [
+          "PTY-0014",
+          "PTY-0025"
+        ]
+      },
+      {
+        "prompt": "black bra briefs lace ribbon stockings heels",
+        "count": 2,
+        "ids": [
+          "LNG-0143",
+          "LNG-0187"
+        ]
+      },
+      {
+        "prompt": "black bra briefs lace stockings satin",
+        "count": 2,
+        "ids": [
+          "LNG-0132",
+          "LNG-0190"
+        ]
+      },
+      {
+        "prompt": "black bra briefs satin stockings heels",
+        "count": 2,
+        "ids": [
+          "LNG-0159",
+          "LNG-0164"
+        ]
+      },
+      {
+        "prompt": "black knit mini skirt hat sandals bag",
+        "count": 2,
+        "ids": [
+          "SWM-0005",
+          "SWM-0010"
+        ]
+      },
+      {
+        "prompt": "black velvet mini dress ribbon tights pumps",
+        "count": 2,
+        "ids": [
+          "PTY-0008",
+          "PTY-0028"
+        ]
+      },
+      {
+        "prompt": "blue satin skirt lace camisole pumps mini bag",
+        "count": 2,
+        "ids": [
+          "PTY-0005",
+          "PTY-0046"
+        ]
+      },
+      {
+        "prompt": "blue swimsuit jacket sneakers mesh bag",
+        "count": 2,
+        "ids": [
+          "SWM-0002",
+          "SWM-0026"
+        ]
+      },
+      {
+        "prompt": "blue swimsuit ribbon skirt sandals hat bag",
+        "count": 2,
+        "ids": [
+          "SWM-0004",
+          "SWM-0044"
+        ]
+      },
+      {
+        "prompt": "bra briefs lace stockings satin heels necklace",
+        "count": 2,
+        "ids": [
+          "LNG-0116",
+          "LNG-0148"
+        ]
+      },
+      {
+        "prompt": "camisole mini dress tights heels",
+        "count": 2,
+        "ids": [
+          "PTY-0011",
+          "PTY-0024"
+        ]
+      },
+      {
+        "prompt": "chiffon midi dress ribbon heels",
+        "count": 2,
+        "ids": [
+          "PTY-0026",
+          "PTY-0034"
+        ]
+      },
+      {
+        "prompt": "frill camisole lavender lace shorts socks ribbon choker",
+        "count": 2,
+        "ids": [
+          "LNG-0018",
+          "LNG-0104"
+        ]
+      },
+      {
+        "prompt": "frill ribbon lace camisole red shorts socks cardigan",
+        "count": 2,
+        "ids": [
+          "LNG-0087",
+          "LNG-0100"
+        ]
+      },
+      {
+        "prompt": "green ribbon shirt dress beige tights sandals mini bag gold",
+        "count": 2,
+        "ids": [
+          "SPR-0008",
+          "SPR-0016"
+        ]
+      },
+      {
+        "prompt": "ivory bra briefs lace stockings satin",
+        "count": 2,
+        "ids": [
+          "LNG-0109",
+          "LNG-0142"
+        ]
+      },
+      {
+        "prompt": "ivory camisole mini dress tights heels",
+        "count": 2,
+        "ids": [
+          "PTY-0020",
+          "PTY-0030"
+        ]
+      },
+      {
+        "prompt": "lace camisole shorts blue black stockings heels cardigan",
+        "count": 2,
+        "ids": [
+          "LNG-0021",
+          "LNG-0043"
+        ]
+      },
+      {
+        "prompt": "lace satin camisole pink shorts stockings robe",
+        "count": 2,
+        "ids": [
+          "LNG-0060",
+          "LNG-0064"
+        ]
+      },
+      {
+        "prompt": "mini dress corset lace frill socks headband",
+        "count": 2,
+        "ids": [
+          "SXY-0005",
+          "SXY-0068"
+        ]
+      },
+      {
+        "prompt": "mini skirt shorts cardigan sandals bag hat",
+        "count": 2,
+        "ids": [
+          "SWM-0020",
+          "SWM-0048"
+        ]
+      },
+      {
+        "prompt": "mint choker ribbon mini skirt headband socks",
+        "count": 2,
+        "ids": [
+          "SXY-0013",
+          "SXY-0031"
+        ]
+      },
+      {
+        "prompt": "mint floral pants cardigan sandals necklace tote",
+        "count": 2,
+        "ids": [
+          "SWM-0001",
+          "SWM-0046"
+        ]
+      },
+      {
+        "prompt": "mint mini dress tulle skirt satin gloves heels",
+        "count": 2,
+        "ids": [
+          "PTY-0036",
+          "PTY-0040"
+        ]
+      },
+      {
+        "prompt": "mint mini skirt shorts cardigan sandals bag hat",
+        "count": 2,
+        "ids": [
+          "SWM-0037",
+          "SWM-0053"
+        ]
+      },
+      {
+        "prompt": "mint swimsuit gold belt sandals sunglasses",
+        "count": 2,
+        "ids": [
+          "SWM-0009",
+          "SWM-0055"
+        ]
+      },
+      {
+        "prompt": "navy camisole mini dress knit fur coat ribbon belt black",
+        "count": 2,
+        "ids": [
+          "WIN-0089",
+          "WIN-0120"
+        ]
+      },
+      {
+        "prompt": "orange frill shorts shirt sandals tote",
+        "count": 2,
+        "ids": [
+          "SWM-0022",
+          "SWM-0025"
+        ]
+      },
+      {
+        "prompt": "pink knit mini skirt hat sandals bag",
+        "count": 2,
+        "ids": [
+          "SWM-0034",
+          "SWM-0043"
+        ]
+      },
+      {
+        "prompt": "pink mini dress white frill apron lace stockings headband",
+        "count": 2,
+        "ids": [
+          "SXY-0067",
+          "SXY-0148"
+        ]
+      },
+      {
+        "prompt": "pink satin skirt lace camisole pumps mini bag",
+        "count": 2,
+        "ids": [
+          "PTY-0004",
+          "PTY-0044"
+        ]
+      },
+      {
+        "prompt": "pink velvet mini dress ribbon tights pumps",
+        "count": 2,
+        "ids": [
+          "PTY-0035",
+          "PTY-0042"
+        ]
+      },
+      {
+        "prompt": "red camisole mini dress tights heels",
+        "count": 2,
+        "ids": [
+          "PTY-0001",
+          "PTY-0038"
+        ]
+      },
+      {
+        "prompt": "ribbon knit mini dress wool coat brown tights suede boots",
+        "count": 2,
+        "ids": [
+          "AUT-0077",
+          "AUT-0149"
+        ]
+      },
+      {
+        "prompt": "satin camisole shorts pink robe",
+        "count": 2,
+        "ids": [
+          "LNG-0054",
+          "LNG-0071"
+        ]
+      },
+      {
+        "prompt": "satin camisole shorts robe",
+        "count": 2,
+        "ids": [
+          "LNG-0040",
+          "LNG-0077"
+        ]
+      },
+      {
+        "prompt": "satin camisole shorts white robe",
+        "count": 2,
+        "ids": [
+          "LNG-0030",
+          "LNG-0090"
+        ]
+      },
+      {
+        "prompt": "satin ivory lace robe stockings",
+        "count": 2,
+        "ids": [
+          "LNG-0075",
+          "LNG-0080"
+        ]
+      },
+      {
+        "prompt": "satin pink lace robe stockings",
+        "count": 2,
+        "ids": [
+          "LNG-0039",
+          "LNG-0047"
+        ]
+      },
+      {
+        "prompt": "satin white lace robe stockings",
+        "count": 2,
+        "ids": [
+          "LNG-0011",
+          "LNG-0070"
+        ]
+      },
+      {
+        "prompt": "shorts beige socks headband",
+        "count": 2,
+        "ids": [
+          "LNG-0061",
+          "LNG-0089"
+        ]
+      },
+      {
+        "prompt": "shorts black socks",
+        "count": 2,
+        "ids": [
+          "LNG-0009",
+          "LNG-0088"
+        ]
+      },
+      {
+        "prompt": "shorts pink socks",
+        "count": 2,
+        "ids": [
+          "LNG-0008",
+          "LNG-0072"
+        ]
+      },
+      {
+        "prompt": "shorts pink socks headband",
+        "count": 2,
+        "ids": [
+          "LNG-0017",
+          "LNG-0029"
+        ]
+      },
+      {
+        "prompt": "swimsuit ribbon skirt sandals hat bag",
+        "count": 2,
+        "ids": [
+          "SWM-0011",
+          "SWM-0040"
+        ]
+      },
+      {
+        "prompt": "white choker ribbon mini skirt headband socks",
+        "count": 2,
+        "ids": [
+          "SXY-0021",
+          "SXY-0145"
+        ]
+      },
+      {
+        "prompt": "white mini dress corset lace frill socks headband",
+        "count": 2,
+        "ids": [
+          "SXY-0035",
+          "SXY-0094"
+        ]
+      },
+      {
+        "prompt": "white polka-dot frill skirt shirt sandals bag",
+        "count": 2,
+        "ids": [
+          "SWM-0013",
+          "SWM-0017"
+        ]
+      }
+    ],
+    "missingDimensions": [
+      "单品结构与层次",
+      "目标版型与松量",
+      "适用职业/活动",
+      "穿着状态与磨损",
+      "角色衣橱归属",
+      "每件单品的多视角",
+      "标签审核来源/时间"
+    ]
+  },
+  "portraits": {
+    "total": 1499,
+    "sections": {
+      "正脸参考": 893,
+      "造型氛围": 606
+    },
+    "hairLengths": {
+      "短发": 727,
+      "中发": 376,
+      "中长发": 260,
+      "长发": 136
+    },
+    "titles": 54,
+    "genericStyle": 755,
+    "genericAtmosphere": 606,
+    "featured": 2,
+    "flaggedHot": 10,
+    "hotHairLengths": {
+      "短发": 10
+    },
+    "duplicateImagePaths": 0,
+    "missingDimensions": [
+      "同一身份的关联 ID",
+      "年龄设定",
+      "五官结构与不对称",
+      "身体比例与细节",
+      "素颜/妆发状态",
+      "表情与仪态",
+      "语言与口音",
+      "角色经历与个性"
+    ]
+  },
+  "visualSample": {
+    "costumes": [
+      "SPR-0001",
+      "SPR-0125",
+      "SPR-0260",
+      "SUM-0162",
+      "SUM-0033",
+      "SUM-0160",
+      "AUT-0001",
+      "AUT-0125",
+      "AUT-0260",
+      "WIN-0001",
+      "WIN-0127",
+      "WIN-0260",
+      "SWM-0001",
+      "SWM-0028",
+      "SWM-0056",
+      "PTY-0001",
+      "PTY-0028",
+      "PTY-0055"
+    ],
+    "portraits": [
+      "f71f980dde3",
+      "faa2ac58cb3",
+      "fed8bb18cc9",
+      "f0ed328cb48",
+      "ffb0cfad082",
+      "ffb0a9cec14",
+      "f1aae3c630a",
+      "f069bb87789",
+      "fff94623ab5",
+      "f000fa12e8d",
+      "f81ef92a5e3",
+      "fffdef5e043",
+      "f009267e478",
+      "f83e507b3f3",
+      "ffffdec62b9",
+      "f018e090442",
+      "f7f25335c7c",
+      "ffc08961861",
+      "f0055f47a20",
+      "f7f0fd32fb7",
+      "ffd8168efa0",
+      "f04547b94cd",
+      "f90757f5ca1",
+      "ffd50b11c15"
+    ]
+  },
+  "interpretation": [
+    "描述重复不等于图片重复，原图不删除。",
+    "图片数量不等于独立人物数量，不从人脸推断国籍、族裔或口音。",
+    "人台的腿长、腰围与姿势不能覆盖角色自身的体型。",
+    "原库热门标记为静态数据；分发长的榜单与总榜分开使用。",
+    "新增维度围绕人物，场景只用简短背景说明，不建立空间图片库。"
+  ]
+}

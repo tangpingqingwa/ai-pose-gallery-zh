@@ -10,16 +10,26 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CharactersRouteImport } from './routes/characters'
 import { Route as CostumesRouteImport } from './routes/costumes'
+import { Route as GroomingRouteImport } from './routes/grooming'
 import { Route as GuideRouteImport } from './routes/guide'
+import { Route as LibraryQualityRouteImport } from './routes/library-quality'
 import { Route as PortraitsRouteImport } from './routes/portraits'
 import { Route as PosesRouteImport } from './routes/poses'
 import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as StudioRouteImport } from './routes/studio'
+import { Route as TraitsRouteImport } from './routes/traits'
+import { Route as VoicesRouteImport } from './routes/voices'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CharactersRoute = CharactersRouteImport.update({
+  id: '/characters',
+  path: '/characters',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CostumesRoute = CostumesRouteImport.update({
@@ -27,9 +37,19 @@ const CostumesRoute = CostumesRouteImport.update({
   path: '/costumes',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GroomingRoute = GroomingRouteImport.update({
+  id: '/grooming',
+  path: '/grooming',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GuideRoute = GuideRouteImport.update({
   id: '/guide',
   path: '/guide',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LibraryQualityRoute = LibraryQualityRouteImport.update({
+  id: '/library-quality',
+  path: '/library-quality',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PortraitsRoute = PortraitsRouteImport.update({
@@ -52,73 +72,118 @@ const StudioRoute = StudioRouteImport.update({
   path: '/studio',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TraitsRoute = TraitsRouteImport.update({
+  id: '/traits',
+  path: '/traits',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VoicesRoute = VoicesRouteImport.update({
+  id: '/voices',
+  path: '/voices',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/characters': typeof CharactersRoute
   '/costumes': typeof CostumesRoute
+  '/grooming': typeof GroomingRoute
   '/guide': typeof GuideRoute
+  '/library-quality': typeof LibraryQualityRoute
   '/portraits': typeof PortraitsRoute
   '/poses': typeof PosesRoute
   '/settings': typeof SettingsRoute
   '/studio': typeof StudioRoute
+  '/traits': typeof TraitsRoute
+  '/voices': typeof VoicesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/characters': typeof CharactersRoute
   '/costumes': typeof CostumesRoute
+  '/grooming': typeof GroomingRoute
   '/guide': typeof GuideRoute
+  '/library-quality': typeof LibraryQualityRoute
   '/portraits': typeof PortraitsRoute
   '/poses': typeof PosesRoute
   '/settings': typeof SettingsRoute
   '/studio': typeof StudioRoute
+  '/traits': typeof TraitsRoute
+  '/voices': typeof VoicesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/characters': typeof CharactersRoute
   '/costumes': typeof CostumesRoute
+  '/grooming': typeof GroomingRoute
   '/guide': typeof GuideRoute
+  '/library-quality': typeof LibraryQualityRoute
   '/portraits': typeof PortraitsRoute
   '/poses': typeof PosesRoute
   '/settings': typeof SettingsRoute
   '/studio': typeof StudioRoute
+  '/traits': typeof TraitsRoute
+  '/voices': typeof VoicesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/characters'
     | '/costumes'
+    | '/grooming'
     | '/guide'
+    | '/library-quality'
     | '/portraits'
     | '/poses'
     | '/settings'
     | '/studio'
+    | '/traits'
+    | '/voices'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/characters'
     | '/costumes'
+    | '/grooming'
     | '/guide'
+    | '/library-quality'
     | '/portraits'
     | '/poses'
     | '/settings'
     | '/studio'
+    | '/traits'
+    | '/voices'
   id:
     | '__root__'
     | '/'
+    | '/characters'
     | '/costumes'
+    | '/grooming'
     | '/guide'
+    | '/library-quality'
     | '/portraits'
     | '/poses'
     | '/settings'
     | '/studio'
+    | '/traits'
+    | '/voices'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CharactersRoute: typeof CharactersRoute
   CostumesRoute: typeof CostumesRoute
+  GroomingRoute: typeof GroomingRoute
   GuideRoute: typeof GuideRoute
+  LibraryQualityRoute: typeof LibraryQualityRoute
   PortraitsRoute: typeof PortraitsRoute
   PosesRoute: typeof PosesRoute
   SettingsRoute: typeof SettingsRoute
   StudioRoute: typeof StudioRoute
+  TraitsRoute: typeof TraitsRoute
+  VoicesRoute: typeof VoicesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -130,6 +195,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/characters': {
+      id: '/characters'
+      path: '/characters'
+      fullPath: '/characters'
+      preLoaderRoute: typeof CharactersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/costumes': {
       id: '/costumes'
       path: '/costumes'
@@ -137,11 +209,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CostumesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/grooming': {
+      id: '/grooming'
+      path: '/grooming'
+      fullPath: '/grooming'
+      preLoaderRoute: typeof GroomingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/guide': {
       id: '/guide'
       path: '/guide'
       fullPath: '/guide'
       preLoaderRoute: typeof GuideRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/library-quality': {
+      id: '/library-quality'
+      path: '/library-quality'
+      fullPath: '/library-quality'
+      preLoaderRoute: typeof LibraryQualityRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/portraits': {
@@ -172,17 +258,36 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StudioRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/traits': {
+      id: '/traits'
+      path: '/traits'
+      fullPath: '/traits'
+      preLoaderRoute: typeof TraitsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/voices': {
+      id: '/voices'
+      path: '/voices'
+      fullPath: '/voices'
+      preLoaderRoute: typeof VoicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CharactersRoute: CharactersRoute,
   CostumesRoute: CostumesRoute,
+  GroomingRoute: GroomingRoute,
   GuideRoute: GuideRoute,
+  LibraryQualityRoute: LibraryQualityRoute,
   PortraitsRoute: PortraitsRoute,
   PosesRoute: PosesRoute,
   SettingsRoute: SettingsRoute,
   StudioRoute: StudioRoute,
+  TraitsRoute: TraitsRoute,
+  VoicesRoute: VoicesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

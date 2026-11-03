@@ -25,13 +25,13 @@ export function AppHeader() {
       matches.filter((m) => m.staticData.title).map((m) => ({ title: m.staticData.title!, path: m.pathname })),
   })
 
-  const selectedCount = [recipe.portrait, recipe.costume, recipe.pose].filter(Boolean).length
+  const selectedCount = [recipe.portrait, recipe.costume, recipe.pose].filter(Boolean).length + (recipe.extraImages?.length ?? 0) + Object.keys(recipe.settingBindings ?? {}).length
 
   const handleRandom = async () => {
     const [posesRes, costumes, portraits] = await Promise.all([
       qc.ensureQueryData(posesQuery),
       qc.ensureQueryData(costumesQuery),
-      qc.ensureQueryData(portraitsQuery),
+      recipe.portrait ? Promise.resolve([]) : qc.ensureQueryData(portraitsQuery),
     ])
     randomizeRecipe({
       poses: posesRes.items,
@@ -44,14 +44,14 @@ export function AppHeader() {
     <header className="flex h-14 shrink-0 items-center gap-2 border-b border-border/60 px-4">
       <SidebarTrigger className="-ml-1" />
       <Separator orientation="vertical" className="mr-2 h-4 data-vertical:self-center" />
-      <Breadcrumb>
-        <BreadcrumbList>
+      <Breadcrumb className="min-w-0 overflow-hidden">
+        <BreadcrumbList className="flex-nowrap">
           {crumbs.map((c, i) => (
             <Fragment key={c.path}>
               {i > 0 && <BreadcrumbSeparator />}
-              <BreadcrumbItem>
+              <BreadcrumbItem className="min-w-0">
                 {i === crumbs.length - 1 ? (
-                  <BreadcrumbPage>{c.title}</BreadcrumbPage>
+                  <BreadcrumbPage className="truncate">{c.title}</BreadcrumbPage>
                 ) : (
                   <BreadcrumbLink asChild>
                     <Link to={c.path}>{c.title}</Link>
@@ -63,7 +63,7 @@ export function AppHeader() {
         </BreadcrumbList>
       </Breadcrumb>
 
-      <div className="ml-auto flex items-center gap-2">
+      <div className="ml-auto flex shrink-0 items-center gap-2">
         <Button
           variant={safeMode ? 'outline' : 'secondary'}
           size="sm"
@@ -81,15 +81,15 @@ export function AppHeader() {
         </Button>
         <Button variant="outline" size="sm" onClick={handleRandom} className="hidden sm:inline-flex">
           <DicesIcon className="size-3.5" />
-          随机捏人
+          {recipe.portrait ? '随机搭配' : '随机参考'}
         </Button>
         <Button size="sm" asChild>
           <Link to="/studio">
             <SparklesIcon className="size-3.5" />
-            AI 合成台
-            {selectedCount > 0 && (
+            <span className="hidden sm:inline">{recipe.character ? '人物创作' : 'AI 合成台'}</span><span className="sm:hidden">创作</span>
+            {!recipe.character && selectedCount > 0 && (
               <span className="ml-1 rounded-full bg-primary-foreground/20 px-1.5 py-0.2 text-[11px] font-bold">
-                {selectedCount}/3
+                {selectedCount} 项
               </span>
             )}
           </Link>

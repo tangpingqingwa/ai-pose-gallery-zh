@@ -1,5 +1,7 @@
 import { queryOptions } from '@tanstack/react-query'
-import type { CostumeItem, PortraitItem, PoseGroup, PoseItem } from '@/types/gallery'
+import type { CostumeItem, PortraitItem, PoseGroup, PoseItem, VisualReferenceItem } from '@/types/gallery'
+import expansion from '../../data/catalog-expansion.json'
+import whiteReferences from '../../data/white-model-references.json'
 
 export const ANGLES = ['正面', '俯视', '仰视', '侧面', '斜侧'] as const
 
@@ -86,21 +88,27 @@ export const posesQuery = queryOptions({
 })
 
 export const costumesQuery = queryOptions({
-  queryKey: ['gallery', 'costumes'],
+  queryKey: ['gallery', 'costumes', 'everyday-diversity-v3', expansion.costumes.length],
   staleTime: Infinity,
   queryFn: async () => {
     const res = await fetch('/data/costume-zh.json')
     if (!res.ok) throw new Error(`加载服装数据失败: HTTP ${res.status}`)
-    return (await res.json()) as CostumeItem[]
+    return [...expansion.costumes as CostumeItem[], ...await res.json() as CostumeItem[]]
   },
 })
 
 export const portraitsQuery = queryOptions({
-  queryKey: ['gallery', 'portraits'],
+  queryKey: ['gallery', 'portraits', 'asian-diversity-v4', expansion.portraits.length],
   staleTime: Infinity,
   queryFn: async () => {
     const res = await fetch('/data/portrait-zh.json')
     if (!res.ok) throw new Error(`加载人像数据失败: HTTP ${res.status}`)
-    return (await res.json()) as PortraitItem[]
+    return [...expansion.portraits as PortraitItem[], ...await res.json() as PortraitItem[]]
   },
+})
+
+export const visualReferencesQuery = queryOptions({
+  queryKey: ['gallery', 'visual-references', 'grooming-v2'],
+  staleTime: Infinity,
+  queryFn: async () => whiteReferences as VisualReferenceItem[],
 })

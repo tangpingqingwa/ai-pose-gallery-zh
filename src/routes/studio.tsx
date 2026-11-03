@@ -30,6 +30,10 @@ import { toast } from 'sonner'
 import { costumesQuery, portraitsQuery, posesQuery } from '@/api/gallery'
 import { Field, Section } from '@/components/common/FormSection'
 import { WorkflowParameters } from '@/components/studio/WorkflowParameters'
+import { CharacterRecipePanel } from '@/components/characters/CharacterRecipePanel'
+import { CompositionReferencesPanel } from '@/components/library/CompositionReferencesPanel'
+import { SettingCompositionPanel } from '@/components/library/SettingCompositionPanel'
+import { SaveCharacterAsset } from '@/components/characters/SaveCharacterAsset'
 import { applyWorkflowOverrides, validateReferenceCombinations, workflowIdentity } from '@/lib/comfyWorkflowParameters'
 import { PageHeader } from '@/components/common/PageHeader'
 import { Badge } from '@/components/ui/badge'
@@ -390,6 +394,9 @@ function StudioPage() {
         }
       />
 
+      <CompositionReferencesPanel prompt={prompt} workflowImages={activeWorkflowImages} />
+      <SettingCompositionPanel />
+      <CharacterRecipePanel />
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-12 lg:gap-6">
         {/* 左栏：参考图、模型参数与 Prompt */}
         <div
@@ -1533,6 +1540,7 @@ function StudioPage() {
 
               <div className="mt-2 space-y-1.5 px-0.5">
                 <div className="truncate text-xs font-medium">{h.recipeSummary}</div>
+                <SaveCharacterAsset item={h} />
                 <div className="grid grid-cols-2 gap-1.5">
                   <button
                     type="button"

@@ -15,12 +15,26 @@ import {
 } from '@/components/ui/sidebar'
 import { useStudio } from '@/store/studioStore'
 import { activeNavTo, navGroups } from './nav'
+import expansion from '../../../data/catalog-expansion.json'
+import { useCharacterLibrary } from '@/store/characterStore'
+import { whiteModels } from '@/lib/whiteModels'
+import { useSettingLibrary } from '@/store/settingStore'
+import { SETTING_CATEGORIES } from '@/lib/settingLibrary'
 
 export function AppSidebar() {
   const pathname = useLocation({ select: (l) => l.pathname })
   const active = activeNavTo(pathname)
   const { recipe } = useStudio()
-  const count = [recipe.portrait, recipe.costume, recipe.pose].filter(Boolean).length
+  const { profiles } = useCharacterLibrary()
+  const references = whiteModels
+  const { records } = useSettingLibrary()
+  const libraryCounts: Record<string, number> = { '/costumes': 1407 + expansion.costumes.length, '/portraits': 1499 + expansion.portraits.length + profiles.filter((profile) => profile.assets.some((asset) => asset.kind === 'portrait')).length,
+    '/grooming': references.filter((item) => item.kind === 'grooming').length,
+    '/traits': records.filter((record) => SETTING_CATEGORIES[record.category].group === 'life').length,
+    '/voices': records.filter((record) => SETTING_CATEGORIES[record.category].group === 'voice').length,
+  }
+  const count = [recipe.portrait, recipe.costume, recipe.pose].filter(Boolean).length + (recipe.extraImages?.length ?? 0) + Object.keys(recipe.settingBindings ?? {}).length
+  const onCharacters = pathname.startsWith('/characters')
 
   return (
     <Sidebar collapsible="icon">
@@ -34,7 +48,7 @@ export function AppSidebar() {
                 </div>
                 <div className="grid flex-1 text-left leading-tight">
                   <span className="truncate text-sm font-semibold">POSE &amp; CHARACTER</span>
-                  <span className="truncate text-xs text-muted-foreground">AI 角色三合一参考台</span>
+                  <span className="truncate text-xs text-muted-foreground">IP 人物档案与创作台</span>
                 </div>
               </Link>
             </SidebarMenuButton>
@@ -53,9 +67,9 @@ export function AppSidebar() {
                     <Link to={item.to}>
                       <item.icon />
                       <span className="flex-1 truncate">{item.title}</span>
-                      {item.badge && (
+                      {(libraryCounts[item.to] !== undefined || item.badge) && (
                         <Badge variant="secondary" className="ml-auto h-5 px-1.5 text-[10px] font-medium">
-                          {item.badge}
+                          {libraryCounts[item.to]?.toLocaleString('en-US') ?? item.badge}
                         </Badge>
                       )}
                     </Link>
@@ -71,14 +85,14 @@ export function AppSidebar() {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild tooltip="当前角色配方">
-              <Link to="/studio" className="bg-sidebar-accent/70 hover:bg-sidebar-accent">
+              <Link to={onCharacters && !recipe.character ? '/characters' : '/studio'} className="bg-sidebar-accent/70 hover:bg-sidebar-accent">
                 <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-primary/10 text-primary">
                   <SparklesIcon className="size-4" />
                 </div>
                 <div className="grid flex-1 text-left text-xs leading-tight">
-                  <span className="truncate font-semibold">角色配方槽 ({count}/3)</span>
+                  <span className="truncate font-semibold">{recipe.character ? recipe.character.name : onCharacters ? '人物档案与创作' : `参考组合（${count} 项）`}</span>
                   <span className="truncate text-[11px] text-muted-foreground">
-                    {count === 0 ? '未选择 · 点击去捏人' : '点击进入 AI 合成台'}
+                    {recipe.character ? '身份 · 人物状态 · 语言声音' : onCharacters ? '选择角色，补充个性与口音' : count === 0 ? '选择参考，或从角色档案开始' : '点击进入 AI 合成台'}
                   </span>
                 </div>
               </Link>

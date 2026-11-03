@@ -1,3 +1,6 @@
+import type { CharacterAssetKind, CharacterComposition, CharacterCreativeBrief, CharacterIdentity } from '@/types/character'
+import type { SettingBindings } from './settings'
+
 export interface PoseItem {
   source?: 'upload'
   /** 是否使用灰阶深度图（Depth Map）代替素体白模 */
@@ -25,7 +28,8 @@ export interface PoseGroup {
 }
 
 export interface CostumeItem {
-  source?: 'upload'
+  source?: 'upload' | 'catalog'
+  catalog?: CostumeClassification
   id: string
   分类: string
   服装名称: string
@@ -38,7 +42,8 @@ export interface CostumeItem {
 }
 
 export interface PortraitItem {
-  source?: 'upload'
+  source?: 'upload' | 'character' | 'catalog'
+  catalog?: PortraitClassification
   id: string
   分区: string
   发长: string
@@ -55,13 +60,75 @@ export interface PortraitItem {
 }
 
 export interface ExtraReferenceImage {
-  role?: 'character_sheet'
+  renderMode?: 'white_model'
+  role?: 'character_sheet' | 'character_body' | 'prop' | 'wardrobe_detail' | 'identity_detail' | 'expression' | 'grooming' | 'body_guide' | 'gesture'
+  source?: 'character_world' | 'library'
+  referenceKind?: VisualReferenceKind | 'expressions' | 'body-details' | 'mannerisms'
+  referenceId?: string
+  instruction?: string
+  thumbnail?: string
   id: string
   name: string
   url: string
 }
 
+export interface PortraitClassification {
+  collection: 'expanded' | 'original' | 'character'
+  age?: number
+  ageBand: string
+  presentation: string
+  skinTone: string
+  bodyDesign: string
+  market: string
+  appearance: string
+  designRegion?: string
+  faceShape?: string
+  facialHair?: string
+  annotation: 'design_spec' | 'source_metadata'
+}
+
+export interface CostumeClassification {
+  collection: 'expanded' | 'original'
+  cut: string
+  occasion: string
+  fit: string
+  season: string
+  stage: string
+  structure: string
+  ageBands?: string[]
+  annotation: 'design_spec' | 'source_metadata'
+}
+
+export type VisualReferenceKind = 'grooming'
+export interface VisualReferenceItem {
+  renderMode?: 'white_model'
+  id: string
+  kind: VisualReferenceKind
+  title: string
+  feature: string
+  description: string
+  presentation: string
+  ageBand: string
+  skinTone: string
+  url: string
+  thumbnail: string
+  width: number
+  height: number
+  role: NonNullable<ExtraReferenceImage['role']>
+  instruction: string
+  tags: string[]
+  ownerCharacterId?: string
+  origin: 'project_generated' | 'character_asset' | 'white_model'
+}
+
 export interface RecipeState {
+  settingBindings?: SettingBindings
+  character?: CharacterIdentity | null
+  characterTask?: CharacterAssetKind
+  scene?: string
+  customOutfit?: string
+  lookId?: string
+  creativeBrief?: CharacterCreativeBrief
   portrait: PortraitItem | null
   costume: CostumeItem | null
   pose: PoseItem | null
@@ -157,4 +224,8 @@ export interface GenerationHistoryItem {
   prompt: string
   imageUrl: string
   recipeSummary: string
+  character?: CharacterIdentity
+  assetKind?: CharacterAssetKind
+  referenceUrls?: string[]
+  composition?: CharacterComposition
 }

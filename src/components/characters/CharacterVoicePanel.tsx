@@ -1,0 +1,39 @@
+import { useRef, useState, type ChangeEvent } from 'react'
+import { CopyIcon, DownloadIcon, MicIcon, PencilIcon, UploadIcon } from 'lucide-react'
+import { toast } from 'sonner'
+import { Button } from '@/components/ui/button'
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
+import { VOICE_FIELDS, VOICE_PRESETS, emptyVoice, voiceTask } from '@/lib/characterVoice'
+import { downloadJson } from '@/lib/characters'
+import { bindingsAfterManualEdit } from '@/lib/settingLibrary'
+import { useCharacterLibrary } from '@/store/characterStore'
+import type { CharacterProfile } from '@/types/character'
+
+export function CharacterVoicePanel({ profile }: { profile: CharacterProfile }) {
+  const { saveProfile, hydrated } = useCharacterLibrary()
+  const [editing, setEditing] = useState(false)
+  const [draft, setDraft] = useState(() => structuredClone(profile.voice ?? emptyVoice()))
+  const [step, setStep] = useState(0)
+  const [error, setError] = useState('')
+  const [busy, setBusy] = useState(false)
+  const fileRef = useRef<HTMLInputElement>(null)
+  const voice = profile.voice
+  const task = voiceTask(profile)
+  async function upload(event: ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files?.[0]
+    if (!file) return
+    setBusy(true)
+    try {
+      if (!['audio/wav', 'audio/x-wav', 'audio/mpeg', 'audio/mp3', 'audio/mp4', 'audio/x-m4a', 'audio/ogg', 'audio/webm'].includes(file.type) || file.size > 8 * 1024 * 1024) throw new Error('请使用 8 MB 以内的 WAV、MP3、M4A、OGG 或 WebM 音频')
+      const url = await new Promise<string>((resolve, reject) => { const reader = new FileReader(); reader.onload = () => resolve(String(reader.result)); reader.onerror = () => reject(new Error('音频读取失败')); reader.readAsDataURL(file) })
+      saveProfile({ ...profile, voice: { ...(voice ?? emptyVoice()), samples: [...(voice?.samples ?? []), { id: crypto.randomUUID(), title: file.name, url, mimeType: file.type, createdAt: new Date(file.lastModified).toISOString(), transcript: '', generator: '用户上传，生成来源未确认', characterVersion: profile.version, intendedLocale: voice?.locale }] } })
+      toast.success('声音样本已收录，可在本机试听并随档案导出')
+    } catch (cause) { toast.error(cause instanceof Error ? cause.message : '声音样本收录失败') }
+    finally { setBusy(false); event.target.value = '' }
+  }
+  const entries = Object.entries(VOICE_FIELDS)
+  const shownFields = entries.slice(step === 0 ? 0 : step === 1 ? 6 : 12, step === 0 ? 6 : step === 1 ? 12 : entries.length)
+  return <div className="space-y-6"><div className="flex flex-wrap items-start justify-between gap-3"><div><h2 className="text-lg font-semibold">语言、方言与个人声线</h2><p className="mt-2 text-xs leading-6 text-muted-foreground">{voice?.samples.length ? `${voice.samples.length} 段已收录音频，可试听` : '当前为声音设定，尚未生成音频'} · 口音独立设定，不由外貌推断。</p></div><Button size="sm" variant="outline" disabled={!hydrated} onClick={() => { setDraft(structuredClone(voice ?? emptyVoice())); setEditing(true); setStep(0); setError('') }}><PencilIcon className="size-3.5" />编辑声音档案</Button></div>{voice ? <><dl className="grid gap-x-8 gap-y-5 sm:grid-cols-2">{entries.filter(([key]) => key !== 'sampleText').map(([key, label]) => <div key={key}><dt className="text-xs text-muted-foreground">{label}</dt><dd className="mt-2 text-sm leading-7">{voice[key as keyof typeof VOICE_FIELDS] || '待设定'}</dd></div>)}</dl><section className="rounded-xl bg-muted p-5"><h3 className="text-sm font-semibold">固定试读文本</h3><p className="mt-3 text-sm leading-8" lang={voice.locale}>{voice.sampleText || '待补充'}</p><div className="mt-4 flex flex-wrap gap-2"><Button size="sm" onClick={async () => { try { await navigator.clipboard.writeText(task.prompt); toast.success('已复制语言、口音与声线配音任务') } catch { toast.error('复制失败，请导出任务') } }}><CopyIcon className="size-3.5" />复制配音任务</Button><Button size="sm" variant="outline" onClick={() => downloadJson(task, `${profile.slug}-voice-task.json`)}><DownloadIcon className="size-3.5" />导出配音任务</Button></div></section></> : <p className="rounded-xl border p-5 text-sm text-muted-foreground">先确定主要语言与默认口音，再细化音色、节奏与惯用表达。</p>}<section className="rounded-xl border p-5"><div className="flex flex-wrap items-center justify-between gap-3"><h3 className="flex items-center gap-2 text-sm font-semibold"><MicIcon className="size-4" />声音样本</h3><Button variant="outline" size="sm" disabled={!hydrated || busy} onClick={() => fileRef.current?.click()}><UploadIcon className="size-3.5" />{busy ? '正在收录' : '收录音频'}</Button><input ref={fileRef} type="file" accept="audio/wav,audio/mpeg,audio/mp4,audio/ogg,audio/webm,.mp3,.wav,.m4a" className="hidden" onChange={upload} /></div>{voice?.samples.length ? <div className="mt-4 space-y-4">{voice.samples.map((sample) => <article key={sample.id}><p className="mb-2 break-words text-sm">{sample.title}</p><audio controls preload="metadata" src={sample.url} className="w-full" /><p className="mt-2 text-xs text-muted-foreground">{sample.generator}{sample.intendedLocale ? ` · 收录时目标 ${sample.intendedLocale}` : ''}</p><Button size="sm" variant="ghost" className="mt-2" disabled={!hydrated} onClick={() => { try { saveProfile({ ...profile, voice: { ...voice, samples: voice.samples.filter((item) => item.id !== sample.id) } }); toast.success('已移除声音样本') } catch { toast.error('移除失败，请导出档案备份') } }}>移除此样本</Button></article>)}</div> : <p className="mt-3 text-xs leading-6 text-muted-foreground">后续把实际生成的试读音频收录到这里。文字设定不代表配音已完成。</p>}</section><Dialog open={editing} onOpenChange={setEditing}><DialogContent className="max-h-[90dvh] overflow-y-auto sm:max-w-2xl"><DialogHeader><DialogTitle>编辑声音档案</DialogTitle><DialogDescription>语言、方言与口音分别记录；同一个角色保持稳定的默认说话方式。</DialogDescription></DialogHeader><div className="flex flex-wrap gap-1">{['语言与口音', '声线与表达', '试读与边界'].map((label, index) => <Button key={label} type="button" size="sm" variant={step === index ? 'secondary' : 'ghost'} onClick={() => setStep(index)}>{index + 1}. {label}</Button>)}</div><form className="space-y-4" onSubmit={(event) => { event.preventDefault(); if (step < 2) { setStep(step + 1); return } try { saveProfile({ ...profile, voice: draft, settingBindings: bindingsAfterManualEdit(profile.settingBindings, 'voice', draft) }); setEditing(false); toast.success('声音档案已保存') } catch (cause) { setError(cause instanceof Error ? cause.message : '保存失败') } }}>{step === 0 && <label className="block space-y-2 text-sm"><span>语言与地区起点（可继续编辑）</span><select className="h-9 w-full rounded-md border bg-background px-2" defaultValue="" onChange={(event) => { const preset = VOICE_PRESETS.find((item) => item.id === event.target.value); if (preset) { const { id: _, label: __, ...values } = preset; setDraft({ ...draft, ...values }) } }}><option value="">选择起点，不改变个人音色</option>{VOICE_PRESETS.map((item) => <option key={item.id} value={item.id}>{item.label}</option>)}</select></label>}{shownFields.map(([key, label]) => <label className="block space-y-2 text-sm" key={key}><span>{label}</span>{['language', 'locale', 'dialect', 'accentStrength', 'pitch'].includes(key) ? <Input value={draft[key as keyof typeof VOICE_FIELDS]} onChange={(event) => setDraft({ ...draft, [key]: event.target.value })} /> : <Textarea rows={key === 'sampleText' ? 4 : 2} value={draft[key as keyof typeof VOICE_FIELDS]} onChange={(event) => setDraft({ ...draft, [key]: event.target.value })} />}</label>)}{error && <p role="alert" className="text-sm text-destructive">{error}</p>}<div className="flex justify-between border-t pt-4"><Button type="button" variant="ghost" onClick={() => step ? setStep(step - 1) : setEditing(false)}>{step ? '上一步' : '取消'}</Button><Button type="submit">{step < 2 ? '下一步' : '保存声音档案'}</Button></div></form></DialogContent></Dialog></div>
+}

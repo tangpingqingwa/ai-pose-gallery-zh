@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "generator": "Codex built-in image generation",
+  "instruction": "使用 Codex 内置生图。将人像身份原图单独作为输入，再附上下载的参考拼图；没有人像时只附拼图。下文“图N”对应拼图和 references 清单中的编号，不是附件序号。保持每格参考的职责，成品不要复制拼图布局。然后执行 prompt。",
+  "inputPlan": {
+    "mode": "identity_and_sheet",
+    "identityReferenceIndex": 0,
+    "sheetReferenceIndices": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "maximumImageInputs": 5
+  },
+  "character": null,
+  "kind": "lifestyle",
+  "composition": {
+    "costumeId": "C-NEW-007",
+    "poseId": "full_single_P015_diag"
+  },
+  "prompt": "Use case: identity-preserve. Create a single photorealistic full-body photograph of one fictional adult virtual character.\nPhysical attachment 1 is the only identity master, logically 图1: Nadia, 39. Physical attachment 2 is a labeled 3-by-2 reference sheet whose six cells are logically 图2 through 图7. They are six supporting references, not six people to put in the output. The logical 图N numbers below refer to those cell labels; do not interpret the sheet itself as the final composition.\n\n请根据提供的 7 张参考图，生成一张完整的真实人物照片：\n• 人物：图1中的人物，保持其脸型、五官和发色一致。保留发色、年龄、发际线和身份特征，具体整理方式以妆发参考为准。人物的肤色必须与图1人物一致，所有裸露皮肤（包括服装镂空处露出的皮肤）必须与脸部肤色统一，统一后的肤色与质感按风格要求呈现。\n人物创作设定：39 岁成年人，女性，深肤色。五官与年龄以所选人像为准，不因其他参考演员而改变。\n• 服装：让人物穿上图2中展示的整套服装和配饰（参考名称：女款成熟通勤），每件单品的颜色、款式、面料与配饰都以图2为准，名称仅作辅助说明。\n服装图只约束单品、面料、颜色与搭配，不复制人台的腰围、胸部、腿长、站姿或皮肤；服装按当前角色的真实体型自然适配。\n• 姿势：按照图3中人体模型的动作和镜头角度摆姿势（站立・对立式平衡・手扶腰，斜侧）；图3只约束动作，不复制人台的身材、肢体比例、材质或无脸外观，最终画面中的人物是真人，皮肤真实自然，穿着图2的服装。\n• 图4（专注解释时的口形）：表情神态：仅取眼神、眉眼与口形变化，人物五官、肤色和年龄以当前人像为准。本次参考目标：目标：专注解释时的口形。仅借鉴参考图的眼神、口形与情绪肌肉变化，保持当前人像的五官、年龄和肤色；不复制参考人物的脸或多格排版。\n• 图5（银发的三种日常梳理）：妆发状态：仅取妆容、发型整理或胡须状态，保留当前人物的面部结构、年龄和发色。本次参考目标：目标：银发的三种日常梳理。仅借鉴发型整理、妆容或胡须状态，保持当前人像的五官、年龄、发色与皮肤纹理；不复制参考人物的脸，不自动减龄。\n• 图6（丰盈成年体型正侧视）：体型与体态：设计新人物时参考轮廓与比例；已有角色母版时以该角色设定为准。不能复制参考人物的身份或多视图排版。本次参考目标：目标：丰盈成年体型正侧视。设计新人物时参考体型轮廓或自然细节；已绑定人物时以当前人物的母版、年龄和身材设定为准，不借用另一人的五官，也不复制多视图排版。\n• 图7（倾听时前倾与开放手势）：习惯仪态：在所选整体姿势中融合自然手势、视线与肩颈状态；冲突时保持整体姿势与人体合理性，不替换当前人物身份和穿搭。本次参考目标：目标：倾听时前倾与开放手势。仅借鉴参考图的自然手势、肩颈姿态和视线，不更换当前人像的身份或衣服；画面保持单人。\n参考职责：人像固定身份，服装控制穿搭，动作参考控制肢体，表情与妆发只调整本次状态，细节参考保留真实感。所选状态优先于默认习惯；不能把不同参考中的人脸混成另一个人。\n• 风格：写实商业摄影级质感，85mm 人像镜头，自然柔和光影，真实肌肤纹理与织物细节，8k 高清画质。 人物比例协调，手部与五官自然，光影统一。\n画面中没有任何文字、标志或水印。\n\n本次成片的明确要求：输出一张单人全身自然照片，头、双手、裤脚和鞋完整可见，简洁浅灰背景，不增加场景或道具。图1的 Nadia 是唯一身份母版，39岁，保留深棕肤色、短黑自然卷、圆润脸颊、原有鼻形唇形以及脸侧的小痣。图2森林绿外套、米白上衣、深灰全长西裤与酒红平底鞋需按丰盈身材自然适配。图3决定站立重心和一只手轻扶腰；图4借鉴专注解释时的轻微口形；图5只借鉴日常淡妆和整理程度，不取银发、长发或年长演员的五官；图6只取丰盈体型轮廓，不取55岁参考演员的脸或年龄；图7仅使另一只手自然开放、视线朝镜头旁听众，整体仍遵循图3。自然皮肤纹理、成年人真实比例、肩腰臀和腹部有自然厚度，不强制瘦身、长腿或模特沙漏腰。照片为原创虚构成年人物。只输出这一位穿好衣服的 Nadia，不要参考拼图、四格、文字或多个人。\n\nUse attachment 1's exact facial identity: short black coils, deep brown skin, rounded cheeks, natural nose and lips and characteristic small facial moles. Keep Nadia age 39. The garment reference controls the forest green blazer, cream top, charcoal full-length trousers, burgundy flat shoes only. Keep realistic fuller adult proportions. 图5 only controls tidy everyday grooming, never silver hair or the reference actor's age. Pose has one hand at waist, the other gently open in a speaking gesture. Plain light gray seamless background; head to shoes fully visible; a single vertical photo, no labels, grids, panels or duplicate people.",
+  "references": [
+    {
+      "role": "identity",
+      "name": "Nadia · 39岁 · 女性",
+      "url": "/library-assets/portraits/P-NEW-010.png"
+    },
+    {
+      "role": "outfit",
+      "name": "女款成熟通勤",
+      "url": "/library-assets/costumes/C-NEW-007.png"
+    },
+    {
+      "role": "pose",
+      "name": "站立・对立式平衡・手扶腰",
+      "url": "img/full_single_P015_diag.png"
+    },
+    {
+      "role": "expression",
+      "name": "专注解释时的口形",
+      "url": "/library-assets/expressions/R-NEW-002.png",
+      "referenceId": "R-NEW-002",
+      "instruction": "目标：专注解释时的口形。仅借鉴参考图的眼神、口形与情绪肌肉变化，保持当前人像的五官、年龄和肤色；不复制参考人物的脸或多格排版。"
+    },
+    {
+      "role": "grooming",
+      "name": "银发的三种日常梳理",
+      "url": "/library-assets/grooming/R-NEW-005.png",
+      "referenceId": "R-NEW-005",
+      "instruction": "目标：银发的三种日常梳理。仅借鉴发型整理、妆容或胡须状态，保持当前人像的五官、年龄、发色与皮肤纹理；不复制参考人物的脸，不自动减龄。"
+    },
+    {
+      "role": "body_guide",
+      "name": "丰盈成年体型正侧视",
+      "url": "/library-assets/body-details/R-NEW-007.png",
+      "referenceId": "R-NEW-007",
+      "instruction": "目标：丰盈成年体型正侧视。设计新人物时参考体型轮廓或自然细节；已绑定人物时以当前人物的母版、年龄和身材设定为准，不借用另一人的五官，也不复制多视图排版。"
+    },
+    {
+      "role": "gesture",
+      "name": "倾听时前倾与开放手势",
+      "url": "/library-assets/mannerisms/R-NEW-011.png",
+      "referenceId": "R-NEW-011",
+      "instruction": "目标：倾听时前倾与开放手势。仅借鉴参考图的自然手势、肩颈姿态和视线，不更换当前人像的身份或衣服；画面保持单人。"
+    }
+  ],
+  "title": "七库合成示例 · Nadia",
+  "inputAttachments": [
+    "/library-assets/portraits/P-NEW-010.png",
+    "/library-examples/nadia-reference-sheet.png"
+  ],
+  "result": {
+    "url": "/library-examples/nadia-seven-libraries.png",
+    "thumbnail": "/library-examples/nadia-seven-libraries.webp",
+    "width": 1024,
+    "height": 1536,
+    "bytes": 2046384,
+    "sha256": "769f45c9fd19f864ae6ae3af4b59614fc1d58d91e53c79fd835ed8ee88bebd68",
+    "review": "reviewed",
+    "generator": "Codex built-in image generation"
+  }
+}

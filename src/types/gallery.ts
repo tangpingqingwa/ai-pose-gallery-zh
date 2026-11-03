@@ -1,4 +1,5 @@
 import type { CharacterAssetKind, CharacterComposition, CharacterCreativeBrief, CharacterIdentity } from '@/types/character'
+import type { SettingBindings } from './settings'
 
 export interface PoseItem {
   source?: 'upload'
@@ -59,6 +60,7 @@ export interface PortraitItem {
 }
 
 export interface ExtraReferenceImage {
+  renderMode?: 'white_model'
   role?: 'character_sheet' | 'character_body' | 'prop' | 'wardrobe_detail' | 'identity_detail' | 'expression' | 'grooming' | 'body_guide' | 'gesture'
   source?: 'character_world' | 'library'
   referenceKind?: VisualReferenceKind
@@ -95,6 +97,7 @@ export interface CostumeClassification {
 
 export type VisualReferenceKind = 'expressions' | 'grooming' | 'body-details' | 'mannerisms'
 export interface VisualReferenceItem {
+  renderMode?: 'white_model'
   id: string
   kind: VisualReferenceKind
   title: string
@@ -111,10 +114,11 @@ export interface VisualReferenceItem {
   instruction: string
   tags: string[]
   ownerCharacterId?: string
-  origin: 'project_generated' | 'character_asset'
+  origin: 'project_generated' | 'character_asset' | 'white_model'
 }
 
 export interface RecipeState {
+  settingBindings?: SettingBindings
   character?: CharacterIdentity | null
   characterTask?: CharacterAssetKind
   scene?: string

@@ -17,21 +17,26 @@ import { useStudio } from '@/store/studioStore'
 import { activeNavTo, navGroups } from './nav'
 import expansion from '../../../data/catalog-expansion.json'
 import { useCharacterLibrary } from '@/store/characterStore'
-import { characterVisualReferences } from '@/lib/visualReferences'
+import { whiteModels } from '@/lib/whiteModels'
+import { useSettingLibrary } from '@/store/settingStore'
+import { SETTING_CATEGORIES } from '@/lib/settingLibrary'
 
 export function AppSidebar() {
   const pathname = useLocation({ select: (l) => l.pathname })
   const active = activeNavTo(pathname)
   const { recipe } = useStudio()
   const { profiles } = useCharacterLibrary()
-  const references = [...expansion.references, ...characterVisualReferences(profiles, expansion.seedPreviews)]
+  const references = whiteModels
+  const { records } = useSettingLibrary()
   const libraryCounts: Record<string, number> = { '/costumes': 1407 + expansion.costumes.length, '/portraits': 1499 + expansion.portraits.length + profiles.filter((profile) => profile.assets.some((asset) => asset.kind === 'portrait')).length,
     '/expressions': references.filter((item) => item.kind === 'expressions').length,
     '/grooming': references.filter((item) => item.kind === 'grooming').length,
     '/body-details': references.filter((item) => item.kind === 'body-details').length,
     '/mannerisms': references.filter((item) => item.kind === 'mannerisms').length,
+    '/traits': records.filter((record) => SETTING_CATEGORIES[record.category].group === 'life').length,
+    '/voices': records.filter((record) => SETTING_CATEGORIES[record.category].group === 'voice').length,
   }
-  const count = [recipe.portrait, recipe.costume, recipe.pose].filter(Boolean).length + (recipe.extraImages?.length ?? 0)
+  const count = [recipe.portrait, recipe.costume, recipe.pose].filter(Boolean).length + (recipe.extraImages?.length ?? 0) + Object.keys(recipe.settingBindings ?? {}).length
   const onCharacters = pathname.startsWith('/characters')
 
   return (

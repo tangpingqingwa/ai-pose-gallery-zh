@@ -1,6 +1,7 @@
 import { queryOptions } from '@tanstack/react-query'
 import type { CostumeItem, PortraitItem, PoseGroup, PoseItem, VisualReferenceItem } from '@/types/gallery'
 import expansion from '../../data/catalog-expansion.json'
+import whiteReferences from '../../data/white-model-references.json'
 
 export const ANGLES = ['正面', '俯视', '仰视', '侧面', '斜侧'] as const
 
@@ -107,7 +108,7 @@ export const portraitsQuery = queryOptions({
 })
 
 export const visualReferencesQuery = queryOptions({
-  queryKey: ['gallery', 'visual-references'],
+  queryKey: ['gallery', 'visual-references', 'white-model-v1'],
   staleTime: Infinity,
-  queryFn: async () => expansion.references as VisualReferenceItem[],
+  queryFn: async () => whiteReferences as VisualReferenceItem[],
 })

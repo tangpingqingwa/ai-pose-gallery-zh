@@ -44,6 +44,7 @@ export function uploadedReferences(name: string, url: string, width: number, hei
 export function recipeBackup(recipe: RecipeState): RecipeState {
   return {
     character: recipe.character,
+    settingBindings: recipe.settingBindings,
     characterTask: recipe.characterTask,
     scene: recipe.scene,
     customOutfit: recipe.customOutfit,

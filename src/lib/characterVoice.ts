@@ -15,12 +15,12 @@ export function emptyVoice(): CharacterVoice {
   return { language: '', locale: '', dialect: '', secondaryLanguages: '', accent: '', accentStrength: '轻度、自然', timbre: '', pitch: '', pace: '', prosody: '', speechHabits: '', pronunciation: '', avoid: '', sampleText: '', samples: [] }
 }
 
-export function voiceTask(profile: CharacterIdentity) {
+export function voiceTask(profile: Pick<CharacterIdentity, 'id' | 'version' | 'name' | 'gender' | 'voice'> & { age?: number }) {
   const voice = profile.voice ?? emptyVoice()
   return { schemaVersion: 1, kind: 'voice_direction', characterId: profile.id, characterVersion: profile.version,
     instruction: '为原创虚构成年角色生成原创声音；按语言、口音和声线设定保持一致。此文件是配音任务描述，不是已生成的音频。',
     voice: Object.fromEntries(Object.keys(VOICE_FIELDS).map((key) => [key, voice[key as keyof typeof VOICE_FIELDS]])),
-    prompt: [`角色：${profile.name}，${profile.age} 岁成年${profile.gender}。`, ...Object.entries(VOICE_FIELDS).map(([key, label]) => `${label}：${voice[key as keyof typeof VOICE_FIELDS]}`), '保持同一声线；情绪允许变化，口音强弱、基本音色和惯用节奏保持稳定。不模仿具名真人或明星。'].join('\n'),
+    prompt: [`角色：${profile.name}，${profile.age ? `${profile.age} 岁` : ''}成年${profile.gender}。`, ...Object.entries(VOICE_FIELDS).map(([key, label]) => `${label}：${voice[key as keyof typeof VOICE_FIELDS]}`), '保持同一声线；情绪允许变化，口音强弱、基本音色和惯用节奏保持稳定。不模仿具名真人或明星。'].join('\n'),
   }
 }
 

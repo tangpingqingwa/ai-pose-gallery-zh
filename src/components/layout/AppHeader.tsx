@@ -25,7 +25,7 @@ export function AppHeader() {
       matches.filter((m) => m.staticData.title).map((m) => ({ title: m.staticData.title!, path: m.pathname })),
   })
 
-  const selectedCount = [recipe.portrait, recipe.costume, recipe.pose].filter(Boolean).length + (recipe.extraImages?.length ?? 0)
+  const selectedCount = [recipe.portrait, recipe.costume, recipe.pose].filter(Boolean).length + (recipe.extraImages?.length ?? 0) + Object.keys(recipe.settingBindings ?? {}).length
 
   const handleRandom = async () => {
     const [posesRes, costumes, portraits] = await Promise.all([

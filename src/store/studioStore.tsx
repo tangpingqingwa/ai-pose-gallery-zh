@@ -18,6 +18,10 @@ import { buildCodexTask, detachCharacter, recipeForCharacter } from '@/lib/chara
 import type { CharacterAssetKind, CharacterCreativeBrief, CharacterProfile } from '@/types/character'
 import { applyCharacterBrief } from '@/lib/characterWorld'
 import { withLibraryReference } from '@/lib/library'
+import { migrateWhiteReferences, randomWhiteReferences } from '@/lib/whiteModels'
+import { chooseSetting, randomSettingBindings, validateSettingBindings } from '@/lib/settingLibrary'
+import { useSettingLibrary } from '@/store/settingStore'
+import type { SettingBindings, SettingCategory, SettingGroup, SettingRecord } from '@/types/settings'
 import {
   buildRecipePrompt,
   COMFYUI_WORKFLOW_TEMPLATES,
@@ -48,6 +52,9 @@ import type {
 const CFG_KEY = 'pose_atlas_api_config_v3'
 const RECIPE_KEY = 'pose_atlas_recipe_v3'
 const HISTORY_KEY = 'pose_atlas_history_v3'
+function restoreBindings(value: unknown): SettingBindings {
+  try { validateSettingBindings(value as SettingBindings); return structuredClone(value as SettingBindings) } catch { return {} }
+}
 const SAFE_MODE_KEY = 'pose_atlas_safe_mode_v1'
 
 const COMFY_CONFIG_VERSION = 3
@@ -226,6 +233,10 @@ interface StudioContextValue {
   removeExtraImage: (id: string) => void
   updateExtraImageName: (id: string, name: string) => void
   updateExtraImageInstruction: (id: string, instruction: string) => void
+  setSettingRecord: (record: SettingRecord) => void
+  removeSettingRecord: (category: SettingCategory) => void
+  toggleSettingLock: (category: SettingCategory) => void
+  randomizeSettingRecords: (group?: SettingGroup) => void
   setWorkflowImage: (nodeId: string, image: ExtraReferenceImage | null, identity: string) => void
   clearRecipe: () => void
   randomizeRecipe: (pools: { portraits?: PortraitItem[]; costumes?: CostumeItem[]; poses?: PoseItem[] }) => void
@@ -244,6 +255,7 @@ interface StudioContextValue {
 const StudioContext = createContext<StudioContextValue | null>(null)
 
 export function StudioProvider({ children }: { children: ReactNode }) {
+  const { records: settingRecords } = useSettingLibrary()
   const [recipe, setRecipe] = useState<RecipeState>(() => {
     try {
       const raw = localStorage.getItem(RECIPE_KEY)
@@ -251,6 +263,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
       const parsed = JSON.parse(raw)
       return {
         character: parsed.character ?? null,
+        settingBindings: restoreBindings(parsed.settingBindings ?? parsed.character?.settingBindings),
         characterTask: parsed.characterTask,
         scene: parsed.scene,
         customOutfit: parsed.customOutfit,
@@ -259,7 +272,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
         portrait: parsed.portrait ?? null,
         costume: parsed.costume ?? null,
         pose: parsed.pose ?? null,
-        extraImages: Array.isArray(parsed.extraImages) ? parsed.extraImages : [],
+        extraImages: migrateWhiteReferences(Array.isArray(parsed.extraImages) ? parsed.extraImages : []),
       }
     } catch {
       return { portrait: null, costume: null, pose: null, extraImages: [] }
@@ -328,6 +341,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
         }
         setRecipe({
           character: savedRecipe.character ?? null,
+          settingBindings: restoreBindings(savedRecipe.settingBindings ?? savedRecipe.character?.settingBindings),
           characterTask: savedRecipe.characterTask,
           scene: savedRecipe.scene,
           customOutfit: savedRecipe.customOutfit,
@@ -338,7 +352,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
           pose: savedRecipe.pose ?? null,
           workflowImages: savedRecipe.workflowImages ?? {},
           workflowImagesIdentity: savedRecipe.workflowImagesIdentity,
-          extraImages: Array.isArray(savedRecipe.extraImages) ? savedRecipe.extraImages : [],
+          extraImages: migrateWhiteReferences(Array.isArray(savedRecipe.extraImages) ? savedRecipe.extraImages : []),
         })
       }
       if (Array.isArray(savedHistory) && savedHistory.length > 0) {
@@ -520,6 +534,29 @@ export function StudioProvider({ children }: { children: ReactNode }) {
     }))
   }
 
+  const setSettingRecord = (record: SettingRecord) => {
+    setCustomPrompt(null)
+    setRecipe((previous) => ({ ...previous, settingBindings: chooseSetting(previous.settingBindings, record) }))
+  }
+  const removeSettingRecord = (category: SettingCategory) => {
+    setCustomPrompt(null)
+    setRecipe((previous) => {
+      const bindings = { ...previous.settingBindings }
+      delete bindings[category]
+      return { ...previous, settingBindings: bindings }
+    })
+  }
+  const toggleSettingLock = (category: SettingCategory) => {
+    setRecipe((previous) => {
+      const binding = previous.settingBindings?.[category]
+      return binding ? { ...previous, settingBindings: { ...previous.settingBindings, [category]: { ...binding, locked: !binding.locked } } } : previous
+    })
+  }
+  const randomizeSettingRecords = (group?: SettingGroup) => {
+    setCustomPrompt(null)
+    setRecipe((previous) => ({ ...previous, settingBindings: randomSettingBindings(settingRecords, previous.settingBindings, group) }))
+  }
+
   const updateExtraImageName = (id: string, name: string) => {
     setRecipe((r) => ({
       ...r,
@@ -566,7 +603,8 @@ export function StudioProvider({ children }: { children: ReactNode }) {
     const costumePool = safeMode ? (pools.costumes || []).filter((c) => !isNsfwCostume(c)) : pools.costumes || []
     const portraitPool = recipe.portrait ? [] : pools.portraits || []
 
-    setRecipe((prev) => ({
+    setRecipe((prev) => {
+      const next: RecipeState = {
       ...(portraitPool.length ? detachCharacter(prev) : prev),
       lookId: undefined,
       customOutfit: portraitPool.length || costumePool.length ? undefined : prev.customOutfit,
@@ -580,7 +618,9 @@ export function StudioProvider({ children }: { children: ReactNode }) {
       pose: posePool.length
         ? { ...posePool[Math.floor(Math.random() * posePool.length)], useDepth: poseDepthMode }
         : prev.pose,
-    }))
+      }
+      return { ...next, extraImages: randomWhiteReferences(next), settingBindings: randomSettingBindings(settingRecords, next.settingBindings) }
+    })
     toast.success(safeMode ? '已随机抽取一套角色配方（安全模式）' : '已随机抽取一套角色配方')
   }
 
@@ -703,7 +743,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
           finalPrompt,
           configSnapshot.activeProvider === 'comfyui' && recipeSnapshot.workflowImagesIdentity === workflowIdentity(configSnapshot.comfyuiParams.workflowJson) ? Object.values(recipeSnapshot.workflowImages || {}) : [],
         ).references.map((reference) => reference.url),
-        composition: { lookId: recipeSnapshot.lookId, costumeId: recipeSnapshot.costume?.id, poseId: recipeSnapshot.pose?.id, scene: recipeSnapshot.scene, customOutfit: recipeSnapshot.customOutfit, creativeBrief: recipeSnapshot.creativeBrief },
+        composition: { lookId: recipeSnapshot.lookId, costumeId: recipeSnapshot.costume?.id, poseId: recipeSnapshot.pose?.id, scene: recipeSnapshot.scene, customOutfit: recipeSnapshot.customOutfit, creativeBrief: recipeSnapshot.creativeBrief, settingBindings: structuredClone(recipeSnapshot.settingBindings ?? {}) },
         provider: providerUsed,
         model: modelUsed,
         prompt: finalPrompt,
@@ -759,6 +799,10 @@ export function StudioProvider({ children }: { children: ReactNode }) {
         removeExtraImage,
         updateExtraImageName,
         updateExtraImageInstruction,
+        setSettingRecord,
+        removeSettingRecord,
+        toggleSettingLock,
+        randomizeSettingRecords,
         setWorkflowImage,
         clearRecipe,
         randomizeRecipe,

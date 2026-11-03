@@ -18,7 +18,7 @@ function GuidePage() {
           <Badge>1. 人像</Badge>
           <h3 className="mt-2 text-sm font-semibold">人像参考库</h3>
           <p className="mt-1 text-xs text-muted-foreground">
-            新增与自有人像优先展示，按年龄、性别形象、肤色、体型筛选。原库按发型与正脸/氛围分类。选定人像后固定五官与年龄。
+            统一按年龄、性别形象、肤色、体型、发型与拍摄类型筛选。选定人像后固定五官与年龄。
           </p>
         </div>
 
@@ -34,7 +34,7 @@ function GuidePage() {
           <Badge>3. 状态与细节</Badge>
           <h3 className="mt-2 text-sm font-semibold">表情、妆发、体型细节、习惯仪态</h3>
           <p className="mt-1 text-xs text-muted-foreground">
-            四个图片库均可直接加入配方并编辑参考目标。创作台导出 Codex 内置生图任务；超过 5 张时使用人像原图与参考拼图两个附件。
+            四个图片库使用通用白模控制状态，生活与语言声音记录可指定、锁定和随机组合。创作台导出图像与配音任务，超过 5 张参考时可下载拼图。
           </p>
         </div>
       </Section>

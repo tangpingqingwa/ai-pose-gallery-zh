@@ -3,6 +3,7 @@ import type { ExtraReferenceImage, PortraitItem, RecipeState } from '@/types/gal
 import { validateWorld, worldPrompt } from './characterWorld.ts'
 import { validateVoice } from './characterVoice.ts'
 import { ageBand } from './library.ts'
+import { effectiveCharacter, recipeVoiceTask, validateSettingBindings } from './settingLibrary.ts'
 
 export const ASSET_KINDS: Record<CharacterAssetKind, { label: string; instruction: string }> = {
   portrait: {
@@ -27,9 +28,9 @@ export const ASSET_KINDS: Record<CharacterAssetKind, { label: string; instructio
 }
 
 export function characterIdentity(profile: CharacterProfile): CharacterIdentity {
-  const { id, version, name, displayName, age, gender, appearance, body, style, world, voice } = profile
+  const { id, version, name, displayName, age, gender, appearance, body, style, world, voice, settingBindings } = profile
   // Audio payloads live in the profile; recipes need only the voice design.
-  return structuredClone({ id, version, name, displayName, age, gender, appearance, body, style, world, voice: voice ? { ...voice, samples: [] } : undefined })
+  return structuredClone({ id, version, name, displayName, age, gender, appearance, body, style, world, settingBindings, voice: voice ? { ...voice, samples: [] } : undefined })
 }
 
 export function identityPrompt(profile: CharacterIdentity): string {
@@ -78,7 +79,7 @@ export function recipeForCharacter(profile: CharacterProfile, previous: RecipeSt
   return {
     ...previous,
     scene: undefined, customOutfit: undefined, lookId: undefined, creativeBrief: undefined,
-    character: characterIdentity(profile), characterTask: 'lifestyle', portrait,
+    character: characterIdentity(profile), characterTask: 'lifestyle', portrait, settingBindings: structuredClone(profile.settingBindings ?? {}),
     extraImages: [
       ...(previous.extraImages ?? []).filter((ref) => ref.role !== 'character_body' && ref.source !== 'character_world'),
       ...(body ? [{ id: `body:${profile.id}`, role: 'character_body' as const, name: `${profile.name} 全身体型参考`, url: body.url }] : []),
@@ -108,7 +109,7 @@ export function buildCodexTask(recipe: RecipeState, prompt: string, workflowImag
   const sheetReferenceIndices = references.map((_, index) => index).filter((index) => !useSheet || index !== identityIndex)
   const inputPlan = { mode: useSheet ? 'identity_and_sheet' : 'individual_images', identityReferenceIndex: identityIndex < 0 ? null : identityIndex, sheetReferenceIndices, maximumImageInputs: 5 }
   const instruction = useSheet ? '使用 Codex 内置生图。将人像身份原图单独作为输入，再附上下载的参考拼图；没有人像时只附拼图。下文“图N”对应拼图和 references 清单中的编号，不是附件序号。保持每格参考的职责，成品不要复制拼图布局。然后执行 prompt。' : '使用 Codex 内置生图，按 references 顺序附上参考图，再执行 prompt。生成后可将成品收录到所属角色。'
-  return { schemaVersion: 1, generator: 'Codex built-in image generation', instruction, inputPlan, character: recipe.character ?? null, kind: recipe.characterTask ?? 'lifestyle', composition: { lookId: recipe.lookId, costumeId: recipe.costume?.id, poseId: recipe.pose?.id, scene: recipe.scene, customOutfit: recipe.customOutfit, creativeBrief: recipe.creativeBrief }, prompt, references }
+  return { schemaVersion: 1, generator: 'Codex built-in image generation', instruction, inputPlan, character: effectiveCharacter(recipe), associations: structuredClone(recipe.settingBindings ?? {}), voiceDirection: recipeVoiceTask(recipe), kind: recipe.characterTask ?? 'lifestyle', composition: { lookId: recipe.lookId, costumeId: recipe.costume?.id, poseId: recipe.pose?.id, scene: recipe.scene, customOutfit: recipe.customOutfit, creativeBrief: recipe.creativeBrief, settingBindings: structuredClone(recipe.settingBindings ?? {}) }, prompt, references }
 }
 
 export function downloadJson(value: unknown, name: string) {
@@ -138,6 +139,7 @@ export function validateCharacter(value: unknown): asserts value is CharacterPro
   for (const s of [p.persona.positioning, p.persona.bio, p.persona.voice, p.style.signatureOutfit, p.style.outfitEn, p.rights.origin, p.rights.generator, p.rights.licenseNote, p.rights.source, p.rights.createdAt]) if (typeof s !== 'string') throw new Error('人设、风格或来源字段格式错误')
   if (p.world !== undefined) validateWorld(p.world)
   if (p.voice !== undefined) validateVoice(p.voice)
+  if (p.settingBindings !== undefined) validateSettingBindings(p.settingBindings)
   const ids = new Set<string>()
   for (const asset of p.assets) {
     if (!asset || typeof asset.id !== 'string' || ids.has(asset.id) || !Object.hasOwn(ASSET_KINDS, asset.kind) || typeof asset.url !== 'string' || !/^(\/[^/]|data:image\/(png|jpeg|webp);base64,|https:\/\/)/.test(asset.url) || typeof asset.prompt !== 'string' || typeof asset.title !== 'string' || typeof asset.generator !== 'string' || typeof asset.createdAt !== 'string' || !['reviewed', 'unreviewed'].includes(asset.review) || !Array.isArray(asset.parentAssetIds) || asset.parentAssetIds.some((id) => typeof id !== 'string')) throw new Error('资产 ID、类型、图片地址或溯源字段无效')

@@ -5,6 +5,7 @@ import { createRoot } from 'react-dom/client'
 import { ThemeProvider } from '@/components/theme/ThemeProvider'
 import { StudioProvider } from '@/store/studioStore'
 import { CharacterLibraryProvider } from '@/store/characterStore'
+import { SettingLibraryProvider } from '@/store/settingStore'
 import { routeTree } from './routeTree.gen'
 import './index.css'
 
@@ -40,9 +41,11 @@ createRoot(document.getElementById('root')!).render(
     <ThemeProvider>
       <QueryClientProvider client={queryClient}>
         <CharacterLibraryProvider>
+        <SettingLibraryProvider>
         <StudioProvider>
           <RouterProvider router={router} />
         </StudioProvider>
+        </SettingLibraryProvider>
         </CharacterLibraryProvider>
       </QueryClientProvider>
     </ThemeProvider>

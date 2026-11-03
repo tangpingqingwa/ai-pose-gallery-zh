@@ -3,7 +3,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import crypto from 'node:crypto'
 import { asLibraryReference, costumeClassification, portraitClassification, portraitHairFamily, portraitFringe, REFERENCE_LIBRARIES, supplementalReferencePrompt, withLibraryReference } from '../src/lib/library.ts'
-import { characterVisualReferences } from '../src/lib/visualReferences.ts'
+import { whiteModels } from '../src/lib/whiteModels.ts'
 import { buildCodexTask } from '../src/lib/characters.ts'
 import { recipeBackup } from '../src/lib/recipeImages.ts'
 
@@ -12,10 +12,9 @@ const read = (name) => JSON.parse(fs.readFileSync(path.join(root, 'data', name +
 const catalog = read('catalog-expansion')
 const specs = read('catalog-generation-specs')
 const assets = read('catalog-assets')
-const profiles = read('ip-characters')
 const oldPortraits = read('portrait-zh')
 const oldCostumes = read('costume-zh')
-const allRefs = [...catalog.references, ...characterVisualReferences(profiles, catalog.seedPreviews)]
+const allRefs = whiteModels
 assert.equal(assets.length, specs.length)
 assert.equal(new Set(assets.map((asset) => asset.id)).size, assets.length)
 assert.equal(new Set(assets.map((asset) => asset.sha256)).size, assets.length, 'New image records must not reuse one image as different assets')
@@ -49,14 +48,14 @@ for (const item of allRefs) {
 }
 for (const thumbnail of Object.values(catalog.seedPreviews)) assert.ok(fs.existsSync(path.join(root, 'public', thumbnail)))
 assert.ok(oldPortraits.every((item) => portraitClassification(item).annotation === 'source_metadata'))
-assert.ok(oldPortraits.every((item) => portraitClassification(item).ageBand === '原库未标注'), 'Do not invent demographic labels for the old collection')
+assert.ok(oldPortraits.every((item) => portraitClassification(item).ageBand === '未标注'), 'Do not invent demographic labels for the old collection')
 assert.ok(oldCostumes.every((item) => costumeClassification(item).structure))
 assert.ok(oldPortraits.some((item) => portraitHairFamily(item) === '波波头'))
 assert.ok(oldPortraits.some((item) => portraitFringe(item) === '空气刘海'))
 const recipe = { portrait: catalog.portraits[0], costume: catalog.costumes[0], pose: read('pose-zh')[0], extraImages: [] }
-for (const kind of Object.keys(REFERENCE_LIBRARIES)) recipe.extraImages = withLibraryReference(recipe.extraImages, catalog.references.find((item) => item.kind === kind))
+for (const kind of Object.keys(REFERENCE_LIBRARIES)) recipe.extraImages = withLibraryReference(recipe.extraImages, allRefs.find((item) => item.kind === kind))
 assert.equal(recipe.extraImages.length, 4)
-const expression = catalog.references.find((item) => item.kind === 'expressions')
+const expression = allRefs.find((item) => item.kind === 'expressions')
 const updated = withLibraryReference(recipe.extraImages, expression, '自然、不夸张')
 assert.equal(updated.length, 4)
 assert.equal(updated.find((image) => image.referenceId === expression.id).instruction, '自然、不夸张')

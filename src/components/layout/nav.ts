@@ -11,6 +11,8 @@ import {
   ScissorsIcon,
   AccessibilityIcon,
   HandIcon,
+  NotebookPenIcon,
+  AudioLinesIcon,
   UserRoundIcon,
   type LucideIcon,
 } from 'lucide-react'
@@ -46,6 +48,8 @@ export const navGroups: NavGroup[] = [
       { title: '妆发状态库', to: '/grooming', icon: ScissorsIcon },
       { title: '体型细节库', to: '/body-details', icon: AccessibilityIcon },
       { title: '习惯仪态库', to: '/mannerisms', icon: HandIcon },
+      { title: '个性与生活库', to: '/traits', icon: NotebookPenIcon },
+      { title: '语言与声音库', to: '/voices', icon: AudioLinesIcon },
     ],
   },
   {

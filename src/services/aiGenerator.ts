@@ -4,6 +4,7 @@ import { poseImagePath } from '@/lib/recipeImages'
 import { ASSET_KINDS, identityPrompt } from '@/lib/characters'
 import { worldPrompt } from '@/lib/characterWorld'
 import { supplementalReferencePrompt } from '@/lib/library'
+import { compositionWorld } from '@/lib/settingLibrary'
 import qwen2509ThreeImageWorkflow from '@/workflows/qwen_image_edit_2509_3img.api.json'
 
 export interface ProviderModelOption {
@@ -223,7 +224,7 @@ export function buildRecipePrompt(recipe: RecipeState, stylePreset = 'realistic'
   }
 
   const lines = [
-    `请根据${workflowImages.some((image) => image.role === 'character_sheet') ? '提供的角色设定参考' : `提供的 ${idx - 1} 张参考图`}，生成一张完整的${faceless ? '人物穿搭展示图' : isPhoto ? '真实人物照片' : '人物图像'}：`,
+    `请根据${workflowImages.some((image) => image.role === 'character_sheet') ? '提供的角色设定参考' : idx > 1 ? `提供的 ${idx - 1} 张参考图` : '人物创作设定'}，生成一张完整的${faceless ? '人物穿搭展示图' : isPhoto ? '真实人物照片' : '人物图像'}：`,
     ...clauses,
   ]
   if (recipe.extraImages?.some((image) => image.source === 'library')) lines.push('参考职责：人像固定身份，服装控制穿搭，动作参考控制肢体，表情与妆发只调整本次状态，细节参考保留真实感。所选状态优先于默认习惯；不能把不同参考中的人脸混成另一个人。')
@@ -233,7 +234,8 @@ export function buildRecipePrompt(recipe: RecipeState, stylePreset = 'realistic'
   if (recipe.character && recipe.characterTask) lines.push(`• 输出任务：${ASSET_KINDS[recipe.characterTask].instruction}`)
   if (recipe.customOutfit) lines.push(`• ${recipe.costume ? '服装搭配调整' : '自定义穿搭'}：${recipe.customOutfit}`)
   if (recipe.scene) lines.push(`• 场景与拍摄：${recipe.scene}`)
-  if (recipe.character) lines.push(worldPrompt(recipe.character, recipe.creativeBrief))
+  const world = compositionWorld(recipe)
+  if (world) lines.push(worldPrompt({ world }, recipe.creativeBrief))
   lines.push('画面中没有任何文字、标志或水印。')
   return lines.join('\n')
 }
@@ -1425,7 +1427,7 @@ export async function generateCharacterImage(params: {
     config.sendStitchedSheet ||
     (provider === 'gemini' && config.geminiParams.endpointMode === 'native') ||
     (provider === 'gpt' && config.gptParams.endpointMode === 'images_edits') ||
-    (typeof window !== 'undefined' && (window.location.protocol !== 'https:' || ['localhost', '127.0.0.1', '[::1]'].includes(window.location.hostname)) && rawSources.some((source) => /^\/?(?:library-assets|ip-assets)\//.test(source)))
+    (typeof window !== 'undefined' && (window.location.protocol !== 'https:' || ['localhost', '127.0.0.1', '[::1]'].includes(window.location.hostname)) && rawSources.some((source) => /^\/?(?:library-assets|ip-assets|white-models)\//.test(source)))
 
   const imageRefs: string[] = needBase64
     ? await Promise.all(rawSources.map(srcToPngDataUrl))

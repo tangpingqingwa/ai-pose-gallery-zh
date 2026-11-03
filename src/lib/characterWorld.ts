@@ -1,24 +1,27 @@
 import type { CharacterCreativeBrief, CharacterIdentity, CharacterProfile, CharacterWorld } from '@/types/character'
 import type { ExtraReferenceImage, RecipeState } from '@/types/gallery'
 
-export const WORLD_FIELDS = { occupation: '职业与能力边界', routine: '日常节奏', habits: '习惯与小动作', preferences: '喜好与取舍', imperfections: '不完美与局限', speechStyle: '说话方式', mannerisms: '表情与肢体习惯', boundaries: '人物一致性约束' } as const
+export const WORLD_FIELDS = { occupation: '职业与能力边界', routine: '日常节奏', habits: '习惯与小动作', preferences: '喜好与取舍', imperfections: '不完美与局限', speechStyle: '说话方式', mannerisms: '表情与肢体习惯', boundaries: '人物一致性约束', personality: '性格与相处', background: '成长与经历' } as const
 
 export function emptyWorld(): CharacterWorld {
-  return { occupation: '', routine: '', habits: '', preferences: '', imperfections: '', speechStyle: '', mannerisms: '', boundaries: '', belongings: [], wardrobe: [], relationships: [], events: [] }
+  return { occupation: '', routine: '', habits: '', preferences: '', imperfections: '', speechStyle: '', mannerisms: '', boundaries: '', personality: '', background: '', belongings: [], wardrobe: [], relationships: [], events: [] }
 }
 
 export function emptyBrief(): CharacterCreativeBrief {
   return { belongingIds: [], action: '', emotion: '', camera: '', lighting: '', continuity: '', grooming: '' }
 }
 
-export function worldPrompt(profile: CharacterIdentity, brief?: CharacterCreativeBrief): string {
+export function worldPrompt(profile: Pick<CharacterIdentity, 'world'>, brief?: CharacterCreativeBrief): string {
   const w = profile.world
   if (!w) return ''
   const props = w.belongings.filter((item) => brief?.belongingIds.includes(item.id))
   const wardrobe = w.wardrobe.find((item) => item.id === brief?.wardrobeId)
   const event = w.events.find((item) => item.id === brief?.eventId)
   const lines = [
+    ...(w.personality ? [`性格与相处：${w.personality}`] : []),
+    ...(w.background ? [`成长与经历：${w.background}`] : []),
     `人物背景：${w.occupation}；${w.routine}`,
+    ...(w.preferences ? [`日常喜好与取舍：${w.preferences}`] : []),
     `个体表达：${w.habits}；${w.mannerisms}；${w.imperfections}`,
     `语言与性格参考：${w.speechStyle}。静态图片不渲染对白文字。`,
   ]
@@ -58,7 +61,8 @@ export function validateBrief(world: CharacterWorld | undefined, brief: Characte
 
 export function validateWorld(world: CharacterWorld): void {
   if (!world || typeof world !== 'object') throw new Error('生活档案必须为对象')
-  for (const key of Object.keys(WORLD_FIELDS) as (keyof typeof WORLD_FIELDS)[]) if (typeof world[key] !== 'string') throw new Error(`生活档案缺少：${WORLD_FIELDS[key]}`)
+  for (const key of Object.keys(WORLD_FIELDS) as (keyof typeof WORLD_FIELDS)[]) if (!['personality', 'background'].includes(key) && typeof world[key] !== 'string') throw new Error(`生活档案缺少：${WORLD_FIELDS[key]}`)
+  for (const key of ['personality', 'background'] as const) if (world[key] !== undefined && typeof world[key] !== 'string') throw new Error(`生活档案字段无效：${WORLD_FIELDS[key]}`)
   const schemas = { belongings: ['name', 'description', 'history'], wardrobe: ['name', 'occasion', 'description'], relationships: ['name', 'role', 'dynamic'], events: ['date', 'title', 'summary', 'consequence'] } as const
   for (const [key, fields] of Object.entries(schemas)) {
     const rows = world[key as keyof typeof schemas]

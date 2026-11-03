@@ -1,3 +1,5 @@
+import type { SettingBindings } from './settings'
+
 export type CharacterAssetKind = 'portrait' | 'turnaround' | 'expressions' | 'lifestyle' | 'detail' | 'gesture' | 'grooming'
 
 export interface CharacterBelonging { id: string; name: string; description: string; history: string }
@@ -5,6 +7,8 @@ export interface CharacterWardrobe { id: string; name: string; occasion: string;
 export interface CharacterRelationship { id: string; name: string; role: string; dynamic: string }
 export interface CharacterEvent { id: string; date: string; title: string; summary: string; belongingIds: string[]; wardrobeId?: string; consequence: string }
 export interface CharacterWorld {
+  personality?: string
+  background?: string
   occupation: string
   routine: string
   habits: string
@@ -29,7 +33,7 @@ export interface CharacterCreativeBrief {
   continuity: string
   grooming?: string
 }
-export interface CharacterComposition { lookId?: string; costumeId?: string; poseId?: string; scene?: string; customOutfit?: string; creativeBrief?: CharacterCreativeBrief }
+export interface CharacterComposition { lookId?: string; costumeId?: string; poseId?: string; scene?: string; customOutfit?: string; creativeBrief?: CharacterCreativeBrief; settingBindings?: SettingBindings }
 
 export interface CharacterVoiceSample { id: string; title: string; url: string; mimeType: string; createdAt: string; transcript: string; generator: string; characterVersion?: number; intendedLocale?: string }
 export interface CharacterVoice {
@@ -92,6 +96,7 @@ export interface CharacterBody {
 }
 
 export interface CharacterIdentity {
+  settingBindings?: SettingBindings
   id: string
   version: number
   name: string

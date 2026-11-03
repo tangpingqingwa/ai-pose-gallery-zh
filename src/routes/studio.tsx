@@ -32,6 +32,7 @@ import { Field, Section } from '@/components/common/FormSection'
 import { WorkflowParameters } from '@/components/studio/WorkflowParameters'
 import { CharacterRecipePanel } from '@/components/characters/CharacterRecipePanel'
 import { CompositionReferencesPanel } from '@/components/library/CompositionReferencesPanel'
+import { SettingCompositionPanel } from '@/components/library/SettingCompositionPanel'
 import { SaveCharacterAsset } from '@/components/characters/SaveCharacterAsset'
 import { applyWorkflowOverrides, validateReferenceCombinations, workflowIdentity } from '@/lib/comfyWorkflowParameters'
 import { PageHeader } from '@/components/common/PageHeader'
@@ -394,6 +395,7 @@ function StudioPage() {
       />
 
       <CompositionReferencesPanel prompt={prompt} workflowImages={activeWorkflowImages} />
+      <SettingCompositionPanel />
       <CharacterRecipePanel />
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-12 lg:gap-6">
         {/* 左栏：参考图、模型参数与 Prompt */}

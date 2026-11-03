@@ -1,6 +1,6 @@
 """Package an unchanged built-in image result and its WebP browsing preview.
 
-Usage: python scripts/package-catalog-image.py ID base64-file
+Usage: python scripts/package-catalog-image.py ID native-png-or-base64-file
 Requires Pillow for the browsing preview; the original PNG is preserved byte-for-byte.
 """
 import base64
@@ -17,12 +17,18 @@ if not ident.replace('-','').isalnum(): raise ValueError('Invalid asset identifi
 specs=json.loads((root/'data/catalog-generation-specs.json').read_text(encoding='utf8'))
 spec=next(item for item in specs if item['id']==ident)
 transfer=Path(sys.argv[2]).resolve()
-transfer.relative_to(root/'backups')
-blob=base64.b64decode(transfer.read_text(encoding='utf8').strip(),validate=True)
+native=transfer.suffix.lower()=='.png'
+if native:
+ transfer.relative_to(Path.home()/'.codex/generated_images')
+ blob=transfer.read_bytes()
+else:
+ transfer.relative_to(root/'backups')
+ blob=base64.b64decode(transfer.read_text(encoding='utf8').strip(),validate=True)
 if blob[:8]!=b'\x89PNG\r\n\x1a\n': raise ValueError('Expected original PNG output')
 folder=root/'public/library-assets'/spec['kind']
 folder.mkdir(parents=True,exist_ok=True)
 target=folder/(ident+'.png')
+if target.exists(): raise FileExistsError(f'Image already exists: {ident}; use a versioned sibling for replacements')
 target.write_bytes(blob)
 preview=root/'public/library-assets/thumbs'/(ident+'.webp')
 preview.parent.mkdir(parents=True,exist_ok=True)
@@ -34,5 +40,5 @@ record={'id':ident,'url':'/library-assets/'+spec['kind']+'/'+ident+'.png','thumb
 records=root/'backups/catalog-render-records'
 records.mkdir(parents=True,exist_ok=True)
 (records/(ident+'.json')).write_text(json.dumps(record,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
-transfer.unlink()
+if not native: transfer.unlink()
 print(json.dumps({'id':ident,'width':width,'height':height,'pngBytes':len(blob),'previewBytes':preview.stat().st_size}))

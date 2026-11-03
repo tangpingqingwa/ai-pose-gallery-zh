@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import crypto from 'node:crypto'
+import { interleaveCatalog } from '../src/lib/catalog.ts'
 
 const root = path.resolve(import.meta.dirname, '..')
 const specs = JSON.parse(fs.readFileSync(path.join(root, 'data/catalog-generation-specs.json'), 'utf8'))
@@ -25,18 +26,18 @@ const portraits = specs.filter((item) => item.kind === 'portraits').map((spec) =
   const image = byId.get(spec.id)
   return { id: spec.id, source: 'catalog', 分区: '多样人像', 发长: spec.hairLength, 发型名称: `${spec.name} · ${spec.hairLength}`, 标题: spec.title, 宽: image.width, 高: image.height, 字节数: image.bytes, 精选: false, 热门: false, 缩略图: image.thumbnail, 原图: image.url,
     检索: [spec.id, spec.name, spec.title, spec.description, spec.ageBand, spec.presentation, spec.skinTone, spec.bodyDesign, spec.market].join(' '),
-    catalog: { collection: 'expanded', age: spec.age, ageBand: spec.ageBand, presentation: spec.presentation, skinTone: spec.skinTone, bodyDesign: spec.bodyDesign, market: spec.market, appearance: spec.description, annotation: 'design_spec' },
+    catalog: { collection: 'expanded', age: spec.age, ageBand: spec.ageBand, presentation: spec.presentation, skinTone: spec.skinTone, bodyDesign: spec.bodyDesign, market: spec.market, appearance: spec.description, ...(spec.faceShape ? { faceShape: spec.faceShape } : {}), ...(spec.facialHair ? { facialHair: spec.facialHair } : {}), annotation: 'design_spec' },
   }
 })
-// Interleave age and presentation so the first screen is already varied.
-const orderedPortraits = [0, 12, 5, 9, 2, 11, 1, 10, 4, 8, 6, 13, 3, 14, 7, 15].map((index) => portraits[index])
+// New groups and later batches must remain browsable; never index a fixed 16-row list.
+const orderedPortraits = interleaveCatalog([...portraits.filter((item) => specs.find((spec) => spec.id === item.id)?.batch), ...portraits.filter((item) => !specs.find((spec) => spec.id === item.id)?.batch)], (item) => `${item.catalog.presentation}:${item.catalog.ageBand}`)
 const costumes = specs.filter((item) => item.kind === 'costumes').map((spec) => {
   const image = byId.get(spec.id)
   return { id: spec.id, source: 'catalog', 分类: spec.occasion, 服装名称: spec.title, 标签: [spec.cut, spec.occasion, spec.fit, spec.season, spec.stage], 关键词: spec.english, 缩略图: image.thumbnail, 预览图: image.url, 原图: image.url, 检索: [spec.id, spec.title, spec.description, spec.english, spec.cut, spec.occasion, spec.fit, spec.stage, spec.season].join(' '),
-    catalog: { collection: 'expanded', cut: spec.cut, occasion: spec.occasion, fit: spec.fit, season: spec.season, stage: spec.stage, structure: /裙/.test(spec.description) ? '裙装搭配' : '裤装搭配', annotation: 'design_spec' },
+    catalog: { collection: 'expanded', cut: spec.cut, occasion: spec.occasion, fit: spec.fit, season: spec.season, stage: spec.stage, structure: spec.structure ?? (/裙/.test(spec.description) ? '裙装搭配' : '裤装搭配'), ...(spec.ageBands ? { ageBands: spec.ageBands } : {}), annotation: 'design_spec' },
   }
 })
-const orderedCostumes = [0, 8, 7, 12, 3, 6, 1, 10, 2, 13, 9, 14, 4, 11, 5, 15].map((index) => costumes[index])
+const orderedCostumes = interleaveCatalog([...costumes.filter((item) => specs.find((spec) => spec.id === item.id)?.batch), ...costumes.filter((item) => !specs.find((spec) => spec.id === item.id)?.batch)], (item) => `${item.catalog.cut}:${item.catalog.stage}`)
 const roles = { expressions: 'expression', grooming: 'grooming', mannerisms: 'gesture' }
 const directions = {
   expressions: '仅借鉴参考图的眼神、口形与情绪肌肉变化，保持当前人像的五官、年龄和肤色；不复制参考人物的脸或多格排版。',

@@ -250,7 +250,11 @@
     "stage": "成熟日常",
     "description": "海军蓝无结构休闲西装、米白牛津纺衬衫、灰色直筒全长裤、棕色德比鞋。宽松而利落，面料有自然褶皱，不采用紧腰或极细裤腿。",
     "english": "navy relaxed blazer ivory oxford shirt gray straight trousers brown derby shoes",
-    "prompt": "Use case: product-mockup. Asset type: a reusable clothing reference for a virtual adult character wardrobe. Primary request: ONE complete coordinated outfit only, no face, no person, no skin, no mannequin surface. Design: 海军蓝无结构休闲西装、米白牛津纺衬衫、灰色直筒全长裤、棕色德比鞋。宽松而利落，面料有自然褶皱，不采用紧腰或极细裤腿。 Intended cut: 男款. Fit design: 常规宽松. Use a convincing invisible ghost mannequin display so the complete layered clothing, both trouser legs or full skirt and both shoes are visible at coherent adult scale. Preserve comfortable realistic ease and the intended broad or petite cut; no extreme hourglass waist, no artificially long legs. Clothing occupies most of a vertical 1024x1536 frame on a plain light gray studio background with subtle soft shadow. Realistic woven and knitted textures, practical wearable construction and natural minor fabric creases. Do not add a room, scenery, jewellery, bag or objects not specified. No labels, written words, logos, watermark, fashion model body, multiple outfits or collage. All garments are original fictional designs, no brands."
+    "prompt": "Use case: product-mockup. Asset type: a reusable clothing reference for a virtual adult character wardrobe. Primary request: ONE complete coordinated outfit only, no face, no person, no skin, no mannequin surface. Design: 海军蓝无结构休闲西装、米白牛津纺衬衫、灰色直筒全长裤、棕色德比鞋。宽松而利落，面料有自然褶皱，不采用紧腰或极细裤腿。 Intended cut: 男款. Fit design: 常规宽松. Use a convincing invisible ghost mannequin display so the complete layered clothing, both trouser legs or full skirt and both shoes are visible at coherent adult scale. Preserve comfortable realistic ease and the intended broad or petite cut; no extreme hourglass waist, no artificially long legs. Clothing occupies most of a vertical 1024x1536 frame on a plain light gray studio background with subtle soft shadow. Realistic woven and knitted textures, practical wearable construction and natural minor fabric creases. Do not add a room, scenery, jewellery, bag or objects not specified. No labels, written words, logos, watermark, fashion model body, multiple outfits or collage. All garments are original fictional designs, no brands.",
+    "ageBands": [
+      "30–44",
+      "45–59"
+    ]
   },
   {
     "id": "C-NEW-002",
@@ -263,7 +267,11 @@
     "stage": "成熟日常",
     "description": "铁锈棕棉工装衬衫、米白T恤、橄榄绿全长工作裤、磨旧棕色系带工作靴。实用口袋与耐穿棉料，常规壮实版型。",
     "english": "rust work shirt cream tee olive work trousers brown boots",
-    "prompt": "Use case: product-mockup. Asset type: a reusable clothing reference for a virtual adult character wardrobe. Primary request: ONE complete coordinated outfit only, no face, no person, no skin, no mannequin surface. Design: 铁锈棕棉工装衬衫、米白T恤、橄榄绿全长工作裤、磨旧棕色系带工作靴。实用口袋与耐穿棉料，常规壮实版型。 Intended cut: 男款. Fit design: 常规宽松. Use a convincing invisible ghost mannequin display so the complete layered clothing, both trouser legs or full skirt and both shoes are visible at coherent adult scale. Preserve comfortable realistic ease and the intended broad or petite cut; no extreme hourglass waist, no artificially long legs. Clothing occupies most of a vertical 1024x1536 frame on a plain light gray studio background with subtle soft shadow. Realistic woven and knitted textures, practical wearable construction and natural minor fabric creases. Do not add a room, scenery, jewellery, bag or objects not specified. No labels, written words, logos, watermark, fashion model body, multiple outfits or collage. All garments are original fictional designs, no brands."
+    "prompt": "Use case: product-mockup. Asset type: a reusable clothing reference for a virtual adult character wardrobe. Primary request: ONE complete coordinated outfit only, no face, no person, no skin, no mannequin surface. Design: 铁锈棕棉工装衬衫、米白T恤、橄榄绿全长工作裤、磨旧棕色系带工作靴。实用口袋与耐穿棉料，常规壮实版型。 Intended cut: 男款. Fit design: 常规宽松. Use a convincing invisible ghost mannequin display so the complete layered clothing, both trouser legs or full skirt and both shoes are visible at coherent adult scale. Preserve comfortable realistic ease and the intended broad or petite cut; no extreme hourglass waist, no artificially long legs. Clothing occupies most of a vertical 1024x1536 frame on a plain light gray studio background with subtle soft shadow. Realistic woven and knitted textures, practical wearable construction and natural minor fabric creases. Do not add a room, scenery, jewellery, bag or objects not specified. No labels, written words, logos, watermark, fashion model body, multiple outfits or collage. All garments are original fictional designs, no brands.",
+    "ageBands": [
+      "30–44",
+      "45–59"
+    ]
   },
   {
     "id": "C-NEW-003",
@@ -276,7 +284,13 @@
     "stage": "通用成年",
     "description": "暗青色宽松速干T恤、灰色直筒运动长裤、灰白训练鞋与普通运动袜。成年男性常规比例，舒适松量。",
     "english": "teal relaxed sports tee gray full track pants training shoes",
-    "prompt": "Use case: product-mockup. Asset type: a reusable clothing reference for a virtual adult character wardrobe. Primary request: ONE complete coordinated outfit only, no face, no person, no skin, no mannequin surface. Design: 暗青色宽松速干T恤、灰色直筒运动长裤、灰白训练鞋与普通运动袜。成年男性常规比例，舒适松量。 Intended cut: 男款. Fit design: 常规宽松. Use a convincing invisible ghost mannequin display so the complete layered clothing, both trouser legs or full skirt and both shoes are visible at coherent adult scale. Preserve comfortable realistic ease and the intended broad or petite cut; no extreme hourglass waist, no artificially long legs. Clothing occupies most of a vertical 1024x1536 frame on a plain light gray studio background with subtle soft shadow. Realistic woven and knitted textures, practical wearable construction and natural minor fabric creases. Do not add a room, scenery, jewellery, bag or objects not specified. No labels, written words, logos, watermark, fashion model body, multiple outfits or collage. All garments are original fictional designs, no brands."
+    "prompt": "Use case: product-mockup. Asset type: a reusable clothing reference for a virtual adult character wardrobe. Primary request: ONE complete coordinated outfit only, no face, no person, no skin, no mannequin surface. Design: 暗青色宽松速干T恤、灰色直筒运动长裤、灰白训练鞋与普通运动袜。成年男性常规比例，舒适松量。 Intended cut: 男款. Fit design: 常规宽松. Use a convincing invisible ghost mannequin display so the complete layered clothing, both trouser legs or full skirt and both shoes are visible at coherent adult scale. Preserve comfortable realistic ease and the intended broad or petite cut; no extreme hourglass waist, no artificially long legs. Clothing occupies most of a vertical 1024x1536 frame on a plain light gray studio background with subtle soft shadow. Realistic woven and knitted textures, practical wearable construction and natural minor fabric creases. Do not add a room, scenery, jewellery, bag or objects not specified. No labels, written words, logos, watermark, fashion model body, multiple outfits or collage. All garments are original fictional designs, no brands.",
+    "ageBands": [
+      "18–29",
+      "30–44",
+      "45–59",
+      "60+"
+    ]
   },
   {
     "id": "C-NEW-004",
@@ -289,7 +303,10 @@
     "stage": "银龄舒适",
     "description": "棕褐色柔软开衫、灰色圆领针织衫、深蓝弹力腰直筒裤、深棕平底休闲鞋。宽腹部与常规腿长松量，大码舒适版型。",
     "english": "brown cardigan gray knit navy elastic waist trousers flat shoes",
-    "prompt": "Use case: product-mockup. Asset type: a reusable clothing reference for a virtual adult character wardrobe. Primary request: ONE complete coordinated outfit only, no face, no person, no skin, no mannequin surface. Design: 棕褐色柔软开衫、灰色圆领针织衫、深蓝弹力腰直筒裤、深棕平底休闲鞋。宽腹部与常规腿长松量，大码舒适版型。 Intended cut: 男款. Fit design: 大码设计. Use a convincing invisible ghost mannequin display so the complete layered clothing, both trouser legs or full skirt and both shoes are visible at coherent adult scale. Preserve comfortable realistic ease and the intended broad or petite cut; no extreme hourglass waist, no artificially long legs. Clothing occupies most of a vertical 1024x1536 frame on a plain light gray studio background with subtle soft shadow. Realistic woven and knitted textures, practical wearable construction and natural minor fabric creases. Do not add a room, scenery, jewellery, bag or objects not specified. No labels, written words, logos, watermark, fashion model body, multiple outfits or collage. All garments are original fictional designs, no brands."
+    "prompt": "Use case: product-mockup. Asset type: a reusable clothing reference for a virtual adult character wardrobe. Primary request: ONE complete coordinated outfit only, no face, no person, no skin, no mannequin surface. Design: 棕褐色柔软开衫、灰色圆领针织衫、深蓝弹力腰直筒裤、深棕平底休闲鞋。宽腹部与常规腿长松量，大码舒适版型。 Intended cut: 男款. Fit design: 大码设计. Use a convincing invisible ghost mannequin display so the complete layered clothing, both trouser legs or full skirt and both shoes are visible at coherent adult scale. Preserve comfortable realistic ease and the intended broad or petite cut; no extreme hourglass waist, no artificially long legs. Clothing occupies most of a vertical 1024x1536 frame on a plain light gray studio background with subtle soft shadow. Realistic woven and knitted textures, practical wearable construction and natural minor fabric creases. Do not add a room, scenery, jewellery, bag or objects not specified. No labels, written words, logos, watermark, fashion model body, multiple outfits or collage. All garments are original fictional designs, no brands.",
+    "ageBands": [
+      "60+"
+    ]
   },
   {
     "id": "C-NEW-005",
@@ -302,7 +319,12 @@
     "stage": "成熟日常",
     "description": "炭灰色经典两件套西装、白衬衫、暗酒红色素面领带、黑色皮鞋。自然肩线与正常裤脚，不做超紧身。",
     "english": "charcoal classic suit white shirt burgundy tie black leather shoes",
-    "prompt": "Use case: product-mockup. Asset type: a reusable clothing reference for a virtual adult character wardrobe. Primary request: ONE complete coordinated outfit only, no face, no person, no skin, no mannequin surface. Design: 炭灰色经典两件套西装、白衬衫、暗酒红色素面领带、黑色皮鞋。自然肩线与正常裤脚，不做超紧身。 Intended cut: 男款. Fit design: 修长比例. Use a convincing invisible ghost mannequin display so the complete layered clothing, both trouser legs or full skirt and both shoes are visible at coherent adult scale. Preserve comfortable realistic ease and the intended broad or petite cut; no extreme hourglass waist, no artificially long legs. Clothing occupies most of a vertical 1024x1536 frame on a plain light gray studio background with subtle soft shadow. Realistic woven and knitted textures, practical wearable construction and natural minor fabric creases. Do not add a room, scenery, jewellery, bag or objects not specified. No labels, written words, logos, watermark, fashion model body, multiple outfits or collage. All garments are original fictional designs, no brands."
+    "prompt": "Use case: product-mockup. Asset type: a reusable clothing reference for a virtual adult character wardrobe. Primary request: ONE complete coordinated outfit only, no face, no person, no skin, no mannequin surface. Design: 炭灰色经典两件套西装、白衬衫、暗酒红色素面领带、黑色皮鞋。自然肩线与正常裤脚，不做超紧身。 Intended cut: 男款. Fit design: 修长比例. Use a convincing invisible ghost mannequin display so the complete layered clothing, both trouser legs or full skirt and both shoes are visible at coherent adult scale. Preserve comfortable realistic ease and the intended broad or petite cut; no extreme hourglass waist, no artificially long legs. Clothing occupies most of a vertical 1024x1536 frame on a plain light gray studio background with subtle soft shadow. Realistic woven and knitted textures, practical wearable construction and natural minor fabric creases. Do not add a room, scenery, jewellery, bag or objects not specified. No labels, written words, logos, watermark, fashion model body, multiple outfits or collage. All garments are original fictional designs, no brands.",
+    "ageBands": [
+      "30–44",
+      "45–59",
+      "60+"
+    ]
   },
   {
     "id": "C-NEW-006",
@@ -315,7 +337,12 @@
     "stage": "成熟日常",
     "description": "浅沙色亚麻短袖开领衬衫、米白宽松全长亚麻裤、深棕平底凉鞋。天然织纹、舒适腰线和透气剪裁。",
     "english": "sand linen shirt cream full linen pants flat sandals",
-    "prompt": "Use case: product-mockup. Asset type: a reusable clothing reference for a virtual adult character wardrobe. Primary request: ONE complete coordinated outfit only, no face, no person, no skin, no mannequin surface. Design: 浅沙色亚麻短袖开领衬衫、米白宽松全长亚麻裤、深棕平底凉鞋。天然织纹、舒适腰线和透气剪裁。 Intended cut: 男款. Fit design: 常规宽松. Use a convincing invisible ghost mannequin display so the complete layered clothing, both trouser legs or full skirt and both shoes are visible at coherent adult scale. Preserve comfortable realistic ease and the intended broad or petite cut; no extreme hourglass waist, no artificially long legs. Clothing occupies most of a vertical 1024x1536 frame on a plain light gray studio background with subtle soft shadow. Realistic woven and knitted textures, practical wearable construction and natural minor fabric creases. Do not add a room, scenery, jewellery, bag or objects not specified. No labels, written words, logos, watermark, fashion model body, multiple outfits or collage. All garments are original fictional designs, no brands."
+    "prompt": "Use case: product-mockup. Asset type: a reusable clothing reference for a virtual adult character wardrobe. Primary request: ONE complete coordinated outfit only, no face, no person, no skin, no mannequin surface. Design: 浅沙色亚麻短袖开领衬衫、米白宽松全长亚麻裤、深棕平底凉鞋。天然织纹、舒适腰线和透气剪裁。 Intended cut: 男款. Fit design: 常规宽松. Use a convincing invisible ghost mannequin display so the complete layered clothing, both trouser legs or full skirt and both shoes are visible at coherent adult scale. Preserve comfortable realistic ease and the intended broad or petite cut; no extreme hourglass waist, no artificially long legs. Clothing occupies most of a vertical 1024x1536 frame on a plain light gray studio background with subtle soft shadow. Realistic woven and knitted textures, practical wearable construction and natural minor fabric creases. Do not add a room, scenery, jewellery, bag or objects not specified. No labels, written words, logos, watermark, fashion model body, multiple outfits or collage. All garments are original fictional designs, no brands.",
+    "ageBands": [
+      "30–44",
+      "45–59",
+      "60+"
+    ]
   },
   {
     "id": "C-NEW-007",
@@ -328,7 +355,11 @@
     "stage": "成熟日常",
     "description": "森林绿自然肩线西装外套、米白圆领上衣、深灰直筒全长西裤、酒红平底乐福鞋。成熟实用剪裁，不露腹、不采用极短裙或高跟鞋。",
     "english": "forest green blazer cream top gray full trousers flat loafers",
-    "prompt": "Use case: product-mockup. Asset type: a reusable clothing reference for a virtual adult character wardrobe. Primary request: ONE complete coordinated outfit only, no face, no person, no skin, no mannequin surface. Design: 森林绿自然肩线西装外套、米白圆领上衣、深灰直筒全长西裤、酒红平底乐福鞋。成熟实用剪裁，不露腹、不采用极短裙或高跟鞋。 Intended cut: 女款. Fit design: 常规宽松. Use a convincing invisible ghost mannequin display so the complete layered clothing, both trouser legs or full skirt and both shoes are visible at coherent adult scale. Preserve comfortable realistic ease and the intended broad or petite cut; no extreme hourglass waist, no artificially long legs. Clothing occupies most of a vertical 1024x1536 frame on a plain light gray studio background with subtle soft shadow. Realistic woven and knitted textures, practical wearable construction and natural minor fabric creases. Do not add a room, scenery, jewellery, bag or objects not specified. No labels, written words, logos, watermark, fashion model body, multiple outfits or collage. All garments are original fictional designs, no brands."
+    "prompt": "Use case: product-mockup. Asset type: a reusable clothing reference for a virtual adult character wardrobe. Primary request: ONE complete coordinated outfit only, no face, no person, no skin, no mannequin surface. Design: 森林绿自然肩线西装外套、米白圆领上衣、深灰直筒全长西裤、酒红平底乐福鞋。成熟实用剪裁，不露腹、不采用极短裙或高跟鞋。 Intended cut: 女款. Fit design: 常规宽松. Use a convincing invisible ghost mannequin display so the complete layered clothing, both trouser legs or full skirt and both shoes are visible at coherent adult scale. Preserve comfortable realistic ease and the intended broad or petite cut; no extreme hourglass waist, no artificially long legs. Clothing occupies most of a vertical 1024x1536 frame on a plain light gray studio background with subtle soft shadow. Realistic woven and knitted textures, practical wearable construction and natural minor fabric creases. Do not add a room, scenery, jewellery, bag or objects not specified. No labels, written words, logos, watermark, fashion model body, multiple outfits or collage. All garments are original fictional designs, no brands.",
+    "ageBands": [
+      "30–44",
+      "45–59"
+    ]
   },
   {
     "id": "C-NEW-008",
@@ -341,7 +372,13 @@
     "stage": "通用成年",
     "description": "莓红色宽松运动T恤、深紫灰直筒运动长裤、灰白支撑运动鞋。按丰盈成年身材设计的宽胸腰松量，自然完整覆盖，不塑成沙漏人台。",
     "english": "berry loose sports tee deep purple gray track pants supportive trainers plus size",
-    "prompt": "Use case: product-mockup. Asset type: a reusable clothing reference for a virtual adult character wardrobe. Primary request: ONE complete coordinated outfit only, no face, no person, no skin, no mannequin surface. Design: 莓红色宽松运动T恤、深紫灰直筒运动长裤、灰白支撑运动鞋。按丰盈成年身材设计的宽胸腰松量，自然完整覆盖，不塑成沙漏人台。 Intended cut: 女款. Fit design: 大码设计. Use a convincing invisible ghost mannequin display so the complete layered clothing, both trouser legs or full skirt and both shoes are visible at coherent adult scale. Preserve comfortable realistic ease and the intended broad or petite cut; no extreme hourglass waist, no artificially long legs. Clothing occupies most of a vertical 1024x1536 frame on a plain light gray studio background with subtle soft shadow. Realistic woven and knitted textures, practical wearable construction and natural minor fabric creases. Do not add a room, scenery, jewellery, bag or objects not specified. No labels, written words, logos, watermark, fashion model body, multiple outfits or collage. All garments are original fictional designs, no brands."
+    "prompt": "Use case: product-mockup. Asset type: a reusable clothing reference for a virtual adult character wardrobe. Primary request: ONE complete coordinated outfit only, no face, no person, no skin, no mannequin surface. Design: 莓红色宽松运动T恤、深紫灰直筒运动长裤、灰白支撑运动鞋。按丰盈成年身材设计的宽胸腰松量，自然完整覆盖，不塑成沙漏人台。 Intended cut: 女款. Fit design: 大码设计. Use a convincing invisible ghost mannequin display so the complete layered clothing, both trouser legs or full skirt and both shoes are visible at coherent adult scale. Preserve comfortable realistic ease and the intended broad or petite cut; no extreme hourglass waist, no artificially long legs. Clothing occupies most of a vertical 1024x1536 frame on a plain light gray studio background with subtle soft shadow. Realistic woven and knitted textures, practical wearable construction and natural minor fabric creases. Do not add a room, scenery, jewellery, bag or objects not specified. No labels, written words, logos, watermark, fashion model body, multiple outfits or collage. All garments are original fictional designs, no brands.",
+    "ageBands": [
+      "18–29",
+      "30–44",
+      "45–59",
+      "60+"
+    ]
   },
   {
     "id": "C-NEW-009",
@@ -354,7 +391,10 @@
     "stage": "银龄舒适",
     "description": "雾蓝柔软开衫、米白圆领棉针织衫、深蓝宽松直筒全长裤、棕色平底步行鞋。便于穿脱的前开襟、柔软织物、自然成熟体型。",
     "english": "soft blue cardigan cream knit navy relaxed pants walking flats",
-    "prompt": "Use case: product-mockup. Asset type: a reusable clothing reference for a virtual adult character wardrobe. Primary request: ONE complete coordinated outfit only, no face, no person, no skin, no mannequin surface. Design: 雾蓝柔软开衫、米白圆领棉针织衫、深蓝宽松直筒全长裤、棕色平底步行鞋。便于穿脱的前开襟、柔软织物、自然成熟体型。 Intended cut: 女款. Fit design: 常规宽松. Use a convincing invisible ghost mannequin display so the complete layered clothing, both trouser legs or full skirt and both shoes are visible at coherent adult scale. Preserve comfortable realistic ease and the intended broad or petite cut; no extreme hourglass waist, no artificially long legs. Clothing occupies most of a vertical 1024x1536 frame on a plain light gray studio background with subtle soft shadow. Realistic woven and knitted textures, practical wearable construction and natural minor fabric creases. Do not add a room, scenery, jewellery, bag or objects not specified. No labels, written words, logos, watermark, fashion model body, multiple outfits or collage. All garments are original fictional designs, no brands."
+    "prompt": "Use case: product-mockup. Asset type: a reusable clothing reference for a virtual adult character wardrobe. Primary request: ONE complete coordinated outfit only, no face, no person, no skin, no mannequin surface. Design: 雾蓝柔软开衫、米白圆领棉针织衫、深蓝宽松直筒全长裤、棕色平底步行鞋。便于穿脱的前开襟、柔软织物、自然成熟体型。 Intended cut: 女款. Fit design: 常规宽松. Use a convincing invisible ghost mannequin display so the complete layered clothing, both trouser legs or full skirt and both shoes are visible at coherent adult scale. Preserve comfortable realistic ease and the intended broad or petite cut; no extreme hourglass waist, no artificially long legs. Clothing occupies most of a vertical 1024x1536 frame on a plain light gray studio background with subtle soft shadow. Realistic woven and knitted textures, practical wearable construction and natural minor fabric creases. Do not add a room, scenery, jewellery, bag or objects not specified. No labels, written words, logos, watermark, fashion model body, multiple outfits or collage. All garments are original fictional designs, no brands.",
+    "ageBands": [
+      "60+"
+    ]
   },
   {
     "id": "C-NEW-010",
@@ -367,7 +407,11 @@
     "stage": "成熟日常",
     "description": "藏青棉衬衫、灰绿色短工装夹克、棕褐色耐磨全长直筒裤、深棕平底系带靴。实用宽松剪裁、完整覆盖。",
     "english": "navy shirt gray green work jacket tan twill pants flat work boots",
-    "prompt": "Use case: product-mockup. Asset type: a reusable clothing reference for a virtual adult character wardrobe. Primary request: ONE complete coordinated outfit only, no face, no person, no skin, no mannequin surface. Design: 藏青棉衬衫、灰绿色短工装夹克、棕褐色耐磨全长直筒裤、深棕平底系带靴。实用宽松剪裁、完整覆盖。 Intended cut: 女款. Fit design: 常规宽松. Use a convincing invisible ghost mannequin display so the complete layered clothing, both trouser legs or full skirt and both shoes are visible at coherent adult scale. Preserve comfortable realistic ease and the intended broad or petite cut; no extreme hourglass waist, no artificially long legs. Clothing occupies most of a vertical 1024x1536 frame on a plain light gray studio background with subtle soft shadow. Realistic woven and knitted textures, practical wearable construction and natural minor fabric creases. Do not add a room, scenery, jewellery, bag or objects not specified. No labels, written words, logos, watermark, fashion model body, multiple outfits or collage. All garments are original fictional designs, no brands."
+    "prompt": "Use case: product-mockup. Asset type: a reusable clothing reference for a virtual adult character wardrobe. Primary request: ONE complete coordinated outfit only, no face, no person, no skin, no mannequin surface. Design: 藏青棉衬衫、灰绿色短工装夹克、棕褐色耐磨全长直筒裤、深棕平底系带靴。实用宽松剪裁、完整覆盖。 Intended cut: 女款. Fit design: 常规宽松. Use a convincing invisible ghost mannequin display so the complete layered clothing, both trouser legs or full skirt and both shoes are visible at coherent adult scale. Preserve comfortable realistic ease and the intended broad or petite cut; no extreme hourglass waist, no artificially long legs. Clothing occupies most of a vertical 1024x1536 frame on a plain light gray studio background with subtle soft shadow. Realistic woven and knitted textures, practical wearable construction and natural minor fabric creases. Do not add a room, scenery, jewellery, bag or objects not specified. No labels, written words, logos, watermark, fashion model body, multiple outfits or collage. All garments are original fictional designs, no brands.",
+    "ageBands": [
+      "30–44",
+      "45–59"
+    ]
   },
   {
     "id": "C-NEW-011",
@@ -380,7 +424,12 @@
     "stage": "成熟日常",
     "description": "暗梅紫色宽松针织开衫、米白圆领内搭、藏青过踝直筒长裙、棕色低跟短靴。丰盈常规腰线，针织自然垂落，不夸张收腰。",
     "english": "plum relaxed cardigan ivory top navy ankle skirt low boots plus size",
-    "prompt": "Use case: product-mockup. Asset type: a reusable clothing reference for a virtual adult character wardrobe. Primary request: ONE complete coordinated outfit only, no face, no person, no skin, no mannequin surface. Design: 暗梅紫色宽松针织开衫、米白圆领内搭、藏青过踝直筒长裙、棕色低跟短靴。丰盈常规腰线，针织自然垂落，不夸张收腰。 Intended cut: 女款. Fit design: 大码设计. Use a convincing invisible ghost mannequin display so the complete layered clothing, both trouser legs or full skirt and both shoes are visible at coherent adult scale. Preserve comfortable realistic ease and the intended broad or petite cut; no extreme hourglass waist, no artificially long legs. Clothing occupies most of a vertical 1024x1536 frame on a plain light gray studio background with subtle soft shadow. Realistic woven and knitted textures, practical wearable construction and natural minor fabric creases. Do not add a room, scenery, jewellery, bag or objects not specified. No labels, written words, logos, watermark, fashion model body, multiple outfits or collage. All garments are original fictional designs, no brands."
+    "prompt": "Use case: product-mockup. Asset type: a reusable clothing reference for a virtual adult character wardrobe. Primary request: ONE complete coordinated outfit only, no face, no person, no skin, no mannequin surface. Design: 暗梅紫色宽松针织开衫、米白圆领内搭、藏青过踝直筒长裙、棕色低跟短靴。丰盈常规腰线，针织自然垂落，不夸张收腰。 Intended cut: 女款. Fit design: 大码设计. Use a convincing invisible ghost mannequin display so the complete layered clothing, both trouser legs or full skirt and both shoes are visible at coherent adult scale. Preserve comfortable realistic ease and the intended broad or petite cut; no extreme hourglass waist, no artificially long legs. Clothing occupies most of a vertical 1024x1536 frame on a plain light gray studio background with subtle soft shadow. Realistic woven and knitted textures, practical wearable construction and natural minor fabric creases. Do not add a room, scenery, jewellery, bag or objects not specified. No labels, written words, logos, watermark, fashion model body, multiple outfits or collage. All garments are original fictional designs, no brands.",
+    "ageBands": [
+      "30–44",
+      "45–59",
+      "60+"
+    ]
   },
   {
     "id": "C-NEW-012",
@@ -393,7 +442,11 @@
     "stage": "通用成年",
     "description": "米白普通T恤、浅蓝短款牛仔外套、棕色直筒全长裤、白色平底运动鞋。娇小成人的正常比例，不拉长腿、不做少女校服风。",
     "english": "ivory tee light denim jacket brown straight pants white trainers petite adult",
-    "prompt": "Use case: product-mockup. Asset type: a reusable clothing reference for a virtual adult character wardrobe. Primary request: ONE complete coordinated outfit only, no face, no person, no skin, no mannequin surface. Design: 米白普通T恤、浅蓝短款牛仔外套、棕色直筒全长裤、白色平底运动鞋。娇小成人的正常比例，不拉长腿、不做少女校服风。 Intended cut: 女款. Fit design: 小个子设计. Use a convincing invisible ghost mannequin display so the complete layered clothing, both trouser legs or full skirt and both shoes are visible at coherent adult scale. Preserve comfortable realistic ease and the intended broad or petite cut; no extreme hourglass waist, no artificially long legs. Clothing occupies most of a vertical 1024x1536 frame on a plain light gray studio background with subtle soft shadow. Realistic woven and knitted textures, practical wearable construction and natural minor fabric creases. Do not add a room, scenery, jewellery, bag or objects not specified. No labels, written words, logos, watermark, fashion model body, multiple outfits or collage. All garments are original fictional designs, no brands."
+    "prompt": "Use case: product-mockup. Asset type: a reusable clothing reference for a virtual adult character wardrobe. Primary request: ONE complete coordinated outfit only, no face, no person, no skin, no mannequin surface. Design: 米白普通T恤、浅蓝短款牛仔外套、棕色直筒全长裤、白色平底运动鞋。娇小成人的正常比例，不拉长腿、不做少女校服风。 Intended cut: 女款. Fit design: 小个子设计. Use a convincing invisible ghost mannequin display so the complete layered clothing, both trouser legs or full skirt and both shoes are visible at coherent adult scale. Preserve comfortable realistic ease and the intended broad or petite cut; no extreme hourglass waist, no artificially long legs. Clothing occupies most of a vertical 1024x1536 frame on a plain light gray studio background with subtle soft shadow. Realistic woven and knitted textures, practical wearable construction and natural minor fabric creases. Do not add a room, scenery, jewellery, bag or objects not specified. No labels, written words, logos, watermark, fashion model body, multiple outfits or collage. All garments are original fictional designs, no brands.",
+    "ageBands": [
+      "18–29",
+      "30–44"
+    ]
   },
   {
     "id": "C-NEW-013",
@@ -406,7 +459,13 @@
     "stage": "通用成年",
     "description": "深蓝防雨连帽外套、暗红薄抓绒内搭、米色全长徒步裤、灰褐低帮徒步鞋。成年中性实用版型，防雨面料与正常活动松量。",
     "english": "navy hood rain shell burgundy fleece beige hiking pants trail shoes unisex",
-    "prompt": "Use case: product-mockup. Asset type: a reusable clothing reference for a virtual adult character wardrobe. Primary request: ONE complete coordinated outfit only, no face, no person, no skin, no mannequin surface. Design: 深蓝防雨连帽外套、暗红薄抓绒内搭、米色全长徒步裤、灰褐低帮徒步鞋。成年中性实用版型，防雨面料与正常活动松量。 Intended cut: 中性. Fit design: 常规宽松. Use a convincing invisible ghost mannequin display so the complete layered clothing, both trouser legs or full skirt and both shoes are visible at coherent adult scale. Preserve comfortable realistic ease and the intended broad or petite cut; no extreme hourglass waist, no artificially long legs. Clothing occupies most of a vertical 1024x1536 frame on a plain light gray studio background with subtle soft shadow. Realistic woven and knitted textures, practical wearable construction and natural minor fabric creases. Do not add a room, scenery, jewellery, bag or objects not specified. No labels, written words, logos, watermark, fashion model body, multiple outfits or collage. All garments are original fictional designs, no brands."
+    "prompt": "Use case: product-mockup. Asset type: a reusable clothing reference for a virtual adult character wardrobe. Primary request: ONE complete coordinated outfit only, no face, no person, no skin, no mannequin surface. Design: 深蓝防雨连帽外套、暗红薄抓绒内搭、米色全长徒步裤、灰褐低帮徒步鞋。成年中性实用版型，防雨面料与正常活动松量。 Intended cut: 中性. Fit design: 常规宽松. Use a convincing invisible ghost mannequin display so the complete layered clothing, both trouser legs or full skirt and both shoes are visible at coherent adult scale. Preserve comfortable realistic ease and the intended broad or petite cut; no extreme hourglass waist, no artificially long legs. Clothing occupies most of a vertical 1024x1536 frame on a plain light gray studio background with subtle soft shadow. Realistic woven and knitted textures, practical wearable construction and natural minor fabric creases. Do not add a room, scenery, jewellery, bag or objects not specified. No labels, written words, logos, watermark, fashion model body, multiple outfits or collage. All garments are original fictional designs, no brands.",
+    "ageBands": [
+      "18–29",
+      "30–44",
+      "45–59",
+      "60+"
+    ]
   },
   {
     "id": "C-NEW-014",
@@ -419,7 +478,13 @@
     "stage": "通用成年",
     "description": "浅灰棉针织开衫、米白普通圆领T恤、深灰柔软全长家居裤、深蓝平底家居鞋。宽松、完整覆盖、生活化。",
     "english": "gray cotton cardigan cream tee soft full lounge trousers house slippers unisex",
-    "prompt": "Use case: product-mockup. Asset type: a reusable clothing reference for a virtual adult character wardrobe. Primary request: ONE complete coordinated outfit only, no face, no person, no skin, no mannequin surface. Design: 浅灰棉针织开衫、米白普通圆领T恤、深灰柔软全长家居裤、深蓝平底家居鞋。宽松、完整覆盖、生活化。 Intended cut: 中性. Fit design: 常规宽松. Use a convincing invisible ghost mannequin display so the complete layered clothing, both trouser legs or full skirt and both shoes are visible at coherent adult scale. Preserve comfortable realistic ease and the intended broad or petite cut; no extreme hourglass waist, no artificially long legs. Clothing occupies most of a vertical 1024x1536 frame on a plain light gray studio background with subtle soft shadow. Realistic woven and knitted textures, practical wearable construction and natural minor fabric creases. Do not add a room, scenery, jewellery, bag or objects not specified. No labels, written words, logos, watermark, fashion model body, multiple outfits or collage. All garments are original fictional designs, no brands."
+    "prompt": "Use case: product-mockup. Asset type: a reusable clothing reference for a virtual adult character wardrobe. Primary request: ONE complete coordinated outfit only, no face, no person, no skin, no mannequin surface. Design: 浅灰棉针织开衫、米白普通圆领T恤、深灰柔软全长家居裤、深蓝平底家居鞋。宽松、完整覆盖、生活化。 Intended cut: 中性. Fit design: 常规宽松. Use a convincing invisible ghost mannequin display so the complete layered clothing, both trouser legs or full skirt and both shoes are visible at coherent adult scale. Preserve comfortable realistic ease and the intended broad or petite cut; no extreme hourglass waist, no artificially long legs. Clothing occupies most of a vertical 1024x1536 frame on a plain light gray studio background with subtle soft shadow. Realistic woven and knitted textures, practical wearable construction and natural minor fabric creases. Do not add a room, scenery, jewellery, bag or objects not specified. No labels, written words, logos, watermark, fashion model body, multiple outfits or collage. All garments are original fictional designs, no brands.",
+    "ageBands": [
+      "18–29",
+      "30–44",
+      "45–59",
+      "60+"
+    ]
   },
   {
     "id": "C-NEW-015",
@@ -432,7 +497,12 @@
     "stage": "成熟日常",
     "description": "深绿中长保暖派克外套、酒红素面针织围巾、深灰全长直筒裤、棕色保暖平底靴。适合普通成年体型的自然保暖层次。",
     "english": "dark green parka burgundy scarf gray full trousers warm flat boots unisex",
-    "prompt": "Use case: product-mockup. Asset type: a reusable clothing reference for a virtual adult character wardrobe. Primary request: ONE complete coordinated outfit only, no face, no person, no skin, no mannequin surface. Design: 深绿中长保暖派克外套、酒红素面针织围巾、深灰全长直筒裤、棕色保暖平底靴。适合普通成年体型的自然保暖层次。 Intended cut: 中性. Fit design: 常规宽松. Use a convincing invisible ghost mannequin display so the complete layered clothing, both trouser legs or full skirt and both shoes are visible at coherent adult scale. Preserve comfortable realistic ease and the intended broad or petite cut; no extreme hourglass waist, no artificially long legs. Clothing occupies most of a vertical 1024x1536 frame on a plain light gray studio background with subtle soft shadow. Realistic woven and knitted textures, practical wearable construction and natural minor fabric creases. Do not add a room, scenery, jewellery, bag or objects not specified. No labels, written words, logos, watermark, fashion model body, multiple outfits or collage. All garments are original fictional designs, no brands."
+    "prompt": "Use case: product-mockup. Asset type: a reusable clothing reference for a virtual adult character wardrobe. Primary request: ONE complete coordinated outfit only, no face, no person, no skin, no mannequin surface. Design: 深绿中长保暖派克外套、酒红素面针织围巾、深灰全长直筒裤、棕色保暖平底靴。适合普通成年体型的自然保暖层次。 Intended cut: 中性. Fit design: 常规宽松. Use a convincing invisible ghost mannequin display so the complete layered clothing, both trouser legs or full skirt and both shoes are visible at coherent adult scale. Preserve comfortable realistic ease and the intended broad or petite cut; no extreme hourglass waist, no artificially long legs. Clothing occupies most of a vertical 1024x1536 frame on a plain light gray studio background with subtle soft shadow. Realistic woven and knitted textures, practical wearable construction and natural minor fabric creases. Do not add a room, scenery, jewellery, bag or objects not specified. No labels, written words, logos, watermark, fashion model body, multiple outfits or collage. All garments are original fictional designs, no brands.",
+    "ageBands": [
+      "30–44",
+      "45–59",
+      "60+"
+    ]
   },
   {
     "id": "C-NEW-016",
@@ -445,7 +515,12 @@
     "stage": "通用成年",
     "description": "浅蓝牛仔衬衫外套、灰白棉圆领内搭、橄榄绿全长直筒工装裤、米白舒适运动鞋。实用中性版型，不添加人物与多余道具。",
     "english": "light denim overshirt gray cotton top olive straight cargo pants cream trainers unisex",
-    "prompt": "Use case: product-mockup. Asset type: a reusable clothing reference for a virtual adult character wardrobe. Primary request: ONE complete coordinated outfit only, no face, no person, no skin, no mannequin surface. Design: 浅蓝牛仔衬衫外套、灰白棉圆领内搭、橄榄绿全长直筒工装裤、米白舒适运动鞋。实用中性版型，不添加人物与多余道具。 Intended cut: 中性. Fit design: 常规宽松. Use a convincing invisible ghost mannequin display so the complete layered clothing, both trouser legs or full skirt and both shoes are visible at coherent adult scale. Preserve comfortable realistic ease and the intended broad or petite cut; no extreme hourglass waist, no artificially long legs. Clothing occupies most of a vertical 1024x1536 frame on a plain light gray studio background with subtle soft shadow. Realistic woven and knitted textures, practical wearable construction and natural minor fabric creases. Do not add a room, scenery, jewellery, bag or objects not specified. No labels, written words, logos, watermark, fashion model body, multiple outfits or collage. All garments are original fictional designs, no brands."
+    "prompt": "Use case: product-mockup. Asset type: a reusable clothing reference for a virtual adult character wardrobe. Primary request: ONE complete coordinated outfit only, no face, no person, no skin, no mannequin surface. Design: 浅蓝牛仔衬衫外套、灰白棉圆领内搭、橄榄绿全长直筒工装裤、米白舒适运动鞋。实用中性版型，不添加人物与多余道具。 Intended cut: 中性. Fit design: 常规宽松. Use a convincing invisible ghost mannequin display so the complete layered clothing, both trouser legs or full skirt and both shoes are visible at coherent adult scale. Preserve comfortable realistic ease and the intended broad or petite cut; no extreme hourglass waist, no artificially long legs. Clothing occupies most of a vertical 1024x1536 frame on a plain light gray studio background with subtle soft shadow. Realistic woven and knitted textures, practical wearable construction and natural minor fabric creases. Do not add a room, scenery, jewellery, bag or objects not specified. No labels, written words, logos, watermark, fashion model body, multiple outfits or collage. All garments are original fictional designs, no brands.",
+    "ageBands": [
+      "18–29",
+      "30–44",
+      "45–59"
+    ]
   },
   {
     "id": "R-NEW-001",
@@ -590,5 +665,900 @@
     "description": "A fictional 38-year-old fair-freckled woman with shoulder-length naturally wavy brown hair, in a loose dark green cotton shirt and visible full navy trousers, framed from head to mid-thigh. A relaxed everyday stance, slight weight shift, hands loosely gathered in front without tension, subtle friendly asymmetric smile and gaze off-camera. Ordinary body, no fashion model hip exaggeration or leg lengthening.",
     "prompt": "Use case: photorealistic-natural. Asset type: a reusable mannerisms reference for human-centered virtual character image composition. Primary request: A fictional 38-year-old fair-freckled woman with shoulder-length naturally wavy brown hair, in a loose dark green cotton shirt and visible full navy trousers, framed from head to mid-thigh. A relaxed everyday stance, slight weight shift, hands loosely gathered in front without tension, subtle friendly asymmetric smile and gaze off-camera. Ordinary body, no fashion model hip exaggeration or leg lengthening. The subject is a NEW original fictional adult, not a real person. Person or person detail ONLY, simple plain neutral background and soft natural daylight; no scenery, standalone room or decorative objects. Realistic unretouched skin, natural asymmetry, coherent anatomy and age. The expression, grooming change, body proportions or personal gesture must be clearly readable. Do not default to a beauty-model face or artificially slim waist. Output one clean reference photograph or reference sheet only as explicitly requested, no extra people or views. No words, labels, ruler, logos or watermark. If multiple panels are requested, each panel must show the same fictional individual.",
     "descriptionZh": "日常放松站姿，轻微重心偏移与无紧张感的双手姿态。"
+  },
+  {
+    "id": "P-NEW-017",
+    "kind": "portraits",
+    "title": "Graham · 63岁 · 男性",
+    "name": "Graham",
+    "age": 63,
+    "ageBand": "60+",
+    "presentation": "男性",
+    "skinTone": "浅肤色",
+    "hairLength": "短发",
+    "bodyDesign": "结实",
+    "market": "欧洲",
+    "faceShape": "方脸",
+    "facialHair": "无胡须",
+    "description": "宽方脸、灰蓝深眼窝、略弯圆鼻尖、浓淡不一的眉毛、后移发际线与银色短发、自然眼角纹和颈纹，厚实颈肩，棕色华夫格半拉链针织衫。",
+    "prompt": "Use case: photorealistic-natural. Create ONE reusable identity portrait photograph of a wholly original fictional 63-year-old European-background man named Graham. Plain warm gray background, no location or objects. Broad square face, blue-gray deep-set eyes, strong slightly bent nose with rounded tip, broad uneven eyebrows, receding short brushed silver hair, clean-shaven, real forehead lines, visible crow's feet and neck texture, heavier lower cheeks, ordinary sturdy body and thick neck. Wearing a muted cocoa brown waffle-knit quarter zip, no jacket. Frame full head through upper chest, camera at eye level, shoulders turned slightly left, calm attentive expression with a slight uneven smile, gaze near lens. Natural side-window light, realistic unretouched pores, accurate 63-year-old anatomy. This is a person identity reference, not a glamour shoot. No beauty retouch, no age reduction, no unnaturally perfect teeth, no skinny jaw or enlarged eyes, no dramatic scenery. Vertical 1024x1536. One person, one photo, no text, no logos, no collage.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "P-NEW-018",
+    "kind": "portraits",
+    "title": "Rosa · 58岁 · 女性",
+    "name": "Rosa",
+    "age": 58,
+    "ageBand": "45–59",
+    "presentation": "女性",
+    "skinTone": "中等肤色",
+    "hairLength": "短发",
+    "bodyDesign": "常规",
+    "market": "欧洲",
+    "faceShape": "长脸",
+    "facialHair": "无胡须",
+    "description": "暖橄榄皮肤、长脸、明显弯鼻梁、棕色眼睛、深色短卷发夹银丝并别在耳后、眼下细纹和颈纹，普通藏青船领棉上衣。",
+    "prompt": "Use case: photorealistic-natural. Asset type: ONE reusable identity portrait photograph of a wholly original fictional adult named Rosa, exactly 58 years old, 女性 presentation. Character design: 暖橄榄皮肤、长脸、明显弯鼻梁、棕色眼睛、深色短卷发夹银丝并别在耳后、眼下细纹和颈纹，普通藏青船领棉上衣。 Individual direction: 南欧背景，身体略朝右，闭唇放松，眼神略偏离镜头。 Plain understated neutral background, no location or objects. Full head through upper chest, realistic ordinary body, head comfortably inside frame. Natural window daylight, realistic unretouched pores, natural asymmetric facial anatomy, accurate age and face structure. Distinct individual, not the face of a real person or a celebrity. No beauty model template, no skin smoothing, no age reduction, no exaggerated lips, eyes or thin jaw, no makeup glamour. Vertical 1024x1536. One person, one photograph, no text, logos, props or collage.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "P-NEW-019",
+    "kind": "portraits",
+    "title": "André · 46岁 · 男性",
+    "name": "André",
+    "age": 46,
+    "ageBand": "45–59",
+    "presentation": "男性",
+    "skinTone": "深肤色",
+    "hairLength": "短发",
+    "bodyDesign": "结实",
+    "market": "北美",
+    "faceShape": "宽脸",
+    "facialHair": "短胡茬",
+    "description": "深棕肤色、宽颧骨、宽圆鼻翼、眉骨较低、紧密黑色短卷发与灰色鬓角、修短胡茬和自然眼下纹理，米白华夫格圆领上衣。",
+    "prompt": "Use case: photorealistic-natural. Asset type: ONE reusable identity portrait photograph of a wholly original fictional adult named André, exactly 46 years old, 男性 presentation. Character design: 深棕肤色、宽颧骨、宽圆鼻翼、眉骨较低、紧密黑色短卷发与灰色鬓角、修短胡茬和自然眼下纹理，米白华夫格圆领上衣。 Individual direction: 非洲裔北美背景，正面，肩膀自然高低，略带专注的神态。 Plain understated neutral background, no location or objects. Full head through upper chest, realistic ordinary body, head comfortably inside frame. Natural window daylight, realistic unretouched pores, natural asymmetric facial anatomy, accurate age and face structure. Distinct individual, not the face of a real person or a celebrity. No beauty model template, no skin smoothing, no age reduction, no exaggerated lips, eyes or thin jaw, no makeup glamour. Vertical 1024x1536. One person, one photograph, no text, logos, props or collage.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "P-NEW-020",
+    "kind": "portraits",
+    "title": "Ingrid · 72岁 · 女性",
+    "name": "Ingrid",
+    "age": 72,
+    "ageBand": "60+",
+    "presentation": "女性",
+    "skinTone": "浅肤色",
+    "hairLength": "中长发",
+    "bodyDesign": "修长",
+    "market": "欧洲",
+    "faceShape": "长脸",
+    "facialHair": "无胡须",
+    "description": "冷浅肤色、细长脸和较长鼻子、灰绿眼、细薄灰发挽松髻、真实下垂眼睑和颈部皱纹，柔紫色素棉衬衫。",
+    "prompt": "Use case: photorealistic-natural. Asset type: ONE reusable identity portrait photograph of a wholly original fictional adult named Ingrid, exactly 72 years old, 女性 presentation. Character design: 冷浅肤色、细长脸和较长鼻子、灰绿眼、细薄灰发挽松髻、真实下垂眼睑和颈部皱纹，柔紫色素棉衬衫。 Individual direction: 北欧背景，轻微四分之三侧向，安静地看向镜头，不做统一灿笑。 Plain understated neutral background, no location or objects. Full head through upper chest, realistic ordinary body, head comfortably inside frame. Natural window daylight, realistic unretouched pores, natural asymmetric facial anatomy, accurate age and face structure. Distinct individual, not the face of a real person or a celebrity. No beauty model template, no skin smoothing, no age reduction, no exaggerated lips, eyes or thin jaw, no makeup glamour. Vertical 1024x1536. One person, one photograph, no text, logos, props or collage.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "P-NEW-021",
+    "kind": "portraits",
+    "title": "Pavel · 51岁 · 男性",
+    "name": "Pavel",
+    "age": 51,
+    "ageBand": "45–59",
+    "presentation": "男性",
+    "skinTone": "浅肤色",
+    "hairLength": "短发",
+    "bodyDesign": "丰盈",
+    "market": "欧洲",
+    "faceShape": "圆脸",
+    "facialHair": "短胡茬",
+    "description": "偏红浅肤色、宽圆脸、厚下颌、棕眼、头顶明显稀疏但两侧仍有短发、自然胡茬、眼下纹与小痣，苔绿色开衫。",
+    "prompt": "Use case: photorealistic-natural. Asset type: ONE reusable identity portrait photograph of a wholly original fictional adult named Pavel, exactly 51 years old, 男性 presentation. Character design: 偏红浅肤色、宽圆脸、厚下颌、棕眼、头顶明显稀疏但两侧仍有短发、自然胡茬、眼下纹与小痣，苔绿色开衫。 Individual direction: 中东欧背景，略朝左，闭口，眉毛轻微抬起。 Plain understated neutral background, no location or objects. Full head through upper chest, realistic ordinary body, head comfortably inside frame. Natural window daylight, realistic unretouched pores, natural asymmetric facial anatomy, accurate age and face structure. Distinct individual, not the face of a real person or a celebrity. No beauty model template, no skin smoothing, no age reduction, no exaggerated lips, eyes or thin jaw, no makeup glamour. Vertical 1024x1536. One person, one photograph, no text, logos, props or collage.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "P-NEW-022",
+    "kind": "portraits",
+    "title": "Terrence · 68岁 · 男性",
+    "name": "Terrence",
+    "age": 68,
+    "ageBand": "60+",
+    "presentation": "男性",
+    "skinTone": "深肤色",
+    "hairLength": "短发",
+    "bodyDesign": "修长",
+    "market": "北美",
+    "faceShape": "长脸",
+    "facialHair": "无胡须",
+    "description": "深棕肤色、细长脸、宽鼻翼、薄上唇、白色极短卷发、干净下巴、真实额纹与眼周纹，酒红细针织衫。",
+    "prompt": "Use case: photorealistic-natural. Asset type: ONE reusable identity portrait photograph of a wholly original fictional adult named Terrence, exactly 68 years old, 男性 presentation. Character design: 深棕肤色、细长脸、宽鼻翼、薄上唇、白色极短卷发、干净下巴、真实额纹与眼周纹，酒红细针织衫。 Individual direction: 非洲裔北美背景，略朝右，视线在镜头旁，自然松肩。 Plain understated neutral background, no location or objects. Full head through upper chest, realistic ordinary body, head comfortably inside frame. Natural window daylight, realistic unretouched pores, natural asymmetric facial anatomy, accurate age and face structure. Distinct individual, not the face of a real person or a celebrity. No beauty model template, no skin smoothing, no age reduction, no exaggerated lips, eyes or thin jaw, no makeup glamour. Vertical 1024x1536. One person, one photograph, no text, logos, props or collage.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "P-NEW-023",
+    "kind": "portraits",
+    "title": "Michael · 34岁 · 男性",
+    "name": "Michael",
+    "age": 34,
+    "ageBand": "30–44",
+    "presentation": "男性",
+    "skinTone": "浅肤色",
+    "hairLength": "短发",
+    "bodyDesign": "丰盈",
+    "market": "北美",
+    "faceShape": "圆脸",
+    "facialHair": "无胡须",
+    "description": "浅肤色、饱满脸颊、下巴小凹槽、略歪鼻梁、短深棕直发、棕色眼睛、额前不规则发线和旧痘印，巧克力色棉衬衣外套。",
+    "prompt": "Use case: photorealistic-natural. Asset type: ONE reusable identity portrait photograph of a wholly original fictional adult named Michael, exactly 34 years old, 男性 presentation. Character design: 浅肤色、饱满脸颊、下巴小凹槽、略歪鼻梁、短深棕直发、棕色眼睛、额前不规则发线和旧痘印，巧克力色棉衬衣外套。 Individual direction: 欧洲裔北美背景，正面，嘴角略向一边，不塑造成健身模特。 Plain understated neutral background, no location or objects. Full head through upper chest, realistic ordinary body, head comfortably inside frame. Natural window daylight, realistic unretouched pores, natural asymmetric facial anatomy, accurate age and face structure. Distinct individual, not the face of a real person or a celebrity. No beauty model template, no skin smoothing, no age reduction, no exaggerated lips, eyes or thin jaw, no makeup glamour. Vertical 1024x1536. One person, one photograph, no text, logos, props or collage.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "P-NEW-024",
+    "kind": "portraits",
+    "title": "Valentina · 44岁 · 女性",
+    "name": "Valentina",
+    "age": 44,
+    "ageBand": "30–44",
+    "presentation": "女性",
+    "skinTone": "中等肤色",
+    "hairLength": "短发",
+    "bodyDesign": "结实",
+    "market": "北美",
+    "faceShape": "方脸",
+    "facialHair": "无胡须",
+    "description": "中等橄榄肤色、宽下颌、棱角鼻梁、深棕眼、深色短卷精灵发、自然眉间纹、颊侧小痣，赤陶色棉衬衫。",
+    "prompt": "Use case: photorealistic-natural. Asset type: ONE reusable identity portrait photograph of a wholly original fictional adult named Valentina, exactly 44 years old, 女性 presentation. Character design: 中等橄榄肤色、宽下颌、棱角鼻梁、深棕眼、深色短卷精灵发、自然眉间纹、颊侧小痣，赤陶色棉衬衫。 Individual direction: 拉美裔北美背景，肩膀略朝左，平静且有主见的目光。 Plain understated neutral background, no location or objects. Full head through upper chest, realistic ordinary body, head comfortably inside frame. Natural window daylight, realistic unretouched pores, natural asymmetric facial anatomy, accurate age and face structure. Distinct individual, not the face of a real person or a celebrity. No beauty model template, no skin smoothing, no age reduction, no exaggerated lips, eyes or thin jaw, no makeup glamour. Vertical 1024x1536. One person, one photograph, no text, logos, props or collage.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "P-NEW-025",
+    "kind": "portraits",
+    "title": "Seamus · 57岁 · 男性",
+    "name": "Seamus",
+    "age": 57,
+    "ageBand": "45–59",
+    "presentation": "男性",
+    "skinTone": "浅肤色",
+    "hairLength": "短发",
+    "bodyDesign": "常规",
+    "market": "欧洲",
+    "faceShape": "长脸",
+    "facialHair": "短胡茬",
+    "description": "红润浅肤色和明显雀斑、长下巴、灰绿眼、姜红混灰且发际后移的短发、短胡茬、鼻翼可见毛孔，燕麦色亨利领衫。",
+    "prompt": "Use case: photorealistic-natural. Asset type: ONE reusable identity portrait photograph of a wholly original fictional adult named Seamus, exactly 57 years old, 男性 presentation. Character design: 红润浅肤色和明显雀斑、长下巴、灰绿眼、姜红混灰且发际后移的短发、短胡茬、鼻翼可见毛孔，燕麦色亨利领衫。 Individual direction: 爱尔兰背景，头部略歪而非模板正中，带一点克制的笑意。 Plain understated neutral background, no location or objects. Full head through upper chest, realistic ordinary body, head comfortably inside frame. Natural window daylight, realistic unretouched pores, natural asymmetric facial anatomy, accurate age and face structure. Distinct individual, not the face of a real person or a celebrity. No beauty model template, no skin smoothing, no age reduction, no exaggerated lips, eyes or thin jaw, no makeup glamour. Vertical 1024x1536. One person, one photograph, no text, logos, props or collage.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "P-NEW-026",
+    "kind": "portraits",
+    "title": "Denise · 64岁 · 女性",
+    "name": "Denise",
+    "age": 64,
+    "ageBand": "60+",
+    "presentation": "女性",
+    "skinTone": "深肤色",
+    "hairLength": "中发",
+    "bodyDesign": "丰盈",
+    "market": "北美",
+    "faceShape": "圆脸",
+    "facialHair": "无胡须",
+    "description": "深棕肤色、圆脸和自然双下巴、深棕眼、灰银色细短脏辫收在脑后、额纹与眼袋、普通蓝色开领衬衫。",
+    "prompt": "Use case: photorealistic-natural. Asset type: ONE reusable identity portrait photograph of a wholly original fictional adult named Denise, exactly 64 years old, 女性 presentation. Character design: 深棕肤色、圆脸和自然双下巴、深棕眼、灰银色细短脏辫收在脑后、额纹与眼袋、普通蓝色开领衬衫。 Individual direction: 非洲裔北美背景，正面，下巴自然放松，认真看向镜头。 Plain understated neutral background, no location or objects. Full head through upper chest, realistic ordinary body, head comfortably inside frame. Natural window daylight, realistic unretouched pores, natural asymmetric facial anatomy, accurate age and face structure. Distinct individual, not the face of a real person or a celebrity. No beauty model template, no skin smoothing, no age reduction, no exaggerated lips, eyes or thin jaw, no makeup glamour. Vertical 1024x1536. One person, one photograph, no text, logos, props or collage.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "P-NEW-027",
+    "kind": "portraits",
+    "title": "Lars · 42岁 · 男性",
+    "name": "Lars",
+    "age": 42,
+    "ageBand": "30–44",
+    "presentation": "男性",
+    "skinTone": "浅肤色",
+    "hairLength": "短发",
+    "bodyDesign": "修长",
+    "market": "欧洲",
+    "faceShape": "长脸",
+    "facialHair": "短胡茬",
+    "description": "冷浅肤色、长脸、较窄额头、深棕眼、短亚麻金头发、稀疏胡茬、鼻梁旧小疤和眼下细纹，石墨灰圆领针织衫。",
+    "prompt": "Use case: photorealistic-natural. Asset type: ONE reusable identity portrait photograph of a wholly original fictional adult named Lars, exactly 42 years old, 男性 presentation. Character design: 冷浅肤色、长脸、较窄额头、深棕眼、短亚麻金头发、稀疏胡茬、鼻梁旧小疤和眼下细纹，石墨灰圆领针织衫。 Individual direction: 北欧背景，轻微朝右，视线略越过镜头，不夸大蓝眼刻板形象。 Plain understated neutral background, no location or objects. Full head through upper chest, realistic ordinary body, head comfortably inside frame. Natural window daylight, realistic unretouched pores, natural asymmetric facial anatomy, accurate age and face structure. Distinct individual, not the face of a real person or a celebrity. No beauty model template, no skin smoothing, no age reduction, no exaggerated lips, eyes or thin jaw, no makeup glamour. Vertical 1024x1536. One person, one photograph, no text, logos, props or collage.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "P-NEW-028",
+    "kind": "portraits",
+    "title": "Geneviève · 79岁 · 女性",
+    "name": "Geneviève",
+    "age": 79,
+    "ageBand": "60+",
+    "presentation": "女性",
+    "skinTone": "浅肤色",
+    "hairLength": "短发",
+    "bodyDesign": "娇小",
+    "market": "欧洲",
+    "faceShape": "长脸",
+    "facialHair": "无胡须",
+    "description": "浅暖肤色、白色微卷精灵短发、较长弯鼻梁、略下垂眼睑、棕眼、清楚的口周细纹与颈纹，灰玫瑰色小翻领棉衬衫。",
+    "prompt": "Use case: photorealistic-natural. Asset type: ONE reusable identity portrait photograph of a wholly original fictional adult named Geneviève, exactly 79 years old, 女性 presentation. Character design: 浅暖肤色、白色微卷精灵短发、较长弯鼻梁、略下垂眼睑、棕眼、清楚的口周细纹与颈纹，灰玫瑰色小翻领棉衬衫。 Individual direction: 法国背景，略朝左，温和闭唇，不抹掉皮肤斑点或真实年龄。 Plain understated neutral background, no location or objects. Full head through upper chest, realistic ordinary body, head comfortably inside frame. Natural window daylight, realistic unretouched pores, natural asymmetric facial anatomy, accurate age and face structure. Distinct individual, not the face of a real person or a celebrity. No beauty model template, no skin smoothing, no age reduction, no exaggerated lips, eyes or thin jaw, no makeup glamour. Vertical 1024x1536. One person, one photograph, no text, logos, props or collage.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "P-NEW-029",
+    "kind": "portraits",
+    "title": "Antonio · 74岁 · 男性",
+    "name": "Antonio",
+    "age": 74,
+    "ageBand": "60+",
+    "presentation": "男性",
+    "skinTone": "中等肤色",
+    "hairLength": "短发",
+    "bodyDesign": "常规",
+    "market": "欧洲",
+    "faceShape": "方脸",
+    "facialHair": "小胡子",
+    "description": "暖橄榄肤色、宽方下颌、厚灰眉、棕眼、稀疏银发、完整白色小胡子而非络腮胡、眼周与额头深纹，棕色旧棉格纹衬衫。",
+    "prompt": "Use case: photorealistic-natural. Asset type: ONE reusable identity portrait photograph of a wholly original fictional adult named Antonio, exactly 74 years old, 男性 presentation. Character design: 暖橄榄肤色、宽方下颌、厚灰眉、棕眼、稀疏银发、完整白色小胡子而非络腮胡、眼周与额头深纹，棕色旧棉格纹衬衫。 Individual direction: 南欧背景，轻微四分之三朝右，神态从容，肩膀自然下落。 Plain understated neutral background, no location or objects. Full head through upper chest, realistic ordinary body, head comfortably inside frame. Natural window daylight, realistic unretouched pores, natural asymmetric facial anatomy, accurate age and face structure. Distinct individual, not the face of a real person or a celebrity. No beauty model template, no skin smoothing, no age reduction, no exaggerated lips, eyes or thin jaw, no makeup glamour. Vertical 1024x1536. One person, one photograph, no text, logos, props or collage.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "P-NEW-030",
+    "kind": "portraits",
+    "title": "Patrick · 28岁 · 男性",
+    "name": "Patrick",
+    "age": 28,
+    "ageBand": "18–29",
+    "presentation": "男性",
+    "skinTone": "浅肤色",
+    "hairLength": "短发",
+    "bodyDesign": "修长",
+    "market": "北美",
+    "faceShape": "长脸",
+    "facialHair": "无胡须",
+    "description": "浅肤色、略突耳朵、窄长脸、灰绿眼、浅灰金寸头、上唇极细旧疤、自然不对称眉毛，低饱和青绿色厚棉橄榄球领衫。",
+    "prompt": "Use case: photorealistic-natural. Asset type: ONE reusable identity portrait photograph of a wholly original fictional adult named Patrick, exactly 28 years old, 男性 presentation. Character design: 浅肤色、略突耳朵、窄长脸、灰绿眼、浅灰金寸头、上唇极细旧疤、自然不对称眉毛，低饱和青绿色厚棉橄榄球领衫。 Individual direction: 欧洲裔北美背景，正面，轻微抿唇，普通成年比例。 Plain understated neutral background, no location or objects. Full head through upper chest, realistic ordinary body, head comfortably inside frame. Natural window daylight, realistic unretouched pores, natural asymmetric facial anatomy, accurate age and face structure. Distinct individual, not the face of a real person or a celebrity. No beauty model template, no skin smoothing, no age reduction, no exaggerated lips, eyes or thin jaw, no makeup glamour. Vertical 1024x1536. One person, one photograph, no text, logos, props or collage.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "P-NEW-031",
+    "kind": "portraits",
+    "title": "Beatrice · 53岁 · 女性",
+    "name": "Beatrice",
+    "age": 53,
+    "ageBand": "45–59",
+    "presentation": "女性",
+    "skinTone": "中等肤色",
+    "hairLength": "长发",
+    "bodyDesign": "常规",
+    "market": "欧洲",
+    "faceShape": "方脸",
+    "facialHair": "无胡须",
+    "description": "浅橄榄皮肤、强眉骨、方圆下颌、栗色眼、长深棕直发带明显银色发束、眼角纹和法令纹，淡紫亨利领棉衫。",
+    "prompt": "Use case: photorealistic-natural. Asset type: ONE reusable identity portrait photograph of a wholly original fictional adult named Beatrice, exactly 53 years old, 女性 presentation. Character design: 浅橄榄皮肤、强眉骨、方圆下颌、栗色眼、长深棕直发带明显银色发束、眼角纹和法令纹，淡紫亨利领棉衫。 Individual direction: 南欧背景，肩膀略朝右，头部朝镜头，成熟自若。 Plain understated neutral background, no location or objects. Full head through upper chest, realistic ordinary body, head comfortably inside frame. Natural window daylight, realistic unretouched pores, natural asymmetric facial anatomy, accurate age and face structure. Distinct individual, not the face of a real person or a celebrity. No beauty model template, no skin smoothing, no age reduction, no exaggerated lips, eyes or thin jaw, no makeup glamour. Vertical 1024x1536. One person, one photograph, no text, logos, props or collage.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "P-NEW-032",
+    "kind": "portraits",
+    "title": "Malcolm · 61岁 · 男性",
+    "name": "Malcolm",
+    "age": 61,
+    "ageBand": "60+",
+    "presentation": "男性",
+    "skinTone": "深肤色",
+    "hairLength": "短发",
+    "bodyDesign": "丰盈",
+    "market": "北美",
+    "faceShape": "圆脸",
+    "facialHair": "山羊胡",
+    "description": "深棕肤色、宽圆脸、厚颈肩、头顶自然秃发、宽鼻翼、深棕眼、黑灰山羊胡与短小胡子、额纹与真实毛孔，铁锈色棉Polo衫。",
+    "prompt": "Use case: photorealistic-natural. Asset type: ONE reusable identity portrait photograph of a wholly original fictional adult named Malcolm, exactly 61 years old, 男性 presentation. Character design: 深棕肤色、宽圆脸、厚颈肩、头顶自然秃发、宽鼻翼、深棕眼、黑灰下巴短络腮胡、额纹与真实毛孔，铁锈色棉Polo衫。 Individual direction: 非洲裔北美背景，略朝左，沉着神情，不削脸或收窄脖子。 Plain understated neutral background, no location or objects. Full head through upper chest, realistic ordinary body, head comfortably inside frame. Natural window daylight, realistic unretouched pores, natural asymmetric facial anatomy, accurate age and face structure. Distinct individual, not the face of a real person or a celebrity. No beauty model template, no skin smoothing, no age reduction, no exaggerated lips, eyes or thin jaw, no makeup glamour. Vertical 1024x1536. One person, one photograph, no text, logos, props or collage.",
+    "batch": "everyday-diversity-2026-11",
+    "reviewNote": "成图胡须集中在上唇和下巴，两颊较净，按实际成图标为山羊胡；生成提示词保留原文。"
+  },
+  {
+    "id": "P-NEW-033",
+    "kind": "portraits",
+    "title": "Stefan · 66岁 · 男性",
+    "name": "Stefan",
+    "age": 66,
+    "ageBand": "60+",
+    "presentation": "男性",
+    "skinTone": "浅肤色",
+    "hairLength": "短发",
+    "bodyDesign": "修长",
+    "market": "欧洲",
+    "faceShape": "长脸",
+    "facialHair": "无胡须",
+    "description": "冷浅肤色、细长脸、薄唇、浅棕眼、向后梳的稀疏灰发、长直鼻梁、眼下松弛纹理，砖红细格棉衬衫。",
+    "prompt": "Use case: photorealistic-natural. Asset type: ONE reusable identity portrait photograph of a wholly original fictional adult named Stefan, exactly 66 years old, 男性 presentation. Character design: 冷浅肤色、细长脸、薄唇、浅棕眼、向后梳的稀疏灰发、长直鼻梁、眼下松弛纹理，砖红细格棉衬衫。 Individual direction: 中东欧背景，正面，下巴略低，若有所思的自然表情。 Plain understated neutral background, no location or objects. Full head through upper chest, realistic ordinary body, head comfortably inside frame. Natural window daylight, realistic unretouched pores, natural asymmetric facial anatomy, accurate age and face structure. Distinct individual, not the face of a real person or a celebrity. No beauty model template, no skin smoothing, no age reduction, no exaggerated lips, eyes or thin jaw, no makeup glamour. Vertical 1024x1536. One person, one photograph, no text, logos, props or collage.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "P-NEW-034",
+    "kind": "portraits",
+    "title": "Marta · 48岁 · 女性",
+    "name": "Marta",
+    "age": 48,
+    "ageBand": "45–59",
+    "presentation": "女性",
+    "skinTone": "中等肤色",
+    "hairLength": "中长发",
+    "bodyDesign": "丰盈",
+    "market": "北美",
+    "faceShape": "圆脸",
+    "facialHair": "无胡须",
+    "description": "暖中等橄榄肤色、宽脸颊、饱满鼻尖、深棕眼、半扎棕发与自然灰发根、眼下轻微疲惫和淡细纹，普通藏青棉T恤。",
+    "prompt": "Use case: photorealistic-natural. Asset type: ONE reusable identity portrait photograph of a wholly original fictional adult named Marta, exactly 48 years old, 女性 presentation. Character design: 暖中等橄榄肤色、宽脸颊、饱满鼻尖、深棕眼、半扎棕发与自然灰发根、眼下轻微疲惫和淡细纹，普通藏青棉T恤。 Individual direction: 拉美裔北美背景，略朝右，自然轻笑且不露整排牙齿。 Plain understated neutral background, no location or objects. Full head through upper chest, realistic ordinary body, head comfortably inside frame. Natural window daylight, realistic unretouched pores, natural asymmetric facial anatomy, accurate age and face structure. Distinct individual, not the face of a real person or a celebrity. No beauty model template, no skin smoothing, no age reduction, no exaggerated lips, eyes or thin jaw, no makeup glamour. Vertical 1024x1536. One person, one photograph, no text, logos, props or collage.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "P-NEW-035",
+    "kind": "portraits",
+    "title": "Everett · 38岁 · 男性",
+    "name": "Everett",
+    "age": 38,
+    "ageBand": "30–44",
+    "presentation": "男性",
+    "skinTone": "浅肤色",
+    "hairLength": "短发",
+    "bodyDesign": "结实",
+    "market": "北美",
+    "faceShape": "方脸",
+    "facialHair": "短胡茬",
+    "description": "浅暖肤色、方脸与宽眉骨、深棕紧卷短发、深褐眼、浓密五点胡茬、不规则发线与鼻侧旧痘印，炭灰色圆领上衣。",
+    "prompt": "Use case: photorealistic-natural. Asset type: ONE reusable identity portrait photograph of a wholly original fictional adult named Everett, exactly 38 years old, 男性 presentation. Character design: 浅暖肤色、方脸与宽眉骨、深棕紧卷短发、深褐眼、浓密五点胡茬、不规则发线与鼻侧旧痘印，炭灰色圆领上衣。 Individual direction: 欧洲裔北美背景，略朝左，视线贴近镜头，有一点内敛。 Plain understated neutral background, no location or objects. Full head through upper chest, realistic ordinary body, head comfortably inside frame. Natural window daylight, realistic unretouched pores, natural asymmetric facial anatomy, accurate age and face structure. Distinct individual, not the face of a real person or a celebrity. No beauty model template, no skin smoothing, no age reduction, no exaggerated lips, eyes or thin jaw, no makeup glamour. Vertical 1024x1536. One person, one photograph, no text, logos, props or collage.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "P-NEW-036",
+    "kind": "portraits",
+    "title": "Simone · 70岁 · 女性",
+    "name": "Simone",
+    "age": 70,
+    "ageBand": "60+",
+    "presentation": "女性",
+    "skinTone": "深肤色",
+    "hairLength": "中发",
+    "bodyDesign": "常规",
+    "market": "欧洲",
+    "faceShape": "长脸",
+    "facialHair": "无胡须",
+    "description": "深棕肤色、较高颧骨、长椭圆脸、宽鼻翼、深棕眼、蓬松银灰自然卷发、真实眼角纹和颈纹，深绿色素棉衬衫。",
+    "prompt": "Use case: photorealistic-natural. Asset type: ONE reusable identity portrait photograph of a wholly original fictional adult named Simone, exactly 70 years old, 女性 presentation. Character design: 深棕肤色、较高颧骨、长椭圆脸、宽鼻翼、深棕眼、蓬松银灰自然卷发、真实眼角纹和颈纹，深绿色素棉衬衫。 Individual direction: 非洲裔欧洲背景，轻微侧向，目光清醒而平静，不做时装大片。 Plain understated neutral background, no location or objects. Full head through upper chest, realistic ordinary body, head comfortably inside frame. Natural window daylight, realistic unretouched pores, natural asymmetric facial anatomy, accurate age and face structure. Distinct individual, not the face of a real person or a celebrity. No beauty model template, no skin smoothing, no age reduction, no exaggerated lips, eyes or thin jaw, no makeup glamour. Vertical 1024x1536. One person, one photograph, no text, logos, props or collage.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "P-NEW-037",
+    "kind": "portraits",
+    "title": "Nikola · 59岁 · 男性",
+    "name": "Nikola",
+    "age": 59,
+    "ageBand": "45–59",
+    "presentation": "男性",
+    "skinTone": "中等肤色",
+    "hairLength": "短发",
+    "bodyDesign": "结实",
+    "market": "欧洲",
+    "faceShape": "宽脸",
+    "facialHair": "无胡须",
+    "description": "浅橄榄皮肤、宽脸、明显弯鼻梁、棕眼、棕灰混色微卷短发与银鬓角、额纹和略不对称嘴角，普通蓝色厚棉T恤。",
+    "prompt": "Use case: photorealistic-natural. Asset type: ONE reusable identity portrait photograph of a wholly original fictional adult named Nikola, exactly 59 years old, 男性 presentation. Character design: 浅橄榄皮肤、宽脸、明显弯鼻梁、棕眼、棕灰混色微卷短发与银鬓角、额纹和略不对称嘴角，普通蓝色厚棉T恤。 Individual direction: 巴尔干欧洲背景，正面，克制的微笑，宽肩保持普通体型。 Plain understated neutral background, no location or objects. Full head through upper chest, realistic ordinary body, head comfortably inside frame. Natural window daylight, realistic unretouched pores, natural asymmetric facial anatomy, accurate age and face structure. Distinct individual, not the face of a real person or a celebrity. No beauty model template, no skin smoothing, no age reduction, no exaggerated lips, eyes or thin jaw, no makeup glamour. Vertical 1024x1536. One person, one photograph, no text, logos, props or collage.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "P-NEW-038",
+    "kind": "portraits",
+    "title": "Jasper · 23岁 · 男性",
+    "name": "Jasper",
+    "age": 23,
+    "ageBand": "18–29",
+    "presentation": "男性",
+    "skinTone": "浅肤色",
+    "hairLength": "中发",
+    "bodyDesign": "修长",
+    "market": "欧洲",
+    "faceShape": "长脸",
+    "facialHair": "无胡须",
+    "description": "浅肤色和明显雀斑、窄额头与长脸、灰棕眼、铜红色中长帘式头发、自然细眉与小痘印，藏青色宽松翻领棉衫。",
+    "prompt": "Use case: photorealistic-natural. Asset type: ONE reusable identity portrait photograph of a wholly original fictional adult named Jasper, exactly 23 years old, 男性 presentation. Character design: 浅肤色和明显雀斑、窄额头与长脸、灰棕眼、铜红色中长帘式头发、自然细眉与小痘印，藏青色宽松翻领棉衫。 Individual direction: 欧洲背景，略朝右，下颌自然不收紧，不使用精修偶像脸。 Plain understated neutral background, no location or objects. Full head through upper chest, realistic ordinary body, head comfortably inside frame. Natural window daylight, realistic unretouched pores, natural asymmetric facial anatomy, accurate age and face structure. Distinct individual, not the face of a real person or a celebrity. No beauty model template, no skin smoothing, no age reduction, no exaggerated lips, eyes or thin jaw, no makeup glamour. Vertical 1024x1536. One person, one photograph, no text, logos, props or collage.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "P-NEW-039",
+    "kind": "portraits",
+    "title": "Raymond · 81岁 · 男性",
+    "name": "Raymond",
+    "age": 81,
+    "ageBand": "60+",
+    "presentation": "男性",
+    "skinTone": "浅肤色",
+    "hairLength": "短发",
+    "bodyDesign": "常规",
+    "market": "北美",
+    "faceShape": "圆脸",
+    "facialHair": "无胡须",
+    "description": "暖浅肤色、稀疏白色短发、蓝灰眼、较圆鼻尖、真实松弛下颌、眼周纹理与不规则皮肤斑点，米白衬衫和棕色薄针织背心。",
+    "prompt": "Use case: photorealistic-natural. Asset type: ONE reusable identity portrait photograph of a wholly original fictional adult named Raymond, exactly 81 years old, 男性 presentation. Character design: 暖浅肤色、稀疏白色短发、蓝灰眼、较圆鼻尖、真实松弛下颌、眼周纹理与不规则皮肤斑点，米白衬衫和棕色薄针织背心。 Individual direction: 欧洲裔北美背景，正面，安稳注视镜头，保留八十岁真实细节而不夸张衰弱。 Plain understated neutral background, no location or objects. Full head through upper chest, realistic ordinary body, head comfortably inside frame. Natural window daylight, realistic unretouched pores, natural asymmetric facial anatomy, accurate age and face structure. Distinct individual, not the face of a real person or a celebrity. No beauty model template, no skin smoothing, no age reduction, no exaggerated lips, eyes or thin jaw, no makeup glamour. Vertical 1024x1536. One person, one photograph, no text, logos, props or collage.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "P-NEW-040",
+    "kind": "portraits",
+    "title": "Gabriel · 55岁 · 男性",
+    "name": "Gabriel",
+    "age": 55,
+    "ageBand": "45–59",
+    "presentation": "男性",
+    "skinTone": "中等肤色",
+    "hairLength": "短发",
+    "bodyDesign": "结实",
+    "market": "北美",
+    "faceShape": "方脸",
+    "facialHair": "络腮胡",
+    "description": "中棕肤色、宽下颌、较大鼻尖、棕色眼睛、松卷黑灰短发、自然灰黑全络腮胡、真实眼纹与唇纹，米白色棉V领上衣。",
+    "prompt": "Use case: photorealistic-natural. Asset type: ONE reusable identity portrait photograph of a wholly original fictional adult named Gabriel, exactly 55 years old, 男性 presentation. Character design: 中棕肤色、宽下颌、较大鼻尖、棕色眼睛、松卷黑灰短发、自然灰黑全络腮胡、真实眼纹与唇纹，米白色棉V领上衣。 Individual direction: 拉美裔北美背景，略朝左，轻微皱眉思考，普通结实体型。 Plain understated neutral background, no location or objects. Full head through upper chest, realistic ordinary body, head comfortably inside frame. Natural window daylight, realistic unretouched pores, natural asymmetric facial anatomy, accurate age and face structure. Distinct individual, not the face of a real person or a celebrity. No beauty model template, no skin smoothing, no age reduction, no exaggerated lips, eyes or thin jaw, no makeup glamour. Vertical 1024x1536. One person, one photograph, no text, logos, props or collage.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "C-NEW-017",
+    "kind": "costumes",
+    "title": "男款外出采买",
+    "cut": "男款",
+    "occasion": "外出采买",
+    "fit": "常规宽松",
+    "season": "春秋",
+    "stage": "成熟日常",
+    "ageBands": [
+      "30–44",
+      "45–59"
+    ],
+    "structure": "裤装搭配",
+    "description": "深靛蓝牛仔工装外套、暗酒红细条纹棉T恤、石色直筒斜纹裤、棕色皮革步行鞋。衣摆自然、手臂和腹部留舒适松量。",
+    "english": "indigo denim chore jacket burgundy striped tee stone straight chinos brown walking shoes",
+    "prompt": "Use case: product-mockup. Asset type: ONE reusable complete adult everyday outfit reference. Design exactly this individual outfit: 深靛蓝牛仔工装外套、暗酒红细条纹棉T恤、石色直筒斜纹裤、棕色皮革步行鞋。衣摆自然、手臂和腹部留舒适松量。 English clothing specification: indigo denim chore jacket burgundy striped tee stone straight chinos brown walking shoes. Intended cut 男款, fit 常规宽松, ordinary adult proportions. Use an invisible ghost mannequin display with all specified garments worn coherently as one outfit, empty neck opening, no visible mannequin, no head, skin or human body. Both shoes and full hems visible. Keep normal torso to leg ratio, broad comfortable waist when specified, physical real fabric folds and believable layering. Front or very slight three-quarter product display in vertical 1024x1536 on a plain pale studio background, soft natural shadows. Complete practical outfit occupies most of frame, not a fashion pose. No extra bags, tools, objects or garments, no labels, writing, brand logos, watermarks, multiple outfits or collage. Natural cotton, wool, leather and linen details according to specification. Do not default all outfits to the same jacket and dark skinny trousers.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "C-NEW-018",
+    "kind": "costumes",
+    "title": "女款衬衫与日常中裙",
+    "cut": "女款",
+    "occasion": "日常社交",
+    "fit": "常规宽松",
+    "season": "春秋",
+    "stage": "成熟日常",
+    "ageBands": [
+      "30–44",
+      "45–59",
+      "60+"
+    ],
+    "structure": "裙装搭配",
+    "description": "米白小翻领棉衬衫、墨绿细碎花过小腿A字棉裙、深棕低跟搭扣鞋。正常腰线，不收成极细腰，布料有生活褶皱。",
+    "english": "ivory cotton shirt forest green tiny floral calf length a line skirt brown buckle flats",
+    "prompt": "Use case: product-mockup. Asset type: ONE reusable complete adult everyday outfit reference. Design exactly this individual outfit: 米白小翻领棉衬衫、墨绿细碎花过小腿A字棉裙、深棕低跟搭扣鞋。正常腰线，不收成极细腰，布料有生活褶皱。 English clothing specification: ivory cotton shirt forest green tiny floral calf length a line skirt brown buckle flats. Intended cut 女款, fit 常规宽松, ordinary adult proportions. Use an invisible ghost mannequin display with all specified garments worn coherently as one outfit, empty neck opening, no visible mannequin, no head, skin or human body. Both shoes and full hems visible. Keep normal torso to leg ratio, broad comfortable waist when specified, physical real fabric folds and believable layering. Front or very slight three-quarter product display in vertical 1024x1536 on a plain pale studio background, soft natural shadows. Complete practical outfit occupies most of frame, not a fashion pose. No extra bags, tools, objects or garments, no labels, writing, brand logos, watermarks, multiple outfits or collage. Natural cotton, wool, leather and linen details according to specification. Do not default all outfits to the same jacket and dark skinny trousers.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "C-NEW-019",
+    "kind": "costumes",
+    "title": "男款暖季邻里散步",
+    "cut": "男款",
+    "occasion": "邻里散步",
+    "fit": "常规宽松",
+    "season": "夏季",
+    "stage": "银龄舒适",
+    "ageBands": [
+      "45–59",
+      "60+"
+    ],
+    "structure": "短裤搭配",
+    "description": "薄荷绿棉Polo衫、海军蓝及膝百慕大短裤、棕色带后跟支撑凉鞋。普通成年比例，柔软领口，腰腹舒适。",
+    "english": "mint cotton polo navy knee length bermuda shorts brown supportive sandals",
+    "prompt": "Use case: product-mockup. Asset type: ONE reusable complete adult everyday outfit reference. Design exactly this individual outfit: 薄荷绿棉Polo衫、海军蓝及膝百慕大短裤、棕色带后跟支撑凉鞋。普通成年比例，柔软领口，腰腹舒适。 English clothing specification: mint cotton polo navy knee length bermuda shorts brown supportive sandals. Intended cut 男款, fit 常规宽松, ordinary adult proportions. Use an invisible ghost mannequin display with all specified garments worn coherently as one outfit, empty neck opening, no visible mannequin, no head, skin or human body. Both shoes and full hems visible. Keep normal torso to leg ratio, broad comfortable waist when specified, physical real fabric folds and believable layering. Front or very slight three-quarter product display in vertical 1024x1536 on a plain pale studio background, soft natural shadows. Complete practical outfit occupies most of frame, not a fashion pose. No extra bags, tools, objects or garments, no labels, writing, brand logos, watermarks, multiple outfits or collage. Natural cotton, wool, leather and linen details according to specification. Do not default all outfits to the same jacket and dark skinny trousers.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "C-NEW-020",
+    "kind": "costumes",
+    "title": "中性轻量运动套装",
+    "cut": "中性",
+    "occasion": "运动活动",
+    "fit": "活动松量",
+    "season": "春秋",
+    "stage": "银龄舒适",
+    "ageBands": [
+      "45–59",
+      "60+"
+    ],
+    "structure": "裤装搭配",
+    "description": "深蓝前拉链运动夹克、暗梅色普通圆领内搭、暖灰直筒运动裤、白灰支撑运动鞋。前开襟便穿，裤脚不紧勒。",
+    "english": "navy zip track jacket muted plum tee warm gray straight track pants supportive trainers",
+    "prompt": "Use case: product-mockup. Asset type: ONE reusable complete adult everyday outfit reference. Design exactly this individual outfit: 深蓝前拉链运动夹克、暗梅色普通圆领内搭、暖灰直筒运动裤、白灰支撑运动鞋。前开襟便穿，裤脚不紧勒。 English clothing specification: navy zip track jacket muted plum tee warm gray straight track pants supportive trainers. Intended cut 中性, fit 活动松量, ordinary adult proportions. Use an invisible ghost mannequin display with all specified garments worn coherently as one outfit, empty neck opening, no visible mannequin, no head, skin or human body. Both shoes and full hems visible. Keep normal torso to leg ratio, broad comfortable waist when specified, physical real fabric folds and believable layering. Front or very slight three-quarter product display in vertical 1024x1536 on a plain pale studio background, soft natural shadows. Complete practical outfit occupies most of frame, not a fashion pose. No extra bags, tools, objects or garments, no labels, writing, brand logos, watermarks, multiple outfits or collage. Natural cotton, wool, leather and linen details according to specification. Do not default all outfits to the same jacket and dark skinny trousers.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "C-NEW-021",
+    "kind": "costumes",
+    "title": "男款羊毛短大衣通勤",
+    "cut": "男款",
+    "occasion": "通勤商务",
+    "fit": "常规宽松",
+    "season": "冬季",
+    "stage": "成熟日常",
+    "ageBands": [
+      "30–44",
+      "45–59"
+    ],
+    "structure": "裤装搭配",
+    "description": "炭灰双排扣短羊毛大衣、赭黄色细羊毛圆领衫、棕色直筒灯芯绒长裤、黑棕平底短靴。普通肩线和可叠穿松量。",
+    "english": "charcoal wool pea coat ochre merino crewneck brown straight corduroys flat ankle boots",
+    "prompt": "Use case: product-mockup. Asset type: ONE reusable complete adult everyday outfit reference. Design exactly this individual outfit: 炭灰双排扣短羊毛大衣、赭黄色细羊毛圆领衫、棕色直筒灯芯绒长裤、黑棕平底短靴。普通肩线和可叠穿松量。 English clothing specification: charcoal wool pea coat ochre merino crewneck brown straight corduroys flat ankle boots. Intended cut 男款, fit 常规宽松, ordinary adult proportions. Use an invisible ghost mannequin display with all specified garments worn coherently as one outfit, empty neck opening, no visible mannequin, no head, skin or human body. Both shoes and full hems visible. Keep normal torso to leg ratio, broad comfortable waist when specified, physical real fabric folds and believable layering. Front or very slight three-quarter product display in vertical 1024x1536 on a plain pale studio background, soft natural shadows. Complete practical outfit occupies most of frame, not a fashion pose. No extra bags, tools, objects or garments, no labels, writing, brand logos, watermarks, multiple outfits or collage. Natural cotton, wool, leather and linen details according to specification. Do not default all outfits to the same jacket and dark skinny trousers.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "C-NEW-022",
+    "kind": "costumes",
+    "title": "女款银龄雨天出行",
+    "cut": "女款",
+    "occasion": "轻便出行",
+    "fit": "弹力便穿",
+    "season": "春秋",
+    "stage": "银龄舒适",
+    "ageBands": [
+      "60+"
+    ],
+    "structure": "裤装搭配",
+    "description": "灰褐色中长轻雨衣、丁香紫棉针织内搭、灰色弹力腰全长裤、深蓝支撑步行运动鞋。前开襟、可调袖口，宽松成熟轮廓。",
+    "english": "taupe light raincoat lilac cotton knit gray elastic waist full trousers navy walking trainers",
+    "prompt": "Use case: product-mockup. Asset type: ONE reusable complete adult everyday outfit reference. Design exactly this individual outfit: 灰褐色中长轻雨衣、丁香紫棉针织内搭、灰色弹力腰全长裤、深蓝支撑步行运动鞋。前开襟、可调袖口，宽松成熟轮廓。 English clothing specification: taupe light raincoat lilac cotton knit gray elastic waist full trousers navy walking trainers. Intended cut 女款, fit 弹力便穿, ordinary adult proportions. Use an invisible ghost mannequin display with all specified garments worn coherently as one outfit, empty neck opening, no visible mannequin, no head, skin or human body. Both shoes and full hems visible. Keep normal torso to leg ratio, broad comfortable waist when specified, physical real fabric folds and believable layering. Front or very slight three-quarter product display in vertical 1024x1536 on a plain pale studio background, soft natural shadows. Complete practical outfit occupies most of frame, not a fashion pose. No extra bags, tools, objects or garments, no labels, writing, brand logos, watermarks, multiple outfits or collage. Natural cotton, wool, leather and linen details according to specification. Do not default all outfits to the same jacket and dark skinny trousers.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "C-NEW-023",
+    "kind": "costumes",
+    "title": "男款抓绒背心日常",
+    "cut": "男款",
+    "occasion": "邻里散步",
+    "fit": "常规宽松",
+    "season": "春秋",
+    "stage": "银龄舒适",
+    "ageBands": [
+      "45–59",
+      "60+"
+    ],
+    "structure": "背心叠穿",
+    "description": "森林绿前拉链抓绒背心、灰蓝棉格衬衫、自然褪色直筒牛仔裤、棕色魔术贴舒适鞋。实用口袋，正常腰腹松量。",
+    "english": "forest fleece vest blue gray plaid shirt faded straight jeans brown hook loop comfort shoes",
+    "prompt": "Use case: product-mockup. Asset type: ONE reusable complete adult everyday outfit reference. Design exactly this individual outfit: 森林绿前拉链抓绒背心、灰蓝棉格衬衫、自然褪色直筒牛仔裤、棕色魔术贴舒适鞋。实用口袋，正常腰腹松量。 English clothing specification: forest fleece vest blue gray plaid shirt faded straight jeans brown hook loop comfort shoes. Intended cut 男款, fit 常规宽松, ordinary adult proportions. Use an invisible ghost mannequin display with all specified garments worn coherently as one outfit, empty neck opening, no visible mannequin, no head, skin or human body. Both shoes and full hems visible. Keep normal torso to leg ratio, broad comfortable waist when specified, physical real fabric folds and believable layering. Front or very slight three-quarter product display in vertical 1024x1536 on a plain pale studio background, soft natural shadows. Complete practical outfit occupies most of frame, not a fashion pose. No extra bags, tools, objects or garments, no labels, writing, brand logos, watermarks, multiple outfits or collage. Natural cotton, wool, leather and linen details according to specification. Do not default all outfits to the same jacket and dark skinny trousers.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "C-NEW-024",
+    "kind": "costumes",
+    "title": "女款夏季亚麻便装",
+    "cut": "女款",
+    "occasion": "外出采买",
+    "fit": "常规宽松",
+    "season": "夏季",
+    "stage": "成熟日常",
+    "ageBands": [
+      "30–44",
+      "45–59",
+      "60+"
+    ],
+    "structure": "裤装搭配",
+    "description": "赤陶色宽松亚麻衬衣、米白全长直筒亚麻裤、浅棕平底编织凉鞋。自然腰线，透气织纹和明显亚麻褶皱。",
+    "english": "terracotta linen shirt ivory straight full linen trousers tan woven flat sandals",
+    "prompt": "Use case: product-mockup. Asset type: ONE reusable complete adult everyday outfit reference. Design exactly this individual outfit: 赤陶色宽松亚麻衬衣、米白全长直筒亚麻裤、浅棕平底编织凉鞋。自然腰线，透气织纹和明显亚麻褶皱。 English clothing specification: terracotta linen shirt ivory straight full linen trousers tan woven flat sandals. Intended cut 女款, fit 常规宽松, ordinary adult proportions. Use an invisible ghost mannequin display with all specified garments worn coherently as one outfit, empty neck opening, no visible mannequin, no head, skin or human body. Both shoes and full hems visible. Keep normal torso to leg ratio, broad comfortable waist when specified, physical real fabric folds and believable layering. Front or very slight three-quarter product display in vertical 1024x1536 on a plain pale studio background, soft natural shadows. Complete practical outfit occupies most of frame, not a fashion pose. No extra bags, tools, objects or garments, no labels, writing, brand logos, watermarks, multiple outfits or collage. Natural cotton, wool, leather and linen details according to specification. Do not default all outfits to the same jacket and dark skinny trousers.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "C-NEW-025",
+    "kind": "costumes",
+    "title": "男款维修工作连体裤",
+    "cut": "男款",
+    "occasion": "职业工作",
+    "fit": "活动松量",
+    "season": "四季",
+    "stage": "通用成年",
+    "ageBands": [
+      "18–29",
+      "30–44",
+      "45–59"
+    ],
+    "structure": "背带裤搭配",
+    "description": "海军蓝耐磨棉背带工作裤、铁锈色厚棉短袖T恤、深灰系带工作靴。宽肩带、工具袋为空，裤膝自然磨损，结实体型松量。",
+    "english": "navy cotton bib overalls rust heavy cotton tee charcoal lace work boots empty pockets",
+    "prompt": "Use case: product-mockup. Asset type: ONE reusable complete adult everyday outfit reference. Design exactly this individual outfit: 海军蓝耐磨棉背带工作裤、铁锈色厚棉短袖T恤、深灰系带工作靴。宽肩带、工具袋为空，裤膝自然磨损，结实体型松量。 English clothing specification: navy cotton bib overalls rust heavy cotton tee charcoal lace work boots empty pockets. Intended cut 男款, fit 活动松量, ordinary adult proportions. Use an invisible ghost mannequin display with all specified garments worn coherently as one outfit, empty neck opening, no visible mannequin, no head, skin or human body. Both shoes and full hems visible. Keep normal torso to leg ratio, broad comfortable waist when specified, physical real fabric folds and believable layering. Front or very slight three-quarter product display in vertical 1024x1536 on a plain pale studio background, soft natural shadows. Complete practical outfit occupies most of frame, not a fashion pose. No extra bags, tools, objects or garments, no labels, writing, brand logos, watermarks, multiple outfits or collage. Natural cotton, wool, leather and linen details according to specification. Do not default all outfits to the same jacket and dark skinny trousers.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "C-NEW-026",
+    "kind": "costumes",
+    "title": "中性柔棉居家",
+    "cut": "中性",
+    "occasion": "居家生活",
+    "fit": "常规宽松",
+    "season": "四季",
+    "stage": "通用成年",
+    "ageBands": [
+      "30–44",
+      "45–59",
+      "60+"
+    ],
+    "structure": "裤装搭配",
+    "description": "燕麦色穿旧柔棉圆领卫衣、苔绿柔软梭织家居长裤、深棕软底家居鞋。袖口有轻微自然磨损，腰腹舒展。",
+    "english": "worn oatmeal cotton sweatshirt moss soft woven lounge pants brown soft house clogs",
+    "prompt": "Use case: product-mockup. Asset type: ONE reusable complete adult everyday outfit reference. Design exactly this individual outfit: 燕麦色穿旧柔棉圆领卫衣、苔绿柔软梭织家居长裤、深棕软底家居鞋。袖口有轻微自然磨损，腰腹舒展。 English clothing specification: worn oatmeal cotton sweatshirt moss soft woven lounge pants brown soft house clogs. Intended cut 中性, fit 常规宽松, ordinary adult proportions. Use an invisible ghost mannequin display with all specified garments worn coherently as one outfit, empty neck opening, no visible mannequin, no head, skin or human body. Both shoes and full hems visible. Keep normal torso to leg ratio, broad comfortable waist when specified, physical real fabric folds and believable layering. Front or very slight three-quarter product display in vertical 1024x1536 on a plain pale studio background, soft natural shadows. Complete practical outfit occupies most of frame, not a fashion pose. No extra bags, tools, objects or garments, no labels, writing, brand logos, watermarks, multiple outfits or collage. Natural cotton, wool, leather and linen details according to specification. Do not default all outfits to the same jacket and dark skinny trousers.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "C-NEW-027",
+    "kind": "costumes",
+    "title": "男款轻社交衬衫",
+    "cut": "男款",
+    "occasion": "日常社交",
+    "fit": "常规宽松",
+    "season": "春秋",
+    "stage": "成熟日常",
+    "ageBands": [
+      "45–59",
+      "60+"
+    ],
+    "structure": "裤装搭配",
+    "description": "淡紫牛津纺长袖衬衫、炭灰单褶直筒西裤、棕色平底乐福鞋。衣领正常、可活动的胸腹松量，不配西装领带。",
+    "english": "lavender oxford shirt charcoal single pleat straight trousers brown flat loafers",
+    "prompt": "Use case: product-mockup. Asset type: ONE reusable complete adult everyday outfit reference. Design exactly this individual outfit: 淡紫牛津纺长袖衬衫、炭灰单褶直筒西裤、棕色平底乐福鞋。衣领正常、可活动的胸腹松量，不配西装领带。 English clothing specification: lavender oxford shirt charcoal single pleat straight trousers brown flat loafers. Intended cut 男款, fit 常规宽松, ordinary adult proportions. Use an invisible ghost mannequin display with all specified garments worn coherently as one outfit, empty neck opening, no visible mannequin, no head, skin or human body. Both shoes and full hems visible. Keep normal torso to leg ratio, broad comfortable waist when specified, physical real fabric folds and believable layering. Front or very slight three-quarter product display in vertical 1024x1536 on a plain pale studio background, soft natural shadows. Complete practical outfit occupies most of frame, not a fashion pose. No extra bags, tools, objects or garments, no labels, writing, brand logos, watermarks, multiple outfits or collage. Natural cotton, wool, leather and linen details according to specification. Do not default all outfits to the same jacket and dark skinny trousers.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "C-NEW-028",
+    "kind": "costumes",
+    "title": "女款日常园艺工装",
+    "cut": "女款",
+    "occasion": "园艺劳作",
+    "fit": "活动松量",
+    "season": "春秋",
+    "stage": "银龄舒适",
+    "ageBands": [
+      "45–59",
+      "60+"
+    ],
+    "structure": "背带裤搭配",
+    "description": "橄榄绿棉背带工作裤、锈红奶白细格长袖衬衫、棕色防水踝靴。肩带可调、正常腿长、口袋为空、不摆放园艺工具。",
+    "english": "olive cotton bib overalls rust cream gingham shirt brown waterproof ankle boots",
+    "prompt": "Use case: product-mockup. Asset type: ONE reusable complete adult everyday outfit reference. Design exactly this individual outfit: 橄榄绿棉背带工作裤、锈红奶白细格长袖衬衫、棕色防水踝靴。肩带可调、正常腿长、口袋为空、不摆放园艺工具。 English clothing specification: olive cotton bib overalls rust cream gingham shirt brown waterproof ankle boots. Intended cut 女款, fit 活动松量, ordinary adult proportions. Use an invisible ghost mannequin display with all specified garments worn coherently as one outfit, empty neck opening, no visible mannequin, no head, skin or human body. Both shoes and full hems visible. Keep normal torso to leg ratio, broad comfortable waist when specified, physical real fabric folds and believable layering. Front or very slight three-quarter product display in vertical 1024x1536 on a plain pale studio background, soft natural shadows. Complete practical outfit occupies most of frame, not a fashion pose. No extra bags, tools, objects or garments, no labels, writing, brand logos, watermarks, multiple outfits or collage. Natural cotton, wool, leather and linen details according to specification. Do not default all outfits to the same jacket and dark skinny trousers.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "C-NEW-029",
+    "kind": "costumes",
+    "title": "男款宽腹休闲皮衣",
+    "cut": "男款",
+    "occasion": "日常社交",
+    "fit": "丰盈舒适",
+    "season": "春秋",
+    "stage": "成熟日常",
+    "ageBands": [
+      "30–44",
+      "45–59"
+    ],
+    "structure": "裤装搭配",
+    "description": "黑棕色普通皮夹克、浅蓝亨利领棉衫、橄榄绿宽腹直筒斜纹裤、灰白帆布鞋。大码真实胸腹，不收腰，不做机车造型配饰。",
+    "english": "dark brown leather jacket light blue henley olive roomy straight chinos gray canvas shoes plus size",
+    "prompt": "Use case: product-mockup. Asset type: ONE reusable complete adult everyday outfit reference. Design exactly this individual outfit: 黑棕色普通皮夹克、浅蓝亨利领棉衫、橄榄绿宽腹直筒斜纹裤、灰白帆布鞋。大码真实胸腹，不收腰，不做机车造型配饰。 English clothing specification: dark brown leather jacket light blue henley olive roomy straight chinos gray canvas shoes plus size. Intended cut 男款, fit 丰盈舒适, ordinary adult proportions. Use an invisible ghost mannequin display with all specified garments worn coherently as one outfit, empty neck opening, no visible mannequin, no head, skin or human body. Both shoes and full hems visible. Keep normal torso to leg ratio, broad comfortable waist when specified, physical real fabric folds and believable layering. Front or very slight three-quarter product display in vertical 1024x1536 on a plain pale studio background, soft natural shadows. Complete practical outfit occupies most of frame, not a fashion pose. No extra bags, tools, objects or garments, no labels, writing, brand logos, watermarks, multiple outfits or collage. Natural cotton, wool, leather and linen details according to specification. Do not default all outfits to the same jacket and dark skinny trousers.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "C-NEW-030",
+    "kind": "costumes",
+    "title": "女款大码衬衣叠穿",
+    "cut": "女款",
+    "occasion": "外出采买",
+    "fit": "丰盈舒适",
+    "season": "春秋",
+    "stage": "成熟日常",
+    "ageBands": [
+      "30–44",
+      "45–59",
+      "60+"
+    ],
+    "structure": "衬衫叠穿",
+    "description": "莓红宽松棉T恤、浅灰长款棉衬衣外套、靛蓝直筒牛仔裤、灰色平底运动鞋。丰盈身材的实际胸腰臀松量，不塑成沙漏。",
+    "english": "berry cotton tee light gray long overshirt indigo straight jeans gray trainers plus size",
+    "prompt": "Use case: product-mockup. Asset type: ONE reusable complete adult everyday outfit reference. Design exactly this individual outfit: 莓红宽松棉T恤、浅灰长款棉衬衣外套、靛蓝直筒牛仔裤、灰色平底运动鞋。丰盈身材的实际胸腰臀松量，不塑成沙漏。 English clothing specification: berry cotton tee light gray long overshirt indigo straight jeans gray trainers plus size. Intended cut 女款, fit 丰盈舒适, ordinary adult proportions. Use an invisible ghost mannequin display with all specified garments worn coherently as one outfit, empty neck opening, no visible mannequin, no head, skin or human body. Both shoes and full hems visible. Keep normal torso to leg ratio, broad comfortable waist when specified, physical real fabric folds and believable layering. Front or very slight three-quarter product display in vertical 1024x1536 on a plain pale studio background, soft natural shadows. Complete practical outfit occupies most of frame, not a fashion pose. No extra bags, tools, objects or garments, no labels, writing, brand logos, watermarks, multiple outfits or collage. Natural cotton, wool, leather and linen details according to specification. Do not default all outfits to the same jacket and dark skinny trousers.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "C-NEW-031",
+    "kind": "costumes",
+    "title": "男款前开襟保暖",
+    "cut": "男款",
+    "occasion": "居家生活",
+    "fit": "弹力便穿",
+    "season": "冬季",
+    "stage": "银龄舒适",
+    "ageBands": [
+      "60+"
+    ],
+    "structure": "开衫叠穿",
+    "description": "砖红色大纽扣羊毛开衫、米白软领棉Polo衫、灰色宽松法兰绒长裤、黑色魔术贴平底鞋。门襟便操作，手腕与腰腹不紧束。",
+    "english": "brick red large button cardigan ivory soft collar polo gray flannel roomy trousers black hook loop flats",
+    "prompt": "Use case: product-mockup. Asset type: ONE reusable complete adult everyday outfit reference. Design exactly this individual outfit: 砖红色大纽扣羊毛开衫、米白软领棉Polo衫、灰色宽松法兰绒长裤、黑色魔术贴平底鞋。门襟便操作，手腕与腰腹不紧束。 English clothing specification: brick red large button cardigan ivory soft collar polo gray flannel roomy trousers black hook loop flats. Intended cut 男款, fit 弹力便穿, ordinary adult proportions. Use an invisible ghost mannequin display with all specified garments worn coherently as one outfit, empty neck opening, no visible mannequin, no head, skin or human body. Both shoes and full hems visible. Keep normal torso to leg ratio, broad comfortable waist when specified, physical real fabric folds and believable layering. Front or very slight three-quarter product display in vertical 1024x1536 on a plain pale studio background, soft natural shadows. Complete practical outfit occupies most of frame, not a fashion pose. No extra bags, tools, objects or garments, no labels, writing, brand logos, watermarks, multiple outfits or collage. Natural cotton, wool, leather and linen details according to specification. Do not default all outfits to the same jacket and dark skinny trousers.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "C-NEW-032",
+    "kind": "costumes",
+    "title": "女款舒适针织长裙",
+    "cut": "女款",
+    "occasion": "邻里散步",
+    "fit": "弹力便穿",
+    "season": "春秋",
+    "stage": "银龄舒适",
+    "ageBands": [
+      "60+"
+    ],
+    "structure": "裙装搭配",
+    "description": "深青色柔软前开襟针织外套、米白圆领棉内搭、炭灰弹力腰过踝直筒裙、深棕支撑平底鞋。中老年自然腰线，裙摆留步幅。",
+    "english": "deep teal front knit cardigan ivory cotton top charcoal elastic waist ankle skirt supportive flats",
+    "prompt": "Use case: product-mockup. Asset type: ONE reusable complete adult everyday outfit reference. Design exactly this individual outfit: 深青色柔软前开襟针织外套、米白圆领棉内搭、炭灰弹力腰过踝直筒裙、深棕支撑平底鞋。中老年自然腰线，裙摆留步幅。 English clothing specification: deep teal front knit cardigan ivory cotton top charcoal elastic waist ankle skirt supportive flats. Intended cut 女款, fit 弹力便穿, ordinary adult proportions. Use an invisible ghost mannequin display with all specified garments worn coherently as one outfit, empty neck opening, no visible mannequin, no head, skin or human body. Both shoes and full hems visible. Keep normal torso to leg ratio, broad comfortable waist when specified, physical real fabric folds and believable layering. Front or very slight three-quarter product display in vertical 1024x1536 on a plain pale studio background, soft natural shadows. Complete practical outfit occupies most of frame, not a fashion pose. No extra bags, tools, objects or garments, no labels, writing, brand logos, watermarks, multiple outfits or collage. Natural cotton, wool, leather and linen details according to specification. Do not default all outfits to the same jacket and dark skinny trousers.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "C-NEW-033",
+    "kind": "costumes",
+    "title": "中性轻旅行层次",
+    "cut": "中性",
+    "occasion": "轻便出行",
+    "fit": "活动松量",
+    "season": "春秋",
+    "stage": "成熟日常",
+    "ageBands": [
+      "30–44",
+      "45–59",
+      "60+"
+    ],
+    "structure": "裤装搭配",
+    "description": "灰蓝轻便口袋外套、低饱和珊瑚色圆领衫、灰色直筒工装长裤、棕灰支撑步行鞋。口袋为空，衣着正常活动松量。",
+    "english": "dusty blue field jacket muted coral crewneck gray straight cargo trousers walking shoes",
+    "prompt": "Use case: product-mockup. Asset type: ONE reusable complete adult everyday outfit reference. Design exactly this individual outfit: 灰蓝轻便口袋外套、低饱和珊瑚色圆领衫、灰色直筒工装长裤、棕灰支撑步行鞋。口袋为空，衣着正常活动松量。 English clothing specification: dusty blue field jacket muted coral crewneck gray straight cargo trousers walking shoes. Intended cut 中性, fit 活动松量, ordinary adult proportions. Use an invisible ghost mannequin display with all specified garments worn coherently as one outfit, empty neck opening, no visible mannequin, no head, skin or human body. Both shoes and full hems visible. Keep normal torso to leg ratio, broad comfortable waist when specified, physical real fabric folds and believable layering. Front or very slight three-quarter product display in vertical 1024x1536 on a plain pale studio background, soft natural shadows. Complete practical outfit occupies most of frame, not a fashion pose. No extra bags, tools, objects or garments, no labels, writing, brand logos, watermarks, multiple outfits or collage. Natural cotton, wool, leather and linen details according to specification. Do not default all outfits to the same jacket and dark skinny trousers.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "C-NEW-034",
+    "kind": "costumes",
+    "title": "男款夏季针织短装",
+    "cut": "男款",
+    "occasion": "度假休闲",
+    "fit": "常规宽松",
+    "season": "夏季",
+    "stage": "通用成年",
+    "ageBands": [
+      "18–29",
+      "30–44"
+    ],
+    "structure": "短裤搭配",
+    "description": "米白短袖棉针织Polo衫、橄榄绿及膝斜纹短裤、棕褐平底帆布便鞋。没有夸张肌肉剪裁，面料轻薄但不透明。",
+    "english": "ivory cotton knit short sleeve polo olive knee length chino shorts tan flat espadrilles",
+    "prompt": "Use case: product-mockup. Asset type: ONE reusable complete adult everyday outfit reference. Design exactly this individual outfit: 米白短袖棉针织Polo衫、橄榄绿及膝斜纹短裤、棕褐平底帆布便鞋。没有夸张肌肉剪裁，面料轻薄但不透明。 English clothing specification: ivory cotton knit short sleeve polo olive knee length chino shorts tan flat espadrilles. Intended cut 男款, fit 常规宽松, ordinary adult proportions. Use an invisible ghost mannequin display with all specified garments worn coherently as one outfit, empty neck opening, no visible mannequin, no head, skin or human body. Both shoes and full hems visible. Keep normal torso to leg ratio, broad comfortable waist when specified, physical real fabric folds and believable layering. Front or very slight three-quarter product display in vertical 1024x1536 on a plain pale studio background, soft natural shadows. Complete practical outfit occupies most of frame, not a fashion pose. No extra bags, tools, objects or garments, no labels, writing, brand logos, watermarks, multiple outfits or collage. Natural cotton, wool, leather and linen details according to specification. Do not default all outfits to the same jacket and dark skinny trousers.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "C-NEW-035",
+    "kind": "costumes",
+    "title": "女款棉质背心裙日常",
+    "cut": "女款",
+    "occasion": "日常社交",
+    "fit": "常规宽松",
+    "season": "春秋",
+    "stage": "成熟日常",
+    "ageBands": [
+      "30–44",
+      "45–59",
+      "60+"
+    ],
+    "structure": "背心裙搭配",
+    "description": "白色柔棉衬衫、深靛蓝细格过小腿背心裙、藏青薄棉打底袜、棕色低跟搭扣鞋。成人正常比例，裙身宽松，不做学生制服。",
+    "english": "white cotton shirt dark indigo checked calf length pinafore navy tights brown buckle flats adult",
+    "prompt": "Use case: product-mockup. Asset type: ONE reusable complete adult everyday outfit reference. Design exactly this individual outfit: 白色柔棉衬衫、深靛蓝细格过小腿背心裙、藏青薄棉打底袜、棕色低跟搭扣鞋。成人正常比例，裙身宽松，不做学生制服。 English clothing specification: white cotton shirt dark indigo checked calf length pinafore navy tights brown buckle flats adult. Intended cut 女款, fit 常规宽松, ordinary adult proportions. Use an invisible ghost mannequin display with all specified garments worn coherently as one outfit, empty neck opening, no visible mannequin, no head, skin or human body. Both shoes and full hems visible. Keep normal torso to leg ratio, broad comfortable waist when specified, physical real fabric folds and believable layering. Front or very slight three-quarter product display in vertical 1024x1536 on a plain pale studio background, soft natural shadows. Complete practical outfit occupies most of frame, not a fashion pose. No extra bags, tools, objects or garments, no labels, writing, brand logos, watermarks, multiple outfits or collage. Natural cotton, wool, leather and linen details according to specification. Do not default all outfits to the same jacket and dark skinny trousers.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "C-NEW-036",
+    "kind": "costumes",
+    "title": "男款雨季实用叠穿",
+    "cut": "男款",
+    "occasion": "户外活动",
+    "fit": "活动松量",
+    "season": "春秋",
+    "stage": "成熟日常",
+    "ageBands": [
+      "30–44",
+      "45–59"
+    ],
+    "structure": "外套叠穿",
+    "description": "铁锈色防水连帽外壳、炭灰普通连帽卫衣、深蓝直筒工作牛仔裤、黑色平底短雨靴。成熟日常版型，不加旅行道具。",
+    "english": "rust waterproof hood shell charcoal hoodie dark blue straight work jeans black ankle rain boots",
+    "prompt": "Use case: product-mockup. Asset type: ONE reusable complete adult everyday outfit reference. Design exactly this individual outfit: 铁锈色防水连帽外壳、炭灰普通连帽卫衣、深蓝直筒工作牛仔裤、黑色平底短雨靴。成熟日常版型，不加旅行道具。 English clothing specification: rust waterproof hood shell charcoal hoodie dark blue straight work jeans black ankle rain boots. Intended cut 男款, fit 活动松量, ordinary adult proportions. Use an invisible ghost mannequin display with all specified garments worn coherently as one outfit, empty neck opening, no visible mannequin, no head, skin or human body. Both shoes and full hems visible. Keep normal torso to leg ratio, broad comfortable waist when specified, physical real fabric folds and believable layering. Front or very slight three-quarter product display in vertical 1024x1536 on a plain pale studio background, soft natural shadows. Complete practical outfit occupies most of frame, not a fashion pose. No extra bags, tools, objects or garments, no labels, writing, brand logos, watermarks, multiple outfits or collage. Natural cotton, wool, leather and linen details according to specification. Do not default all outfits to the same jacket and dark skinny trousers.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "C-NEW-037",
+    "kind": "costumes",
+    "title": "男款熟龄灯芯绒社交",
+    "cut": "男款",
+    "occasion": "日常社交",
+    "fit": "常规宽松",
+    "season": "秋季",
+    "stage": "银龄舒适",
+    "ageBands": [
+      "45–59",
+      "60+"
+    ],
+    "structure": "裤装搭配",
+    "description": "灰褐色灯芯绒休闲西装、暗梅紫圆领针织衫、橄榄色单褶羊毛长裤、深棕德比鞋。宽松正常肩线，织物轻微穿用纹理。",
+    "english": "taupe corduroy blazer dark plum crewneck olive pleated wool trousers brown derby shoes",
+    "prompt": "Use case: product-mockup. Asset type: ONE reusable complete adult everyday outfit reference. Design exactly this individual outfit: 灰褐色灯芯绒休闲西装、暗梅紫圆领针织衫、橄榄色单褶羊毛长裤、深棕德比鞋。宽松正常肩线，织物轻微穿用纹理。 English clothing specification: taupe corduroy blazer dark plum crewneck olive pleated wool trousers brown derby shoes. Intended cut 男款, fit 常规宽松, ordinary adult proportions. Use an invisible ghost mannequin display with all specified garments worn coherently as one outfit, empty neck opening, no visible mannequin, no head, skin or human body. Both shoes and full hems visible. Keep normal torso to leg ratio, broad comfortable waist when specified, physical real fabric folds and believable layering. Front or very slight three-quarter product display in vertical 1024x1536 on a plain pale studio background, soft natural shadows. Complete practical outfit occupies most of frame, not a fashion pose. No extra bags, tools, objects or garments, no labels, writing, brand logos, watermarks, multiple outfits or collage. Natural cotton, wool, leather and linen details according to specification. Do not default all outfits to the same jacket and dark skinny trousers.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "C-NEW-038",
+    "kind": "costumes",
+    "title": "女款冬日羊毛长外套",
+    "cut": "女款",
+    "occasion": "轻便出行",
+    "fit": "常规宽松",
+    "season": "冬季",
+    "stage": "银龄舒适",
+    "ageBands": [
+      "45–59",
+      "60+"
+    ],
+    "structure": "外套叠穿",
+    "description": "驼色及膝羊毛大衣、酒红素面围巾、浅灰棉羊毛开衫、黑色全长阔腿羊毛裤、棕色平底保暖踝靴。普通成熟轮廓与保暖松量。",
+    "english": "camel knee length wool coat burgundy scarf gray cardigan black wide full wool trousers brown flat boots",
+    "prompt": "Use case: product-mockup. Asset type: ONE reusable complete adult everyday outfit reference. Design exactly this individual outfit: 驼色及膝羊毛大衣、酒红素面围巾、浅灰棉羊毛开衫、黑色全长阔腿羊毛裤、棕色平底保暖踝靴。普通成熟轮廓与保暖松量。 English clothing specification: camel knee length wool coat burgundy scarf gray cardigan black wide full wool trousers brown flat boots. Intended cut 女款, fit 常规宽松, ordinary adult proportions. Use an invisible ghost mannequin display with all specified garments worn coherently as one outfit, empty neck opening, no visible mannequin, no head, skin or human body. Both shoes and full hems visible. Keep normal torso to leg ratio, broad comfortable waist when specified, physical real fabric folds and believable layering. Front or very slight three-quarter product display in vertical 1024x1536 on a plain pale studio background, soft natural shadows. Complete practical outfit occupies most of frame, not a fashion pose. No extra bags, tools, objects or garments, no labels, writing, brand logos, watermarks, multiple outfits or collage. Natural cotton, wool, leather and linen details according to specification. Do not default all outfits to the same jacket and dark skinny trousers.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "C-NEW-039",
+    "kind": "costumes",
+    "title": "中性护理工作便装",
+    "cut": "中性",
+    "occasion": "职业工作",
+    "fit": "活动松量",
+    "season": "四季",
+    "stage": "通用成年",
+    "ageBands": [
+      "18–29",
+      "30–44",
+      "45–59"
+    ],
+    "structure": "工作套装",
+    "description": "浅蓝色短袖V领护理上衣、海军蓝直筒医护工作裤、白灰色支撑运动鞋。实用宽松剪裁，没有姓名牌、医疗标识和器械。",
+    "english": "light blue v neck scrub top navy straight scrub trousers white gray supportive trainers no insignia",
+    "prompt": "Use case: product-mockup. Asset type: ONE reusable complete adult everyday outfit reference. Design exactly this individual outfit: 浅蓝色短袖V领护理上衣、海军蓝直筒医护工作裤、白灰色支撑运动鞋。实用宽松剪裁，没有姓名牌、医疗标识和器械。 English clothing specification: light blue v neck scrub top navy straight scrub trousers white gray supportive trainers no insignia. Intended cut 中性, fit 活动松量, ordinary adult proportions. Use an invisible ghost mannequin display with all specified garments worn coherently as one outfit, empty neck opening, no visible mannequin, no head, skin or human body. Both shoes and full hems visible. Keep normal torso to leg ratio, broad comfortable waist when specified, physical real fabric folds and believable layering. Front or very slight three-quarter product display in vertical 1024x1536 on a plain pale studio background, soft natural shadows. Complete practical outfit occupies most of frame, not a fashion pose. No extra bags, tools, objects or garments, no labels, writing, brand logos, watermarks, multiple outfits or collage. Natural cotton, wool, leather and linen details according to specification. Do not default all outfits to the same jacket and dark skinny trousers.",
+    "batch": "everyday-diversity-2026-11"
+  },
+  {
+    "id": "C-NEW-040",
+    "kind": "costumes",
+    "title": "男款周末条纹休闲",
+    "cut": "男款",
+    "occasion": "邻里散步",
+    "fit": "常规宽松",
+    "season": "夏季",
+    "stage": "成熟日常",
+    "ageBands": [
+      "30–44",
+      "45–59",
+      "60+"
+    ],
+    "structure": "短裤搭配",
+    "description": "森林绿与奶白宽条纹厚棉橄榄球领衫、褪色靛蓝及膝牛仔短裤、灰色普通短袜、米白平底帆布鞋。普通腹部松量，不做年轻潮牌造型。",
+    "english": "forest cream striped rugby shirt faded indigo knee denim shorts gray socks ivory canvas shoes",
+    "prompt": "Use case: product-mockup. Asset type: ONE reusable complete adult everyday outfit reference. Design exactly this individual outfit: 森林绿与奶白宽条纹厚棉橄榄球领衫、褪色靛蓝及膝牛仔短裤、灰色普通短袜、米白平底帆布鞋。普通腹部松量，不做年轻潮牌造型。 English clothing specification: forest cream striped rugby shirt faded indigo knee denim shorts gray socks ivory canvas shoes. Intended cut 男款, fit 常规宽松, ordinary adult proportions. Use an invisible ghost mannequin display with all specified garments worn coherently as one outfit, empty neck opening, no visible mannequin, no head, skin or human body. Both shoes and full hems visible. Keep normal torso to leg ratio, broad comfortable waist when specified, physical real fabric folds and believable layering. Front or very slight three-quarter product display in vertical 1024x1536 on a plain pale studio background, soft natural shadows. Complete practical outfit occupies most of frame, not a fashion pose. No extra bags, tools, objects or garments, no labels, writing, brand logos, watermarks, multiple outfits or collage. Natural cotton, wool, leather and linen details according to specification. Do not default all outfits to the same jacket and dark skinny trousers.",
+    "batch": "everyday-diversity-2026-11"
   }
 ]

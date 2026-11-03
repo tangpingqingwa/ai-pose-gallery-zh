@@ -88,7 +88,7 @@ export const posesQuery = queryOptions({
 })
 
 export const costumesQuery = queryOptions({
-  queryKey: ['gallery', 'costumes'],
+  queryKey: ['gallery', 'costumes', 'everyday-diversity-v3'],
   staleTime: Infinity,
   queryFn: async () => {
     const res = await fetch('/data/costume-zh.json')
@@ -98,7 +98,7 @@ export const costumesQuery = queryOptions({
 })
 
 export const portraitsQuery = queryOptions({
-  queryKey: ['gallery', 'portraits'],
+  queryKey: ['gallery', 'portraits', 'everyday-diversity-v3'],
   staleTime: Infinity,
   queryFn: async () => {
     const res = await fetch('/data/portrait-zh.json')

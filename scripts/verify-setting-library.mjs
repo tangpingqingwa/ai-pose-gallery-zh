@@ -7,11 +7,28 @@ import { buildCodexTask, validateCharacter } from '../src/lib/characters.ts'
 import { migrateWhiteReferences, randomWhiteReferences, whiteModels } from '../src/lib/whiteModels.ts'
 import { asLibraryReference, supplementalReferencePrompt } from '../src/lib/library.ts'
 import { recipeBackup } from '../src/lib/recipeImages.ts'
+import { matchesVoiceFacets, voiceRecordFacets } from '../src/lib/voiceCatalog.ts'
 
 const root = path.resolve(import.meta.dirname, '..')
 const read = (name) => JSON.parse(fs.readFileSync(path.join(root, 'data', name + '.json'), 'utf8'))
 const records = read('setting-records')
 records.forEach(validateSettingRecord)
+const languageRecords = records.filter((record) => record.category === 'language')
+assert.equal(languageRecords.length, 40)
+assert.equal(languageRecords.filter((record) => record.values.language === '西班牙语').length, 12)
+assert.equal(languageRecords.filter((record) => record.values.language === '英语').length, 13)
+for (const record of languageRecords) {
+  assert.equal(Intl.getCanonicalLocales(record.values.locale)[0], record.values.locale)
+  assert.ok(voiceRecordFacets(record).country.includes(record.values.locale))
+  const chosen = chooseSetting({}, record)
+  const randomized = randomSettingBindings(records, chosen, 'voice', () => 0.5)
+  assert.equal(randomized.language.record.id, record.id)
+  for (const binding of Object.values(randomized)) if (binding.record.localePrefixes?.length) assert.ok(binding.record.localePrefixes.some((prefix) => record.values.locale === prefix || record.values.locale.startsWith(prefix + '-')), 'Random voice companions must fit the chosen language')
+}
+const mexicanDirections = languageRecords.filter((record) => matchesVoiceFacets(record, { language: '西班牙语', region: '拉丁美洲', country: '墨西哥 · es-MX' }))
+assert.equal(mexicanDirections.length, 2, 'City accents sharing one locale must remain separate selectable records')
+assert.ok(!matchesVoiceFacets(records.find((record) => record.category === 'timbre'), { language: '英语', region: '', country: '' }))
+assert.equal(new Set(languageRecords.map((record) => record.values.sampleText)).size, languageRecords.length, 'Accent directions need individual reading examples')
 assert.equal(new Set(records.map((record) => record.id)).size, records.length)
 for (const category of Object.keys(SETTING_CATEGORIES)) assert.ok(records.some((record) => record.category === category), `Empty setting category: ${category}`)
 const occupation = records.find((record) => record.category === 'occupation')

@@ -12,20 +12,27 @@ export function portraitClassification(item: PortraitItem): PortraitClassificati
   if (item.catalog) {
     const body = item.catalog.bodyDesign
     const bodyDesign = /娇小/.test(body) ? '娇小' : /丰盈|丰满/.test(body) ? '丰盈' : /壮|结实|运动/.test(body) ? '结实' : /修长/.test(body) ? '修长' : /常规|匀称/.test(body) ? '常规' : body
-    return { ...item.catalog, bodyDesign }
+    const description = item.catalog.appearance
+    const faceShape = item.catalog.faceShape ?? (/窄长脸|细长脸/.test(description) ? '长脸' : /方下颌|棱角下颌/.test(description) ? '方脸' : /宽脸/.test(description) ? '宽脸' : /圆脸/.test(description) ? '圆脸' : '未标注')
+    const facialHair = item.catalog.facialHair ?? (/短胡须|盐灰胡须|胡须修短/.test(description) ? '短胡须' : /胡茬/.test(description) ? '短胡茬' : '未标注')
+    return { ...item.catalog, bodyDesign, faceShape, facialHair }
   }
-  return { collection: 'original', ageBand: '未标注', presentation: '未标注', skinTone: '未标注', bodyDesign: '未标注', market: '未标注', appearance: item.发型名称, annotation: 'source_metadata' }
+  return { collection: 'original', ageBand: '未标注', presentation: '未标注', skinTone: '未标注', bodyDesign: '未标注', market: '未标注', appearance: item.发型名称, faceShape: '未标注', facialHair: '未标注', annotation: 'source_metadata' }
 }
 
 export function portraitHairFamily(item: PortraitItem) {
   const name = item.catalog?.appearance ?? item.发型名称
   if (name === '标准基础款') return '未细分'
+  if (/秃发|剃光|寸头/.test(name)) return '寸头/剃光'
+  if (/稀疏|后移/.test(name)) return '稀疏/发际后移'
   if (/波波头/.test(name)) return '波波头'
   if (/狼尾/.test(name)) return '狼尾/层次'
   if (/盘发|丸子|发髻/.test(name)) return '盘发/发髻'
   if (/马尾|编发|辫/.test(name)) return '扎发/编发'
   if (/卷|波浪/.test(name)) return '卷发/波浪'
   if (/直发|一刀切/.test(name)) return '直发'
+  if (/精灵/.test(name)) return '精灵短发'
+  if (/短发/.test(name)) return '自然短发'
   return '未细分'
 }
 
@@ -41,6 +48,20 @@ export function costumeClassification(item: CostumeItem): CostumeClassification 
   const occasion = item.分类 === '派对・礼服' ? '正式场合' : item.分类 === '泳装・度假' ? '度假休闲' : item.分类 === '内衣・睡衣' ? '内衣睡衣' : item.分类 === '性感穿搭' ? '主题造型' : '季节时尚'
   const season = ({ '春季穿搭': '春季', '夏季穿搭': '夏季', '秋季穿搭': '秋季', '冬季穿搭': '冬季' } as Record<string, string>)[item.分类] ?? '未标注季节'
   return { collection: 'original', cut: '未标注', occasion, fit: '未标注', season, stage: '未标注', structure, annotation: 'source_metadata' }
+}
+
+export function costumesForIdentity(items: CostumeItem[], presentation: string, age?: number): CostumeItem[] {
+  const cut = presentation === '男性' ? '男款' : presentation === '女性' ? '女款' : presentation === '中性形象' ? '中性' : ''
+  if (!cut) return items
+  const compatible = items.filter((item) => {
+    const candidate = costumeClassification(item)
+    return candidate.cut === cut || candidate.cut === '中性'
+  })
+  if (!compatible.length) return items
+  if (age === undefined) return compatible
+  const target = ageBand(age)
+  const byAge = compatible.filter((item) => !item.catalog?.ageBands?.length || item.catalog.ageBands.includes(target))
+  return byAge.length ? byAge : compatible
 }
 
 export function asLibraryReference(item: VisualReferenceItem, instruction = item.instruction): ExtraReferenceImage {

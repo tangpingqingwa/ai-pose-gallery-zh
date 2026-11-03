@@ -2,7 +2,8 @@ import assert from 'node:assert/strict'
 import fs from 'node:fs'
 import path from 'node:path'
 import crypto from 'node:crypto'
-import { asLibraryReference, costumeClassification, portraitClassification, portraitHairFamily, portraitFringe, REFERENCE_LIBRARIES, supplementalReferencePrompt, withLibraryReference } from '../src/lib/library.ts'
+import { asLibraryReference, costumeClassification, costumesForIdentity, portraitClassification, portraitHairFamily, portraitFringe, REFERENCE_LIBRARIES, supplementalReferencePrompt, withLibraryReference } from '../src/lib/library.ts'
+import { interleaveCatalog, matchesPortraitAge, randomCatalogItem } from '../src/lib/catalog.ts'
 import { whiteModels } from '../src/lib/whiteModels.ts'
 import { buildCodexTask } from '../src/lib/characters.ts'
 import { recipeBackup } from '../src/lib/recipeImages.ts'
@@ -34,7 +35,27 @@ for (const asset of assets) {
   assert.ok(preview.length < 200000, 'Browsing preview should be lightweight')
   pngBytes += bytes.length; previewBytes += preview.length
 }
-assert.ok(catalog.portraits.length >= 16 && catalog.costumes.length >= 16)
+assert.ok(catalog.portraits.length >= 40 && catalog.costumes.length >= 40)
+for (const kind of ['portraits', 'costumes']) assert.deepEqual(new Set(catalog[kind].map((item) => item.id)), new Set(specs.filter((item) => item.kind === kind).map((item) => item.id)), 'Every generated item must be indexed, including future batches')
+const batch = specs.filter((spec) => spec.batch === 'everyday-diversity-2026-11')
+const batchPortraits = batch.filter((spec) => spec.kind === 'portraits')
+assert.equal(batchPortraits.length, 24)
+assert.equal(batchPortraits.filter((spec) => spec.presentation === '男性').length, 16)
+assert.equal(batchPortraits.filter((spec) => spec.age >= 45).length, 18)
+assert.equal(batchPortraits.filter((spec) => spec.age >= 60).length, 10)
+assert.equal(batch.filter((spec) => spec.kind === 'costumes').length, 24)
+assert.ok(catalog.portraits.slice(0, 12).some((item) => item.catalog.age >= 60 && item.catalog.presentation === '男性'))
+assert.ok(catalog.portraits.slice(0, 12).some((item) => item.catalog.age >= 60 && item.catalog.presentation === '女性'))
+assert.ok(catalog.costumes.every((item) => item.catalog.ageBands?.length))
+const seniorMenswear = costumesForIdentity(catalog.costumes, '男性', 68)
+assert.ok(seniorMenswear.length > 5)
+assert.ok(seniorMenswear.every((item) => ['男款', '中性'].includes(item.catalog.cut) && item.catalog.ageBands.includes('60+')))
+assert.equal(costumesForIdentity(oldCostumes, '男性', 68).length, oldCostumes.length, 'Unannotated or user-provided pools remain usable as a fallback')
+assert.equal(matchesPortraitAge(undefined, '未标注', '45岁及以上'), false)
+assert.equal(matchesPortraitAge(66, '60+', '45岁及以上'), true)
+const repeated = [...Array.from({ length: 1000 }, (_, index) => ({ id: 'legacy-' + index, group: 'legacy' })), { id: 'diverse', group: 'diverse' }]
+assert.equal(randomCatalogItem(repeated, (item) => item.group, () => 0.75).id, 'diverse', 'Category size must not drown out underrepresented categories')
+assert.deepEqual(new Set(interleaveCatalog(repeated, (item) => item.group).map((item) => item.id)), new Set(repeated.map((item) => item.id)))
 for (const age of ['18–29', '30–44', '45–59', '60+']) assert.ok(catalog.portraits.some((item) => item.catalog.ageBand === age))
 for (const presentation of ['男性', '女性', '中性形象']) assert.ok(catalog.portraits.some((item) => item.catalog.presentation === presentation))
 for (const cut of ['男款', '女款', '中性']) assert.ok(catalog.costumes.some((item) => item.catalog.cut === cut))

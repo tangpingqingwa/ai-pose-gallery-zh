@@ -10,7 +10,7 @@ import { Input } from '@/components/ui/input'
 import { LibrarySelect } from '@/components/library/LibraryControls'
 import { LibraryImageCard } from '@/components/library/LibraryImageCard'
 import { LibraryImageDialog } from '@/components/library/LibraryImageDialog'
-import { matchesCatalog } from '@/lib/catalog'
+import { matchesCatalog, matchesPortraitAge } from '@/lib/catalog'
 import { portraitFor } from '@/lib/characters'
 import { portraitClassification, portraitFringe, portraitHairFamily } from '@/lib/library'
 import { referenceImageUrl } from '@/lib/recipeImages'
@@ -20,7 +20,7 @@ import type { PortraitItem } from '@/types/gallery'
 
 export const Route = createFileRoute('/portraits')({ staticData: { title: '人像参考库' }, loader: ({ context }) => context.queryClient.ensureQueryData(portraitsQuery), component: PortraitsPage })
 
-const emptyFilters = () => ({ age: '', presentation: '', skin: '', body: '', market: '', hair: '', family: '', fringe: '', section: '', query: '' })
+const emptyFilters = () => ({ age: '', presentation: '', skin: '', body: '', market: '', hair: '', family: '', fringe: '', face: '', beard: '', section: '', query: '' })
 const capture = (item: PortraitItem) => item.catalog ? '人物身份' : /氛围/.test(item.分区) ? '造型氛围' : '发型正脸'
 
 function PortraitsPage() {
@@ -39,7 +39,7 @@ function PortraitsPage() {
   const rankIds = new Set(ranking.排行榜Top10[(filters.hair || '综合') as keyof typeof ranking.排行榜Top10] ?? [])
   const filtered = scoped.filter((item) => {
     const c = portraitClassification(item)
-    return (!filters.age || c.ageBand === filters.age) && (!filters.presentation || c.presentation === filters.presentation) && (!filters.skin || c.skinTone === filters.skin) && (!filters.body || c.bodyDesign === filters.body) && (!filters.market || c.market.includes(filters.market)) && (!filters.hair || item.发长 === filters.hair) && (!filters.family || portraitHairFamily(item) === filters.family) && (!filters.fringe || portraitFringe(item) === filters.fringe) && (!filters.section || capture(item) === filters.section) && (!onlyRanked || rankIds.has(item.id)) && matchesCatalog([item.检索, c.appearance, c.ageBand, c.presentation, c.market, c.bodyDesign].join(' '), filters.query)
+    return matchesPortraitAge(c.age, c.ageBand, filters.age) && (!filters.presentation || c.presentation === filters.presentation) && (!filters.skin || c.skinTone === filters.skin) && (!filters.body || c.bodyDesign === filters.body) && (!filters.market || c.market.includes(filters.market)) && (!filters.hair || item.发长 === filters.hair) && (!filters.family || portraitHairFamily(item) === filters.family) && (!filters.fringe || portraitFringe(item) === filters.fringe) && (!filters.face || c.faceShape === filters.face) && (!filters.beard || c.facialHair === filters.beard) && (!filters.section || capture(item) === filters.section) && (!onlyRanked || rankIds.has(item.id)) && matchesCatalog([item.检索, c.appearance, c.ageBand, c.presentation, c.market, c.bodyDesign, c.faceShape, c.facialHair].join(' '), filters.query)
   })
   function patch(key: keyof ReturnType<typeof emptyFilters>, value: string) { setFilters({ ...filters, [key]: value }); setShown(24); setViewer(null) }
   function select(item: PortraitItem) {
@@ -53,8 +53,9 @@ function PortraitsPage() {
     <PageHeader title="人像参考库" description="按年龄、形象、体型与发型寻找人物身份，再关联穿搭、状态和个性记录。" actions={<Button size="sm" asChild><Link to="/studio">前往人物创作</Link></Button>} />
     <div className="space-y-4 rounded-xl bg-muted/50 p-4">
       <div className="flex flex-wrap gap-3"><Input aria-label="搜索人像" placeholder="人物、年龄、外貌、发型或编号，可用空格组合关键词" className="min-w-48 flex-1" value={filters.query} onChange={(event) => patch('query', event.target.value)} /><Button variant="ghost" onClick={() => { setFilters(emptyFilters()); setOnlyRanked(false); setShown(24) }}>重置筛选</Button></div>
+      <div className="flex flex-wrap gap-2" aria-label="常用人像筛选">{[['presentation', '男性', '男性'], ['age', '45岁及以上', '45岁及以上'], ['age', '60+', '60岁及以上']].map(([key, value, label]) => <Button key={label} size="sm" variant={filters[key as 'age' | 'presentation'] === value ? 'secondary' : 'outline'} aria-pressed={filters[key as 'age' | 'presentation'] === value} onClick={() => { setOnlyRanked(false); patch(key as 'age' | 'presentation', filters[key as 'age' | 'presentation'] === value ? '' : value) }}>{label}</Button>)}</div>
       <div className="grid grid-cols-2 gap-3 lg:grid-cols-5">
-        <LibrarySelect label="年龄设定" value={filters.age} values={['18–29', '30–44', '45–59', '60+', '未标注']} onChange={(value) => patch('age', value)} />
+        <LibrarySelect label="年龄设定" value={filters.age} values={['18–29', '30–44', '45–59', '60+', '45岁及以上', '未标注']} onChange={(value) => patch('age', value)} />
         <LibrarySelect label="性别形象" value={filters.presentation} values={scoped.map((item) => portraitClassification(item).presentation)} onChange={(value) => patch('presentation', value)} />
         <LibrarySelect label="肤色设定" value={filters.skin} values={scoped.map((item) => portraitClassification(item).skinTone)} onChange={(value) => patch('skin', value)} />
         <LibrarySelect label="体型设定" value={filters.body} values={scoped.map((item) => portraitClassification(item).bodyDesign)} onChange={(value) => patch('body', value)} />
@@ -64,6 +65,8 @@ function PortraitsPage() {
         <LibrarySelect label="发长" value={filters.hair} values={['短发', '中发', '中长发', '长发']} onChange={(value) => patch('hair', value)} />
         <LibrarySelect label="发型家族" value={filters.family} values={scoped.map(portraitHairFamily)} onChange={(value) => patch('family', value)} />
         <LibrarySelect label="刘海" value={filters.fringe} values={scoped.map(portraitFringe)} onChange={(value) => patch('fringe', value)} />
+        <LibrarySelect label="脸型设定" value={filters.face} values={scoped.map((item) => portraitClassification(item).faceShape ?? '未标注')} onChange={(value) => patch('face', value)} />
+        <LibrarySelect label="胡须设定" value={filters.beard} values={scoped.map((item) => portraitClassification(item).facialHair ?? '未标注')} onChange={(value) => patch('beard', value)} />
         <LibrarySelect label="拍摄类型" value={filters.section} values={['人物身份', '发型正脸', '造型氛围']} onChange={(value) => patch('section', value)} />
       </div></details>
       <Button size="sm" variant={onlyRanked ? 'secondary' : 'outline'} onClick={() => { setOnlyRanked(!onlyRanked); setShown(24) }}>{filters.hair || '综合'}发型 Top10</Button>
@@ -77,7 +80,7 @@ function PortraitsPage() {
     {!filtered.length && <div className="rounded-xl border p-10 text-center text-sm text-muted-foreground">没有匹配的人像，可调整或重置筛选。</div>}
     {shown < filtered.length && <Button variant="outline" className="mx-auto" onClick={() => setShown(shown + 24)}>再显示 24 张 · 剩余 {filtered.length - shown}</Button>}
     <LibraryImageDialog item={viewer ? { id: viewer.id, title: viewer.标题, url: referenceImageUrl(viewer.原图), description: '人物参考' } : null} onClose={() => setViewer(null)} onPrevious={() => move(-1)} onNext={() => move(1)}>
-      {viewer && <><p className="text-sm leading-7">{portraitClassification(viewer).appearance}</p><dl className="space-y-2 text-xs leading-6"><div>发长：{viewer.发长 || '见人物档案'}</div><div>拍摄类型：{capture(viewer)}</div>{viewer.source && <><div>年龄设定：{portraitClassification(viewer).age ?? '见人物档案'}</div><div>性别形象：{portraitClassification(viewer).presentation}</div><div>体型设定：{portraitClassification(viewer).bodyDesign}</div><div>创作定位：{portraitClassification(viewer).market}</div></>}</dl><Button onClick={() => select(viewer)}>{recipe.portrait?.id === viewer.id ? '从配方移除人像' : '加入人像参考'}</Button><Button variant="outline" asChild><Link to="/studio">继续搭配表情、妆发与细节</Link></Button></>}
+      {viewer && <><p className="text-sm leading-7">{portraitClassification(viewer).appearance}</p><dl className="space-y-2 text-xs leading-6"><div>发长：{viewer.发长 || '见人物档案'}</div><div>拍摄类型：{capture(viewer)}</div>{viewer.source && <><div>年龄设定：{portraitClassification(viewer).age ?? '见人物档案'}</div><div>性别形象：{portraitClassification(viewer).presentation}</div><div>体型设定：{portraitClassification(viewer).bodyDesign}</div><div>脸型设定：{portraitClassification(viewer).faceShape ?? '未标注'}</div><div>胡须设定：{portraitClassification(viewer).facialHair ?? '未标注'}</div><div>创作定位：{portraitClassification(viewer).market}</div></>}</dl><Button onClick={() => select(viewer)}>{recipe.portrait?.id === viewer.id ? '从配方移除人像' : '加入人像参考'}</Button><Button variant="outline" asChild><Link to="/studio">继续搭配穿搭与人物设定</Link></Button></>}
     </LibraryImageDialog>
   </>
 }

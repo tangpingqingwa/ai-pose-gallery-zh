@@ -2877,5 +2877,497 @@
     "values": {
       "avoid": "地区口音由所选语言记录决定，性格和沟通方式另选；不把某地区自动演成粗鲁、热情、幼态或过度戏剧化。"
     }
+  },
+  {
+    "id": "SET-language-065",
+    "category": "language",
+    "title": "普通话 · 轻度上海韵律",
+    "tags": [
+      "中文",
+      "zh-CN",
+      "普通话交流，轻微上海地区个人韵律"
+    ],
+    "values": {
+      "language": "中文",
+      "locale": "zh-CN",
+      "dialect": "普通话交流，轻微上海地区个人韵律",
+      "accent": "普通话交流，轻微上海地区个人韵律，发音实现以固定个人样本校准",
+      "accentStrength": "轻度、平常自然",
+      "pronunciation": "主要语言仍为普通话，只保留所选个人样本的上海地区韵律；不将本记录当成吴语上海话，不逐字改音，也不依靠固定口头禅表现地区。",
+      "sampleText": "这块布的颜色在日光下更清楚。我把两块放在一起，你再看看哪块合适。"
+    }
+  },
+  {
+    "id": "SET-language-066",
+    "category": "language",
+    "title": "普通话 · 轻度广东韵律",
+    "tags": [
+      "中文",
+      "zh-CN",
+      "普通话交流，轻微广东地区个人韵律"
+    ],
+    "values": {
+      "language": "中文",
+      "locale": "zh-CN",
+      "dialect": "普通话交流，轻微广东地区个人韵律",
+      "accent": "普通话交流，轻微广东地区个人韵律，发音实现以固定个人样本校准",
+      "accentStrength": "轻度、清楚克制",
+      "pronunciation": "以个人普通话样本固定轻微广东地区韵律，发音差异不机械套到每个音节；本记录不是粤语，语言切换须单独选择粤语记录。",
+      "sampleText": "窗台上那盆花今天先不用浇水。我刚摸过土，下面还是湿的。"
+    }
+  },
+  {
+    "id": "SET-language-067",
+    "category": "language",
+    "title": "普通话 · 轻度湖南韵律",
+    "tags": [
+      "中文",
+      "zh-CN",
+      "普通话交流，轻微湖南地区个人韵律"
+    ],
+    "values": {
+      "language": "中文",
+      "locale": "zh-CN",
+      "dialect": "普通话交流，轻微湖南地区个人韵律",
+      "accent": "普通话交流，轻微湖南地区个人韵律，发音实现以固定个人样本校准",
+      "accentStrength": "轻度、从容可辨",
+      "pronunciation": "使用固定个人普通话样本保留轻微湖南地区节奏，不把不同城市的特点拼在一起；本记录不是湘语方言，也不自动附加夸张性格。",
+      "sampleText": "我记得那张照片夹在旧书里。你先坐一会儿，我去找找是哪一本。"
+    }
+  },
+  {
+    "id": "SET-language-068",
+    "category": "language",
+    "title": "华语 · 马来西亚日常",
+    "tags": [
+      "中文",
+      "zh-MY",
+      "马来西亚城市华语个人方向"
+    ],
+    "values": {
+      "language": "中文",
+      "locale": "zh-MY",
+      "dialect": "马来西亚城市华语个人方向",
+      "accent": "马来西亚城市华语个人方向，发音实现以固定个人样本校准",
+      "accentStrength": "轻至中等、连贯清楚",
+      "pronunciation": "华语为本条主要语言，按所选马来西亚城市个人样本固定常用词读法与节奏；不混成新加坡方向，马来语或英语按多语记录另行选择。",
+      "sampleText": "这条路下午会比较晒，我们晚一点再走。我先把要带的东西收好。"
+    }
+  },
+  {
+    "id": "SET-language-069",
+    "category": "language",
+    "title": "粤语 · 澳门日常",
+    "tags": [
+      "粤语",
+      "yue-MO",
+      "澳门城市粤语个人方向"
+    ],
+    "values": {
+      "language": "粤语",
+      "locale": "yue-MO",
+      "dialect": "澳门城市粤语个人方向",
+      "accent": "澳门城市粤语个人方向，发音实现以固定个人样本校准",
+      "accentStrength": "轻至中等、自然会话",
+      "pronunciation": "以澳门固定个人会话样本校准词语、声调与句子节奏，和香港、广州方向独立保存；不用普通话逐字套读，不强加葡语夹词。",
+      "sampleText": "呢对鞋个鞋底仲好，不过鞋带有啲松。我换条新嘅就得，唔使成对换。"
+    }
+  },
+  {
+    "id": "SET-language-070",
+    "category": "language",
+    "title": "英语 · 菲律宾城市日常",
+    "tags": [
+      "英语",
+      "en-PH",
+      "菲律宾城市个人英语方向"
+    ],
+    "values": {
+      "language": "英语",
+      "locale": "en-PH",
+      "dialect": "菲律宾城市个人英语方向",
+      "accent": "菲律宾城市个人英语方向，发音实现以固定个人样本校准",
+      "accentStrength": "轻至中等、自然清楚",
+      "pronunciation": "使用选定菲律宾城市个人英语样本处理元音、词重音和停顿；与菲律宾语记录分开，保持个人音色，不用客服式礼貌或反复称呼替代口音。",
+      "sampleText": "I moved the little table away from the door. There is enough room now, but let me check that it stands evenly."
+    }
+  },
+  {
+    "id": "SET-language-071",
+    "category": "language",
+    "title": "菲律宾语 · 马尼拉日常",
+    "tags": [
+      "菲律宾语",
+      "fil-PH",
+      "马尼拉城市菲律宾语个人方向"
+    ],
+    "values": {
+      "language": "菲律宾语",
+      "locale": "fil-PH",
+      "dialect": "马尼拉城市菲律宾语个人方向",
+      "accent": "马尼拉城市菲律宾语个人方向，发音实现以固定个人样本校准",
+      "accentStrength": "轻度、清楚自然",
+      "pronunciation": "以固定个人菲律宾语样本处理重音、词组连接和停顿；本记录使用菲律宾语脚本，英语切换单独关联，不将所有句子都改为混合语。",
+      "sampleText": "Nasa mesa ang lumang litrato. Tingnan natin pagkatapos kumain, kapag mas maliwanag na."
+    }
+  },
+  {
+    "id": "SET-language-072",
+    "category": "language",
+    "title": "英语 · 印度城市日常",
+    "tags": [
+      "英语",
+      "en-IN",
+      "印度城市个人英语方向"
+    ],
+    "values": {
+      "language": "英语",
+      "locale": "en-IN",
+      "dialect": "印度城市个人英语方向",
+      "accent": "印度城市个人英语方向，发音实现以固定个人样本校准",
+      "accentStrength": "轻至中等、平常清楚",
+      "pronunciation": "选定一位印度城市说话人的个人英语样本，固定词重音和元音，不把印度各地区合成一种声音；主要语言为英语，与印地语等语言独立选择。",
+      "sampleText": "The latch needs one more turn. Hold the gate for a moment while I check whether it closes properly."
+    }
+  },
+  {
+    "id": "SET-language-073",
+    "category": "language",
+    "title": "英语 · 新加坡城市日常",
+    "tags": [
+      "英语",
+      "en-SG",
+      "新加坡城市个人英语方向"
+    ],
+    "values": {
+      "language": "英语",
+      "locale": "en-SG",
+      "dialect": "新加坡城市个人英语方向",
+      "accent": "新加坡城市个人英语方向，发音实现以固定个人样本校准",
+      "accentStrength": "轻至中等、自然连贯",
+      "pronunciation": "固定个人的新加坡英语日常样本及所选语体，正式程度随关系与任务确定；不自动每句加语气词，不把英语与华语记录混用。",
+      "sampleText": "We can take the smaller bag today. I have checked the list, and there are only a few things to carry back."
+    }
+  },
+  {
+    "id": "SET-language-074",
+    "category": "language",
+    "title": "英语 · 尼日利亚城市日常",
+    "tags": [
+      "英语",
+      "en-NG",
+      "尼日利亚城市个人英语方向"
+    ],
+    "values": {
+      "language": "英语",
+      "locale": "en-NG",
+      "dialect": "尼日利亚城市个人英语方向",
+      "accent": "尼日利亚城市个人英语方向，发音实现以固定个人样本校准",
+      "accentStrength": "轻至中等、清楚稳定",
+      "pronunciation": "使用所选尼日利亚城市个人英语样本，保持词重音、元音和个人语速稳定；本条不是尼日利亚皮钦语，不自动加俚语、唱腔或热情性格。",
+      "sampleText": "The seedlings look stronger this week. I will move them into separate pots when the soil is ready."
+    }
+  },
+  {
+    "id": "SET-language-075",
+    "category": "language",
+    "title": "西语 · 危地马拉城市日常",
+    "tags": [
+      "西班牙语",
+      "es-GT",
+      "危地马拉城市个人西语方向"
+    ],
+    "values": {
+      "language": "西班牙语",
+      "locale": "es-GT",
+      "dialect": "危地马拉城市个人西语方向",
+      "accent": "危地马拉城市个人西语方向，发音实现以固定个人样本校准",
+      "accentStrength": "轻至中等、平常自然",
+      "pronunciation": "固定危地马拉城市个人的发音与称呼习惯，二人称由脚本和人物关系决定；不用其他中美洲地区读法混拼，音色与语速单独控制。",
+      "sampleText": "Las semillas ya están secas. Voy a guardarlas en sobres pequeños y escribir la fecha para no confundirlas."
+    }
+  },
+  {
+    "id": "SET-language-076",
+    "category": "language",
+    "title": "西语 · 哥斯达黎加城市日常",
+    "tags": [
+      "西班牙语",
+      "es-CR",
+      "哥斯达黎加城市个人西语方向"
+    ],
+    "values": {
+      "language": "西班牙语",
+      "locale": "es-CR",
+      "dialect": "哥斯达黎加城市个人西语方向",
+      "accent": "哥斯达黎加城市个人西语方向，发音实现以固定个人样本校准",
+      "accentStrength": "轻至中等、清楚连贯",
+      "pronunciation": "以固定个人的哥斯达黎加会话样本处理发音和句末，称呼随关系使用；不把地方词塞进每句，也不把地区等同于固定性格或持续轻快语调。",
+      "sampleText": "La lluvia ha parado, pero el suelo sigue mojado. Esperemos un poco antes de sacar las sillas."
+    }
+  },
+  {
+    "id": "SET-language-077",
+    "category": "language",
+    "title": "西语 · 厄瓜多尔基多日常",
+    "tags": [
+      "西班牙语",
+      "es-EC",
+      "厄瓜多尔基多个人西语方向"
+    ],
+    "values": {
+      "language": "西班牙语",
+      "locale": "es-EC",
+      "dialect": "厄瓜多尔基多个人西语方向",
+      "accent": "厄瓜多尔基多个人西语方向，发音实现以固定个人样本校准",
+      "accentStrength": "轻度、从容清楚",
+      "pronunciation": "使用基多个人日常样本保持发音和词组节奏，不将沿海及其他地区特点同时混入；数字、地址与姓名清楚，句末按交流意思自然变化。",
+      "sampleText": "Encontré la libreta detrás de los libros. La próxima vez la dejaré junto a la puerta para recordarla."
+    }
+  },
+  {
+    "id": "SET-language-078",
+    "category": "language",
+    "title": "葡语 · 安哥拉城市日常",
+    "tags": [
+      "葡萄牙语",
+      "pt-AO",
+      "安哥拉城市个人葡语方向"
+    ],
+    "values": {
+      "language": "葡萄牙语",
+      "locale": "pt-AO",
+      "dialect": "安哥拉城市个人葡语方向",
+      "accent": "安哥拉城市个人葡语方向，发音实现以固定个人样本校准",
+      "accentStrength": "轻至中等、自然稳定",
+      "pronunciation": "以选定安哥拉城市个人葡语样本固定元音、节奏与常用词，不直接套用巴西或里斯本方向；个人声线和语言熟练度独立关联。",
+      "sampleText": "Guardei as sementes num lugar seco. Amanhã podemos escolher os vasos e preparar a terra com calma."
+    }
+  },
+  {
+    "id": "SET-language-079",
+    "category": "language",
+    "title": "挪威语 · 奥斯陆个人方向",
+    "tags": [
+      "挪威语",
+      "nb-NO",
+      "奥斯陆个人挪威语方向，博克莫尔书面脚本"
+    ],
+    "values": {
+      "language": "挪威语",
+      "locale": "nb-NO",
+      "dialect": "奥斯陆个人挪威语方向，博克莫尔书面脚本",
+      "accent": "奥斯陆个人挪威语方向，博克莫尔书面脚本，发音实现以固定个人样本校准",
+      "accentStrength": "轻度、自然连贯",
+      "pronunciation": "试读文本采用博克莫尔书面形式，具体口语发音由奥斯陆个人样本确定；不将书写标准当成全国唯一口音，也不随机混入其他地区的突出读法。",
+      "sampleText": "Jeg fant det gamle bildet i en bok. Vi kan se på det etter middag, når vi har litt bedre tid."
+    }
+  },
+  {
+    "id": "SET-language-080",
+    "category": "language",
+    "title": "丹麦语 · 哥本哈根日常",
+    "tags": [
+      "丹麦语",
+      "da-DK",
+      "哥本哈根城市个人丹麦语方向"
+    ],
+    "values": {
+      "language": "丹麦语",
+      "locale": "da-DK",
+      "dialect": "哥本哈根城市个人丹麦语方向",
+      "accent": "哥本哈根城市个人丹麦语方向，发音实现以固定个人样本校准",
+      "accentStrength": "轻至中等、清楚平常",
+      "pronunciation": "固定哥本哈根个人会话样本的元音、弱读和词组节奏；清楚表达姓名和地址时略慢，不把普通句子处理成每字重读或刻意含混。",
+      "sampleText": "Jeg har lagt nøglen ved siden af skålen. Husk at tage den med, når du går ud med affaldet."
+    }
+  },
+  {
+    "id": "SET-multilingual-015",
+    "category": "multilingual",
+    "title": "菲律宾语主导 · 英语按需要切换",
+    "tags": [
+      "菲律宾语主导 · 英语按需要切换"
+    ],
+    "values": {
+      "secondaryLanguages": "菲律宾语为主要语言，英语用于熟悉的日常沟通或对方不理解时；根据完整意思切换，保持同一声纹，不为每句话强行夹英语。"
+    },
+    "localePrefixes": [
+      "fil"
+    ]
+  },
+  {
+    "id": "SET-multilingual-016",
+    "category": "multilingual",
+    "title": "葡语主导 · 英语基本沟通",
+    "tags": [
+      "葡语主导 · 英语基本沟通"
+    ],
+    "values": {
+      "secondaryLanguages": "葡语为主要语言，英语能完成基本购物、问路与确认时间；超出熟练范围时会请求换个说法，不突然变成另一位流利播音者。"
+    },
+    "localePrefixes": [
+      "pt"
+    ]
+  },
+  {
+    "id": "SET-timbre-015",
+    "category": "timbre",
+    "title": "前向共鸣 · 清楚有颗粒",
+    "tags": [
+      "前向共鸣 · 清楚有颗粒"
+    ],
+    "values": {
+      "timbre": "声音共鸣略靠前，中频有细小自然颗粒，词尾仍有支撑；不把明亮感挤成尖嗓，不持续放大鼻音或高频。"
+    }
+  },
+  {
+    "id": "SET-timbre-016",
+    "category": "timbre",
+    "title": "圆润中频 · 少量自然鼻共鸣",
+    "tags": [
+      "圆润中频 · 少量自然鼻共鸣"
+    ],
+    "values": {
+      "timbre": "中频圆润，保留个人少量自然鼻共鸣和呼吸重量；短答与长句共鸣相同，不靠滤掉所有鼻共鸣来制造理想声线。"
+    }
+  },
+  {
+    "id": "SET-pitch-011",
+    "category": "pitch",
+    "title": "窄幅音区 · 重点仍可辨",
+    "tags": [
+      "窄幅音区 · 重点仍可辨"
+    ],
+    "values": {
+      "pitch": "日常舒适音区内变化较小，重要词通过短停和轻重形成差别；不是全程单音朗读，笑声和真正疑问仍允许自然变化。"
+    }
+  },
+  {
+    "id": "SET-pitch-012",
+    "category": "pitch",
+    "title": "中低音区 · 句首不压嗓",
+    "tags": [
+      "中低音区 · 句首不压嗓"
+    ],
+    "values": {
+      "pitch": "多数句子落在自然中低音区，起句直接而放松，不先压出低音再回弹；声音高低不按人物性别或年龄自动重设。"
+    }
+  },
+  {
+    "id": "SET-pace-011",
+    "category": "pace",
+    "title": "听完再答 · 句内连贯",
+    "tags": [
+      "听完再答 · 句内连贯"
+    ],
+    "values": {
+      "pace": "等对方讲完再短停回应，进入句子后词组连贯；不要把倾听感表现为每隔几个字犹豫，也不在结尾突然抢速。"
+    }
+  },
+  {
+    "id": "SET-pace-012",
+    "category": "pace",
+    "title": "熟悉内容轻快 · 新信息放慢",
+    "tags": [
+      "熟悉内容轻快 · 新信息放慢"
+    ],
+    "values": {
+      "pace": "熟悉的步骤和短回应略快，第一次出现的名称、时间与限制条件放慢；快慢跟随信息难度，不固定每句同一个节拍。"
+    }
+  },
+  {
+    "id": "SET-prosody-011",
+    "category": "prosody",
+    "title": "讲步骤 · 逐项收束",
+    "tags": [
+      "讲步骤 · 逐项收束"
+    ],
+    "values": {
+      "prosody": "说明步骤时每项重点清楚，项末自然收束，下一项再起；不用教学播音般处处重读，也不把所有项末都处理成相同上扬。"
+    }
+  },
+  {
+    "id": "SET-prosody-012",
+    "category": "prosody",
+    "title": "不同意见 · 平稳说完整",
+    "tags": [
+      "不同意见 · 平稳说完整"
+    ],
+    "values": {
+      "prosody": "表达不同意见时保持稳定响度和完整句子，在具体理由上加轻重；不自动尖嗓、冷笑、叹气或戏剧化降调。"
+    }
+  },
+  {
+    "id": "SET-speechHabits-012",
+    "category": "speechHabits",
+    "title": "葡语 · 偶尔请求一点时间",
+    "tags": [
+      "葡语 · 偶尔请求一点时间"
+    ],
+    "values": {
+      "speechHabits": "需要确认时偶尔用 só um momento，随后直接说明正在检查的具体事项；不在每次回应前机械重复。"
+    },
+    "localePrefixes": [
+      "pt"
+    ]
+  },
+  {
+    "id": "SET-speechHabits-013",
+    "category": "speechHabits",
+    "title": "菲律宾语 · 短句确认",
+    "tags": [
+      "菲律宾语 · 短句确认"
+    ],
+    "values": {
+      "speechHabits": "需要短暂停顿时偶尔使用 sandali lang，确认理解后继续具体内容；按交流对象保持礼貌程度，不将确认词变成每句口头禅。"
+    },
+    "localePrefixes": [
+      "fil"
+    ]
+  },
+  {
+    "id": "SET-pronunciation-008",
+    "category": "pronunciation",
+    "title": "缩写 · 读法先固定",
+    "tags": [
+      "缩写 · 读法先固定"
+    ],
+    "values": {
+      "pronunciation": "同一人物常用的缩写先选定读字母、读词或展开全称的方式，后续一致；遇到陌生缩写先确认，不在同段中反复更换读法。"
+    }
+  },
+  {
+    "id": "SET-pronunciation-009",
+    "category": "pronunciation",
+    "title": "数量与单位 · 关系清楚",
+    "tags": [
+      "数量与单位 · 关系清楚"
+    ],
+    "values": {
+      "pronunciation": "金额、尺寸、温度和数量把数值与单位作为一个意思说清楚，必要时在整组前后停顿；不省掉单位，也不每个数字都分得过碎。"
+    }
+  },
+  {
+    "id": "SET-avoid-008",
+    "category": "avoid",
+    "title": "不自动添加笑声与叹气",
+    "tags": [
+      "不自动添加笑声与叹气"
+    ],
+    "values": {
+      "avoid": "笑声、叹气与吸气声只在脚本或真实情绪需要时出现；不在每句末尾添加笑声，也不用持续叹气代替成熟或疲惫。"
+    }
+  },
+  {
+    "id": "SET-avoid-009",
+    "category": "avoid",
+    "title": "说话距离变化 · 声纹保持",
+    "tags": [
+      "说话距离变化 · 声纹保持"
+    ],
+    "values": {
+      "avoid": "近距离轻声和远距离招呼允许响度及气息变化，但共鸣基础与个人发音仍一致；不靠换一个嗓音表达镜头远近。"
+    }
   }
 ]

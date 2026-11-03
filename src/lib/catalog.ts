@@ -54,7 +54,7 @@ export function portraitRegionGroup(item: PortraitItem): string {
   return matchesPortraitRegion(item.catalog?.designRegion, '亚洲（全部）') ? '亚洲' : item.catalog?.market ?? '未标注'
 }
 
-/** Each round covers age/presentation cells, with a different region starting each cell. */
+/** Cover age/presentation cells while keeping less-shown compatible regions visible. */
 export function orderPortraitCatalog(items: PortraitItem[]): PortraitItem[] {
   const regions = [...new Set([...items].reverse().map((item) => item.catalog?.designRegion ?? item.catalog?.market ?? '未标注'))]
   const cells = new Map<string, Map<string, PortraitItem[]>>()
@@ -66,13 +66,27 @@ export function orderPortraitCatalog(items: PortraitItem[]): PortraitItem[] {
     cells.set(cell, groups)
   }
   const ordered: PortraitItem[] = []
+  const shown = new Map(regions.map((region) => [region, 0]))
   let round = 0
   while (ordered.length < items.length) {
     let cellIndex = 0
     for (const groups of cells.values()) {
+      let selectedRegion: string | undefined
+      let selectedPool: PortraitItem[] | undefined
+      let leastShown = Infinity
       for (let offset = 0; offset < regions.length; offset++) {
-        const pool = groups.get(regions[(round + cellIndex + offset) % regions.length])
-        if (pool?.length) { ordered.push(pool.shift()!); break }
+        const region = regions[(round + cellIndex + offset) % regions.length]
+        const pool = groups.get(region)
+        const count = shown.get(region) ?? 0
+        if (pool?.length && count < leastShown) {
+          selectedRegion = region
+          selectedPool = pool
+          leastShown = count
+        }
+      }
+      if (selectedPool && selectedRegion !== undefined) {
+        ordered.push(selectedPool.shift()!)
+        shown.set(selectedRegion, leastShown + 1)
       }
       cellIndex += 1
     }

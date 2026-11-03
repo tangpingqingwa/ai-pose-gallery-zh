@@ -14,9 +14,9 @@ const read = (name) => JSON.parse(fs.readFileSync(path.join(root, 'data', name +
 const records = read('setting-records')
 records.forEach(validateSettingRecord)
 const languageRecords = records.filter((record) => record.category === 'language')
-assert.equal(languageRecords.length, 64)
-assert.equal(languageRecords.filter((record) => record.values.language === '西班牙语').length, 13)
-assert.equal(languageRecords.filter((record) => record.values.language === '英语').length, 13)
+assert.equal(languageRecords.length, 80)
+assert.equal(languageRecords.filter((record) => record.values.language === '西班牙语').length, 16)
+assert.equal(languageRecords.filter((record) => record.values.language === '英语').length, 17)
 for (const record of languageRecords) {
   assert.equal(Intl.getCanonicalLocales(record.values.locale)[0], record.values.locale)
   assert.ok(voiceRecordFacets(record).country.includes(record.values.locale))

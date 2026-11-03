@@ -1,12 +1,12 @@
 import type { SettingRecord } from '@/types/settings'
 
 const regionalGroups: Record<string, string[]> = {
-  '欧洲': ['GB', 'IE', 'FR', 'BE', 'CH', 'DE', 'AT', 'PT', 'ES', 'IT', 'NL', 'PL', 'SE'],
+  '欧洲': ['GB', 'IE', 'FR', 'BE', 'CH', 'DE', 'AT', 'PT', 'ES', 'IT', 'NL', 'PL', 'SE', 'NO', 'DK'],
   '北美（美加）': ['US', 'CA'],
-  '拉丁美洲': ['MX', 'AR', 'CO', 'CL', 'PE', 'UY', 'CU', 'PR', 'VE', 'BR', 'DO'],
-  '亚太': ['CN', 'HK', 'TW', 'AU', 'NZ', 'JP', 'KR', 'SG', 'IN', 'BD', 'PK', 'ID', 'MY', 'TH', 'VN'],
+  '拉丁美洲': ['MX', 'AR', 'CO', 'CL', 'PE', 'UY', 'CU', 'PR', 'VE', 'BR', 'DO', 'GT', 'CR', 'EC'],
+  '亚太': ['CN', 'HK', 'MO', 'TW', 'AU', 'NZ', 'JP', 'KR', 'SG', 'IN', 'BD', 'PK', 'ID', 'MY', 'TH', 'VN', 'PH'],
   '西亚与中亚': ['TR', 'SA'],
-  '非洲': ['EG', 'KE', 'ZA'],
+  '非洲': ['EG', 'KE', 'ZA', 'NG', 'AO'],
 }
 const countryNames = new Intl.DisplayNames(['zh-CN'], { type: 'region' })
 

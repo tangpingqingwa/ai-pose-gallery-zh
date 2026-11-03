@@ -52,7 +52,7 @@ export function recipeBackup(recipe: RecipeState): RecipeState {
     portrait: recipe.portrait?.source === 'upload' ? null : recipe.portrait,
     costume: recipe.costume?.source === 'upload' ? null : recipe.costume,
     pose: recipe.pose?.source === 'upload' ? null : recipe.pose,
-    extraImages: [],
+    extraImages: (recipe.extraImages ?? []).filter((image) => !image.url.startsWith('data:')),
     workflowImages: {},
   }
 }

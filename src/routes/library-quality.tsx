@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import report from '../../data/catalog-audit.json'
+import expansion from '../../data/catalog-expansion.json'
 import { PageHeader } from '@/components/common/PageHeader'
 import { Button } from '@/components/ui/button'
 
@@ -9,13 +10,14 @@ function LibraryQualityPage() {
   const c = report.costumes
   const p = report.portraits
   return <>
-    <PageHeader title="参考库检查" description={`检查日期 ${report.date}。${report.scope}`} />
-    <div className="grid gap-5 md:grid-cols-2">
+    <PageHeader title="参考库检查" description={`原库检查日期 ${report.date}。以下原库统计与本批新增素材分别记录。`} />
+    <section className="rounded-xl border p-5"><h2 className="text-lg font-semibold">本批已补入的实际素材</h2><p className="mt-3 text-sm leading-7">{expansion.portraits.length} 张原创人像、{expansion.costumes.length} 套穿搭、{expansion.references.length} 组表情、妆发、体型细节与习惯仪态参考已入库。七类图片均可直接筛选、预览和加入合成，无需先建立角色档案。</p><p className="mt-2 text-sm leading-7 text-muted-foreground">新增人像按年龄、性别形象、肤色与体型分类；新增穿搭按版型、用途、松量、生活风格与季节分类。标签来自虚构人物和服装的创作设定。原库缺失的人口属性保留“未标注”，按已有的发型、拍摄分区、季节、主题和单品结构整理。</p><div className="mt-4 flex flex-wrap gap-2"><Button variant="outline" asChild><Link to="/portraits">新增人像与原库分类</Link></Button><Button variant="outline" asChild><Link to="/costumes">多样穿搭</Link></Button><Button asChild><Link to="/studio">七库素材合成</Link></Button></div></section>
+    <div className="grid gap-5 md:grid-cols-2" aria-label="原库检查结果">
       <section className="rounded-xl border p-5"><h2 className="text-lg font-semibold">服装：数量与描述区分度</h2><dl className="mt-4 grid grid-cols-2 gap-4 text-sm">{Object.entries({ '参考图片': c.total, '不同文字描述': c.distinctDescriptions, '相同描述分组': c.repeatedDescriptionGroups, '涉及记录': c.recordsInRepeatedGroups }).map(([label, count]) => <div key={label}><dt className="text-muted-foreground">{label}</dt><dd className="mt-1 text-2xl font-semibold tabular-nums">{count}</dd></div>)}</dl><p className="mt-5 text-sm leading-7">同一段描述最多对应 {c.duplicates[0].count} 套图。不能仅凭描述判断图片重复，现已提供分组查看，保留每一张参考图。</p><Button className="mt-4" variant="outline" asChild><Link to="/costumes">查看穿搭参考</Link></Button></section>
       <section className="rounded-xl border p-5"><h2 className="text-lg font-semibold">人像：发型索引多于身份档案</h2><dl className="mt-4 grid grid-cols-2 gap-4 text-sm">{Object.entries({ '参考图片': p.total, '不同标题': p.titles, '标准基础款': p.genericStyle, '氛围图缺少细分发型': p.genericAtmosphere }).map(([label, count]) => <div key={label}><dt className="text-muted-foreground">{label}</dt><dd className="mt-1 text-2xl font-semibold tabular-nums">{count}</dd></div>)}</dl><p className="mt-5 text-sm leading-7">原库只有 {p.featured} 张精选标记、{p.flaggedHot} 张热门标记，热门标记都在短发中。现改为按所选发长读取原库榜单；榜单为静态来源数据。</p><Button className="mt-4" variant="outline" asChild><Link to="/portraits">查看人像参考</Link></Button></section>
     </div>
     <div className="grid gap-6 border-t pt-6 md:grid-cols-2">{[['服装尚未记录的维度', c.missingDimensions], ['人像尚未记录的维度', p.missingDimensions]].map(([title, items]) => <section key={title as string}><h2 className="font-semibold">{title}</h2><ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-muted-foreground">{(items as string[]).map((item) => <li key={item}>{item}</li>)}</ul></section>)}</div>
-    <section className="rounded-xl bg-muted p-5"><h2 className="font-semibold">如何用于自己的 IP</h2><p className="mt-3 max-w-3xl text-sm leading-7">参考图负责服装与动作灵感。角色档案负责固定身份、身体细节、仪态、妆发、性格、经历以及语言与口音。选择本次人物状态后再组织提示词，背景保持简洁。</p><ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-muted-foreground">{report.interpretation.map((item) => <li key={item}>{item}</li>)}</ul><Button className="mt-4" asChild><Link to="/characters" search={{ id: undefined }}>打开自有角色库</Link></Button></section>
+    <section className="rounded-xl bg-muted p-5"><h2 className="font-semibold">如何用于自己的 IP</h2><p className="mt-3 max-w-3xl text-sm leading-7">人像固定身份，服装与动作控制穿搭和姿势，新增图片库补足表情、妆发、体型细节和仪态。每张参考有独立的使用目标，角色档案继续记录性格、经历、语言与口音。背景保持简洁。</p><ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-muted-foreground">{report.interpretation.map((item) => <li key={item}>{item}</li>)}</ul><Button className="mt-4" asChild><Link to="/characters" search={{ id: undefined }}>打开自有角色库</Link></Button></section>
     <details className="rounded-xl border p-4"><summary className="cursor-pointer text-sm font-medium">查看重复描述的实际编号（前 12 组）</summary><div className="mt-4 space-y-4">{c.duplicates.slice(0, 12).map((group) => <div key={group.prompt} className="text-xs leading-6"><p className="font-medium">{group.prompt} · {group.count} 套</p><p className="break-words font-mono text-muted-foreground">{group.ids.join(' · ')}</p></div>)}</div></details>
   </>
 }

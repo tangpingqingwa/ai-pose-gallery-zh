@@ -1,404 +1,87 @@
-import { useSuspenseQuery } from '@tanstack/react-query'
+import { useMemo, useState } from 'react'
 import { createFileRoute, Link } from '@tanstack/react-router'
-import {
-  CheckIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  CopyIcon,
-  DownloadIcon,
-  ExternalLinkIcon,
-  FlameIcon,
-  PlusIcon,
-  RotateCcwIcon,
-  SearchIcon,
-} from 'lucide-react'
-import { useEffect, useMemo, useState } from 'react'
-import { toast } from 'sonner'
+import { useSuspenseQuery } from '@tanstack/react-query'
 import { portraitsQuery } from '@/api/gallery'
-import { EmptyState } from '@/components/common/EmptyState'
-import { PageHeader } from '@/components/common/PageHeader'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
-import { Input } from '@/components/ui/input'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { Skeleton } from '@/components/ui/skeleton'
-import { cn } from '@/lib/utils'
-import { useStudio } from '@/store/studioStore'
-import { useCharacterLibrary } from '@/store/characterStore'
-import { portraitFor } from '@/lib/characters'
-import { referenceImageUrl } from '@/lib/recipeImages'
-import type { PortraitItem } from '@/types/gallery'
 import ranking from '../../data/portrait-meta-zh.json'
+import expansion from '../../data/catalog-expansion.json'
+import { PageHeader } from '@/components/common/PageHeader'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { LibrarySelect, LibraryTabs } from '@/components/library/LibraryControls'
+import { LibraryImageCard } from '@/components/library/LibraryImageCard'
+import { LibraryImageDialog } from '@/components/library/LibraryImageDialog'
 import { matchesCatalog } from '@/lib/catalog'
+import { portraitFor } from '@/lib/characters'
+import { portraitClassification, portraitFringe, portraitHairFamily } from '@/lib/library'
+import { referenceImageUrl } from '@/lib/recipeImages'
+import { useCharacterLibrary } from '@/store/characterStore'
+import { useStudio } from '@/store/studioStore'
+import type { PortraitItem } from '@/types/gallery'
 
-export const Route = createFileRoute('/portraits')({
-  staticData: { title: '人像参考库' },
-  loader: ({ context }) => context.queryClient.ensureQueryData(portraitsQuery),
-  pendingComponent: () => <Skeleton className="h-[540px] rounded-[22px]" />,
-  component: PortraitsPage,
-})
+export const Route = createFileRoute('/portraits')({ staticData: { title: '人像参考库' }, loader: ({ context }) => context.queryClient.ensureQueryData(portraitsQuery), component: PortraitsPage })
 
-const HAIRS = ['短发', '中发', '中长发', '长发'] as const
+const emptyFilters = () => ({ age: '', presentation: '', skin: '', body: '', market: '', hair: '', family: '', fringe: '', section: '', query: '' })
 
 function PortraitsPage() {
-  const { data: originalPortraits } = useSuspenseQuery(portraitsQuery)
+  const { data } = useSuspenseQuery(portraitsQuery)
   const { profiles } = useCharacterLibrary()
-  const portraits = useMemo(() => [...profiles.map(portraitFor).filter((portrait): portrait is PortraitItem => Boolean(portrait)), ...originalPortraits], [profiles, originalPortraits])
-  const { recipe, togglePortrait: toggleReferencePortrait, setCharacter, setPortrait } = useStudio()
-  function togglePortrait(item: PortraitItem) {
-    const profile = item.source === 'character' ? profiles.find((profile) => `character:${profile.id}` === item.id) : undefined
-    if (profile) {
-      if (recipe.character?.id === profile.id) setPortrait(null)
-      else setCharacter(profile)
-    } else toggleReferencePortrait(item)
+  const { recipe, togglePortrait, setCharacter, setPortrait } = useStudio()
+  const own = useMemo(() => profiles.map((profile) => portraitFor(profile, expansion.seedPreviews)).filter((item): item is PortraitItem => Boolean(item)), [profiles])
+  const added = data.filter((item) => item.source === 'catalog')
+  const original = data.filter((item) => item.source !== 'catalog')
+  const all = [...added, ...own, ...original]
+  const [scope, setScope] = useState('expanded')
+  const [filters, setFilters] = useState(emptyFilters)
+  const [onlyRanked, setOnlyRanked] = useState(false)
+  const [onlyFeatured, setOnlyFeatured] = useState(false)
+  const [shown, setShown] = useState(24)
+  const [viewer, setViewer] = useState<PortraitItem | null>(null)
+  const scoped = scope === 'expanded' ? [...added, ...own] : scope === 'original' ? original : scope === 'character' ? own : all
+  const rankIds = new Set(ranking.排行榜Top10[(filters.hair || '综合') as keyof typeof ranking.排行榜Top10] ?? [])
+  const filtered = scoped.filter((item) => {
+    const c = portraitClassification(item)
+    return (!filters.age || c.ageBand === filters.age) && (!filters.presentation || c.presentation === filters.presentation) && (!filters.skin || c.skinTone === filters.skin) && (!filters.body || c.bodyDesign === filters.body) && (!filters.market || c.market.includes(filters.market)) && (!filters.hair || item.发长 === filters.hair) && (!filters.family || portraitHairFamily(item) === filters.family) && (!filters.fringe || portraitFringe(item) === filters.fringe) && (!filters.section || item.分区 === filters.section) && (!onlyRanked || rankIds.has(item.id)) && (!onlyFeatured || item.精选) && matchesCatalog([item.检索, c.appearance, c.ageBand, c.presentation, c.market, c.bodyDesign].join(' '), filters.query)
+  })
+  function patch(key: keyof ReturnType<typeof emptyFilters>, value: string) { setFilters({ ...filters, [key]: value }); setShown(24); setViewer(null) }
+  function changeScope(value: string) { setScope(value); setFilters(emptyFilters()); setOnlyRanked(false); setOnlyFeatured(false); setShown(24); setViewer(null) }
+  function select(item: PortraitItem) {
+    const profile = item.source === 'character' ? profiles.find((p) => `character:${p.id}` === item.id) : undefined
+    if (profile) { if (recipe.character?.id === profile.id) setPortrait(null); else setCharacter(profile) }
+    else togglePortrait(item)
   }
-
-  const [section, setSection] = useState<'' | '正脸参考' | '造型氛围' | '自有角色'>('')
-  const [hair, setHair] = useState('')
-  const [styleName, setStyleName] = useState('all')
-  const [onlyHot, setOnlyHot] = useState(false)
-  const [query, setQuery] = useState('')
-  const [shown, setShown] = useState(60)
-  const [viewerIndex, setViewerIndex] = useState<number | null>(null)
-
-  const styleOptions = useMemo(() => {
-    const sub = portraits.filter((p) => (!section || p.分区 === section) && (!hair || p.发长 === hair))
-    return [...new Set(sub.map((p) => p.发型名称).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'zh-CN'))
-  }, [portraits, section, hair])
-
-  const q = query.trim().toLowerCase()
-  const rankedIds = useMemo(() => new Set(ranking.排行榜Top10[(hair || '综合') as keyof typeof ranking.排行榜Top10] ?? []), [hair])
-
-  const filtered = useMemo(() => {
-    return portraits.filter((item) => {
-      if (section && item.分区 !== section) return false
-      if (hair && item.发长 !== hair) return false
-      if (styleName !== 'all' && item.发型名称 !== styleName) return false
-      if (onlyHot && !rankedIds.has(item.id)) return false
-      if (!matchesCatalog(item.检索, q)) return false
-      return true
-    })
-  }, [portraits, section, hair, styleName, onlyHot, q, rankedIds])
-
-  const currentItem = viewerIndex !== null ? filtered[viewerIndex] : null
-
-  useEffect(() => {
-    if (viewerIndex === null || !filtered.length) return
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowRight') {
-        setViewerIndex((viewerIndex + 1) % filtered.length)
-      } else if (e.key === 'ArrowLeft') {
-        setViewerIndex((viewerIndex - 1 + filtered.length) % filtered.length)
-      }
-    }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [viewerIndex, filtered.length])
-
-  return (
-    <>
-      <PageHeader
-        title="人像参考库"
-        description="原库按发型和拍摄氛围组织，图片数量不代表独立角色数量。自有角色另关联五官、体型与人物档案。"
-        actions={
-          <Button
-            variant={onlyHot ? 'default' : 'outline'}
-            size="sm"
-            onClick={() => {
-              setOnlyHot((v) => !v)
-              setShown(60)
-            }}
-          >
-            <FlameIcon className="size-3.5 text-orange-500" />
-            原库{hair || '综合'} Top10
-          </Button>
-        }
-      />
-
-      {/* 分区与发长切换药丸 */}
-      <div className="flex gap-2 overflow-x-auto pb-1 sm:flex-wrap sm:pb-0">
-        <button
-          type="button"
-          onClick={() => {
-            setSection('')
-            setHair('')
-            setStyleName('all')
-            setShown(60)
-          }}
-          className={cn(
-            'shrink-0 rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors',
-            section === '' && hair === ''
-              ? 'bg-primary text-primary-foreground'
-              : 'bg-muted text-muted-foreground hover:text-foreground'
-          )}
-        >
-          全部人像 ({portraits.length})
-        </button>
-        {(['自有角色', '正脸参考', '造型氛围'] as const).map((sec) => {
-          const cnt = portraits.filter((x) => x.分区 === sec).length
-          return (
-            <button
-              key={sec}
-              type="button"
-              onClick={() => {
-                setSection(section === sec ? '' : sec)
-                if (sec === '自有角色') { setHair(''); setOnlyHot(false) }
-                setStyleName('all')
-                setShown(60)
-              }}
-              className={cn(
-                'shrink-0 rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors',
-                section === sec
-                  ? 'bg-primary text-primary-foreground'
-                  : 'bg-muted text-muted-foreground hover:text-foreground'
-              )}
-            >
-              {sec} ({cnt})
-            </button>
-          )
-        })}
-        {HAIRS.map((h) => {
-          const cnt = portraits.filter((x) => x.发长 === h).length
-          return (
-            <button
-              key={h}
-              type="button"
-              onClick={() => {
-                setHair(hair === h ? '' : h)
-                setStyleName('all')
-                setShown(60)
-              }}
-              className={cn(
-                'shrink-0 rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors',
-                hair === h ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground hover:text-foreground'
-              )}
-            >
-              {h} ({cnt})
-            </button>
-          )
-        })}
-      </div>
-
-      {/* 搜索与发型细分 */}
-      <div className="grid gap-3 rounded-[22px] bg-muted p-4 md:grid-cols-[1fr_260px_auto]">
-        <div className="relative">
-          <SearchIcon className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
-          <Input
-            value={query}
-            onChange={(e) => {
-              setQuery(e.target.value)
-              setShown(60)
-            }}
-            placeholder="搜索发型款式、发色或 ID（如：波波头、狼尾、空气刘海、挑染、韩式）…"
-            className="bg-background pl-9"
-          />
-        </div>
-
-        <Select
-          value={styleName}
-          onValueChange={(v) => {
-            setStyleName(v)
-            setShown(60)
-          }}
-        >
-          <SelectTrigger className="w-full bg-background">
-            <SelectValue placeholder="全部发型/名称" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="all">全部发型/名称</SelectItem>
-            {styleOptions.map((s) => (
-              <SelectItem key={s} value={s}>
-                {s}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-
-        <Button
-          variant="ghost"
-          size="sm"
-          className="h-9"
-          onClick={() => {
-            setSection('')
-            setHair('')
-            setStyleName('all')
-            setOnlyHot(false)
-            setQuery('')
-            setShown(60)
-          }}
-        >
-          <RotateCcwIcon className="size-3.5" />
-          重置
-        </Button>
-      </div>
-
-      {filtered.length === 0 ? (
-        <EmptyState title="没有找到匹配的人像参考" description="试试更换发型关键词或重置筛选" />
-      ) : (
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-          {filtered.slice(0, shown).map((item, idx) => {
-            const picked = recipe.portrait?.id === item.id
-            return (
-              <div
-                key={item.id}
-                className="group flex flex-col overflow-hidden rounded-[20px] bg-muted p-2 transition hover:-translate-y-0.5 hover:shadow-md"
-              >
-                <div
-                  onClick={() => setViewerIndex(idx)}
-                  className="relative aspect-4/5 cursor-zoom-in overflow-hidden rounded-2xl bg-background"
-                >
-                  <img
-                    src={referenceImageUrl(item.缩略图)}
-                    alt={item.标题}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-x-2 top-2 flex items-center justify-between gap-1">
-                    <span className="rounded-md bg-black/70 px-1.5 py-0.5 text-[10px] font-bold text-white">
-                      {item.分区}
-                    </span>
-                    <span className="rounded-md bg-white/90 px-1.5 py-0.5 text-[10px] font-semibold text-zinc-900">
-                      {item.发长}
-                    </span>
-                  </div>
-                  {item.热门 && (
-                    <span className="absolute right-2 bottom-2 rounded-md bg-orange-500/90 px-1.5 py-0.5 text-[10px] font-bold text-white">
-                      🔥 Top10
-                    </span>
-                  )}
-                  <button
-                    type="button"
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      togglePortrait(item)
-                    }}
-                    className={cn(
-                      'absolute bottom-2 left-2 flex items-center gap-1 rounded-lg px-2.5 py-1 text-[11px] font-semibold text-white shadow transition',
-                      picked ? 'bg-emerald-600' : 'bg-black/75 hover:bg-primary'
-                    )}
-                  >
-                    {picked ? <CheckIcon className="size-3" /> : <PlusIcon className="size-3" />}
-                    {picked ? '已选' : '加入配方'}
-                  </button>
-                </div>
-
-                <div className="px-1.5 pt-2.5 pb-1">
-                  <div className="line-clamp-2 min-h-[34px] text-xs leading-snug font-semibold">{item.发型名称}</div>
-                  <div className="mt-1 flex items-center justify-between font-mono text-[10px] text-muted-foreground">
-                    <span>{item.id}</span>
-                    <span>{item.source === 'character' ? '项目自制' : 'CC0'}</span>
-                  </div>
-                </div>
-              </div>
-            )
-          })}
-        </div>
-      )}
-
-      {shown < filtered.length && (
-        <div className="flex justify-center pt-2">
-          <Button variant="outline" onClick={() => setShown((s) => s + 60)}>
-            加载更多（剩余 {filtered.length - shown} 张）
-          </Button>
-        </div>
-      )}
-
-      {/* 人像大图弹窗 */}
-      <Dialog open={viewerIndex !== null} onOpenChange={(o) => !o && setViewerIndex(null)}>
-        <DialogContent className="max-h-[90vh] w-[95vw] max-w-4xl overflow-y-auto p-0 sm:max-w-4xl">
-          {currentItem && viewerIndex !== null && (() => {
-            const picked = recipe.portrait?.id === currentItem.id
-            return (
-              <div className="grid md:grid-cols-[1fr_320px]">
-                <div className="relative flex max-h-[78vh] min-h-[380px] items-center justify-center bg-muted/60 p-4">
-                  <img
-                    src={referenceImageUrl(currentItem.原图)}
-                    alt={currentItem.标题}
-                    className="max-h-[72vh] w-auto rounded-lg object-contain"
-                  />
-                  <Button
-                    variant="secondary"
-                    size="icon"
-                    className="absolute top-1/2 left-3 -translate-y-1/2 rounded-full shadow"
-                    onClick={() => setViewerIndex((viewerIndex - 1 + filtered.length) % filtered.length)}
-                  >
-                    <ChevronLeftIcon className="size-4" />
-                  </Button>
-                  <Button
-                    variant="secondary"
-                    size="icon"
-                    className="absolute top-1/2 right-3 -translate-y-1/2 rounded-full shadow"
-                    onClick={() => setViewerIndex((viewerIndex + 1) % filtered.length)}
-                  >
-                    <ChevronRightIcon className="size-4" />
-                  </Button>
-                </div>
-
-                <div className="flex flex-col justify-between gap-4 border-t p-5 md:border-t-0 md:border-l">
-                  <div className="space-y-4">
-                    <DialogHeader>
-                      <div className="flex items-center gap-2">
-                        <Badge>{currentItem.分区}</Badge>
-                        <Badge variant="outline">{currentItem.发长}</Badge>
-                        {currentItem.热门 && <Badge variant="secondary">🔥 Top10</Badge>}
-                      </div>
-                      <DialogTitle className="mt-2 text-base leading-snug">{currentItem.标题}</DialogTitle>
-                    </DialogHeader>
-
-                    <div className="flex items-center justify-between rounded-lg bg-muted px-2.5 py-1.5 font-mono text-xs">
-                      <span className="truncate">{currentItem.id}</span>
-                      <button
-                        type="button"
-                        onClick={() => {
-                          void navigator.clipboard.writeText(currentItem.id)
-                          toast.success('已复制人像 ID')
-                        }}
-                        className="ml-2 shrink-0 text-primary hover:underline"
-                      >
-                        <CopyIcon className="size-3.5" />
-                      </button>
-                    </div>
-
-                    <dl className="grid grid-cols-[72px_1fr] gap-y-1.5 text-xs">
-                      <dt className="text-muted-foreground">发型款式</dt>
-                      <dd className="font-medium">{currentItem.发型名称}</dd>
-                      <dt className="text-muted-foreground">原图尺寸</dt>
-                      <dd className="font-medium">
-                        {currentItem.宽} × {currentItem.高}
-                      </dd>
-                      <dt className="text-muted-foreground">授权协议</dt>
-                      <dd className="font-medium text-emerald-600 dark:text-emerald-400">{currentItem.source === 'character' ? '项目自制，来源与配方见角色档案' : 'CC0 1.0 公共领域（可商用）'}</dd>
-                    </dl>
-                  </div>
-
-                  <div className="flex flex-col gap-2">
-                    {currentItem.source === 'character' && <Button variant="outline" asChild><Link to="/characters" search={{ id: currentItem.id.replace('character:', '') }}>查看完整角色档案</Link></Button>}
-                    <Button onClick={() => togglePortrait(currentItem)} variant={picked ? 'secondary' : 'default'}>
-                      {picked ? <CheckIcon className="size-4" /> : <PlusIcon className="size-4" />}
-                      {picked ? '已在角色配方中（点击移除）' : '加入角色配方'}
-                    </Button>
-                    <div className="grid grid-cols-2 gap-2">
-                      <Button variant="outline" size="sm" asChild>
-                        <a href={referenceImageUrl(currentItem.原图)} download={`${currentItem.id}.${currentItem.source === 'character' ? 'png' : 'webp'}`}>
-                          <DownloadIcon className="size-3.5" />
-                          下载高清原图
-                        </a>
-                      </Button>
-                      <Button variant="outline" size="sm" asChild>
-                        <a href={referenceImageUrl(currentItem.原图)} target="_blank" rel="noopener noreferrer">
-                          <ExternalLinkIcon className="size-3.5" />
-                          新窗口原图
-                        </a>
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )
-          })()}
-        </DialogContent>
-      </Dialog>
-    </>
-  )
+  const viewerIndex = viewer ? filtered.findIndex((item) => item.id === viewer.id) : -1
+  function move(delta: number) { if (filtered.length) setViewer(filtered[(viewerIndex + delta + filtered.length) % filtered.length]) }
+  const personalFilters = scope !== 'original'
+  return <>
+    <PageHeader title="人像参考库" description={`新增 ${added.length} 张不同年龄与形象的原创人像，另有 ${own.length} 位自有角色母版。原库 ${original.length} 张按发型与正脸/氛围分组。`} actions={<Button size="sm" asChild><Link to="/studio">前往人物创作</Link></Button>} />
+    <LibraryTabs value={scope} onChange={changeScope} options={[{ value: 'expanded', label: '新增与自有人像', count: added.length + own.length }, { value: 'original', label: '原库发型与氛围', count: original.length }, { value: 'character', label: '自有 IP', count: own.length }, { value: 'all', label: '全部人像', count: all.length }]} />
+    <div className="space-y-4 rounded-xl bg-muted/50 p-4">
+      <div className="flex flex-wrap gap-3"><Input aria-label="搜索人像" placeholder="人物、年龄、外貌、发型或编号，可用空格组合关键词" className="min-w-48 flex-1" value={filters.query} onChange={(event) => patch('query', event.target.value)} /><Button variant="ghost" onClick={() => { setFilters(emptyFilters()); setOnlyRanked(false); setOnlyFeatured(false); setShown(24) }}>重置筛选</Button></div>
+      {personalFilters && <div className="grid grid-cols-2 gap-3 lg:grid-cols-5">
+        <LibrarySelect label="年龄设定" value={filters.age} values={['18–29', '30–44', '45–59', '60+', ...(scope === 'all' ? ['原库未标注'] : [])]} onChange={(value) => patch('age', value)} />
+        <LibrarySelect label="性别形象" value={filters.presentation} values={scoped.map((item) => portraitClassification(item).presentation)} onChange={(value) => patch('presentation', value)} />
+        <LibrarySelect label="肤色设定" value={filters.skin} values={scoped.map((item) => portraitClassification(item).skinTone)} onChange={(value) => patch('skin', value)} />
+        <LibrarySelect label="体型设定" value={filters.body} values={scoped.map((item) => portraitClassification(item).bodyDesign)} onChange={(value) => patch('body', value)} />
+        <LibrarySelect label="创作定位" value={filters.market} values={['欧洲', '北美']} onChange={(value) => patch('market', value)} />
+      </div>}
+      <details open={scope === 'original'}><summary className="cursor-pointer text-xs font-medium">发型与拍摄分类</summary><div className="mt-3 grid grid-cols-2 gap-3 lg:grid-cols-4">
+        <LibrarySelect label="发长" value={filters.hair} values={['短发', '中发', '中长发', '长发']} onChange={(value) => patch('hair', value)} />
+        <LibrarySelect label="发型家族" value={filters.family} values={scoped.map(portraitHairFamily)} onChange={(value) => patch('family', value)} />
+        <LibrarySelect label="刘海" value={filters.fringe} values={scoped.map(portraitFringe)} onChange={(value) => patch('fringe', value)} />
+        <LibrarySelect label="拍摄分区" value={filters.section} values={scoped.map((item) => item.分区)} onChange={(value) => patch('section', value)} />
+      </div></details>
+      {scope === 'original' && <div className="flex flex-wrap items-center gap-2"><Button size="sm" variant={onlyRanked ? 'secondary' : 'outline'} onClick={() => { setOnlyRanked(!onlyRanked); setShown(24) }}>原库{filters.hair || '综合'} Top10</Button><Button size="sm" variant={onlyFeatured ? 'secondary' : 'outline'} onClick={() => { setOnlyFeatured(!onlyFeatured); setShown(24) }}>原库精选</Button><span className="text-xs text-muted-foreground">年龄、性别与地域未在原始数据记录，原库按已知标签分类。</span></div>}
+    </div>
+    <p className="text-xs text-muted-foreground">{filtered.length} 张可选图片 · 新增标签来自创作设定 · 可直接加入配方</p>
+    <div className="grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-4">{filtered.slice(0, shown).map((item) => {
+      const c = portraitClassification(item)
+      const legacy = c.collection === 'original'
+      return <LibraryImageCard key={item.id} id={item.id} title={item.标题} thumbnail={referenceImageUrl(item.缩略图)} source={item.source === 'character' ? '自有 IP' : legacy ? '原库' : '新增原创'} badges={legacy ? [item.发长, portraitHairFamily(item), portraitFringe(item)] : [c.age ? `${c.age} 岁` : c.ageBand, c.presentation, c.skinTone, c.bodyDesign]} description={legacy ? item.分区 : c.appearance} selected={recipe.portrait?.id === item.id} onPreview={() => setViewer(item)} onToggle={() => select(item)} />
+    })}</div>
+    {!filtered.length && <div className="rounded-xl border p-10 text-center text-sm text-muted-foreground">没有匹配的人像。可重置筛选或切换素材集。</div>}
+    {shown < filtered.length && <Button variant="outline" className="mx-auto" onClick={() => setShown(shown + 24)}>再显示 24 张 · 剩余 {filtered.length - shown}</Button>}
+    <LibraryImageDialog item={viewer ? { id: viewer.id, title: viewer.标题, url: referenceImageUrl(viewer.原图), description: viewer.source === 'catalog' ? '项目原创虚构成年人 · 设定可核对' : viewer.source === 'character' ? '自有角色母版' : '原库发型/氛围参考' } : null} onClose={() => setViewer(null)} onPrevious={() => move(-1)} onNext={() => move(1)}>
+      {viewer && <><p className="text-sm leading-7">{portraitClassification(viewer).appearance}</p><dl className="space-y-2 text-xs leading-6"><div>发长：{viewer.发长 || '见人物档案'}</div><div>分区：{viewer.分区}</div>{viewer.source && <><div>年龄设定：{portraitClassification(viewer).age ?? '见人物档案'}</div><div>性别形象：{portraitClassification(viewer).presentation}</div><div>体型设定：{portraitClassification(viewer).bodyDesign}</div><div>创作定位：{portraitClassification(viewer).market}</div></>}</dl><Button onClick={() => select(viewer)}>{recipe.portrait?.id === viewer.id ? '从配方移除人像' : '加入人像参考'}</Button><Button variant="outline" asChild><Link to="/studio">继续搭配表情、妆发与细节</Link></Button></>}
+    </LibraryImageDialog>
+  </>
 }

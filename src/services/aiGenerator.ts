@@ -3,6 +3,7 @@ import { applyWorkflowOverrides, getWorkflowImages, validateReferenceCombination
 import { poseImagePath } from '@/lib/recipeImages'
 import { ASSET_KINDS, identityPrompt } from '@/lib/characters'
 import { worldPrompt } from '@/lib/characterWorld'
+import { supplementalReferencePrompt } from '@/lib/library'
 import qwen2509ThreeImageWorkflow from '@/workflows/qwen_image_edit_2509_3img.api.json'
 
 export interface ProviderModelOption {
@@ -153,7 +154,7 @@ const PHOTO_STYLES = new Set(['realistic', 'fashion', 'film'])
 export function buildRecipePrompt(recipe: RecipeState, stylePreset = 'realistic', workflowImages: ExtraReferenceImage[] = []): string {
   const styleInfo = STYLE_PRESETS[stylePreset] ?? STYLE_PRESETS.realistic
   const isPhoto = PHOTO_STYLES.has(stylePreset)
-  const faceless = !recipe.portrait && !workflowImages.some((image) => image.role === 'character_sheet') && Boolean(recipe.costume && recipe.pose)
+  const faceless = !recipe.portrait && !workflowImages.some((image) => image.role === 'character_sheet') && !recipe.extraImages?.some((image) => ['expression', 'grooming', 'identity_detail'].includes(image.role ?? '')) && Boolean(recipe.costume && recipe.pose)
   const clauses: string[] = []
   if (recipe.character) clauses.push(identityPrompt(recipe.character))
   let idx = 1
@@ -171,12 +172,17 @@ export function buildRecipePrompt(recipe: RecipeState, stylePreset = 'realistic'
         : recipe.portrait.发长
     const skin = `人物的肤色必须与图${idx}人物一致，所有裸露皮肤（包括服装镂空处露出的皮肤）必须与脸部肤色统一，统一后的肤色与质感按风格要求呈现。`
     const outfit = recipe.costume || recipe.customOutfit ? '' : `保留图${idx}人物原有可见服装与配饰，不复制姿势参考图的服装或白模外观。`
+    const hairRule = recipe.extraImages?.some((image) => image.role === 'grooming') ? '保留发色、年龄、发际线和身份特征，具体整理方式以妆发参考为准。' : ''
     clauses.push(
       recipe.portrait.source === 'upload'
-        ? `• 人物：图${idx}中的人物，保持其脸型、五官、发型和发色一致。${skin}${outfit}`
-        : `• 人物：图${idx}中的人物，保持其脸型、五官、发型（${hairDesc}）和发色一致。${skin}${outfit}`
+        ? `• 人物：图${idx}中的人物，保持其脸型、五官和发色一致。${hairRule || '保持发型一致。'}${skin}${outfit}`
+        : `• 人物：图${idx}中的人物，保持其脸型、五官和发色一致。${hairRule || `保持发型（${hairDesc}）一致。`}${skin}${outfit}`
     )
     idx++
+    if (!recipe.character && recipe.portrait.catalog?.annotation === 'design_spec') {
+      const design = recipe.portrait.catalog
+      clauses.push(`人物创作设定：${design.age ? `${design.age} 岁成年人` : '成年人'}，${design.presentation}，${design.skinTone}。五官与年龄以所选人像为准，不因其他参考演员而改变。`)
+    }
   }
   if (recipe.costume) {
     costumeIdx = idx
@@ -208,17 +214,7 @@ export function buildRecipePrompt(recipe: RecipeState, stylePreset = 'realistic'
     idx++
   }
   for (const extra of recipe.extraImages || []) {
-    clauses.push(
-      extra.role === 'character_body'
-        ? `• 体型参考：图${idx}（${extra.name}）展示同一角色的全身多视角，只参考肩腰臀关系、体型和肢体比例，不把多个视图复制为场景中的多个人，不覆盖已选服装和动作。`
-        : extra.role === 'identity_detail'
-          ? `• 人物细节：图${idx}（${extra.name}）只固定五官、皮肤与手部细节，不复制多格布局、背景或参考图表情。`
-          : extra.role === 'prop'
-            ? `• 随身参考：图${idx}（${extra.name}）只参考所需物品；人物为主，不复制陈列布局或额外物件。`
-            : extra.role === 'wardrobe_detail'
-              ? `• 衣橱细节：图${idx}（${extra.name}）只约束穿着细节，不复制人台比例与背景。`
-        : `• 附加参考：融合图${idx}（${extra.name || '补充元素'}）中的元素、配饰、背景或光影细节。`
-    )
+    clauses.push(supplementalReferencePrompt(idx, extra))
     idx++
   }
 
@@ -230,6 +226,7 @@ export function buildRecipePrompt(recipe: RecipeState, stylePreset = 'realistic'
     `请根据${workflowImages.some((image) => image.role === 'character_sheet') ? '提供的角色设定参考' : `提供的 ${idx - 1} 张参考图`}，生成一张完整的${faceless ? '人物穿搭展示图' : isPhoto ? '真实人物照片' : '人物图像'}：`,
     ...clauses,
   ]
+  if (recipe.extraImages?.some((image) => image.source === 'library')) lines.push('参考职责：人像固定身份，服装控制穿搭，动作参考控制肢体，表情与妆发只调整本次状态，细节参考保留真实感。所选状态优先于默认习惯；不能把不同参考中的人脸混成另一个人。')
   if (styleInfo.prompt) {
     lines.push(`• 风格：${styleInfo.prompt} ${faceless ? '人物比例协调，手部自然，脸部无五官，光影统一。' : '人物比例协调，手部与五官自然，光影统一。'}`)
   }
@@ -1427,7 +1424,8 @@ export async function generateCharacterImage(params: {
     config.imagePassMode === 'base64' ||
     config.sendStitchedSheet ||
     (provider === 'gemini' && config.geminiParams.endpointMode === 'native') ||
-    (provider === 'gpt' && config.gptParams.endpointMode === 'images_edits')
+    (provider === 'gpt' && config.gptParams.endpointMode === 'images_edits') ||
+    (typeof window !== 'undefined' && (window.location.protocol !== 'https:' || ['localhost', '127.0.0.1', '[::1]'].includes(window.location.hostname)) && rawSources.some((source) => /^\/?(?:library-assets|ip-assets)\//.test(source)))
 
   const imageRefs: string[] = needBase64
     ? await Promise.all(rawSources.map(srcToPngDataUrl))

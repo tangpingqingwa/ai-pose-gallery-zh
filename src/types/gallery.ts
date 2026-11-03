@@ -27,7 +27,8 @@ export interface PoseGroup {
 }
 
 export interface CostumeItem {
-  source?: 'upload'
+  source?: 'upload' | 'catalog'
+  catalog?: CostumeClassification
   id: string
   分类: string
   服装名称: string
@@ -40,7 +41,8 @@ export interface CostumeItem {
 }
 
 export interface PortraitItem {
-  source?: 'upload' | 'character'
+  source?: 'upload' | 'character' | 'catalog'
+  catalog?: PortraitClassification
   id: string
   分区: string
   发长: string
@@ -57,11 +59,59 @@ export interface PortraitItem {
 }
 
 export interface ExtraReferenceImage {
-  role?: 'character_sheet' | 'character_body' | 'prop' | 'wardrobe_detail' | 'identity_detail'
-  source?: 'character_world'
+  role?: 'character_sheet' | 'character_body' | 'prop' | 'wardrobe_detail' | 'identity_detail' | 'expression' | 'grooming' | 'body_guide' | 'gesture'
+  source?: 'character_world' | 'library'
+  referenceKind?: VisualReferenceKind
+  referenceId?: string
+  instruction?: string
+  thumbnail?: string
   id: string
   name: string
   url: string
+}
+
+export interface PortraitClassification {
+  collection: 'expanded' | 'original' | 'character'
+  age?: number
+  ageBand: string
+  presentation: string
+  skinTone: string
+  bodyDesign: string
+  market: string
+  appearance: string
+  annotation: 'design_spec' | 'source_metadata'
+}
+
+export interface CostumeClassification {
+  collection: 'expanded' | 'original'
+  cut: string
+  occasion: string
+  fit: string
+  season: string
+  stage: string
+  structure: string
+  annotation: 'design_spec' | 'source_metadata'
+}
+
+export type VisualReferenceKind = 'expressions' | 'grooming' | 'body-details' | 'mannerisms'
+export interface VisualReferenceItem {
+  id: string
+  kind: VisualReferenceKind
+  title: string
+  feature: string
+  description: string
+  presentation: string
+  ageBand: string
+  skinTone: string
+  url: string
+  thumbnail: string
+  width: number
+  height: number
+  role: NonNullable<ExtraReferenceImage['role']>
+  instruction: string
+  tags: string[]
+  ownerCharacterId?: string
+  origin: 'project_generated' | 'character_asset'
 }
 
 export interface RecipeState {

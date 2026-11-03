@@ -2,6 +2,7 @@ import type { CharacterAssetKind, CharacterIdentity, CharacterProfile } from '@/
 import type { ExtraReferenceImage, PortraitItem, RecipeState } from '@/types/gallery'
 import { validateWorld, worldPrompt } from './characterWorld.ts'
 import { validateVoice } from './characterVoice.ts'
+import { ageBand } from './library.ts'
 
 export const ASSET_KINDS: Record<CharacterAssetKind, { label: string; instruction: string }> = {
   portrait: {
@@ -57,14 +58,15 @@ export function mergeCharacterProfile(seed: CharacterProfile | undefined, local:
   return { ...seed, ...local, version: Math.max(seed.version, local.version), world: local.world ?? seed.world, voice: local.voice ?? seed.voice, assets: [...assets.values()] }
 }
 
-export function portraitFor(profile: CharacterProfile): PortraitItem | null {
+export function portraitFor(profile: CharacterProfile, previews: Record<string, string> = {}): PortraitItem | null {
   const asset = assetFor(profile, 'portrait')
   if (!asset) return null
   return {
     id: `character:${profile.id}`, source: 'character', 分区: '自有角色', 发长: '',
+    catalog: { collection: 'character', age: profile.age, ageBand: ageBand(profile.age), presentation: profile.gender, skinTone: /深棕|深褐|深色/.test(profile.appearance.skin) ? '深肤色' : /橄榄|中棕|小麦|暖棕/.test(profile.appearance.skin) ? '中等肤色' : '浅肤色', bodyDesign: profile.appearance.bodyType, market: profile.market.join(' / '), appearance: profile.tagline, annotation: 'design_spec' },
     发型名称: profile.name, 标题: `${profile.displayName} · ${profile.tagline}`,
     宽: asset.width ?? 1024, 高: asset.height ?? 1536, 字节数: 0,
-    精选: false, 热门: false, 缩略图: asset.url, 原图: asset.url,
+    精选: false, 热门: false, 缩略图: previews[asset.id] ?? asset.url, 原图: asset.url,
     检索: [profile.name, profile.displayName, profile.tagline, ...Object.values(profile.appearance).flat(), ...profile.persona.topics, profile.world?.occupation, profile.baseCity].join(' '),
   }
 }
@@ -99,9 +101,14 @@ export function buildCodexTask(recipe: RecipeState, prompt: string, workflowImag
     ...(recipe.costume ? [{ role: 'outfit', name: recipe.costume.服装名称, url: recipe.costume.预览图 || recipe.costume.原图 }] : []),
     ...(recipe.pose ? [{ role: 'pose', name: recipe.pose.姿势名称, url: recipe.pose.原图 }] : []),
     ...workflowImages.filter((ref) => ref.role !== 'character_sheet').map((ref) => ({ role: ref.role ?? 'supporting', name: ref.name, url: ref.url })),
-    ...(recipe.extraImages ?? []).map((ref) => ({ role: ref.role ?? 'supporting', name: ref.name, url: ref.url })),
+    ...(recipe.extraImages ?? []).map((ref) => ({ role: ref.role ?? 'supporting', name: ref.name, url: ref.url, referenceId: ref.referenceId, instruction: ref.instruction })),
   ]
-  return { schemaVersion: 1, generator: 'Codex built-in image generation', instruction: '使用 Codex 内置生图，按 references 顺序附上参考图，再执行 prompt。生成后将成品收录到所列角色。', character: recipe.character ?? null, kind: recipe.characterTask ?? 'lifestyle', composition: { lookId: recipe.lookId, costumeId: recipe.costume?.id, poseId: recipe.pose?.id, scene: recipe.scene, customOutfit: recipe.customOutfit, creativeBrief: recipe.creativeBrief }, prompt, references }
+  const identityIndex = references.findIndex((reference) => reference.role === 'identity')
+  const useSheet = references.length > 5
+  const sheetReferenceIndices = references.map((_, index) => index).filter((index) => !useSheet || index !== identityIndex)
+  const inputPlan = { mode: useSheet ? 'identity_and_sheet' : 'individual_images', identityReferenceIndex: identityIndex < 0 ? null : identityIndex, sheetReferenceIndices, maximumImageInputs: 5 }
+  const instruction = useSheet ? '使用 Codex 内置生图。将人像身份原图单独作为输入，再附上下载的参考拼图；没有人像时只附拼图。下文“图N”对应拼图和 references 清单中的编号，不是附件序号。保持每格参考的职责，成品不要复制拼图布局。然后执行 prompt。' : '使用 Codex 内置生图，按 references 顺序附上参考图，再执行 prompt。生成后可将成品收录到所属角色。'
+  return { schemaVersion: 1, generator: 'Codex built-in image generation', instruction, inputPlan, character: recipe.character ?? null, kind: recipe.characterTask ?? 'lifestyle', composition: { lookId: recipe.lookId, costumeId: recipe.costume?.id, poseId: recipe.pose?.id, scene: recipe.scene, customOutfit: recipe.customOutfit, creativeBrief: recipe.creativeBrief }, prompt, references }
 }
 
 export function downloadJson(value: unknown, name: string) {

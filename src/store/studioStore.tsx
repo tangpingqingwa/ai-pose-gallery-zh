@@ -17,6 +17,7 @@ import { poseImagePath, recipeBackup } from '@/lib/recipeImages'
 import { buildCodexTask, detachCharacter, recipeForCharacter } from '@/lib/characters'
 import type { CharacterAssetKind, CharacterCreativeBrief, CharacterProfile } from '@/types/character'
 import { applyCharacterBrief } from '@/lib/characterWorld'
+import { withLibraryReference } from '@/lib/library'
 import {
   buildRecipePrompt,
   COMFYUI_WORKFLOW_TEMPLATES,
@@ -41,6 +42,7 @@ import type {
   ProviderEndpointConfig,
   QwenParams,
   RecipeState,
+  VisualReferenceItem,
 } from '@/types/gallery'
 
 const CFG_KEY = 'pose_atlas_api_config_v3'
@@ -220,8 +222,10 @@ interface StudioContextValue {
   toggleCostume: (item: CostumeItem) => void
   togglePose: (item: PoseItem) => void
   addExtraImage: (item: { name: string; url: string }) => void
+  setVisualReference: (item: VisualReferenceItem, instruction?: string) => void
   removeExtraImage: (id: string) => void
   updateExtraImageName: (id: string, name: string) => void
+  updateExtraImageInstruction: (id: string, instruction: string) => void
   setWorkflowImage: (nodeId: string, image: ExtraReferenceImage | null, identity: string) => void
   clearRecipe: () => void
   randomizeRecipe: (pools: { portraits?: PortraitItem[]; costumes?: CostumeItem[]; poses?: PoseItem[] }) => void
@@ -494,7 +498,22 @@ export function StudioProvider({ children }: { children: ReactNode }) {
     toast.success('已添加附加参考图')
   }
 
+  const setVisualReference = (item: VisualReferenceItem, instruction?: string) => {
+    setCustomPrompt(null)
+    setRecipe((previous) => ({ ...previous, extraImages: withLibraryReference(previous.extraImages ?? [], item, instruction), lookId: undefined, characterTask: previous.character ? 'lifestyle' : previous.characterTask,
+      ...(item.role === 'gesture' && previous.creativeBrief ? { creativeBrief: { ...previous.creativeBrief, action: '' } } : {}),
+      ...(item.role === 'expression' && previous.creativeBrief ? { creativeBrief: { ...previous.creativeBrief, emotion: '' } } : {}),
+      ...(item.role === 'grooming' && previous.creativeBrief ? { creativeBrief: { ...previous.creativeBrief, grooming: '' } } : {}),
+    }))
+  }
+
+  const updateExtraImageInstruction = (id: string, instruction: string) => {
+    setCustomPrompt(null)
+    setRecipe((previous) => ({ ...previous, extraImages: (previous.extraImages ?? []).map((image) => image.id === id ? { ...image, instruction } : image) }))
+  }
+
   const removeExtraImage = (id: string) => {
+    setCustomPrompt(null)
     setRecipe((r) => ({
       ...r,
       extraImages: (r.extraImages || []).filter((x) => x.id !== id),
@@ -545,7 +564,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
     setCustomPrompt(null)
     const posePool = safeMode ? (pools.poses || []).filter((p) => !isNsfwPose(p)) : pools.poses || []
     const costumePool = safeMode ? (pools.costumes || []).filter((c) => !isNsfwCostume(c)) : pools.costumes || []
-    const portraitPool = pools.portraits || []
+    const portraitPool = recipe.portrait ? [] : pools.portraits || []
 
     setRecipe((prev) => ({
       ...(portraitPool.length ? detachCharacter(prev) : prev),
@@ -736,8 +755,10 @@ export function StudioProvider({ children }: { children: ReactNode }) {
         toggleCostume,
         togglePose,
         addExtraImage,
+        setVisualReference,
         removeExtraImage,
         updateExtraImageName,
+        updateExtraImageInstruction,
         setWorkflowImage,
         clearRecipe,
         randomizeRecipe,

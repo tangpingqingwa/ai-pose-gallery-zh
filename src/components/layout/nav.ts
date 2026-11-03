@@ -7,6 +7,10 @@ import {
   PersonStandingIcon,
   ShirtIcon,
   SparklesIcon,
+  SmileIcon,
+  ScissorsIcon,
+  AccessibilityIcon,
+  HandIcon,
   UserRoundIcon,
   type LucideIcon,
 } from 'lucide-react'
@@ -33,17 +37,21 @@ export const navGroups: NavGroup[] = [
     ],
   },
   {
-    label: '三大参考图库',
+    label: '人物素材库',
     items: [
       { title: '动作姿势库', to: '/poses', icon: PersonStandingIcon, badge: '1,439' },
-      { title: '服装穿搭库', to: '/costumes', icon: ShirtIcon, badge: '1,407' },
+      { title: '服装穿搭库', to: '/costumes', icon: ShirtIcon },
       { title: '人像参考库', to: '/portraits', icon: UserRoundIcon },
-      { title: '参考库检查', to: '/library-quality', icon: ClipboardCheckIcon },
+      { title: '表情神态库', to: '/expressions', icon: SmileIcon },
+      { title: '妆发状态库', to: '/grooming', icon: ScissorsIcon },
+      { title: '体型细节库', to: '/body-details', icon: AccessibilityIcon },
+      { title: '习惯仪态库', to: '/mannerisms', icon: HandIcon },
     ],
   },
   {
     label: '配置与说明',
     items: [
+      { title: '参考库检查', to: '/library-quality', icon: ClipboardCheckIcon },
       { title: 'API 接口配置', to: '/settings', icon: KeyRoundIcon },
       { title: '使用说明与免责声明', to: '/guide', icon: BookOpenIcon },
     ],

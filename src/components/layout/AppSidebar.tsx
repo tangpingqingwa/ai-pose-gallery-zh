@@ -15,12 +15,23 @@ import {
 } from '@/components/ui/sidebar'
 import { useStudio } from '@/store/studioStore'
 import { activeNavTo, navGroups } from './nav'
+import expansion from '../../../data/catalog-expansion.json'
+import { useCharacterLibrary } from '@/store/characterStore'
+import { characterVisualReferences } from '@/lib/visualReferences'
 
 export function AppSidebar() {
   const pathname = useLocation({ select: (l) => l.pathname })
   const active = activeNavTo(pathname)
   const { recipe } = useStudio()
-  const count = [recipe.portrait, recipe.costume, recipe.pose].filter(Boolean).length
+  const { profiles } = useCharacterLibrary()
+  const references = [...expansion.references, ...characterVisualReferences(profiles, expansion.seedPreviews)]
+  const libraryCounts: Record<string, number> = { '/costumes': 1407 + expansion.costumes.length, '/portraits': 1499 + expansion.portraits.length + profiles.filter((profile) => profile.assets.some((asset) => asset.kind === 'portrait')).length,
+    '/expressions': references.filter((item) => item.kind === 'expressions').length,
+    '/grooming': references.filter((item) => item.kind === 'grooming').length,
+    '/body-details': references.filter((item) => item.kind === 'body-details').length,
+    '/mannerisms': references.filter((item) => item.kind === 'mannerisms').length,
+  }
+  const count = [recipe.portrait, recipe.costume, recipe.pose].filter(Boolean).length + (recipe.extraImages?.length ?? 0)
   const onCharacters = pathname.startsWith('/characters')
 
   return (
@@ -54,9 +65,9 @@ export function AppSidebar() {
                     <Link to={item.to}>
                       <item.icon />
                       <span className="flex-1 truncate">{item.title}</span>
-                      {item.badge && (
+                      {(libraryCounts[item.to] !== undefined || item.badge) && (
                         <Badge variant="secondary" className="ml-auto h-5 px-1.5 text-[10px] font-medium">
-                          {item.badge}
+                          {libraryCounts[item.to]?.toLocaleString('en-US') ?? item.badge}
                         </Badge>
                       )}
                     </Link>

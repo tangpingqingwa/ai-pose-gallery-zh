@@ -35,7 +35,18 @@ for (const asset of assets) {
   assert.ok(preview.length < 200000, 'Browsing preview should be lightweight')
   pngBytes += bytes.length; previewBytes += preview.length
 }
-assert.ok(catalog.portraits.length >= 80 && catalog.costumes.length >= 40)
+assert.ok(catalog.portraits.length >= 104 && catalog.costumes.length >= 64)
+const globalBatch = specs.filter((spec) => spec.batch === 'global-daily-2026-11-03')
+const globalPeople = globalBatch.filter((spec) => spec.kind === 'portraits')
+const globalOutfits = globalBatch.filter((spec) => spec.kind === 'costumes')
+assert.equal(globalPeople.length, 24)
+assert.equal(globalOutfits.length, 24)
+for (const gender of ['男性', '女性']) assert.equal(globalPeople.filter((spec) => spec.presentation === gender).length, 12)
+for (const band of ['18–29', '30–44', '45–59', '60+']) assert.equal(globalPeople.filter((spec) => spec.ageBand === band).length, 6)
+for (const [cut, count] of [['男款', 10], ['女款', 10], ['中性', 4]]) assert.equal(globalOutfits.filter((spec) => spec.cut === cut).length, count)
+assert.ok(new Set(catalog.costumes.slice(0, 24).map((item) => item.catalog.structure)).size >= 8, 'First outfit page must show distinct garment structures')
+assert.ok(catalog.costumes.slice(0, 24).some((item) => item.id === 'C-NEW-064'), 'Latest outfit batch must be visible immediately')
+for (const id of ['C-NEW-053', 'C-NEW-059']) assert.ok(catalog.costumes.find((item) => item.id === id).原图.endsWith('-v2.png'), 'Rejected mannequin-leg drafts must not be indexed')
 const asianBatch = specs.filter((spec) => spec.batch === 'asian-diversity-2026-11-03')
 assert.equal(asianBatch.length, 40)
 for (const region of ASIAN_DESIGN_REGIONS) {

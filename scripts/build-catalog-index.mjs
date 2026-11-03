@@ -37,7 +37,7 @@ const costumes = specs.filter((item) => item.kind === 'costumes').map((spec) => 
     catalog: { collection: 'expanded', cut: spec.cut, occasion: spec.occasion, fit: spec.fit, season: spec.season, stage: spec.stage, structure: spec.structure ?? (/裙/.test(spec.description) ? '裙装搭配' : '裤装搭配'), ...(spec.ageBands ? { ageBands: spec.ageBands } : {}), annotation: 'design_spec' },
   }
 })
-const orderedCostumes = interleaveCatalog([...costumes.filter((item) => specs.find((spec) => spec.id === item.id)?.batch), ...costumes.filter((item) => !specs.find((spec) => spec.id === item.id)?.batch)], (item) => `${item.catalog.cut}:${item.catalog.stage}`)
+const orderedCostumes = interleaveCatalog([...costumes].reverse(), (item) => `${item.catalog.cut}:${item.catalog.stage}:${item.catalog.structure}`)
 const roles = { expressions: 'expression', grooming: 'grooming', mannerisms: 'gesture' }
 const directions = {
   expressions: '仅借鉴参考图的眼神、口形与情绪肌肉变化，保持当前人像的五官、年龄和肤色；不复制参考人物的脸或多格排版。',

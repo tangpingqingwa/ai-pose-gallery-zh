@@ -2136,5 +2136,746 @@
     "values": {
       "avoid": "声音由所选语言、地区和个人声线控制，不从肤色、年龄、国籍或穿搭自动推断口音；换装、情绪和镜头变化时保留同一人物声纹。"
     }
+  },
+  {
+    "id": "SET-language-041",
+    "category": "language",
+    "title": "日语 · 标准日常",
+    "tags": [
+      "日语",
+      "ja-JP",
+      "日本标准日语日常方向"
+    ],
+    "values": {
+      "language": "日语",
+      "locale": "ja-JP",
+      "dialect": "日本标准日语日常方向",
+      "accent": "日本标准日语日常方向，使用固定个人会话样本校准",
+      "accentStrength": "轻度、自然清楚",
+      "pronunciation": "以固定个人日语样本校准音高重音、长音和停顿；敬体与常体按角色关系使用，不在一句话内无缘由切换语体。",
+      "sampleText": "今日は少し早めに出ます。帰りにパンを買ってくるので、ほかに必要なものがあれば教えてください。"
+    }
+  },
+  {
+    "id": "SET-language-042",
+    "category": "language",
+    "title": "日语 · 轻度关西方向",
+    "tags": [
+      "日语",
+      "ja-JP",
+      "关西地区日语个人方向"
+    ],
+    "values": {
+      "language": "日语",
+      "locale": "ja-JP",
+      "dialect": "关西地区日语个人方向",
+      "accent": "关西地区日语个人方向，使用固定个人会话样本校准",
+      "accentStrength": "轻至中等、克制可辨",
+      "pronunciation": "用同一位虚构说话人的关西方向样本固定节奏和音高走向；试读可以使用普通日语句子，不靠每句塞方言词或喜剧语气制造区别。",
+      "sampleText": "このシャツ、袖がちょっと長いな。あとで折ってみるから、少し待ってて。"
+    }
+  },
+  {
+    "id": "SET-language-043",
+    "category": "language",
+    "title": "韩语 · 首尔日常",
+    "tags": [
+      "韩语",
+      "ko-KR",
+      "首尔地区日常韩语方向"
+    ],
+    "values": {
+      "language": "韩语",
+      "locale": "ko-KR",
+      "dialect": "首尔地区日常韩语方向",
+      "accent": "首尔地区日常韩语方向，使用固定个人会话样本校准",
+      "accentStrength": "轻度、清楚自然",
+      "pronunciation": "按首尔个人会话样本处理连音、句末与停顿，敬语等级由关系与脚本决定；不把所有句末都做成上扬或夸张撒娇。",
+      "sampleText": "잠깐만 기다려 주세요. 나가기 전에 주소를 한 번 더 확인하고 싶어요."
+    }
+  },
+  {
+    "id": "SET-language-044",
+    "category": "language",
+    "title": "韩语 · 釜山个人方向",
+    "tags": [
+      "韩语",
+      "ko-KR",
+      "釜山地区韩语个人方向"
+    ],
+    "values": {
+      "language": "韩语",
+      "locale": "ko-KR",
+      "dialect": "釜山地区韩语个人方向",
+      "accent": "釜山地区韩语个人方向，使用固定个人会话样本校准",
+      "accentStrength": "中等、自然可辨",
+      "pronunciation": "以釜山个人会话样本固定语调与节奏，与首尔方向分开保存；保持交流清楚，不用强硬语气、过快语速或重复方言词替代地区特点。",
+      "sampleText": "오늘은 바람이 좀 부네요. 얇은 겉옷 하나 챙기고 나중에 천천히 걸어요."
+    }
+  },
+  {
+    "id": "SET-language-045",
+    "category": "language",
+    "title": "普通话 · 台湾日常",
+    "tags": [
+      "中文",
+      "zh-TW",
+      "台湾地区普通话日常方向"
+    ],
+    "values": {
+      "language": "中文",
+      "locale": "zh-TW",
+      "dialect": "台湾地区普通话日常方向",
+      "accent": "台湾地区普通话日常方向，使用固定个人会话样本校准",
+      "accentStrength": "轻度、自然克制",
+      "pronunciation": "以台湾普通话的固定个人样本处理语音和轻重音；文字可用繁体，语调不持续软化或上扬，不自动加入其他语言词汇。",
+      "sampleText": "這件外套的袖口有點鬆，我晚一點縫好就可以繼續穿。你先坐一下，我去拿那張單子。"
+    }
+  },
+  {
+    "id": "SET-language-046",
+    "category": "language",
+    "title": "华语 · 新加坡日常",
+    "tags": [
+      "中文",
+      "zh-SG",
+      "新加坡华语日常方向"
+    ],
+    "values": {
+      "language": "中文",
+      "locale": "zh-SG",
+      "dialect": "新加坡华语日常方向",
+      "accent": "新加坡华语日常方向，使用固定个人会话样本校准",
+      "accentStrength": "轻至中等、清楚可辨",
+      "pronunciation": "按新加坡华语个人样本固定句子节奏和常用词读法；主要语言为华语，其他语言只按单独的多语切换记录使用。",
+      "sampleText": "冰箱里还有一些菜，我先用完再买新的。你想吃什么，可以一起商量。"
+    }
+  },
+  {
+    "id": "SET-language-047",
+    "category": "language",
+    "title": "普通话 · 轻度东北韵律",
+    "tags": [
+      "中文",
+      "zh-CN",
+      "普通话交流，轻微东北地区韵律"
+    ],
+    "values": {
+      "language": "中文",
+      "locale": "zh-CN",
+      "dialect": "普通话交流，轻微东北地区韵律",
+      "accent": "普通话交流，轻微东北地区韵律，使用固定个人会话样本校准",
+      "accentStrength": "轻度、平常自然",
+      "pronunciation": "保留固定个人的轻微东北节奏，主要语言仍是普通话；不每句插入口头禅，也不把地区设定等同于夸张幽默性格。",
+      "sampleText": "这件衣服先别收，袖口还有点潮。我挂到窗边，晚一点再看看。"
+    }
+  },
+  {
+    "id": "SET-language-048",
+    "category": "language",
+    "title": "粤语 · 广州日常",
+    "tags": [
+      "粤语",
+      "yue-CN",
+      "广州粤语日常方向"
+    ],
+    "values": {
+      "language": "粤语",
+      "locale": "yue-CN",
+      "dialect": "广州粤语日常方向",
+      "accent": "广州粤语日常方向，使用固定个人会话样本校准",
+      "accentStrength": "轻至中等、自然清楚",
+      "pronunciation": "以广州粤语固定个人样本处理声调与节奏，按粤语试读文本自然表达；与香港方向分别保存，不用普通话逐字套读。",
+      "sampleText": "个袋条拉链有啲卡，我搽少少蜡再试下。唔使急住换个新嘅。"
+    }
+  },
+  {
+    "id": "SET-language-049",
+    "category": "language",
+    "title": "印地语 · 德里日常",
+    "tags": [
+      "印地语",
+      "hi-IN",
+      "德里城市印地语日常方向"
+    ],
+    "values": {
+      "language": "印地语",
+      "locale": "hi-IN",
+      "dialect": "德里城市印地语日常方向",
+      "accent": "德里城市印地语日常方向，使用固定个人会话样本校准",
+      "accentStrength": "轻度、连贯清楚",
+      "pronunciation": "固定个人印地语样本与自然停顿，姓名、送气和不送气等读音细节由样本校准；主要语言不自动切换为英语。",
+      "sampleText": "ज़रा रुकिए। बाहर जाने से पहले पता एक बार फिर देख लेते हैं।"
+    }
+  },
+  {
+    "id": "SET-language-050",
+    "category": "language",
+    "title": "泰米尔语 · 城市日常",
+    "tags": [
+      "泰米尔语",
+      "ta-IN",
+      "印度泰米尔语城市日常方向"
+    ],
+    "values": {
+      "language": "泰米尔语",
+      "locale": "ta-IN",
+      "dialect": "印度泰米尔语城市日常方向",
+      "accent": "印度泰米尔语城市日常方向，使用固定个人会话样本校准",
+      "accentStrength": "轻至中等、自然稳定",
+      "pronunciation": "使用固定个人的城市日常泰米尔语样本，书面与会话形式按脚本选择；长句按意思分组，不用逐字朗读制造清晰度。",
+      "sampleText": "சாவியை மேசை மேல் வைத்திருக்கிறேன். வெளியே போகும்போது எடுத்துக்கொள்ள நினைவூட்டுங்கள்."
+    }
+  },
+  {
+    "id": "SET-language-051",
+    "category": "language",
+    "title": "孟加拉语 · 达卡日常",
+    "tags": [
+      "孟加拉语",
+      "bn-BD",
+      "达卡城市孟加拉语方向"
+    ],
+    "values": {
+      "language": "孟加拉语",
+      "locale": "bn-BD",
+      "dialect": "达卡城市孟加拉语方向",
+      "accent": "达卡城市孟加拉语方向，使用固定个人会话样本校准",
+      "accentStrength": "轻度、清楚自然",
+      "pronunciation": "以达卡个人会话样本固定元音、停顿和个人语调；生僻姓名与地址可放慢，口音不预设职业、情绪或性格。",
+      "sampleText": "দোকানটা ছয়টায় বন্ধ হবে। দুপুরের খাবারের পর গেলে হাতে যথেষ্ট সময় থাকবে।"
+    }
+  },
+  {
+    "id": "SET-language-052",
+    "category": "language",
+    "title": "乌尔都语 · 卡拉奇日常",
+    "tags": [
+      "乌尔都语",
+      "ur-PK",
+      "卡拉奇城市乌尔都语方向"
+    ],
+    "values": {
+      "language": "乌尔都语",
+      "locale": "ur-PK",
+      "dialect": "卡拉奇城市乌尔都语方向",
+      "accent": "卡拉奇城市乌尔都语方向，使用固定个人会话样本校准",
+      "accentStrength": "轻至中等、从容清楚",
+      "pronunciation": "以卡拉奇个人会话样本保持读音和词组节奏；姓名与外来词沿用同一人固定读法，不随镜头或服装改变。",
+      "sampleText": "اس قمیص کی آستین تھوڑی لمبی ہے۔ بعد میں اسے موڑ کر دیکھ لیتے ہیں۔"
+    }
+  },
+  {
+    "id": "SET-language-053",
+    "category": "language",
+    "title": "印尼语 · 雅加达日常",
+    "tags": [
+      "印尼语",
+      "id-ID",
+      "雅加达城市印尼语方向"
+    ],
+    "values": {
+      "language": "印尼语",
+      "locale": "id-ID",
+      "dialect": "雅加达城市印尼语方向",
+      "accent": "雅加达城市印尼语方向，使用固定个人会话样本校准",
+      "accentStrength": "轻度、日常自然",
+      "pronunciation": "采用固定个人的日常印尼语样本，正式程度随交流对象变化；不将所有地区口头语混用，也不自动加入英语。",
+      "sampleText": "Sayurnya masih cukup untuk makan malam. Saya mau menghabiskan yang ini dulu sebelum belanja lagi."
+    }
+  },
+  {
+    "id": "SET-language-054",
+    "category": "language",
+    "title": "马来语 · 吉隆坡日常",
+    "tags": [
+      "马来语",
+      "ms-MY",
+      "吉隆坡城市马来语方向"
+    ],
+    "values": {
+      "language": "马来语",
+      "locale": "ms-MY",
+      "dialect": "吉隆坡城市马来语方向",
+      "accent": "吉隆坡城市马来语方向，使用固定个人会话样本校准",
+      "accentStrength": "轻至中等、清楚连贯",
+      "pronunciation": "固定个人马来语读法与节奏，和印尼语记录分开使用；切换英语或其他语言须由多语记录明确设定。",
+      "sampleText": "Saya jumpa gambar lama di dalam laci. Saya mahu lihat satu-satu apabila ada masa lapang."
+    }
+  },
+  {
+    "id": "SET-language-055",
+    "category": "language",
+    "title": "泰语 · 曼谷日常",
+    "tags": [
+      "泰语",
+      "th-TH",
+      "曼谷城市日常泰语方向"
+    ],
+    "values": {
+      "language": "泰语",
+      "locale": "th-TH",
+      "dialect": "曼谷城市日常泰语方向",
+      "accent": "曼谷城市日常泰语方向，使用固定个人会话样本校准",
+      "accentStrength": "轻度、平常清楚",
+      "pronunciation": "以固定个人的曼谷日常泰语样本保持声调、长短音和停顿；句末礼貌形式按人物与交流关系选择，不自动幼态化。",
+      "sampleText": "วันนี้ฟ้าครึ้ม เอาเสื้อกันฝนไปด้วยดีกว่า เดี๋ยวกลับมาค่อยตากผ้า"
+    }
+  },
+  {
+    "id": "SET-language-056",
+    "category": "language",
+    "title": "越南语 · 河内日常",
+    "tags": [
+      "越南语",
+      "vi-VN",
+      "河内地区越南语个人方向"
+    ],
+    "values": {
+      "language": "越南语",
+      "locale": "vi-VN",
+      "dialect": "河内地区越南语个人方向",
+      "accent": "河内地区越南语个人方向，使用固定个人会话样本校准",
+      "accentStrength": "轻至中等、稳定清楚",
+      "pronunciation": "使用河内个人会话样本校准声调与辅音，和胡志明市方向分开；不在同一人物的一段话中随机更换地区读法。",
+      "sampleText": "Đợi một chút nhé. Tôi muốn kiểm tra lại địa chỉ trước khi ra ngoài."
+    }
+  },
+  {
+    "id": "SET-language-057",
+    "category": "language",
+    "title": "越南语 · 胡志明市日常",
+    "tags": [
+      "越南语",
+      "vi-VN",
+      "胡志明市地区越南语个人方向"
+    ],
+    "values": {
+      "language": "越南语",
+      "locale": "vi-VN",
+      "dialect": "胡志明市地区越南语个人方向",
+      "accent": "胡志明市地区越南语个人方向，使用固定个人会话样本校准",
+      "accentStrength": "中等、自然可辨",
+      "pronunciation": "使用胡志明市个人会话样本固定读音、语气词和节奏；与河内方向独立保存，清楚表达优先，不夸张地域特征。",
+      "sampleText": "Áo này hơi rộng nhưng mặc thoải mái. Tôi thử xắn tay áo lên một chút rồi xem sao nha."
+    }
+  },
+  {
+    "id": "SET-language-058",
+    "category": "language",
+    "title": "土耳其语 · 伊斯坦布尔日常",
+    "tags": [
+      "土耳其语",
+      "tr-TR",
+      "伊斯坦布尔城市土耳其语方向"
+    ],
+    "values": {
+      "language": "土耳其语",
+      "locale": "tr-TR",
+      "dialect": "伊斯坦布尔城市土耳其语方向",
+      "accent": "伊斯坦布尔城市土耳其语方向，使用固定个人会话样本校准",
+      "accentStrength": "轻度、自然连贯",
+      "pronunciation": "以固定个人的土耳其语样本处理元音和词组重音；姓名与外来词保持稳定读法，表达节奏和音色可另选。",
+      "sampleText": "Bu düğme biraz gevşemiş. Akşam aynı renkte ip bulup sağlamlaştırırım."
+    }
+  },
+  {
+    "id": "SET-language-059",
+    "category": "language",
+    "title": "阿拉伯语 · 埃及开罗日常",
+    "tags": [
+      "阿拉伯语",
+      "ar-EG",
+      "埃及开罗日常阿拉伯语方向"
+    ],
+    "values": {
+      "language": "阿拉伯语",
+      "locale": "ar-EG",
+      "dialect": "埃及开罗日常阿拉伯语方向",
+      "accent": "埃及开罗日常阿拉伯语方向，使用固定个人会话样本校准",
+      "accentStrength": "中等、会话自然",
+      "pronunciation": "按开罗日常阿拉伯语个人样本使用脚本，与现代标准阿拉伯语或其他地区会话方向区分；不混用不同地区常用词来制造口音。",
+      "sampleText": "الأكل لسه سخن، نستنى شوية. أنا هرتب الترابيزة لحد ما يبرد."
+    }
+  },
+  {
+    "id": "SET-language-060",
+    "category": "language",
+    "title": "阿拉伯语 · 沙特利雅得日常",
+    "tags": [
+      "阿拉伯语",
+      "ar-SA",
+      "沙特利雅得日常阿拉伯语方向"
+    ],
+    "values": {
+      "language": "阿拉伯语",
+      "locale": "ar-SA",
+      "dialect": "沙特利雅得日常阿拉伯语方向",
+      "accent": "沙特利雅得日常阿拉伯语方向，使用固定个人会话样本校准",
+      "accentStrength": "中等、清楚自然",
+      "pronunciation": "以利雅得个人会话样本固定日常读法和词汇；口语脚本按本记录使用，正式标准语任务另行指定，不随意混入其他地区口头词。",
+      "sampleText": "الجو اليوم أبرد من أمس. باخذ الجاكيت معي، وإذا خلصنا نرجع بدري."
+    }
+  },
+  {
+    "id": "SET-language-061",
+    "category": "language",
+    "title": "波兰语 · 华沙日常",
+    "tags": [
+      "波兰语",
+      "pl-PL",
+      "华沙城市日常波兰语方向"
+    ],
+    "values": {
+      "language": "波兰语",
+      "locale": "pl-PL",
+      "dialect": "华沙城市日常波兰语方向",
+      "accent": "华沙城市日常波兰语方向，使用固定个人会话样本校准",
+      "accentStrength": "轻度、自然清楚",
+      "pronunciation": "以固定个人的波兰语样本校准辅音组合、重音和停顿；长姓名可慢一点，不把所有句子处理成逐字朗读。",
+      "sampleText": "W szufladzie jest stare zdjęcie. Przyjrzę mu się spokojnie po obiedzie."
+    }
+  },
+  {
+    "id": "SET-language-062",
+    "category": "language",
+    "title": "瑞典语 · 斯德哥尔摩日常",
+    "tags": [
+      "瑞典语",
+      "sv-SE",
+      "斯德哥尔摩城市瑞典语方向"
+    ],
+    "values": {
+      "language": "瑞典语",
+      "locale": "sv-SE",
+      "dialect": "斯德哥尔摩城市瑞典语方向",
+      "accent": "斯德哥尔摩城市瑞典语方向，使用固定个人会话样本校准",
+      "accentStrength": "轻至中等、平常自然",
+      "pronunciation": "使用固定个人的瑞典语样本处理词语音高与句子节奏；保持自然，不把地区或语言特点夸张成每句同样的唱腔。",
+      "sampleText": "Det finns lite soppa kvar till i kväll. Jag ställer den i kylen medan du dukar av."
+    }
+  },
+  {
+    "id": "SET-language-063",
+    "category": "language",
+    "title": "西语 · 多米尼加日常",
+    "tags": [
+      "西班牙语",
+      "es-DO",
+      "多米尼加城市日常西语方向"
+    ],
+    "values": {
+      "language": "西班牙语",
+      "locale": "es-DO",
+      "dialect": "多米尼加城市日常西语方向",
+      "accent": "多米尼加城市日常西语方向，使用固定个人会话样本校准",
+      "accentStrength": "中等、自然可辨",
+      "pronunciation": "以固定个人的多米尼加会话样本校准收音和节奏；对地址、数字和姓名保持清楚，不用持续快语速或兴奋语气替代口音。",
+      "sampleText": "La tela se siente cómoda, pero quiero ver el color con luz de día antes de decidirme."
+    }
+  },
+  {
+    "id": "SET-language-064",
+    "category": "language",
+    "title": "斯瓦希里语 · 肯尼亚日常",
+    "tags": [
+      "斯瓦希里语",
+      "sw-KE",
+      "肯尼亚城市日常斯瓦希里语方向"
+    ],
+    "values": {
+      "language": "斯瓦希里语",
+      "locale": "sw-KE",
+      "dialect": "肯尼亚城市日常斯瓦希里语方向",
+      "accent": "肯尼亚城市日常斯瓦希里语方向，使用固定个人会话样本校准",
+      "accentStrength": "轻度、清楚从容",
+      "pronunciation": "固定个人的斯瓦希里语样本与词组节奏，专名、外来词按人物习惯使用；与其他语言切换只在单独设定的场景发生。",
+      "sampleText": "Viatu bado vina unyevunyevu kidogo. Nitaviweka karibu na mlango na kuvaa vile vingine leo."
+    }
+  },
+  {
+    "id": "SET-multilingual-011",
+    "category": "multilingual",
+    "title": "日语主导 · 英语基础沟通",
+    "tags": [
+      "日语主导 · 英语基础沟通"
+    ],
+    "values": {
+      "secondaryLanguages": "日语为主要语言，英语用于简单日常沟通；遇到生词会请求改述，切换时保持同一声纹，不强行夹英语。"
+    },
+    "localePrefixes": [
+      "ja"
+    ]
+  },
+  {
+    "id": "SET-multilingual-012",
+    "category": "multilingual",
+    "title": "韩语主导 · 英语工作会话",
+    "tags": [
+      "韩语主导 · 英语工作会话"
+    ],
+    "values": {
+      "secondaryLanguages": "韩语为主要语言，英语可用于常见工作交流；复杂专名先确认，语体由交流关系决定，不自动撒娇或播音化。"
+    },
+    "localePrefixes": [
+      "ko"
+    ]
+  },
+  {
+    "id": "SET-multilingual-013",
+    "category": "multilingual",
+    "title": "华语主导 · 英语实用切换",
+    "tags": [
+      "华语主导 · 英语实用切换"
+    ],
+    "values": {
+      "secondaryLanguages": "中文华语为主要语言，英语能处理购物、地址和一般工作沟通；需要时再切换，不在每个短句里重复插入英文。"
+    },
+    "localePrefixes": [
+      "zh"
+    ]
+  },
+  {
+    "id": "SET-multilingual-014",
+    "category": "multilingual",
+    "title": "阿拉伯语主导 · 英语日常沟通",
+    "tags": [
+      "阿拉伯语主导 · 英语日常沟通"
+    ],
+    "values": {
+      "secondaryLanguages": "阿拉伯语为主要语言，英语可完成简单日常交流；地区会话形式和英语分别保持固定个人读法，避免无缘由跨地区混用。"
+    },
+    "localePrefixes": [
+      "ar"
+    ]
+  },
+  {
+    "id": "SET-timbre-011",
+    "category": "timbre",
+    "title": "轻砂质感 · 声音仍有支撑",
+    "tags": [
+      "轻砂质感 · 声音仍有支撑"
+    ],
+    "values": {
+      "timbre": "音色带很轻的自然砂质感，中频清楚、气息稳定；声带颗粒不持续放大，不因成熟外观自动变得衰弱。"
+    }
+  },
+  {
+    "id": "SET-timbre-012",
+    "category": "timbre",
+    "title": "清亮中频 · 少量胸腔共鸣",
+    "tags": [
+      "清亮中频 · 少量胸腔共鸣"
+    ],
+    "values": {
+      "timbre": "中频清亮、共鸣适中，有自然呼吸和普通说话重量；不刻意挤尖声音，也不压成沉重低音。"
+    }
+  },
+  {
+    "id": "SET-timbre-013",
+    "category": "timbre",
+    "title": "柔厚声线 · 松弛日常",
+    "tags": [
+      "柔厚声线 · 松弛日常"
+    ],
+    "values": {
+      "timbre": "音色柔厚而松弛，短应答与长句沿用相同共鸣；不将亲和感演成一直微笑的客服声音。"
+    }
+  },
+  {
+    "id": "SET-timbre-014",
+    "category": "timbre",
+    "title": "略带气息 · 保持清晰",
+    "tags": [
+      "略带气息 · 保持清晰"
+    ],
+    "values": {
+      "timbre": "声音带少量个人气息感，句子仍有清楚辅音和稳定响度；不持续耳语，不用气声掩盖说话内容。"
+    }
+  },
+  {
+    "id": "SET-pitch-008",
+    "category": "pitch",
+    "title": "中音区 · 问题时轻抬",
+    "tags": [
+      "中音区 · 问题时轻抬"
+    ],
+    "values": {
+      "pitch": "主要使用自然中音区，提出真正的问题时轻微抬高；陈述回到舒适音区，不每句都同一上扬。"
+    }
+  },
+  {
+    "id": "SET-pitch-009",
+    "category": "pitch",
+    "title": "偏低音区 · 情绪变化克制",
+    "tags": [
+      "偏低音区 · 情绪变化克制"
+    ],
+    "values": {
+      "pitch": "舒适偏低音区，情绪变化时只小幅浮动；避免持续压嗓、气泡音或因外观变化而换声线。"
+    }
+  },
+  {
+    "id": "SET-pitch-010",
+    "category": "pitch",
+    "title": "灵活音区 · 保留回落",
+    "tags": [
+      "灵活音区 · 保留回落"
+    ],
+    "values": {
+      "pitch": "允许重点和笑声短暂进入较高音区，随即回落至个人日常音区；不长期维持兴奋高音。"
+    }
+  },
+  {
+    "id": "SET-pace-008",
+    "category": "pace",
+    "title": "简短回应快 · 长句从容",
+    "tags": [
+      "简短回应快 · 长句从容"
+    ],
+    "values": {
+      "pace": "简短确认可以稍快，解释与回忆具体细节时自然放慢；在句意边界换气，不固定每隔几个字停顿。"
+    }
+  },
+  {
+    "id": "SET-pace-009",
+    "category": "pace",
+    "title": "边想边说 · 允许修正",
+    "tags": [
+      "边想边说 · 允许修正"
+    ],
+    "values": {
+      "pace": "说话时可有一两处自然思考停顿或改述，词组内部仍连贯；不演成持续结巴或每句都犹豫。"
+    }
+  },
+  {
+    "id": "SET-pace-010",
+    "category": "pace",
+    "title": "慢速清楚 · 不逐字拖长",
+    "tags": [
+      "慢速清楚 · 不逐字拖长"
+    ],
+    "values": {
+      "pace": "整体语速偏慢，保留自然连读和句子重心；姓名与数字略放慢，常用短句不逐字拖长。"
+    }
+  },
+  {
+    "id": "SET-prosody-008",
+    "category": "prosody",
+    "title": "观察式叙述 · 轻重有别",
+    "tags": [
+      "观察式叙述 · 轻重有别"
+    ],
+    "values": {
+      "prosody": "先平静给出观察，谈到实际差异时略加重音；不把所有名词都强调，也不使用同一广告节奏。"
+    }
+  },
+  {
+    "id": "SET-prosody-009",
+    "category": "prosody",
+    "title": "商量语气 · 句末自然",
+    "tags": [
+      "商量语气 · 句末自然"
+    ],
+    "values": {
+      "prosody": "提出建议时留出回应空间，句末按真实语境轻落或轻抬；不同句式有不同走向，不持续讨好式上扬。"
+    }
+  },
+  {
+    "id": "SET-prosody-010",
+    "category": "prosody",
+    "title": "回忆细节 · 先停再补充",
+    "tags": [
+      "回忆细节 · 先停再补充"
+    ],
+    "values": {
+      "prosody": "回忆某个具体名称或时间前略停，找到词后自然继续；不把回忆感变成固定叹气或重复口头禅。"
+    }
+  },
+  {
+    "id": "SET-speechHabits-009",
+    "category": "speechHabits",
+    "title": "日语 · 低频思考词",
+    "tags": [
+      "日语 · 低频思考词"
+    ],
+    "values": {
+      "speechHabits": "需要组织语言时偶尔使用 ええと 或 そうですね，随后继续具体内容；不每句重复，不用过度可爱或夸张语气。"
+    },
+    "localePrefixes": [
+      "ja"
+    ]
+  },
+  {
+    "id": "SET-speechHabits-010",
+    "category": "speechHabits",
+    "title": "韩语 · 简短确认",
+    "tags": [
+      "韩语 · 简短确认"
+    ],
+    "values": {
+      "speechHabits": "需要确认时偶尔用 잠깐만요 或 그렇군요，按交流关系保持语体；不把确认词变成每句话的固定开头。"
+    },
+    "localePrefixes": [
+      "ko"
+    ]
+  },
+  {
+    "id": "SET-speechHabits-011",
+    "category": "speechHabits",
+    "title": "中文 · 先说明具体情况",
+    "tags": [
+      "中文 · 先说明具体情况"
+    ],
+    "values": {
+      "speechHabits": "偶尔用“我先看一下”或“这个细节再确认一下”争取时间，随即补充具体信息；不把口头表达变成重复口号。"
+    },
+    "localePrefixes": [
+      "zh"
+    ]
+  },
+  {
+    "id": "SET-pronunciation-006",
+    "category": "pronunciation",
+    "title": "换语种 · 保留个人专名读法",
+    "tags": [
+      "换语种 · 保留个人专名读法"
+    ],
+    "values": {
+      "pronunciation": "切换语言时，姓名、地名与常用外来词沿用同一人物事先确认的读法；不在每次任务里临时换成另一地区的标准。"
+    }
+  },
+  {
+    "id": "SET-pronunciation-007",
+    "category": "pronunciation",
+    "title": "长词与数字 · 按意思分组",
+    "tags": [
+      "长词与数字 · 按意思分组"
+    ],
+    "values": {
+      "pronunciation": "长专名、电话号码、日期和数量按语境清楚分组，必要时短暂停顿；不把普通句子拆成逐字朗读。"
+    }
+  },
+  {
+    "id": "SET-avoid-006",
+    "category": "avoid",
+    "title": "情绪变化 · 声纹仍一致",
+    "tags": [
+      "情绪变化 · 声纹仍一致"
+    ],
+    "values": {
+      "avoid": "高兴、疲惫或思考时可以改变节奏与响度，但保留同一人的共鸣与基本声线；不因画面换装自动换嗓音。"
+    }
+  },
+  {
+    "id": "SET-avoid-007",
+    "category": "avoid",
+    "title": "地区与性格 · 分开控制",
+    "tags": [
+      "地区与性格 · 分开控制"
+    ],
+    "values": {
+      "avoid": "地区口音由所选语言记录决定，性格和沟通方式另选；不把某地区自动演成粗鲁、热情、幼态或过度戏剧化。"
+    }
   }
 ]

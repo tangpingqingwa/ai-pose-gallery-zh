@@ -46,9 +46,20 @@ export function validateSettingBindings(bindings: SettingBindings) {
   }
 }
 
-export function chooseSetting(bindings: SettingBindings = {}, record: SettingRecord): SettingBindings {
+export function chooseSetting(bindings: SettingBindings = {}, record: SettingRecord, baseLocale = ''): SettingBindings {
   validateSettingRecord(record)
-  return { ...bindings, [record.category]: { record: structuredClone(record), locked: true, origin: 'specified' } }
+  const next = structuredClone(bindings)
+  if (record.category === 'language') {
+    const incompatible = Object.entries(next).filter(([category, binding]) => category !== 'language' && binding && SETTING_CATEGORIES[binding.record.category].group === 'voice' && !acceptsLocale(binding.record, record.values.locale))
+    const locked = incompatible.filter(([, binding]) => binding!.locked)
+    if (locked.length) throw new Error(`请先解锁不适配此语言的记录：${locked.map(([, binding]) => binding!.record.title).join('、')}`)
+    for (const [category] of incompatible) delete next[category as SettingCategory]
+  } else if (SETTING_CATEGORIES[record.category].group === 'voice') {
+    const locale = next.language?.record.values.locale || baseLocale
+    if (locale && !acceptsLocale(record, locale)) throw new Error(`此记录不适配当前语言 ${locale}，请先切换主要语言或选择适配的记录。`)
+  }
+  next[record.category] = { record: structuredClone(record), locked: true, origin: 'specified' }
+  return next
 }
 
 export function bindingsAfterManualEdit(bindings: SettingBindings = {}, group: SettingGroup, edited: object): SettingBindings {

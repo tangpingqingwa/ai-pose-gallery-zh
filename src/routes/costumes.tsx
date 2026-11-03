@@ -42,14 +42,13 @@ function CostumesPage() {
     <PageHeader title="服装穿搭库" description="按版型、用途、季节与松量挑选穿搭，服装适配所选人物的真实体型。" actions={<Button size="sm" asChild><Link to="/studio">前往人物创作</Link></Button>} />
     <div className="space-y-4 rounded-xl bg-muted/50 p-4">
       <div className="flex flex-wrap gap-3"><Input aria-label="搜索穿搭" placeholder="款式、场景、颜色、材质或编号，可用空格组合关键词" className="min-w-48 flex-1" value={filters.query} onChange={(event) => patch('query', event.target.value)} /><Button variant="ghost" onClick={reset}>重置筛选</Button></div>
-      <div className="grid grid-cols-2 gap-3 lg:grid-cols-3 xl:grid-cols-6">
+      <div className="flex flex-wrap gap-2" aria-label="常用穿搭筛选">{[['cut', '男款', '男款'], ['cut', '女款', '女款'], ['cut', '中性', '中性'], ['age', '60+', '60岁及以上']].map(([key, value, label]) => <Button key={label} size="sm" variant={filters[key as 'cut' | 'age'] === value ? 'secondary' : 'outline'} aria-pressed={filters[key as 'cut' | 'age'] === value} onClick={() => patch(key as 'cut' | 'age', filters[key as 'cut' | 'age'] === value ? '' : value)}>{label}</Button>)}</div>
+      <details><summary className="cursor-pointer text-xs font-medium">穿搭与细节分类</summary><div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-3">
         <LibrarySelect label="版型定位" value={filters.cut} values={classifications.map((c) => c.cut)} onChange={(value) => patch('cut', value)} />
         <LibrarySelect label="使用场景" value={filters.occasion} values={classifications.map((c) => c.occasion)} onChange={(value) => patch('occasion', value)} />
         <LibrarySelect label="松量与体型" value={filters.fit} values={classifications.map((c) => c.fit)} onChange={(value) => patch('fit', value)} /><LibrarySelect label="生活风格" value={filters.stage} values={classifications.map((c) => c.stage)} onChange={(value) => patch('stage', value)} />
         <LibrarySelect label="季节" value={filters.season} values={classifications.map((c) => c.season)} onChange={(value) => patch('season', value)} />
         <LibrarySelect label="搭配年龄方向" value={filters.age} values={['18–29', '30–44', '45–59', '60+', '未标注']} onChange={(value) => patch('age', value)} />
-      </div>
-      <details><summary className="cursor-pointer text-xs font-medium">单品结构与细节标签</summary><div className="mt-3 grid grid-cols-2 gap-3 lg:grid-cols-3">
         <LibrarySelect label="搭配结构" value={filters.structure} values={classifications.map((c) => c.structure)} onChange={(value) => patch('structure', value)} />
         <LibrarySelect label="穿搭主题" value={filters.category} values={scoped.map((item) => item.分类)} onChange={(value) => patch('category', value)} />
         <LibrarySelect label="单品与颜色标签" value={filters.tag} values={scoped.flatMap((item) => item.标签)} onChange={(value) => patch('tag', value)} />

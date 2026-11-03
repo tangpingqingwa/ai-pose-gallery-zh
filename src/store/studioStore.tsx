@@ -234,7 +234,7 @@ interface StudioContextValue {
   removeExtraImage: (id: string) => void
   updateExtraImageName: (id: string, name: string) => void
   updateExtraImageInstruction: (id: string, instruction: string) => void
-  setSettingRecord: (record: SettingRecord) => void
+  setSettingRecord: (record: SettingRecord) => boolean
   removeSettingRecord: (category: SettingCategory) => void
   toggleSettingLock: (category: SettingCategory) => void
   setSettingLocks: (locked: boolean) => void
@@ -537,8 +537,17 @@ export function StudioProvider({ children }: { children: ReactNode }) {
   }
 
   const setSettingRecord = (record: SettingRecord) => {
-    setCustomPrompt(null)
-    setRecipe((previous) => ({ ...previous, settingBindings: chooseSetting(previous.settingBindings, record) }))
+    try {
+      const bindings = chooseSetting(recipe.settingBindings, record, recipe.character?.voice?.locale)
+      const removed = Object.keys(recipe.settingBindings ?? {}).filter((category) => !bindings[category as SettingCategory]).length
+      setCustomPrompt(null)
+      setRecipe((previous) => ({ ...previous, settingBindings: bindings }))
+      if (removed) toast(`已切换语言，移除 ${removed} 条不适配的未锁定记录`)
+      return true
+    } catch (cause) {
+      toast.error(cause instanceof Error ? cause.message : '无法关联此设定')
+      return false
+    }
   }
   const removeSettingRecord = (category: SettingCategory) => {
     setCustomPrompt(null)
@@ -620,7 +629,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
       creativeBrief: portraitPool.length ? undefined : prev.creativeBrief ? { ...prev.creativeBrief, wardrobeId: costumePool.length ? undefined : prev.creativeBrief.wardrobeId, action: posePool.length ? '' : prev.creativeBrief.action } : undefined,
       portrait,
       costume: costumePool.length
-        ? randomCatalogItem(candidates, (item) => { const c = costumeClassification(item); return `${c.cut}:${c.stage}` }) ?? prev.costume
+        ? randomCatalogItem(candidates, (item) => { const c = costumeClassification(item); return `${c.cut}:${c.stage}:${c.structure}` }) ?? prev.costume
         : prev.costume,
       pose: posePool.length
         ? { ...posePool[Math.floor(Math.random() * posePool.length)], useDepth: poseDepthMode }
